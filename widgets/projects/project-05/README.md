@@ -1,29 +1,39 @@
-# Project Title
+# Ogor Event & Lifestyle Estate Masterplan
 
 ## Overview
-Brief description of the project.
+
+Brief description of the project to be added when images are uploaded.
+
+This project covers event center design, chalet accommodation, mini-estate development, and master-planning aspects of the Ogor Estate development.
 
 ## Project Type
-Residential / Commercial / Interior / Landscape / Infrastructure
+
+Mixed-Use Masterplan — Event, Hospitality & Residential
 
 ## Location
-Project location.
+
+To be confirmed.
 
 ## Scope
-Describe the work completed.
+
+To be detailed when images are uploaded.
 
 ## Design Approach
-Describe the design intent and methodology.
+
+To be detailed when images are uploaded.
 
 ## Key Features
-- Feature 1
-- Feature 2
-- Feature 3
+
+- Event center design
+- Chalet accommodation
+- Mini-estate residential development
+- Comprehensive site masterplan
 
 ## Deliverables
-- Drawings
-- BIM Models
-- Visualizations
+
+- Masterplan Drawings
+- Architectural Visualizations
+- Design Presentation Materials
 - Construction Documentation
 
 ## Images
@@ -38,5 +48,5 @@ Located in `/gallery-images`
 Located in `/design-concepts`
 
 ## Documentation
-Located in `/documentation`
 
+Located in `/documentation`

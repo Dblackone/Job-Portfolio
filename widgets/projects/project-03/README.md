@@ -1,30 +1,54 @@
-# Project Title
+# Urban Vista Apartments Concept
 
 ## Overview
-Brief description of the project.
+
+Urban Vista Apartments Concept is a multi-family residential development proposal exploring efficient medium-density housing solutions within an urban environment.
+
+The concept consists of a five-storey apartment building containing ten two-bedroom residential units above a dedicated parking level. The project focuses on balancing residential comfort, circulation efficiency, and contemporary architectural expression.
+
+The development was conceived as a design exercise aimed at exploring practical apartment planning while maintaining strong visual identity.
 
 ## Project Type
-Residential / Commercial / Interior / Landscape / Infrastructure
+
+Residential Concept Design
 
 ## Location
-Project location.
+
+Conceptual Project
 
 ## Scope
-Describe the work completed.
+
+Develop a conceptual apartment building containing:
+
+- Ten two-bedroom residential units
+- Dedicated parking level
+- Shared circulation spaces
+- Contemporary architectural façade
+- Residential amenities planning
 
 ## Design Approach
-Describe the design intent and methodology.
+
+The project was developed as an architectural exploration of efficient urban residential living.
+
+The primary objective was to create a functional and visually appealing apartment building that maximizes space utilization while maintaining comfort for occupants.
+
+Particular attention was given to circulation, unit arrangement, parking integration, and overall building proportion.
 
 ## Key Features
-- Feature 1
-- Feature 2
-- Feature 3
+
+- Five-storey multi-family residential building
+- Ten two-bedroom residential units
+- Dedicated ground-level parking
+- Efficient shared circulation design
+- Contemporary façade and architectural expression
+- Space-maximizing unit layouts
 
 ## Deliverables
-- Drawings
-- BIM Models
-- Visualizations
-- Construction Documentation
+
+- Concept Design Development
+- Architectural Visualizations
+- BIM Development
+- Design Presentation Materials
 
 ## Images
 
@@ -38,5 +62,5 @@ Located in `/gallery-images`
 Located in `/design-concepts`
 
 ## Documentation
-Located in `/documentation`
 
+Located in `/documentation`
