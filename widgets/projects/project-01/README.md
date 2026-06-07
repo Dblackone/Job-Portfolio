@@ -1,29 +1,63 @@
-# Project Title
+# Residential Living & Dining Interior Visualization
 
 ## Overview
-Brief description of the project.
+
+This project involved the interior visualization and design development of a residential living and dining area for a client in Ikeja, Lagos.
+
+The client required a realistic representation of how the proposed space would appear before implementation. Based on the client's preferred color palette, material selections, and aesthetic direction, a detailed interior design concept was developed and transformed into high-quality visualizations.
+
+The objective was to create a functional, elegant, and visually balanced living environment that aligned with the client's vision while maximizing the available space.
 
 ## Project Type
-Residential / Commercial / Interior / Landscape / Infrastructure
+
+Residential Interior Design
 
 ## Location
-Project location.
+
+Ikeja, Lagos, Nigeria
 
 ## Scope
-Describe the work completed.
+
+The client provided detailed information regarding preferred colors, finishes, materials, and overall design expectations.
+
+Based on these requirements, a customized interior design solution was developed, including space planning, furniture arrangement, material selection, and 3D visualization of the proposed living and dining areas.
 
 ## Design Approach
-Describe the design intent and methodology.
+
+Following an initial briefing session with the client, the design requirements and visual references were reviewed to establish a clear direction for the project.
+
+A preliminary design concept was developed and presented to the client to ensure alignment with the intended design vision. After confirmation and feedback, additional resources, materials, and references were sourced and incorporated into the final design process.
+
+The project was then modeled and rendered to produce realistic visual representations of the proposed interior space.
 
 ## Key Features
-- Feature 1
-- Feature 2
-- Feature 3
+
+### TV Entertainment Unit
+
+A custom-designed television feature wall incorporating:
+
+- Fluted wall panels as a decorative backdrop
+- Integrated display niche on the right-hand side
+- Floating TV console unit
+- Clean contemporary detailing
+
+### Dining Area
+
+A custom dining setup designed to complement the overall interior concept while maintaining functionality and visual balance within the open-plan layout.
+
+### Space Planning
+
+Careful spatial arrangement of the living and dining zones to ensure:
+
+- Efficient circulation
+- Functional furniture placement
+- Visual harmony between spaces
+- Improved user experience
 
 ## Deliverables
-- Drawings
-- BIM Models
-- Visualizations
+
+- Interior Design Visualization
+- High-Resolution Rendered Images
 - Construction Documentation
 
 ## Images
@@ -39,4 +73,3 @@ Located in `/design-concepts`
 
 ## Documentation
 Located in `/documentation`
-
