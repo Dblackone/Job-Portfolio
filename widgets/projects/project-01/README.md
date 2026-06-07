@@ -65,11 +65,24 @@ Careful spatial arrangement of the living and dining zones to ensure:
 ### Featured Image
 Located in `/featured-image`
 
+| File | Alt Text |
+|------|----------|
+| `living-dining-render-perspective-01.png` | Wide perspective render of the living and dining area showing full space — leather sofa, round coffee table, TV on fluted panel wall, display niche, dining area, and sheer curtains with natural light |
+
 ### Gallery Images
 Located in `/gallery-images`
 
+| File | Alt Text |
+|------|----------|
+| `living-dining-render-perspective-01.png` | Full room render — perspective 1 (wide angle) |
+| `living-dining-render-perspective-02.png` | TV entertainment wall render — perspective 2 (closer angle emphasising feature wall) |
+
 ### Design Concepts
 Located in `/design-concepts`
+
+| File | Alt Text |
+|------|----------|
+| `tv-entertainment-unit-elevation.png` | Front elevation drawing of the TV entertainment unit — fluted wall panels, wooden display niche on right, floating console, door openings on each side |
 
 ## Documentation
 Located in `/documentation`
