@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BIM & Revit Portfolio — Vollmann Olamide Akarakiri. Autodesk Revit, Dynamo for Revit, BIM Coordination, Construction Documentation." />
+  <title>BIM &amp; Revit Portfolio — Vollmann Olamide Akarakiri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .portfolio-hero {
+      padding: calc(var(--nav-h) + 80px) 0 80px;
+      background: var(--dark);
+    }
+    .portfolio-hero h1 { color: var(--white); font-size: clamp(40px, 5vw, 68px); }
+    .portfolio-hero .label { color: var(--accent); }
+    .portfolio-hero p { color: var(--warm); max-width: 700px; margin-top: 20px; font-size: 19px; }
+    .bim-band { height: 6px; background: var(--accent); }
+    .bim-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; padding: 64px 0;
+    }
+    @media (max-width: 900px) { .bim-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .bim-grid { grid-template-columns: 1fr; } }
+    .bim-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .bim-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .bim-img { height: 200px; background: var(--warm); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text); }
+    .bim-info { padding: 20px; }
+    .bim-tag { font-size: 10px; font-weight: 600; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
+    .bim-info h3 { font-size: 17px; margin-bottom: 8px; }
+    .bim-info p { font-size: 13px; line-height: 1.6; }
+    .bim-capabilities { background: var(--white); padding: 64px 0; }
+    .cap-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    @media (max-width: 700px) { .cap-grid { grid-template-columns: 1fr; } }
+    .cap-item { padding: 28px; background: var(--bg); border-radius: var(--radius-sm); }
+    .cap-item h4 { font-size: 16px; margin-bottom: 8px; }
+    .cap-item p { font-size: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 32px; }
+  </style>
+</head>
+<body>
+  <div id="progress" aria-hidden="true"></div>
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <div class="nav-logo-mark">V</div>
+        <span class="nav-logo-name">Vollmann Akarakiri</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#portfolio">Portfolio</a></li>
+        <li><a href="../index.html#bim-skills" class="active">BIM</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <a href="../index.html#contact" class="nav-cta">Hire Me</a>
+      <button class="nav-burger" id="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div id="mobile-menu">
+    <a href="../index.html" class="mobile-menu-link">Home</a>
+    <a href="../index.html#portfolio" class="mobile-menu-link small">Portfolio</a>
+    <a href="../index.html#about" class="mobile-menu-link">About</a>
+    <a href="../index.html#contact" class="mobile-menu-link">Contact</a>
+    <a href="../index.html#contact" class="mobile-menu-cta">Hire Me</a>
+  </div>
+
+  <div class="bim-band"></div>
+
+  <section class="portfolio-hero">
+    <div class="container">
+      <a href="../index.html" class="back-link">← Back to Portfolio</a>
+      <p class="label">BIM &amp; Revit Portfolio</p>
+      <h1>BIM Specialist</h1>
+      <p>Advanced BIM modelling, Dynamo automation, coordination workflows, and construction documentation using Autodesk Revit and the full BIM toolchain.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;">
+        <span class="sw-pill" style="background:rgba(240,221,216,.15);color:var(--light);">Autodesk Revit</span>
+        <span class="sw-pill" style="background:rgba(240,221,216,.15);color:var(--light);">Dynamo for Revit</span>
+        <span class="sw-pill" style="background:rgba(240,221,216,.15);color:var(--light);">Lumion</span>
+        <span class="sw-pill" style="background:rgba(240,221,216,.15);color:var(--light);">AutoCAD</span>
+        <span class="sw-pill" style="background:rgba(240,221,216,.15);color:var(--light);">Archicad</span>
+        <span class="sw-pill" style="background:rgba(240,221,216,.15);color:var(--light);">Qmotion</span>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section style="background:var(--bg);">
+      <div class="container">
+        <div class="bim-grid">
+          <article class="bim-card" data-reveal data-reveal-delay="1">
+            <div class="bim-img">Revit Model Screenshot</div>
+            <div class="bim-info">
+              <div class="bim-tag">Revit · LOD 300</div>
+              <h3>Residential BIM Model</h3>
+              <p>Full 3D coordinated residential model developed in Autodesk Revit with all architectural, structural, and MEP elements modelled to LOD 300.</p>
+            </div>
+          </article>
+          <article class="bim-card" data-reveal data-reveal-delay="2">
+            <div class="bim-img">Dynamo Script Screenshot</div>
+            <div class="bim-info">
+              <div class="bim-tag">Dynamo · Parametric</div>
+              <h3>Dynamo Automation Workflow</h3>
+              <p>Custom Dynamo script automating repetitive Revit tasks — reducing documentation generation time and eliminating manual coordination errors.</p>
+            </div>
+          </article>
+          <article class="bim-card" data-reveal data-reveal-delay="3">
+            <div class="bim-img">CD Sheet Screenshot</div>
+            <div class="bim-info">
+              <div class="bim-tag">CD Set · Documentation</div>
+              <h3>Construction Documentation</h3>
+              <p>Complete construction drawing package extracted from coordinated Revit model — plans, sections, elevations, schedules, and specification sheets.</p>
+            </div>
+          </article>
+          <article class="bim-card" data-reveal data-reveal-delay="1">
+            <div class="bim-img">Clash Detection Screenshot</div>
+            <div class="bim-info">
+              <div class="bim-tag">BIM Coordination</div>
+              <h3>Multi-Discipline Coordination</h3>
+              <p>BIM coordination session resolving clashes between architectural, structural, and MEP models prior to construction commencement.</p>
+            </div>
+          </article>
+          <article class="bim-card" data-reveal data-reveal-delay="2">
+            <div class="bim-img">Schedule Screenshot</div>
+            <div class="bim-info">
+              <div class="bim-tag">Revit · Schedules</div>
+              <h3>Automated Quantity Extraction</h3>
+              <p>Revit schedule-driven quantity take-off system providing real-time quantity data linked directly to the BIM model for accurate cost planning.</p>
+            </div>
+          </article>
+          <article class="bim-card" data-reveal data-reveal-delay="3">
+            <div class="bim-img">Lumion Render</div>
+            <div class="bim-info">
+              <div class="bim-tag">Lumion · Visualisation</div>
+              <h3>Architectural Visualisation</h3>
+              <p>High-fidelity renders and walkthrough animations produced from Revit model in Lumion for client presentation and design review purposes.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bim-capabilities">
+      <div class="container">
+        <div class="section-header">
+          <p class="label" data-reveal>Capabilities</p>
+          <h2 data-reveal data-reveal-delay="1">BIM Expertise Areas</h2>
+        </div>
+        <div class="cap-grid">
+          <div class="cap-item" data-reveal data-reveal-delay="1">
+            <h4>BIM Execution Planning</h4>
+            <p>Development of BIM Execution Plans (BEP) aligned with ISO 19650 and project-specific BIM requirements.</p>
+          </div>
+          <div class="cap-item" data-reveal data-reveal-delay="2">
+            <h4>Revit Family Creation</h4>
+            <p>Custom Revit family development for project-specific elements including parametric components and annotative families.</p>
+          </div>
+          <div class="cap-item" data-reveal data-reveal-delay="3">
+            <h4>Design Automation</h4>
+            <p>Dynamo scripts for automated sheet creation, data population, repetitive geometry generation, and documentation workflows.</p>
+          </div>
+          <div class="cap-item" data-reveal data-reveal-delay="4">
+            <h4>Construction Documentation</h4>
+            <p>Production of complete, coordinated CD sets directly from Revit model — drawings, schedules, keynotes, and specifications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <div class="footer-logo-mark">V</div>
+      <span class="footer-name">Vollmann Olamide Akarakiri</span>
+    </div>
+    <span class="footer-tagline">Architecture. BIM. Construction. Delivered.</span>
+    <nav class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#portfolio">Portfolio</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </footer>
+
+  <button id="back-top" aria-label="Back to top">↑</button>
+  <script src="../js/main.js"></script>
+</body>
+</html>
