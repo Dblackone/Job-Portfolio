@@ -65,22 +65,29 @@ def img_uri(path, max_px=1280, quality=82, keep_alpha=False):
 
 PROFILE = os.path.join(ASSETS, "vollmann-akarakiri-profile.png")
 ADO = os.path.join(PICS, "Ado Hall of Worship")
-IKEJA = os.path.join(PICS, "Design For Ikeja confencens room")
-SCHEMA = os.path.join(PICS, "SchemaProjects")
+HILL = os.path.join(PICS, "Hillside Project")
 LAND = os.path.join(PICS, "Landscape Projects")
+USELU = os.path.join(PICS, "Uselu Family house")
 
 IMG = {
-    "profile":   img_uri(PROFILE, max_px=760, keep_alpha=True),
-    "ado_ext":   img_uri(os.path.join(ADO, "Image8_005.png")),
-    "ado_struct": img_uri(os.path.join(ADO, "ADO CENTER RAW 1.jpg")),
-    "ado_plan":  img_uri(os.path.join(ADO, "Screenshot 2026-05-16 091207.png"),
-                         max_px=1400, quality=86),
-    "ikeja_a":   img_uri(os.path.join(IKEJA, "Image4_034.png")),
-    "ikeja_b":   img_uri(os.path.join(IKEJA, "Image1_061.png")),
-    "schema":    img_uri(os.path.join(SCHEMA, "BIG SCHEMA RAW 1.jpg")),
-    "land_main": img_uri(os.path.join(LAND, "Video1 - Snapshot7_003.jpg")),
-    "land_b":    img_uri(os.path.join(LAND, "CIVIL DEFECE HQ 1.jpg")),
-    "land_c":    img_uri(os.path.join(LAND, "NCS 1.jpg")),
+    "profile":      img_uri(PROFILE, max_px=760, keep_alpha=True),
+    # 01 — Hall of Worship, Ado
+    "ado_ext":      img_uri(os.path.join(ADO, "Ado Hero Render.png")),
+    "ado_struct":   img_uri(os.path.join(ADO, "ADO CENTER RAW 1.jpg")),
+    "ado_plan":     img_uri(os.path.join(ADO, "Screenshot 2026-05-16 091207.png"),
+                            max_px=1400, quality=86),
+    # 02 — Hillside (concept)
+    "hill_hero":    img_uri(os.path.join(HILL, "HERO IMG.png")),
+    "hill_massing": img_uri(os.path.join(HILL, "RAW 1.jpg")),
+    "hill_detail":  img_uri(os.path.join(HILL, "02 Detail Study.png")),
+    # 03 — Landscape & Site Development
+    "land_main":    img_uri(os.path.join(LAND, "Aerial Site Overview.png")),
+    "land_b":       img_uri(os.path.join(LAND, "Aerial Parking Court.png")),
+    "land_c":       img_uri(os.path.join(LAND, "Video1 - Snapshot7_003.jpg")),
+    # 04 — 4-Bedroom Family House, Uselu
+    "uselu_hero":   img_uri(os.path.join(USELU, "Usele Hero 1.png")),
+    "uselu_night":  img_uri(os.path.join(USELU, "USELU - NIGHT VIEW.png")),
+    "uselu_col":    img_uri(os.path.join(USELU, "USELU - COLAGE.png")),
 }
 
 FONT_FACES = "".join(
@@ -286,6 +293,7 @@ h1,h2,h3,h4{ color:var(--dark); font-weight:700; line-height:1.12;
 .fig .cap .m{ font-size:8.5px; font-weight:600; letter-spacing:0.06em;
   text-transform:uppercase; color:var(--accent); white-space:nowrap; }
 .fig.big img{ height:96mm; }
+.fig.big.contain img{ object-fit:contain; height:90mm; background:var(--white); }
 .fig.half img{ height:62mm; }
 .row2{ display:grid; grid-template-columns:1fr 1fr; gap:11px; }
 
@@ -328,7 +336,7 @@ def icon_card(glyph, dark=False):
 
 PORTFOLIO_FOOTER = (
     '<div class="pfoot"><span class="nm">Vollmann Olamide Akarakiri · '
-    'Construction Project Manager</span><span>{n} / 09</span></div>'
+    'Construction Project Manager</span><span>{n} / 10</span></div>'
 )
 
 BODY = """
@@ -604,17 +612,17 @@ BODY = """
   __FOOT5__
 </section>
 
-<!-- ════════ 6 · SELECTED WORK — ARCHITECTURE & BIM ════════ -->
+<!-- ════════ 6 · SELECTED WORK 01 — HALL OF WORSHIP, ADO ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 01</p>
-    <h2>Architecture &amp; BIM</h2>
-    <p class="sub">Hall of Worship, Ado — from architectural visualisation to
-      coordinated structural model and construction documentation.</p></div>
+    <h2>Hall of Worship, Ado</h2>
+    <p class="sub">From architectural visualisation to coordinated structural
+      model and construction documentation.</p></div>
 
-  <div class="fig big"><img src="__ado_ext__" alt="Hall of Worship exterior" />
+  <div class="fig big contain"><img src="__ado_ext__" alt="Hall of Worship visualisation" />
     <div class="cap"><span class="t">Hall of Worship — Architectural Visualisation</span>
-      <span class="m">Revit · Render</span></div></div>
+      <span class="m">Render</span></div></div>
   <div class="row2">
     <div class="fig half"><img src="__ado_struct__" alt="Structural BIM model" />
       <div class="cap"><span class="t">Structural BIM Model</span>
@@ -626,51 +634,72 @@ BODY = """
   __FOOT6__
 </section>
 
-<!-- ════════ 7 · SELECTED WORK — INTERIOR & RESIDENTIAL ════════ -->
+<!-- ════════ 7 · SELECTED WORK 02 — HILLSIDE (CONCEPT) ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 02</p>
-    <h2>Interior &amp; Residential</h2>
-    <p class="sub">Interior design visualisation and residential schematic
-      modelling — space planning through photoreal presentation.</p></div>
+    <h2>The Hillside Project</h2>
+    <p class="sub">Concept design — residential apartments set into a
+      challenging hillside terrain.</p></div>
 
-  <div class="fig big"><img src="__ikeja_a__" alt="Conference room interior" />
-    <div class="cap"><span class="t">Conference Room — Interior Visualisation, Ikeja</span>
-      <span class="m">Interior · Render</span></div></div>
+  <div class="fig big"><img src="__hill_hero__" alt="Hillside residence street approach" />
+    <div class="cap"><span class="t">Street Approach — Hillside Residence</span>
+      <span class="m">Render</span></div></div>
   <div class="row2">
-    <div class="fig half"><img src="__ikeja_b__" alt="Conference room view" />
-      <div class="cap"><span class="t">Boardroom — Material &amp; Lighting Study</span>
-        <span class="m">Interior</span></div></div>
-    <div class="fig half"><img src="__schema__" alt="Residential massing model" />
-      <div class="cap"><span class="t">Residential Massing — Schematic Model</span>
-        <span class="m">Revit</span></div></div>
+    <div class="fig half"><img src="__hill_massing__" alt="Hillside massing on sloped terrain" />
+      <div class="cap"><span class="t">Massing on Sloped Terrain</span>
+        <span class="m">Concept</span></div></div>
+    <div class="fig half"><img src="__hill_detail__" alt="Hillside material and facade study" />
+      <div class="cap"><span class="t">Material &amp; Façade Study</span>
+        <span class="m">Detail</span></div></div>
   </div>
   __FOOT7__
 </section>
 
-<!-- ════════ 8 · SELECTED WORK — LANDSCAPE ════════ -->
+<!-- ════════ 8 · SELECTED WORK 03 — LANDSCAPE & SITE DEVELOPMENT ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 03</p>
     <h2>Landscape &amp; Site Development</h2>
-    <p class="sub">110+ site-development and landscape projects — visualisation,
-      master planning, hardscape and softscape integration.</p></div>
+    <p class="sub">110+ site-development and landscape projects — master
+      planning, hardscape and softscape integration, and visualisation.</p></div>
 
-  <div class="fig big"><img src="__land_main__" alt="Residence and carport render" />
-    <div class="cap"><span class="t">Residence &amp; Carport — Landscape Visualisation</span>
-      <span class="m">Render</span></div></div>
+  <div class="fig big"><img src="__land_main__" alt="Aerial site overview" />
+    <div class="cap"><span class="t">Site Master Plan — Aerial Overview</span>
+      <span class="m">Aerial</span></div></div>
   <div class="row2">
-    <div class="fig half"><img src="__land_b__" alt="Civil Defence HQ master plan" />
-      <div class="cap"><span class="t">Civil Defence HQ — Landscape Master Plan</span>
-        <span class="m">Site Plan</span></div></div>
-    <div class="fig half"><img src="__land_c__" alt="Nigerian Correctional Services landscape" />
-      <div class="cap"><span class="t">Nigerian Correctional Services — Site Layout</span>
-        <span class="m">Landscape</span></div></div>
+    <div class="fig half"><img src="__land_b__" alt="Parking court and planting" />
+      <div class="cap"><span class="t">Parking Court &amp; Planting</span>
+        <span class="m">Render</span></div></div>
+    <div class="fig half"><img src="__land_c__" alt="Residence and carport render" />
+      <div class="cap"><span class="t">Residence &amp; Carport</span>
+        <span class="m">Render</span></div></div>
   </div>
   __FOOT8__
 </section>
 
-<!-- ════════ 9 · CONTACT ════════ -->
+<!-- ════════ 9 · SELECTED WORK 04 — 4-BEDROOM FAMILY HOUSE, USELU ════════ -->
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">Selected Work · 04</p>
+    <h2>4-Bedroom Family House, Uselu</h2>
+    <p class="sub">A four-bedroom family residence — Uselu, Benin City.</p></div>
+
+  <div class="fig big"><img src="__uselu_hero__" alt="Uselu family house street view" />
+    <div class="cap"><span class="t">Street View — 4-Bedroom Family House</span>
+      <span class="m">Render</span></div></div>
+  <div class="row2">
+    <div class="fig half"><img src="__uselu_night__" alt="Uselu family house night elevation" />
+      <div class="cap"><span class="t">Night Elevation</span>
+        <span class="m">Render</span></div></div>
+    <div class="fig half"><img src="__uselu_col__" alt="Uselu material and detail study" />
+      <div class="cap"><span class="t">Material &amp; Detail Study</span>
+        <span class="m">Details</span></div></div>
+  </div>
+  __FOOT9__
+</section>
+
+<!-- ════════ 10 · CONTACT ════════ -->
 <section class="sheet dark">
   <div class="contact">
     <p class="label">Get In Touch</p>
@@ -700,7 +729,7 @@ def build():
     body = BODY
     for key, uri in IMG.items():
         body = body.replace(f"__{key}__", uri)
-    for n in (2, 4, 5, 6, 7, 8):
+    for n in (2, 4, 5, 6, 7, 8, 9):
         body = body.replace(f"__FOOT{n}__", PORTFOLIO_FOOTER.format(n=f"0{n}"))
 
     html = (
