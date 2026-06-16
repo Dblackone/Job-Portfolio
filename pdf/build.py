@@ -75,6 +75,8 @@ IKEJA = os.path.join(PICS, "Design For Ikeja confencens room")
 
 IMG = {
     "profile":      img_uri(PROFILE, max_px=760, keep_alpha=True),
+    "cover_band":   img_uri(os.path.join(LAND, "Estate Aerial Hero.png"),
+                            max_px=1600, quality=84),
     # 01 — Hall of Worship, Ado
     "ado_ext":      img_uri(os.path.join(ADO, "Ado Hero 2.png")),
     "ado_struct":   img_uri(os.path.join(ADO, "ADO CENTER RAW 1.jpg")),
@@ -212,6 +214,16 @@ h1,h2,h3,h4{ color:var(--dark); font-weight:700; line-height:1.12;
 .cover-foot .ci .cl{ font-size:8px; font-weight:600; letter-spacing:0.14em;
   text-transform:uppercase; color:var(--accent); margin-bottom:2px; }
 .cover-foot .ci .cv{ font-size:10.5px; color:var(--dark); }
+.cover-band{ position:relative; margin-top:7mm; border-radius:12px;
+  overflow:hidden; border:1px solid var(--border);
+  box-shadow:0 6px 22px rgba(44,44,44,.08); }
+.cover-band img{ width:100%; height:66mm; object-fit:cover;
+  object-position:center 42%; display:block; }
+.cover-band .cap{ position:absolute; left:0; right:0; bottom:0;
+  padding:18px 14px 9px;
+  background:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.58));
+  color:#fff; font-size:9.5px; font-weight:600; letter-spacing:0.07em;
+  text-transform:uppercase; }
 
 /* ───── ABOUT ───── */
 .about{ display:grid; grid-template-columns:1fr 1fr; gap:11mm;
@@ -419,6 +431,11 @@ BODY = """
           <span>Open to opportunities — worldwide &amp; remote</span></div>
       </div>
     </aside>
+  </div>
+
+  <div class="cover-band">
+    <img src="__cover_band__" alt="Residential estate — aerial visualisation" />
+    <div class="cap">Residential Estate — Aerial Visualisation</div>
   </div>
 
   <div class="cover-foot">
