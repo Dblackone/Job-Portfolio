@@ -1,23 +1,148 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vollmann Architectural Portfolio</title>
+  <meta
+    name="description"
+    content="Vollmann Akarakiri - Architecture, BIM and Construction Project Management portfolio."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <nav class="hero__nav fade-in" data-fade data-x="0" data-y="-20" data-delay="0">
+      <a href="#about">About</a>
+      <a href="#price">Price</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="hero__heading-wrap">
+      <h1 class="hero-heading hero__heading fade-in" data-fade data-x="0" data-y="40" data-delay="0.15">
+        hi, i&apos;m vollmann
+      </h1>
+    </div>
+
+    <div class="hero__bottom">
+      <p class="hero__tagline fade-in" data-fade data-x="0" data-y="20" data-delay="0.35">
+        an architect &amp; construction project manager building striking
+        and unforgettable spaces
+      </p>
+
+      <div class="fade-in" data-fade data-x="0" data-y="20" data-delay="0.5">
+        <button type="button" class="btn btn--contact" id="contact">Contact Me</button>
+      </div>
+    </div>
+
+    <div class="hero__portrait fade-in" data-fade data-x="0" data-y="30" data-delay="0.6">
+      <div class="magnet" data-magnet data-padding="150" data-strength="3">
+        <img src="assets/hero-portrait.png" alt="Vollmann Akarakiri portrait" />
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE SECTION -->
+  <section class="marquee" id="marquee">
+    <div class="marquee__row marquee__row--1" id="marquee-row-1"></div>
+    <div class="marquee__row marquee__row--2" id="marquee-row-2"></div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about" id="about">
+    <img
+      class="about__deco about__deco--moon fade-in"
+      data-fade data-x="-80" data-y="0" data-delay="0.1" data-duration="0.9"
+      src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png"
+      alt=""
     />
-    <title>Vollmann Architectural Portfolio</title>
-    <meta
-      name="description"
-      content="Vollmann Akarakiri - Architecture, BIM and Construction Project Management portfolio."
+    <img
+      class="about__deco about__deco--p59 fade-in"
+      data-fade data-x="-80" data-y="0" data-delay="0.25" data-duration="0.9"
+      src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png"
+      alt=""
     />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <img
+      class="about__deco about__deco--lego fade-in"
+      data-fade data-x="80" data-y="0" data-delay="0.15" data-duration="0.9"
+      src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png"
+      alt=""
+    />
+    <img
+      class="about__deco about__deco--group fade-in"
+      data-fade data-x="80" data-y="0" data-delay="0.3" data-duration="0.9"
+      src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png"
+      alt=""
+    />
+
+    <h2 class="hero-heading about__heading fade-in" data-fade data-x="0" data-y="40" data-delay="0">
+      About me
+    </h2>
+
+    <p class="about__text" id="about-text" data-text="With more than five years of experience in architecture, BIM, and construction project management, i focus on delivering striking renders, precise documentation, and projects executed right the first time. i truly enjoy working with clients who want to see their vision built exactly as imagined. Let's build something incredible together!"></p>
+
+    <button type="button" class="btn btn--contact">Contact Me</button>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="services" id="price">
+    <h2 class="services__heading">Services</h2>
+
+    <div class="services__list">
+      <div class="service fade-in" data-fade data-delay="0">
+        <span class="service__number">01</span>
+        <div class="service__body">
+          <h3 class="service__name">Architectural Design</h3>
+          <p class="service__desc">Concept-to-detail design development that translates client vision into buildable, code-compliant architecture.</p>
+        </div>
+      </div>
+      <div class="service fade-in" data-fade data-delay="0.1">
+        <span class="service__number">02</span>
+        <div class="service__body">
+          <h3 class="service__name">BIM Modeling &amp; Coordination</h3>
+          <p class="service__desc">Revit-based BIM modeling, clash detection, and multi-discipline coordination to keep projects accurate and on schedule.</p>
+        </div>
+      </div>
+      <div class="service fade-in" data-fade data-delay="0.2">
+        <span class="service__number">03</span>
+        <div class="service__body">
+          <h3 class="service__name">Construction Project Management</h3>
+          <p class="service__desc">On-site and remote project oversight covering scheduling, budgeting, quality control, and stakeholder communication.</p>
+        </div>
+      </div>
+      <div class="service fade-in" data-fade data-delay="0.3">
+        <span class="service__number">04</span>
+        <div class="service__body">
+          <h3 class="service__name">3D Visualization &amp; Rendering</h3>
+          <p class="service__desc">Photorealistic interior and exterior renders that help clients see and approve their space before a single block is laid.</p>
+        </div>
+      </div>
+      <div class="service service--last fade-in" data-fade data-delay="0.4">
+        <span class="service__number">05</span>
+        <div class="service__body">
+          <h3 class="service__name">Interior &amp; Landscape Design</h3>
+          <p class="service__desc">Space planning, material selection, and landscape concepts that complete a project from structure to finish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section class="projects" id="projects">
+    <h2 class="hero-heading projects__heading">Project</h2>
+
+    <div class="projects__list" id="projects-list"></div>
+  </section>
+
+  <script src="js/script.js"></script>
+</body>
 </html>
