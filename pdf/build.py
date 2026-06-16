@@ -68,6 +68,10 @@ ADO = os.path.join(PICS, "Ado Hall of Worship")
 HILL = os.path.join(PICS, "Hillside Project")
 LAND = os.path.join(PICS, "Landscape Projects")
 USELU = os.path.join(PICS, "Uselu Family house")
+SIXFLAT = os.path.join(PICS, "6-flat ikotun lagos")
+INTOP = os.path.join(PICS, "Interior Residential Operations")
+SCHEMA = os.path.join(PICS, "Concept schema projects")
+IKEJA = os.path.join(PICS, "Design For Ikeja confencens room")
 
 IMG = {
     "profile":      img_uri(PROFILE, max_px=760, keep_alpha=True),
@@ -88,6 +92,21 @@ IMG = {
     "uselu_hero":   img_uri(os.path.join(USELU, "Usele Hero 1.png")),
     "uselu_night":  img_uri(os.path.join(USELU, "USELU - NIGHT VIEW.png")),
     "uselu_col":    img_uri(os.path.join(USELU, "USELU - COLAGE.png")),
+    # 05 — 6-Flat Apartment Block, Ikotun
+    "sixflat_hero": img_uri(os.path.join(SIXFLAT, "MR CHINEDU PROJECT.jpg")),
+    "sixflat_b":    img_uri(os.path.join(SIXFLAT, "MR CHINEDU PROJECT 2.jpg")),
+    "sixflat_c":    img_uri(os.path.join(SIXFLAT, "MR CHINEDU PROJECT raw.jpg")),
+    # Other Projects — gallery of additional (unused) work
+    "g1": img_uri(os.path.join(INTOP, "RENDER 1.png"), max_px=860, quality=80),
+    "g2": img_uri(os.path.join(ADO, "Image8_005.png"), max_px=860, quality=80),
+    "g3": img_uri(os.path.join(IKEJA, "Image4_034.png"), max_px=860, quality=80),
+    "g4": img_uri(os.path.join(LAND, "Video2 - Snapshot12_001.jpg"), max_px=860, quality=80),
+    "g5": img_uri(os.path.join(INTOP, "RENDER 2.png"), max_px=860, quality=80),
+    "g6": img_uri(os.path.join(SIXFLAT, "MR CHINEDU PROJECT 4.jpg"), max_px=860, quality=80),
+    "g7": img_uri(os.path.join(IKEJA, "Image1_061.png"), max_px=860, quality=80),
+    "g8": img_uri(os.path.join(SCHEMA, "BIG SCHEMA RAW 1.jpg"), max_px=860, quality=80),
+    "g9": img_uri(os.path.join(SCHEMA, "3 BEDROOM TRERACE WITH PENT HOUSE - RAW 1.jpg"),
+                  max_px=860, quality=80),
 }
 
 FONT_FACES = "".join(
@@ -297,6 +316,17 @@ h1,h2,h3,h4{ color:var(--dark); font-weight:700; line-height:1.12;
 .fig.half img{ height:62mm; }
 .row2{ display:grid; grid-template-columns:1fr 1fr; gap:11px; }
 
+/* ───── OTHER PROJECTS GRID ───── */
+.other-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:11px; }
+.tile{ border:1px solid var(--border); border-radius:8px; overflow:hidden;
+  background:var(--white); }
+.tile img{ width:100%; height:44mm; object-fit:cover; display:block; }
+.tile .cap{ padding:7px 10px; }
+.tile .cap .t{ font-size:9.5px; font-weight:600; color:var(--dark);
+  display:block; line-height:1.3; }
+.tile .cap .m{ font-size:7.5px; font-weight:600; letter-spacing:0.07em;
+  text-transform:uppercase; color:var(--accent); }
+
 /* ───── CONTACT (dark) ───── */
 .contact{ display:flex; flex-direction:column; align-items:center;
   justify-content:center; text-align:center; min-height:267mm; }
@@ -336,7 +366,7 @@ def icon_card(glyph, dark=False):
 
 PORTFOLIO_FOOTER = (
     '<div class="pfoot"><span class="nm">Vollmann Olamide Akarakiri · '
-    'Construction Project Manager</span><span>{n} / 10</span></div>'
+    'Construction Project Manager</span><span>{n} / 12</span></div>'
 )
 
 BODY = """
@@ -699,7 +729,60 @@ BODY = """
   __FOOT9__
 </section>
 
-<!-- ════════ 10 · CONTACT ════════ -->
+<!-- ════════ 10 · SELECTED WORK 05 — 6-FLAT APARTMENT BLOCK, IKOTUN ════════ -->
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">Selected Work · 05</p>
+    <h2>6-Flat Apartment Block, Ikotun</h2>
+    <p class="sub">Three-storey six-flat residential development — Ikotun,
+      Lagos. BIM design, massing and material study.</p></div>
+
+  <div class="fig big"><img src="__sixflat_hero__" alt="Six-flat apartment block model" />
+    <div class="cap"><span class="t">Six-Flat Apartment Block</span>
+      <span class="m">BIM Model</span></div></div>
+  <div class="row2">
+    <div class="fig half"><img src="__sixflat_b__" alt="Façade and material study" />
+      <div class="cap"><span class="t">Façade &amp; Material Study</span>
+        <span class="m">Detail</span></div></div>
+    <div class="fig half"><img src="__sixflat_c__" alt="Massing and structure model" />
+      <div class="cap"><span class="t">Massing &amp; Structure</span>
+        <span class="m">Revit</span></div></div>
+  </div>
+  __FOOT10__
+</section>
+
+<!-- ════════ 11 · OTHER PROJECTS ════════ -->
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">More Work</p>
+    <h2>Other Projects</h2>
+    <p class="sub">A selection of additional design, interior and visualisation
+      work from across the portfolio.</p></div>
+
+  <div class="other-grid">
+    <div class="tile"><img src="__g1__" alt="Interior living space" />
+      <div class="cap"><span class="t">Living Space</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__g2__" alt="Hall of Worship concept" />
+      <div class="cap"><span class="t">Hall of Worship, Ado</span><span class="m">Concept</span></div></div>
+    <div class="tile"><img src="__g3__" alt="Conference room, Ikeja" />
+      <div class="cap"><span class="t">Conference Room, Ikeja</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__g4__" alt="Residence and driveway" />
+      <div class="cap"><span class="t">Residence &amp; Driveway</span><span class="m">Render</span></div></div>
+    <div class="tile"><img src="__g5__" alt="Family lounge" />
+      <div class="cap"><span class="t">Family Lounge</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__g6__" alt="6-flat apartments model" />
+      <div class="cap"><span class="t">6-Flat Apartments</span><span class="m">BIM Model</span></div></div>
+    <div class="tile"><img src="__g7__" alt="Boardroom, Ikeja" />
+      <div class="cap"><span class="t">Boardroom, Ikeja</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__g8__" alt="Residential schematic" />
+      <div class="cap"><span class="t">Residential Schematic</span><span class="m">Concept</span></div></div>
+    <div class="tile"><img src="__g9__" alt="3-bedroom terrace schematic" />
+      <div class="cap"><span class="t">3-Bedroom Terrace</span><span class="m">Concept</span></div></div>
+  </div>
+  __FOOT11__
+</section>
+
+<!-- ════════ 12 · CONTACT ════════ -->
 <section class="sheet dark">
   <div class="contact">
     <p class="label">Get In Touch</p>
@@ -729,8 +812,8 @@ def build():
     body = BODY
     for key, uri in IMG.items():
         body = body.replace(f"__{key}__", uri)
-    for n in (2, 4, 5, 6, 7, 8, 9):
-        body = body.replace(f"__FOOT{n}__", PORTFOLIO_FOOTER.format(n=f"0{n}"))
+    for n in (2, 4, 5, 6, 7, 8, 9, 10, 11):
+        body = body.replace(f"__FOOT{n}__", PORTFOLIO_FOOTER.format(n=f"{n:02d}"))
 
     html = (
         "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>"
