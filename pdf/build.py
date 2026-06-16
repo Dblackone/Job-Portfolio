@@ -72,7 +72,7 @@ USELU = os.path.join(PICS, "Uselu Family house")
 IMG = {
     "profile":      img_uri(PROFILE, max_px=760, keep_alpha=True),
     # 01 — Hall of Worship, Ado
-    "ado_ext":      img_uri(os.path.join(ADO, "Ado Hero Render.png")),
+    "ado_ext":      img_uri(os.path.join(ADO, "Ado Hero 2.png")),
     "ado_struct":   img_uri(os.path.join(ADO, "ADO CENTER RAW 1.jpg")),
     "ado_plan":     img_uri(os.path.join(ADO, "Screenshot 2026-05-16 091207.png"),
                             max_px=1400, quality=86),
@@ -620,7 +620,7 @@ BODY = """
     <p class="sub">From architectural visualisation to coordinated structural
       model and construction documentation.</p></div>
 
-  <div class="fig big contain"><img src="__ado_ext__" alt="Hall of Worship visualisation" />
+  <div class="fig big"><img src="__ado_ext__" alt="Hall of Worship visualisation" />
     <div class="cap"><span class="t">Hall of Worship — Architectural Visualisation</span>
       <span class="m">Render</span></div></div>
   <div class="row2">
