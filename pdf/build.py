@@ -67,7 +67,7 @@ PROFILE = os.path.join(ASSETS, "vollmann-akarakiri-profile.png")
 ADO = os.path.join(PICS, "Ado Hall of Worship")
 IKEJA = os.path.join(PICS, "Design For Ikeja confencens room")
 SCHEMA = os.path.join(PICS, "SchemaProjects")
-LAND = os.path.join(PICS, "Landsacpe Projects")
+LAND = os.path.join(PICS, "Landscape Projects")
 
 IMG = {
     "profile":   img_uri(PROFILE, max_px=760, keep_alpha=True),
