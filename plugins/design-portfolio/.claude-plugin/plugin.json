@@ -1,0 +1,7 @@
+{
+  "name": "design-portfolio-plugin",
+  "description": "Premium A4 PDF portfolio generator — warm off-white + terracotta + Inter house style. Build construction, architecture, interior, BIM, landscape, or any project-specific PDF portfolio from a CONFIG dict plus images, rendered self-contained via WeasyPrint.",
+  "version": "1.0.0",
+  "author": { "name": "Vollmann Olamide Akarakiri" },
+  "keywords": ["portfolio", "pdf", "design", "construction", "architecture", "bim", "weasyprint"]
+}

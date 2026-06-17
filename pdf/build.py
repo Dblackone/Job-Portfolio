@@ -65,22 +65,52 @@ def img_uri(path, max_px=1280, quality=82, keep_alpha=False):
 
 PROFILE = os.path.join(ASSETS, "vollmann-akarakiri-profile.png")
 ADO = os.path.join(PICS, "Ado Hall of Worship")
-IKEJA = os.path.join(PICS, "Design For Ikeja confencens room")
-SCHEMA = os.path.join(PICS, "SchemaProjects")
+HILL = os.path.join(PICS, "Hillside Project")
 LAND = os.path.join(PICS, "Landscape Projects")
+USELU = os.path.join(PICS, "Uselu Family house")
+SIXFLAT = os.path.join(PICS, "6-flat ikotun lagos")
+INTOP = os.path.join(PICS, "Interior Residential Operations")
+SCHEMA = os.path.join(PICS, "Concept schema projects")
+IKEJA = os.path.join(PICS, "Design For Ikeja confencens room")
 
 IMG = {
-    "profile":   img_uri(PROFILE, max_px=760, keep_alpha=True),
-    "ado_ext":   img_uri(os.path.join(ADO, "Image8_005.png")),
-    "ado_struct": img_uri(os.path.join(ADO, "ADO CENTER RAW 1.jpg")),
-    "ado_plan":  img_uri(os.path.join(ADO, "Screenshot 2026-05-16 091207.png"),
-                         max_px=1400, quality=86),
-    "ikeja_a":   img_uri(os.path.join(IKEJA, "Image4_034.png")),
-    "ikeja_b":   img_uri(os.path.join(IKEJA, "Image1_061.png")),
-    "schema":    img_uri(os.path.join(SCHEMA, "BIG SCHEMA RAW 1.jpg")),
-    "land_main": img_uri(os.path.join(LAND, "Video1 - Snapshot7_003.jpg")),
-    "land_b":    img_uri(os.path.join(LAND, "CIVIL DEFECE HQ 1.jpg")),
-    "land_c":    img_uri(os.path.join(LAND, "NCS 1.jpg")),
+    "profile":      img_uri(PROFILE, max_px=760, keep_alpha=True),
+    "cover_band":   img_uri(os.path.join(LAND, "Estate Aerial Hero.png"),
+                            max_px=1600, quality=84),
+    "reno_band":    img_uri(os.path.join(PICS, "Renovation Akure",
+                            "Akure Family Home.png"), max_px=1600, quality=84),
+    # 01 — Hall of Worship, Ado
+    "ado_ext":      img_uri(os.path.join(ADO, "Ado Hero 2.png")),
+    "ado_struct":   img_uri(os.path.join(ADO, "ADO CENTER RAW 1.jpg")),
+    "ado_plan":     img_uri(os.path.join(ADO, "Screenshot 2026-05-16 091207.png"),
+                            max_px=1400, quality=86),
+    # 02 — Hillside (concept)
+    "hill_hero":    img_uri(os.path.join(HILL, "HERO IMG.png")),
+    "hill_massing": img_uri(os.path.join(HILL, "RAW 1.jpg")),
+    "hill_detail":  img_uri(os.path.join(HILL, "02 Detail Study.png")),
+    # 03 — Landscape & Site Development
+    "land_main":    img_uri(os.path.join(LAND, "Aerial Site Overview.png")),
+    "land_b":       img_uri(os.path.join(LAND, "Aerial Parking Court.png")),
+    "land_c":       img_uri(os.path.join(LAND, "Video1 - Snapshot7_003.jpg")),
+    # 04 — 4-Bedroom Family House, Uselu
+    "uselu_hero":   img_uri(os.path.join(USELU, "Usele Hero 1.png")),
+    "uselu_night":  img_uri(os.path.join(USELU, "USELU - NIGHT VIEW.png")),
+    "uselu_col":    img_uri(os.path.join(USELU, "USELU - COLAGE.png")),
+    # 05 — 6-Flat Apartment Block, Ikotun
+    "sixflat_hero": img_uri(os.path.join(SIXFLAT, "Chinedu Hero Render.png")),
+    "sixflat_b":    img_uri(os.path.join(SIXFLAT, "MR CHINEDU PROJECT 2.jpg")),
+    "sixflat_c":    img_uri(os.path.join(SIXFLAT, "MR CHINEDU PROJECT raw.jpg")),
+    # Other Projects — gallery of additional (unused) work
+    "g1": img_uri(os.path.join(INTOP, "Living Space.png"), max_px=860, quality=80),
+    "g2": img_uri(os.path.join(PICS, "Other Renders", "Entrance Gatehouse.png"), max_px=860, quality=80),
+    "g3": img_uri(os.path.join(PICS, "Other Renders", "Event Hall.png"), max_px=860, quality=80),
+    "g4": img_uri(os.path.join(PICS, "Other Renders", "Building Model.png"), max_px=860, quality=80),
+    "g5": img_uri(os.path.join(INTOP, "RENDER 2.png"), max_px=860, quality=80),
+    "g6": img_uri(os.path.join(INTOP, "Bathroom Suite.png"), max_px=860, quality=80),
+    "g7": img_uri(os.path.join(INTOP, "Executive Boardroom.jpeg"), max_px=860, quality=80),
+    "g8": img_uri(os.path.join(SCHEMA, "BIG SCHEMA RAW 1.jpg"), max_px=860, quality=80),
+    "g9": img_uri(os.path.join(PICS, "Other Renders", "Event Hall Massing.png"),
+                  max_px=860, quality=80),
 }
 
 FONT_FACES = "".join(
@@ -108,6 +138,7 @@ body{
 }
 h1,h2,h3,h4{ color:var(--dark); font-weight:700; line-height:1.12;
   letter-spacing:-0.02em; }
+a{ color:inherit; text-decoration:none; }
 
 .sheet{
   position:relative; width:210mm; height:297mm; padding:15mm 16mm 14mm;
@@ -186,6 +217,16 @@ h1,h2,h3,h4{ color:var(--dark); font-weight:700; line-height:1.12;
 .cover-foot .ci .cl{ font-size:8px; font-weight:600; letter-spacing:0.14em;
   text-transform:uppercase; color:var(--accent); margin-bottom:2px; }
 .cover-foot .ci .cv{ font-size:10.5px; color:var(--dark); }
+.img-band{ position:relative; margin-top:7mm; border-radius:12px;
+  overflow:hidden; border:1px solid var(--border);
+  box-shadow:0 6px 22px rgba(44,44,44,.08); }
+.img-band img{ width:100%; height:66mm; object-fit:cover;
+  object-position:center 42%; display:block; }
+.img-band .cap{ position:absolute; left:0; right:0; bottom:0;
+  padding:18px 14px 9px;
+  background:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.58));
+  color:#fff; font-size:9.5px; font-weight:600; letter-spacing:0.07em;
+  text-transform:uppercase; }
 
 /* ───── ABOUT ───── */
 .about{ display:grid; grid-template-columns:1fr 1fr; gap:11mm;
@@ -286,8 +327,20 @@ h1,h2,h3,h4{ color:var(--dark); font-weight:700; line-height:1.12;
 .fig .cap .m{ font-size:8.5px; font-weight:600; letter-spacing:0.06em;
   text-transform:uppercase; color:var(--accent); white-space:nowrap; }
 .fig.big img{ height:96mm; }
+.fig.big.contain img{ object-fit:contain; height:90mm; background:var(--white); }
 .fig.half img{ height:62mm; }
 .row2{ display:grid; grid-template-columns:1fr 1fr; gap:11px; }
+
+/* ───── OTHER PROJECTS GRID ───── */
+.other-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:11px; }
+.tile{ border:1px solid var(--border); border-radius:8px; overflow:hidden;
+  background:var(--white); }
+.tile img{ width:100%; height:44mm; object-fit:cover; display:block; }
+.tile .cap{ padding:7px 10px; }
+.tile .cap .t{ font-size:9.5px; font-weight:600; color:var(--dark);
+  display:block; line-height:1.3; }
+.tile .cap .m{ font-size:7.5px; font-weight:600; letter-spacing:0.07em;
+  text-transform:uppercase; color:var(--accent); }
 
 /* ───── CONTACT (dark) ───── */
 .contact{ display:flex; flex-direction:column; align-items:center;
@@ -328,7 +381,7 @@ def icon_card(glyph, dark=False):
 
 PORTFOLIO_FOOTER = (
     '<div class="pfoot"><span class="nm">Vollmann Olamide Akarakiri · '
-    'Construction Project Manager</span><span>{n} / 09</span></div>'
+    'Construction Project Manager</span><span>{n} / 12</span></div>'
 )
 
 BODY = """
@@ -338,7 +391,7 @@ BODY = """
   <div class="cover-top">
     <div class="brand"><div class="mark">V</div>
       <div class="nm">Vollmann&nbsp;Akarakiri</div></div>
-    <div class="cover-tag">Professional Portfolio · 2026</div>
+    <div class="cover-tag">Professional Design Portfolio · 2026</div>
   </div>
 
   <div class="hero">
@@ -383,11 +436,16 @@ BODY = """
     </aside>
   </div>
 
+  <div class="img-band">
+    <img src="__cover_band__" alt="Residential estate — aerial visualisation" />
+    <div class="cap">Residential Estate — Aerial Visualisation</div>
+  </div>
+
   <div class="cover-foot">
     <div class="ci"><div class="cl">Phone</div><div class="cv">+234 816 367 5439</div></div>
     <div class="ci"><div class="cl">Email</div><div class="cv">vollmannakarakiri0@gmail.com</div></div>
     <div class="ci"><div class="cl">Location</div><div class="cv">Lagos, Nigeria</div></div>
-    <div class="ci"><div class="cl">LinkedIn</div><div class="cv">linkedin.com/in/vollmannakarakiri</div></div>
+    <div class="ci"><div class="cl">LinkedIn</div><div class="cv"><a href="https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios">/in/vollmann-akarakiri-49127b1a0</a></div></div>
   </div>
 </section>
 
@@ -562,7 +620,7 @@ BODY = """
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Portfolio</p>
     <h2>Areas of Expertise</h2>
-    <p class="sub">Seven specialist disciplines — one integrated professional
+    <p class="sub">Six specialist disciplines — one integrated professional
       delivering from concept to completion.</p></div>
 
   <div class="cards">
@@ -601,20 +659,25 @@ BODY = """
         fit-outs.</p>
       <div class="tag">BESPOKE FIT-OUTS</div></div></div>
   </div>
+
+  <div class="img-band">
+    <img src="__reno_band__" alt="Renovation proposal — residential family home, Akure" />
+    <div class="cap">Renovation Proposal — Residential Family Home, Akure</div>
+  </div>
   __FOOT5__
 </section>
 
-<!-- ════════ 6 · SELECTED WORK — ARCHITECTURE & BIM ════════ -->
+<!-- ════════ 6 · SELECTED WORK 01 — HALL OF WORSHIP, ADO ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 01</p>
-    <h2>Architecture &amp; BIM</h2>
-    <p class="sub">Hall of Worship, Ado — from architectural visualisation to
-      coordinated structural model and construction documentation.</p></div>
+    <h2>Hall of Worship, Ado</h2>
+    <p class="sub">From architectural visualisation to coordinated structural
+      model and construction documentation.</p></div>
 
-  <div class="fig big"><img src="__ado_ext__" alt="Hall of Worship exterior" />
+  <div class="fig big"><img src="__ado_ext__" alt="Hall of Worship visualisation" />
     <div class="cap"><span class="t">Hall of Worship — Architectural Visualisation</span>
-      <span class="m">Revit · Render</span></div></div>
+      <span class="m">Render</span></div></div>
   <div class="row2">
     <div class="fig half"><img src="__ado_struct__" alt="Structural BIM model" />
       <div class="cap"><span class="t">Structural BIM Model</span>
@@ -626,51 +689,125 @@ BODY = """
   __FOOT6__
 </section>
 
-<!-- ════════ 7 · SELECTED WORK — INTERIOR & RESIDENTIAL ════════ -->
+<!-- ════════ 7 · SELECTED WORK 02 — HILLSIDE (CONCEPT) ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 02</p>
-    <h2>Interior &amp; Residential</h2>
-    <p class="sub">Interior design visualisation and residential schematic
-      modelling — space planning through photoreal presentation.</p></div>
+    <h2>The Hillside Project</h2>
+    <p class="sub">Concept design — residential apartments set into a
+      challenging hillside terrain.</p></div>
 
-  <div class="fig big"><img src="__ikeja_a__" alt="Conference room interior" />
-    <div class="cap"><span class="t">Conference Room — Interior Visualisation, Ikeja</span>
-      <span class="m">Interior · Render</span></div></div>
+  <div class="fig big"><img src="__hill_hero__" alt="Hillside residence street approach" />
+    <div class="cap"><span class="t">Street Approach — Hillside Residence</span>
+      <span class="m">Render</span></div></div>
   <div class="row2">
-    <div class="fig half"><img src="__ikeja_b__" alt="Conference room view" />
-      <div class="cap"><span class="t">Boardroom — Material &amp; Lighting Study</span>
-        <span class="m">Interior</span></div></div>
-    <div class="fig half"><img src="__schema__" alt="Residential massing model" />
-      <div class="cap"><span class="t">Residential Massing — Schematic Model</span>
-        <span class="m">Revit</span></div></div>
+    <div class="fig half"><img src="__hill_massing__" alt="Hillside massing on sloped terrain" />
+      <div class="cap"><span class="t">Massing on Sloped Terrain</span>
+        <span class="m">Concept</span></div></div>
+    <div class="fig half"><img src="__hill_detail__" alt="Hillside material and facade study" />
+      <div class="cap"><span class="t">Material &amp; Façade Study</span>
+        <span class="m">Detail</span></div></div>
   </div>
   __FOOT7__
 </section>
 
-<!-- ════════ 8 · SELECTED WORK — LANDSCAPE ════════ -->
+<!-- ════════ 8 · SELECTED WORK 03 — LANDSCAPE & SITE DEVELOPMENT ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 03</p>
     <h2>Landscape &amp; Site Development</h2>
-    <p class="sub">110+ site-development and landscape projects — visualisation,
-      master planning, hardscape and softscape integration.</p></div>
+    <p class="sub">110+ site-development and landscape projects — master
+      planning, hardscape and softscape integration, and visualisation.</p></div>
 
-  <div class="fig big"><img src="__land_main__" alt="Residence and carport render" />
-    <div class="cap"><span class="t">Residence &amp; Carport — Landscape Visualisation</span>
-      <span class="m">Render</span></div></div>
+  <div class="fig big"><img src="__land_main__" alt="Aerial site overview" />
+    <div class="cap"><span class="t">Site Master Plan — Aerial Overview</span>
+      <span class="m">Aerial</span></div></div>
   <div class="row2">
-    <div class="fig half"><img src="__land_b__" alt="Civil Defence HQ master plan" />
-      <div class="cap"><span class="t">Civil Defence HQ — Landscape Master Plan</span>
-        <span class="m">Site Plan</span></div></div>
-    <div class="fig half"><img src="__land_c__" alt="Nigerian Correctional Services landscape" />
-      <div class="cap"><span class="t">Nigerian Correctional Services — Site Layout</span>
-        <span class="m">Landscape</span></div></div>
+    <div class="fig half"><img src="__land_b__" alt="Parking court and planting" />
+      <div class="cap"><span class="t">Parking Court &amp; Planting</span>
+        <span class="m">Render</span></div></div>
+    <div class="fig half"><img src="__land_c__" alt="Residence and carport render" />
+      <div class="cap"><span class="t">Residence &amp; Carport</span>
+        <span class="m">Render</span></div></div>
   </div>
   __FOOT8__
 </section>
 
-<!-- ════════ 9 · CONTACT ════════ -->
+<!-- ════════ 9 · SELECTED WORK 04 — 4-BEDROOM FAMILY HOUSE, USELU ════════ -->
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">Selected Work · 04</p>
+    <h2>4-Bedroom Family House, Uselu</h2>
+    <p class="sub">A four-bedroom family residence — Uselu, Benin City.</p></div>
+
+  <div class="fig big"><img src="__uselu_hero__" alt="Uselu family house street view" />
+    <div class="cap"><span class="t">Street View — 4-Bedroom Family House</span>
+      <span class="m">Render</span></div></div>
+  <div class="row2">
+    <div class="fig half"><img src="__uselu_night__" alt="Uselu family house night elevation" />
+      <div class="cap"><span class="t">Night Elevation</span>
+        <span class="m">Render</span></div></div>
+    <div class="fig half"><img src="__uselu_col__" alt="Uselu material and detail study" />
+      <div class="cap"><span class="t">Material &amp; Detail Study</span>
+        <span class="m">Details</span></div></div>
+  </div>
+  __FOOT9__
+</section>
+
+<!-- ════════ 10 · SELECTED WORK 05 — 6-FLAT APARTMENT BLOCK, IKOTUN ════════ -->
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">Selected Work · 05</p>
+    <h2>6-Flat Apartment Block, Ikotun</h2>
+    <p class="sub">Three-storey six-flat residential development — Ikotun,
+      Lagos. BIM design, massing and material study.</p></div>
+
+  <div class="fig big"><img src="__sixflat_hero__" alt="Six-flat apartment block render" />
+    <div class="cap"><span class="t">Six-Flat Apartment Block</span>
+      <span class="m">Render</span></div></div>
+  <div class="row2">
+    <div class="fig half"><img src="__sixflat_b__" alt="Façade and material study" />
+      <div class="cap"><span class="t">Façade &amp; Material Study</span>
+        <span class="m">Detail</span></div></div>
+    <div class="fig half"><img src="__sixflat_c__" alt="Massing and structure model" />
+      <div class="cap"><span class="t">Massing &amp; Structure</span>
+        <span class="m">Revit</span></div></div>
+  </div>
+  __FOOT10__
+</section>
+
+<!-- ════════ 11 · OTHER PROJECTS ════════ -->
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">More Work</p>
+    <h2>Other Projects</h2>
+    <p class="sub">A selection of additional design, interior and visualisation
+      work from across the portfolio.</p></div>
+
+  <div class="other-grid">
+    <div class="tile"><img src="__g1__" alt="Interior living space" />
+      <div class="cap"><span class="t">Living Space</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__g2__" alt="Entrance gatehouse render" />
+      <div class="cap"><span class="t">Entrance Gatehouse</span><span class="m">Render</span></div></div>
+    <div class="tile"><img src="__g3__" alt="Event hall render" />
+      <div class="cap"><span class="t">Event Hall</span><span class="m">Render</span></div></div>
+    <div class="tile"><img src="__g4__" alt="Building massing model" />
+      <div class="cap"><span class="t">Building Model</span><span class="m">Concept</span></div></div>
+    <div class="tile"><img src="__g5__" alt="Family lounge" />
+      <div class="cap"><span class="t">Family Lounge</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__g6__" alt="Bathroom suite render" />
+      <div class="cap"><span class="t">Bathroom Suite</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__g7__" alt="Executive boardroom render" />
+      <div class="cap"><span class="t">Executive Boardroom</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__g8__" alt="Residential schematic" />
+      <div class="cap"><span class="t">Residential Schematic</span><span class="m">Concept</span></div></div>
+    <div class="tile"><img src="__g9__" alt="Event hall massing model" />
+      <div class="cap"><span class="t">Event Hall Massing</span><span class="m">Concept</span></div></div>
+  </div>
+  __FOOT11__
+</section>
+
+<!-- ════════ 12 · CONTACT ════════ -->
 <section class="sheet dark">
   <div class="contact">
     <p class="label">Get In Touch</p>
@@ -680,13 +817,13 @@ BODY = """
       your next project or team.</p>
     <div class="cbtns">
       <a class="solid" href="mailto:vollmannakarakiri0@gmail.com">Send an Email</a>
-      <a class="out" href="https://linkedin.com/in/vollmannakarakiri">LinkedIn Profile</a>
+      <a class="out" href="https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios">LinkedIn Profile</a>
     </div>
     <div class="cdetails">
       <div class="ci"><div class="cl">Phone</div><div class="cv">+234 816 367 5439</div></div>
       <div class="ci"><div class="cl">Email</div><div class="cv">vollmannakarakiri0@gmail.com</div></div>
       <div class="ci"><div class="cl">Location</div><div class="cv">Lagos, Nigeria</div></div>
-      <div class="ci"><div class="cl">LinkedIn</div><div class="cv">linkedin.com/in/vollmannakarakiri</div></div>
+      <div class="ci"><div class="cl">LinkedIn</div><div class="cv"><a href="https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios">linkedin.com/in/vollmann-akarakiri-49127b1a0</a></div></div>
       <div class="ci"><div class="cl">Availability</div><div class="cv">Worldwide &amp; remote</div></div>
       <div class="ci"><div class="cl">Education</div><div class="cv">MSc CEM · UEL</div></div>
     </div>
@@ -700,8 +837,8 @@ def build():
     body = BODY
     for key, uri in IMG.items():
         body = body.replace(f"__{key}__", uri)
-    for n in (2, 4, 5, 6, 7, 8):
-        body = body.replace(f"__FOOT{n}__", PORTFOLIO_FOOTER.format(n=f"0{n}"))
+    for n in (2, 4, 5, 6, 7, 8, 9, 10, 11):
+        body = body.replace(f"__FOOT{n}__", PORTFOLIO_FOOTER.format(n=f"{n:02d}"))
 
     html = (
         "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>"
