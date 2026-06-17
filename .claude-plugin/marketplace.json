@@ -1,0 +1,11 @@
+{
+  "name": "job-portfolio-plugins",
+  "owner": { "name": "Vollmann Olamide Akarakiri" },
+  "plugins": [
+    {
+      "name": "design-portfolio-plugin",
+      "source": "./plugins/design-portfolio",
+      "description": "Premium A4 PDF portfolio generator (warm off-white + terracotta + Inter house style). Reusable for construction, architecture, interior, BIM, landscape, and other project-specific portfolios."
+    }
+  ]
+}
