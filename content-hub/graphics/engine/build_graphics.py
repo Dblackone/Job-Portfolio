@@ -71,7 +71,7 @@ FONT_WEIGHTS = {300: "inter-300.woff2", 400: "inter-400.woff2", 500: "inter-500.
                 600: "inter-600.woff2", 700: "inter-700.woff2", 800: "inter-800.woff2"}
 
 DEFAULT_FOOTER = "Vollmann Akarakiri · BIM · Architecture · Site"
-DEFAULT_HANDLE = "@your-handle"   # TODO: replace with real handle once confirmed
+DEFAULT_HANDLE = "@dova_futures"  # Instagram + TikTok confirmed
 
 
 # ----------------------------------------------------------------------------- helpers

@@ -83,5 +83,11 @@ pull a set that matches the *pillar*.
 Vollmann Olamide Akarakiri · BIM Specialist · Architectural Designer · Site Engineer
 Dova Futures Limited
 ```
-> ⚠️ Add real @handles for IG / TikTok / X / WhatsApp once confirmed. Placeholders
-> are marked `@your-handle` in templates until then.
+
+| Platform | Handle | Status |
+|---|---|---|
+| Instagram | `@dova_futures` | ✓ Confirmed |
+| TikTok | `@dova_futures` | ✓ Confirmed |
+| LinkedIn | — | ⚠️ Confirm handle/URL |
+| Twitter / X | — | ⚠️ Confirm handle |
+| WhatsApp | — | ⚠️ Add contact link / number |
