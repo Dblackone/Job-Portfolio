@@ -101,15 +101,15 @@ IMG = {
     "sixflat_b":    img_uri(os.path.join(SIXFLAT, "MR CHINEDU PROJECT 2.jpg")),
     "sixflat_c":    img_uri(os.path.join(SIXFLAT, "MR CHINEDU PROJECT raw.jpg")),
     # Other Projects — gallery of additional (unused) work
-    "g1": img_uri(os.path.join(INTOP, "RENDER 1.png"), max_px=860, quality=80),
+    "g1": img_uri(os.path.join(INTOP, "Living Space.png"), max_px=860, quality=80),
     "g2": img_uri(os.path.join(PICS, "Other Renders", "Entrance Gatehouse.png"), max_px=860, quality=80),
     "g3": img_uri(os.path.join(PICS, "Other Renders", "Event Hall.png"), max_px=860, quality=80),
-    "g4": img_uri(os.path.join(LAND, "Video2 - Snapshot12_001.jpg"), max_px=860, quality=80),
+    "g4": img_uri(os.path.join(PICS, "Other Renders", "Building Model.png"), max_px=860, quality=80),
     "g5": img_uri(os.path.join(INTOP, "RENDER 2.png"), max_px=860, quality=80),
     "g6": img_uri(os.path.join(INTOP, "Bathroom Suite.png"), max_px=860, quality=80),
     "g7": img_uri(os.path.join(INTOP, "Executive Boardroom.jpeg"), max_px=860, quality=80),
     "g8": img_uri(os.path.join(SCHEMA, "BIG SCHEMA RAW 1.jpg"), max_px=860, quality=80),
-    "g9": img_uri(os.path.join(SCHEMA, "3 BEDROOM TRERACE WITH PENT HOUSE - RAW 1.jpg"),
+    "g9": img_uri(os.path.join(PICS, "Other Renders", "Event Hall Massing.png"),
                   max_px=860, quality=80),
 }
 
@@ -790,8 +790,8 @@ BODY = """
       <div class="cap"><span class="t">Entrance Gatehouse</span><span class="m">Render</span></div></div>
     <div class="tile"><img src="__g3__" alt="Event hall render" />
       <div class="cap"><span class="t">Event Hall</span><span class="m">Render</span></div></div>
-    <div class="tile"><img src="__g4__" alt="Residence and driveway" />
-      <div class="cap"><span class="t">Residence &amp; Driveway</span><span class="m">Render</span></div></div>
+    <div class="tile"><img src="__g4__" alt="Building massing model" />
+      <div class="cap"><span class="t">Building Model</span><span class="m">Concept</span></div></div>
     <div class="tile"><img src="__g5__" alt="Family lounge" />
       <div class="cap"><span class="t">Family Lounge</span><span class="m">Interior</span></div></div>
     <div class="tile"><img src="__g6__" alt="Bathroom suite render" />
@@ -800,8 +800,8 @@ BODY = """
       <div class="cap"><span class="t">Executive Boardroom</span><span class="m">Interior</span></div></div>
     <div class="tile"><img src="__g8__" alt="Residential schematic" />
       <div class="cap"><span class="t">Residential Schematic</span><span class="m">Concept</span></div></div>
-    <div class="tile"><img src="__g9__" alt="3-bedroom terrace schematic" />
-      <div class="cap"><span class="t">3-Bedroom Terrace</span><span class="m">Concept</span></div></div>
+    <div class="tile"><img src="__g9__" alt="Event hall massing model" />
+      <div class="cap"><span class="t">Event Hall Massing</span><span class="m">Concept</span></div></div>
   </div>
   __FOOT11__
 </section>
