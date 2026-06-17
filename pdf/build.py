@@ -138,6 +138,7 @@ body{
 }
 h1,h2,h3,h4{ color:var(--dark); font-weight:700; line-height:1.12;
   letter-spacing:-0.02em; }
+a{ color:inherit; text-decoration:none; }
 
 .sheet{
   position:relative; width:210mm; height:297mm; padding:15mm 16mm 14mm;
@@ -390,7 +391,7 @@ BODY = """
   <div class="cover-top">
     <div class="brand"><div class="mark">V</div>
       <div class="nm">Vollmann&nbsp;Akarakiri</div></div>
-    <div class="cover-tag">Professional Portfolio · 2026</div>
+    <div class="cover-tag">Professional Design Portfolio · 2026</div>
   </div>
 
   <div class="hero">
@@ -444,7 +445,7 @@ BODY = """
     <div class="ci"><div class="cl">Phone</div><div class="cv">+234 816 367 5439</div></div>
     <div class="ci"><div class="cl">Email</div><div class="cv">vollmannakarakiri0@gmail.com</div></div>
     <div class="ci"><div class="cl">Location</div><div class="cv">Lagos, Nigeria</div></div>
-    <div class="ci"><div class="cl">LinkedIn</div><div class="cv">linkedin.com/in/vollmannakarakiri</div></div>
+    <div class="ci"><div class="cl">LinkedIn</div><div class="cv"><a href="https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios">/in/vollmann-akarakiri-49127b1a0</a></div></div>
   </div>
 </section>
 
@@ -619,7 +620,7 @@ BODY = """
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Portfolio</p>
     <h2>Areas of Expertise</h2>
-    <p class="sub">Seven specialist disciplines — one integrated professional
+    <p class="sub">Six specialist disciplines — one integrated professional
       delivering from concept to completion.</p></div>
 
   <div class="cards">
@@ -816,13 +817,13 @@ BODY = """
       your next project or team.</p>
     <div class="cbtns">
       <a class="solid" href="mailto:vollmannakarakiri0@gmail.com">Send an Email</a>
-      <a class="out" href="https://linkedin.com/in/vollmannakarakiri">LinkedIn Profile</a>
+      <a class="out" href="https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios">LinkedIn Profile</a>
     </div>
     <div class="cdetails">
       <div class="ci"><div class="cl">Phone</div><div class="cv">+234 816 367 5439</div></div>
       <div class="ci"><div class="cl">Email</div><div class="cv">vollmannakarakiri0@gmail.com</div></div>
       <div class="ci"><div class="cl">Location</div><div class="cv">Lagos, Nigeria</div></div>
-      <div class="ci"><div class="cl">LinkedIn</div><div class="cv">linkedin.com/in/vollmannakarakiri</div></div>
+      <div class="ci"><div class="cl">LinkedIn</div><div class="cv"><a href="https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios">linkedin.com/in/vollmann-akarakiri-49127b1a0</a></div></div>
       <div class="ci"><div class="cl">Availability</div><div class="cv">Worldwide &amp; remote</div></div>
       <div class="ci"><div class="cl">Education</div><div class="cv">MSc CEM · UEL</div></div>
     </div>
