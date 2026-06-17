@@ -97,7 +97,7 @@ IMG = {
     "uselu_night":  img_uri(os.path.join(USELU, "USELU - NIGHT VIEW.png")),
     "uselu_col":    img_uri(os.path.join(USELU, "USELU - COLAGE.png")),
     # 05 — 6-Flat Apartment Block, Ikotun
-    "sixflat_hero": img_uri(os.path.join(SIXFLAT, "MR CHINEDU PROJECT.jpg")),
+    "sixflat_hero": img_uri(os.path.join(SIXFLAT, "Chinedu Hero Render.png")),
     "sixflat_b":    img_uri(os.path.join(SIXFLAT, "MR CHINEDU PROJECT 2.jpg")),
     "sixflat_c":    img_uri(os.path.join(SIXFLAT, "MR CHINEDU PROJECT raw.jpg")),
     # Other Projects — gallery of additional (unused) work
@@ -106,8 +106,8 @@ IMG = {
     "g3": img_uri(os.path.join(IKEJA, "Image4_034.png"), max_px=860, quality=80),
     "g4": img_uri(os.path.join(LAND, "Video2 - Snapshot12_001.jpg"), max_px=860, quality=80),
     "g5": img_uri(os.path.join(INTOP, "RENDER 2.png"), max_px=860, quality=80),
-    "g6": img_uri(os.path.join(SIXFLAT, "MR CHINEDU PROJECT 4.jpg"), max_px=860, quality=80),
-    "g7": img_uri(os.path.join(IKEJA, "Image1_061.png"), max_px=860, quality=80),
+    "g6": img_uri(os.path.join(INTOP, "Bathroom Suite.png"), max_px=860, quality=80),
+    "g7": img_uri(os.path.join(INTOP, "Executive Boardroom.jpeg"), max_px=860, quality=80),
     "g8": img_uri(os.path.join(SCHEMA, "BIG SCHEMA RAW 1.jpg"), max_px=860, quality=80),
     "g9": img_uri(os.path.join(SCHEMA, "3 BEDROOM TRERACE WITH PENT HOUSE - RAW 1.jpg"),
                   max_px=860, quality=80),
@@ -761,9 +761,9 @@ BODY = """
     <p class="sub">Three-storey six-flat residential development — Ikotun,
       Lagos. BIM design, massing and material study.</p></div>
 
-  <div class="fig big"><img src="__sixflat_hero__" alt="Six-flat apartment block model" />
+  <div class="fig big"><img src="__sixflat_hero__" alt="Six-flat apartment block render" />
     <div class="cap"><span class="t">Six-Flat Apartment Block</span>
-      <span class="m">BIM Model</span></div></div>
+      <span class="m">Render</span></div></div>
   <div class="row2">
     <div class="fig half"><img src="__sixflat_b__" alt="Façade and material study" />
       <div class="cap"><span class="t">Façade &amp; Material Study</span>
@@ -794,10 +794,10 @@ BODY = """
       <div class="cap"><span class="t">Residence &amp; Driveway</span><span class="m">Render</span></div></div>
     <div class="tile"><img src="__g5__" alt="Family lounge" />
       <div class="cap"><span class="t">Family Lounge</span><span class="m">Interior</span></div></div>
-    <div class="tile"><img src="__g6__" alt="6-flat apartments model" />
-      <div class="cap"><span class="t">6-Flat Apartments</span><span class="m">BIM Model</span></div></div>
-    <div class="tile"><img src="__g7__" alt="Boardroom, Ikeja" />
-      <div class="cap"><span class="t">Boardroom, Ikeja</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__g6__" alt="Bathroom suite render" />
+      <div class="cap"><span class="t">Bathroom Suite</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__g7__" alt="Executive boardroom render" />
+      <div class="cap"><span class="t">Executive Boardroom</span><span class="m">Interior</span></div></div>
     <div class="tile"><img src="__g8__" alt="Residential schematic" />
       <div class="cap"><span class="t">Residential Schematic</span><span class="m">Concept</span></div></div>
     <div class="tile"><img src="__g9__" alt="3-bedroom terrace schematic" />
