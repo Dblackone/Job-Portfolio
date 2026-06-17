@@ -102,8 +102,8 @@ IMG = {
     "sixflat_c":    img_uri(os.path.join(SIXFLAT, "MR CHINEDU PROJECT raw.jpg")),
     # Other Projects — gallery of additional (unused) work
     "g1": img_uri(os.path.join(INTOP, "RENDER 1.png"), max_px=860, quality=80),
-    "g2": img_uri(os.path.join(ADO, "Image8_005.png"), max_px=860, quality=80),
-    "g3": img_uri(os.path.join(IKEJA, "Image4_034.png"), max_px=860, quality=80),
+    "g2": img_uri(os.path.join(PICS, "Other Renders", "Entrance Gatehouse.png"), max_px=860, quality=80),
+    "g3": img_uri(os.path.join(PICS, "Other Renders", "Event Hall.png"), max_px=860, quality=80),
     "g4": img_uri(os.path.join(LAND, "Video2 - Snapshot12_001.jpg"), max_px=860, quality=80),
     "g5": img_uri(os.path.join(INTOP, "RENDER 2.png"), max_px=860, quality=80),
     "g6": img_uri(os.path.join(INTOP, "Bathroom Suite.png"), max_px=860, quality=80),
@@ -786,10 +786,10 @@ BODY = """
   <div class="other-grid">
     <div class="tile"><img src="__g1__" alt="Interior living space" />
       <div class="cap"><span class="t">Living Space</span><span class="m">Interior</span></div></div>
-    <div class="tile"><img src="__g2__" alt="Hall of Worship concept" />
-      <div class="cap"><span class="t">Hall of Worship, Ado</span><span class="m">Concept</span></div></div>
-    <div class="tile"><img src="__g3__" alt="Conference room, Ikeja" />
-      <div class="cap"><span class="t">Conference Room, Ikeja</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__g2__" alt="Entrance gatehouse render" />
+      <div class="cap"><span class="t">Entrance Gatehouse</span><span class="m">Render</span></div></div>
+    <div class="tile"><img src="__g3__" alt="Event hall render" />
+      <div class="cap"><span class="t">Event Hall</span><span class="m">Render</span></div></div>
     <div class="tile"><img src="__g4__" alt="Residence and driveway" />
       <div class="cap"><span class="t">Residence &amp; Driveway</span><span class="m">Render</span></div></div>
     <div class="tile"><img src="__g5__" alt="Family lounge" />
