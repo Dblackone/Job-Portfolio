@@ -16,7 +16,7 @@ the tone shift, and how to adapt the same idea.
 
 ---
 
-## Instagram
+## Instagram — `@dova_futures`
 
 - **Best for:** renders, project spotlights, carousels (tips & explainers), Reels.
 - **Caption:** 125 chars show before "more" — front-load the hook. Up to ~2,200 chars.
@@ -25,7 +25,7 @@ the tone shift, and how to adapt the same idea.
 - **Format priority:** Carousel (saves + dwell time) > Reel (reach) > single image.
 - **Voice:** warm, visual-first, "here's how / here's why".
 
-## LinkedIn
+## LinkedIn — `linkedin.com/in/vollmann-akarakiri-49127b1a0`
 
 - **Best for:** authority. BIM/construction insight, lessons learned, project
   case-studies, career/industry takes.
@@ -35,7 +35,7 @@ the tone shift, and how to adapt the same idea.
 - **No outbound links in body** (kills reach) — put links in first comment.
 - **Voice:** first-person professional, opinion + evidence. End with a real question.
 
-## TikTok
+## TikTok — `@dova_futures`
 
 - **Best for:** short-form video — Revit/BIM tips, render reveals, site-to-model
   transformations, "day in the life".
@@ -44,7 +44,7 @@ the tone shift, and how to adapt the same idea.
   #ConstructionTok #Revit).
 - **Voice:** fast, direct, show-don't-tell. Talk to camera or voiceover over screen.
 
-## Twitter / X
+## Twitter / X — `@d_black_one`
 
 - **Best for:** quick tips, hot takes, render drops, threads (explainers).
 - **Spec:** single post ≤ 280 chars; threads for explainers (1 idea per tweet).
@@ -53,12 +53,15 @@ the tone shift, and how to adapt the same idea.
 
 ## WhatsApp (Status + Broadcast)
 
+- **Primary:** `https://wa.me/2348169477706` (+234 816 947 7706)
+- **Alternate:** `https://wa.me/2348163675439` (+234 816 367 5439)
 - **Best for:** warm audience — existing clients, leads, network. Status = stories;
   Broadcast = direct.
 - **Status spec:** 9:16 image/video, ≤ 30s video. Keep text overlay short.
 - **Broadcast:** a short personal note + 1 image. More intimate, more direct CTA
   ("reply to book a consultation").
 - **Voice:** personal, direct, relationship-first. Least "marketing", most human.
+- **CTA link to use in other platforms:** `https://wa.me/2348169477706`
 
 ---
 

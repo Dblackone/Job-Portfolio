@@ -104,7 +104,7 @@ What's your take: on a tight sloped site, do you step the building or platform i
 
 **Hashtags (5):** `#BIM #Revit #Architecture #Construction #ResidentialDesign`
 
-**First comment (links):** `Full portfolio → [portfolio URL]`
+**First comment (links):** `Full portfolio → https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0/`
 
 ---
 
@@ -161,6 +161,8 @@ I design, model + help build. DM me. 👇
 Hi 👋 Just shared a breakdown of a hillside home I worked on — from the Revit
 model all the way to the finished build. If you or someone you know is planning a
 home and wants the design + BIM handled properly, reply here and let's talk.
+
+— Vollmann · +234 816 947 7706
 ```
 
 ---
@@ -172,4 +174,4 @@ home and wants the design + BIM handled properly, reply here and let's talk.
 - [x] On-brand graphics (palette, Inter, kicker, footer)
 - [x] Hashtag counts correct per platform
 - [x] Alt text written
-- [ ] Replace `@your-handle` + portfolio URL with real values before posting
+- [x] Handles confirmed: IG/TikTok `@dova_futures` · Twitter/X `@d_black_one` · LinkedIn in first comment
