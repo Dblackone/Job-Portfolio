@@ -84,10 +84,10 @@ Vollmann Olamide Akarakiri · BIM Specialist · Architectural Designer · Site E
 Dova Futures Limited
 ```
 
-| Platform | Handle | Status |
+| Platform | Handle / Link | Status |
 |---|---|---|
 | Instagram | `@dova_futures` | ✓ Confirmed |
 | TikTok | `@dova_futures` | ✓ Confirmed |
-| LinkedIn | — | ⚠️ Confirm handle/URL |
-| Twitter / X | — | ⚠️ Confirm handle |
+| Twitter / X | `@d_black_one` | ✓ Confirmed |
+| LinkedIn | `https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0/` | ✓ Confirmed |
 | WhatsApp | — | ⚠️ Add contact link / number |
