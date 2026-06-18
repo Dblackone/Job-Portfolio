@@ -53,12 +53,15 @@ the tone shift, and how to adapt the same idea.
 
 ## WhatsApp (Status + Broadcast)
 
+- **Primary:** `https://wa.me/2348169477706` (+234 816 947 7706)
+- **Alternate:** `https://wa.me/2348163675439` (+234 816 367 5439)
 - **Best for:** warm audience — existing clients, leads, network. Status = stories;
   Broadcast = direct.
 - **Status spec:** 9:16 image/video, ≤ 30s video. Keep text overlay short.
 - **Broadcast:** a short personal note + 1 image. More intimate, more direct CTA
   ("reply to book a consultation").
 - **Voice:** personal, direct, relationship-first. Least "marketing", most human.
+- **CTA link to use in other platforms:** `https://wa.me/2348169477706`
 
 ---
 

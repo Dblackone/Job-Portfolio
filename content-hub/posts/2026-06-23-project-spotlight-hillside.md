@@ -161,6 +161,8 @@ I design, model + help build. DM me. 👇
 Hi 👋 Just shared a breakdown of a hillside home I worked on — from the Revit
 model all the way to the finished build. If you or someone you know is planning a
 home and wants the design + BIM handled properly, reply here and let's talk.
+
+— Vollmann · +234 816 947 7706
 ```
 
 ---
