@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dova Futures — Content Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      #F5F2EE;
+      --accent:  #B85C38;
+      --accent-d:#9E4F30;
+      --text:    #4A4F5C;
+      --dark:    #2C2C2C;
+      --white:   #FFFFFF;
+      --warm:    #E8E4DF;
+      --light:   #F0DDD8;
+      --border:  #D1CBC6;
+      --r:       12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .logo { width:40px; height:40px; background:var(--accent); border-radius:8px;
+            color:#fff; font-weight:800; font-size:16px;
+            display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .hd-text h1 { font-size:15px; font-weight:700; color:var(--dark); line-height:1.2; }
+    .hd-text p  { font-size:12px; color:var(--text); }
+
+    /* ── LAYOUT ── */
+    .wrap { max-width:680px; margin:0 auto; padding:0 16px 60px; }
+
+    /* ── SECTION LABEL ── */
+    .sec { padding:28px 0 14px; }
+    .sec .label { font-size:11px; font-weight:600; letter-spacing:.22em;
+                  text-transform:uppercase; color:var(--accent); }
+    .sec h2 { font-size:21px; font-weight:700; color:var(--dark); margin-top:4px; }
+
+    /* ── QUICK LINKS ── */
+    .links { display:flex; flex-wrap:wrap; gap:8px; padding:20px 0 0; }
+    .link {
+      display:flex; align-items:center; gap:8px;
+      background:var(--white); border:1px solid var(--border);
+      border-radius:8px; padding:9px 14px;
+      font-size:13px; font-weight:500; color:var(--dark);
+      text-decoration:none; transition:border-color .15s;
+    }
+    .link:hover { border-color:var(--accent); color:var(--accent); }
+
+    /* ── BADGES ── */
+    .badge {
+      display:inline-flex; align-items:center; gap:5px;
+      padding:3px 9px; border-radius:100px;
+      font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em;
+    }
+    .badge-dot { width:6px; height:6px; border-radius:50%; background:currentColor; }
+    .bi { background:#EDEAE6; color:var(--text); }          /* idea */
+    .bd { background:#FEF0D9; color:#9A6200; }              /* drafted */
+    .br { background:#D6EAF8; color:#1A5276; }              /* ready */
+    .bp { background:#D5F5E3; color:#1E8449; }              /* posted */
+
+    /* ── PILLAR TAG ── */
+    .ptag {
+      display:inline-block; padding:3px 10px; border-radius:100px;
+      font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
+    }
+
+    /* ── TODAY CARD ── */
+    .card { background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; margin-bottom:8px; }
+    .card-head { padding:18px 20px 14px; border-bottom:1px solid var(--border); }
+    .card-top { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:10px; }
+    .hook { font-size:18px; font-weight:700; color:var(--dark); line-height:1.3; margin:10px 0 8px; }
+    .meta { font-size:12px; color:var(--text); display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+    .meta-sep { color:var(--border); }
+
+    /* ── GRAPHICS ── */
+    .gfx { padding:14px 20px; border-bottom:1px solid var(--border); }
+    .gfx-lbl { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.15em; color:var(--text); margin-bottom:10px; }
+    .gfx-row { display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; }
+    .gfx-thumb { flex-shrink:0; width:70px; text-align:center; }
+    .gfx-thumb a { display:block; }
+    .gfx-thumb img { width:70px; height:88px; object-fit:cover; border-radius:6px; border:1px solid var(--border); display:block; }
+    .gfx-thumb span { font-size:10px; color:var(--text); display:block; margin-top:4px; }
+    .gfx-none { font-size:13px; color:var(--text); background:var(--bg); border:1px dashed var(--border); border-radius:8px; padding:12px 14px; }
+
+    /* ── PLATFORM TABS ── */
+    .ptabs { display:flex; gap:0; overflow-x:auto; border-bottom:1px solid var(--border); padding:0 20px; }
+    .ptab {
+      padding:11px 14px; font-size:13px; font-weight:500; color:var(--text);
+      cursor:pointer; white-space:nowrap;
+      border:none; border-bottom:2px solid transparent;
+      background:none; font-family:'Inter',sans-serif;
+      transition:color .15s;
+    }
+    .ptab:hover { color:var(--accent); }
+    .ptab.on { color:var(--accent); border-bottom-color:var(--accent); font-weight:600; }
+
+    /* ── CAPTION PANEL ── */
+    .cpanel { display:none; padding:20px; }
+    .cpanel.on { display:block; }
+    .cblock { margin-bottom:16px; }
+    .cblock-lbl { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.15em; color:var(--text);
+                  display:flex; align-items:center; justify-content:space-between; margin-bottom:7px; }
+    .cap-text { background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:14px;
+                font-size:14px; line-height:1.65; color:var(--dark); white-space:pre-wrap; word-break:break-word; }
+    .tag-text { background:var(--light); border:1px solid var(--border); border-radius:8px; padding:11px 14px;
+                font-size:13px; color:var(--accent-d); word-break:break-word; }
+    .copy {
+      background:var(--accent); color:#fff; border:none;
+      padding:5px 14px; border-radius:100px;
+      font-size:11px; font-weight:600; cursor:pointer;
+      font-family:'Inter',sans-serif; text-transform:uppercase; letter-spacing:.05em;
+      transition:background .15s;
+    }
+    .copy:hover { background:var(--accent-d); }
+    .copy.ok { background:#1E8449; }
+
+    .stub { background:#FFF8F0; border:1px solid #F5DEB3; border-radius:8px; padding:16px; font-size:14px; color:#9A6200; }
+    .stub strong { display:block; margin-bottom:6px; font-size:13px; text-transform:uppercase; letter-spacing:.08em; }
+    .stub-notes { margin-top:8px; font-size:13px; color:var(--text); font-style:italic; }
+
+    /* ── CALENDAR GRID ── */
+    .cal { display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:10px; padding-bottom:20px; }
+    .ccard {
+      background:var(--white); border:1px solid var(--border); border-radius:10px;
+      padding:13px; cursor:pointer; transition:border-color .15s, box-shadow .15s;
+    }
+    .ccard:hover { border-color:var(--accent); box-shadow:0 2px 12px rgba(184,92,56,.1); }
+    .ccard.today { border-color:var(--accent); background:#FEF9F7; }
+    .ccard.sel   { border-color:var(--accent); box-shadow:0 2px 12px rgba(184,92,56,.15); }
+    .cdate { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text); margin-bottom:6px; }
+    .ccard.today .cdate { color:var(--accent); }
+    .chook { font-size:12px; color:var(--dark); font-weight:500; line-height:1.4; margin:5px 0 8px;
+             display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    .cmeta { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+
+    footer { border-top:1px solid var(--border); padding:20px; text-align:center; font-size:12px; color:var(--text); }
+
+    @media(max-width:480px){
+      .hook { font-size:16px; }
+      .cal  { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">VA</div>
+  <div class="hd-text">
+    <h1>Dova Futures — Content Hub</h1>
+    <p>Daily social media for @dova_futures</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- quick links -->
+  <div class="links">
+    <a class="link" href="https://www.instagram.com/dova_futures" target="_blank">📸 @dova_futures</a>
+    <a class="link" href="https://www.tiktok.com/@dova_futures" target="_blank">🎵 @dova_futures</a>
+    <a class="link" href="https://twitter.com/d_black_one" target="_blank">🐦 @d_black_one</a>
+    <a class="link" href="https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0/" target="_blank">💼 LinkedIn</a>
+    <a class="link" href="https://wa.me/2348169477706" target="_blank">💬 WhatsApp</a>
+  </div>
+
+  <!-- today -->
+  <div class="sec">
+    <div class="label">Today's Post</div>
+    <h2 id="sec-title">Loading…</h2>
+  </div>
+  <div id="post-card"></div>
+
+  <!-- calendar -->
+  <div class="sec">
+    <div class="label">Content Calendar</div>
+    <h2>18 Jun → 17 Jul 2026</h2>
+  </div>
+  <div class="cal" id="cal"></div>
+
+</div>
+
+<footer>Akarakiri Content Hub · Dova Futures Limited</footer>
+
+<script>
+// ── DATA ─────────────────────────────────────────────────────────────────────
+
+const P = [
+  {
+    date:"2026-06-18", pillar:"Render Breakdown", format:"Carousel + Reel", status:"drafted",
+    hook:"Most people render to impress. I render to decide. Here's the difference.",
+    graphics:[],
+    cap:{
+      instagram:{
+        c:`Most people render to impress. I render to decide.
+
+Here's the shift that changed how I work:
+
+Before I render → I'm still guessing. Is the window too big? Does that material work? Will the ceiling feel right at 2.7m?
+
+After I render → I know. Clients say yes or no to something real. Changes happen on screen, not on site.
+
+The render isn't the final step. It's the conversation starter.
+
+Which slide resonates most — the before or the after? Tell me below 👇
+
+Follow @dova_futures for daily design and BIM content.`,
+        h:"#ArchViz #3DRendering #ArchitecturalVisualization #Lumion #InteriorRender #DesignProcess #ArchitecturalDesign #BIM #NigerianArchitect #DesignVisualization"
+      },
+      linkedin:{
+        c:`Most people render to impress. I render to decide.
+
+Early in my career I would finish a design, render it beautifully, send it to the client, and wait for approval.
+
+The problem? I was using rendering as a presentation tool — not a design tool.
+
+Now I render as part of the design process:
+
+• Before materials are finalised, not after
+• Before ceiling heights are locked, not after
+• Before the client commits to a layout, not after
+
+The result: design changes happen on a screen at ₦0, not on a site at hundreds of thousands.
+
+Clients react to something real. "The ceiling feels low" is a comment I want in week 3, not week 23.
+
+The render is a decision tool first. Sales tool second.
+
+How do you use renders in your projects — to sell or to decide?`,
+        h:"#Architecture #ArchitecturalVisualization #BIM #DesignProcess #Construction"
+      },
+      tiktok:{
+        c:`I don't render to impress. I render to decide 🏗️`,
+        h:"#ArchitectTok #ArchViz #Revit #Architecture #ConstructionTok"
+      },
+      twitter:{
+        c:`Most architects render to impress.
+
+I render to decide.
+
+Before the ceiling height is locked.
+Before the material is specified.
+Before the client commits.
+
+Changes on screen = ₦0.
+Changes on site = ₦₦₦.
+
+The render is a decision tool, not a sales tool.`,
+        h:"#ArchViz #Architecture"
+      },
+      whatsapp:{
+        c:`Hi 👋 Quick share — posted a breakdown today of how I use renders as a design tool, not just for client presentations. If you're planning a project and want to see your space before you build it, let's talk.
+
+— Vollmann · +234 816 947 7706`,
+        h:""
+      }
+    }
+  },
+
+  {
+    date:"2026-06-19", pillar:"Construction Insight", format:"Carousel", status:"drafted",
+    hook:"We caught this in the model. On site it would have cost real money.",
+    graphics:[],
+    cap:{
+      instagram:{
+        c:`We caught this in the model. On site it would have cost real money.
+
+The scenario: a structural beam running through the exact path of a major drainage pipe. Different consultants, different files, no coordination.
+
+In BIM I overlay all the models. The clash shows up on screen. We move the beam 200mm — problem solved in 5 minutes.
+
+On site, that same fix means breaking concrete, rewelding steel, and losing 2 weeks on the programme.
+
+This is why I model before we build. Not to make pretty 3D — to find the problems while they're still cheap.
+
+Has a design coordination issue ever cost you money on site? Tell me below 👇
+
+Follow @dova_futures for BIM and construction content.`,
+        h:"#BIM #ClashDetection #Construction #ConstructionManagement #BIMCoordination #Revit #AEC #DigitalConstruction #ConstructionNigeria #BuildingInformationModeling"
+      },
+      linkedin:{
+        c:`We caught this in the model. On site it would have cost real money.
+
+A structural beam running directly through the path of a major drainage pipe. Two consultants, two separate files, zero coordination.
+
+In the BIM coordination session: identified in under a minute. Fix: move the beam 200mm. Time: 5 minutes.
+
+On site, that same fix requires breaking formed concrete, reworking steel, losing 10–14 days of programme, and paying for everything twice.
+
+This is the core value of BIM coordination — and it has nothing to do with how good the 3D looks.
+
+The model is a coordination tool. The earlier you model, the cheaper your mistakes are.
+
+What's the most expensive site error you've seen that proper coordination would have caught?`,
+        h:"#BIM #BIMCoordination #Construction #AEC #DigitalConstruction #ClashDetection"
+      },
+      tiktok:{
+        c:`Caught in the model before it hit the site 🏗️`,
+        h:"#ConstructionTok #BIM #ArchitectTok #Revit #ClashDetection"
+      },
+      twitter:{
+        c:`A beam through a drainage pipe.
+
+Caught in the BIM model: 5 minutes, ₦0.
+Caught on site: broken concrete, rewelded steel, 2 weeks, ₦₦₦.
+
+Model before you build. Always.`,
+        h:"#BIM #Construction"
+      },
+      whatsapp:{
+        c:`Hi 👋 Posted today about how BIM coordination catches costly site problems before they happen. If you're planning a build and want proper model coordination from the start, reply here.
+
+— Vollmann · +234 816 947 7706`,
+        h:""
+      }
+    }
+  },
+
+  {
+    date:"2026-06-20", pillar:"Design Presentation", format:"Single Image", status:"idea",
+    hook:"Before I design a building, I read the site. Here is what that looks like.",
+    graphics:[], notes:"Walk through the climate collage — sun path, wind, vegetation, views. Explain how it directly informed design decisions. Use: assets/Project Pictures/Concept schema projects/SCHEMA 01 - CLIAMTE COLAGE.png",
+    cap:{
+      instagram:{c:null, h:"#Architecture #DesignProcess #ConceptDesign #ArchitecturalDesign #SiteAnalysis #NigerianArchitect #ArchitectsOfInstagram #DesignThinking #ConceptualDesign"},
+      linkedin:{c:null, h:"#Architecture #DesignProcess #ConceptDesign #SiteAnalysis"},
+      tiktok:{c:null, h:"#ArchitectTok #Architecture #DesignProcess"},
+      twitter:{c:null, h:"#Architecture #Design"},
+      whatsapp:{c:null, h:""}
+    }
+  },
+
+  {
+    date:"2026-06-21", pillar:"Engage / Personal", format:"Story / Status", status:"idea",
+    hook:"Design or build — which is harder? I've done both. My answer might surprise you.",
+    graphics:[], notes:"Poll or question post. Give Vollmann's real answer as a comment reply. Keep it personal and conversational.",
+    cap:{
+      instagram:{c:null, h:"#ArchitectLife #ConstructionLife #Architecture #BuildingDesign #AECommunity"},
+      linkedin:{c:null, h:"#Architecture #Construction #BuildInPublic"},
+      tiktok:{c:null, h:"#ArchitectTok #ConstructionTok"},
+      twitter:{c:null, h:"#Architecture #Construction"},
+      whatsapp:{c:null, h:""}
+    }
+  },
+
+  {
+    date:"2026-06-22", pillar:"Revit Tip", format:"Carousel", status:"ready",
+    hook:"This one Revit discipline saves me hours on every project.",
+    graphics:["graphics/output/sample-revit-tip-cover.png","graphics/output/sample-revit-tip-list.png"],
+    cap:{
+      instagram:{
+        c:`This one Revit discipline saves me hours on every project.
+
+Actually it's 5. Swipe to see them all 👉
+
+These aren't shortcuts. They're the habits that keep a model clean and a deadline calm. I learned most of them the hard way.
+
+Which one do you already use? Which one are you skipping? Tell me in the comments.
+
+Follow @dova_futures for one Revit tip every Monday.`,
+        h:"#Revit #RevitTips #BIM #AEC #Autodesk #ArchitecturalDesign #DigitalConstruction #ConstructionTech #BIMModeling #RevitArch"
+      },
+      linkedin:{
+        c:`5 Revit habits that save me hours every single project.
+
+These aren't tips I read online. They're disciplines built from years of working on live projects where a messy model costs real time and real money.
+
+01 Purge unused before every issue — file bloat slows everything and can cause errors at the recipient's end.
+
+02 View templates, never manual overrides — if you're overriding visibility per view, you'll spend hours correcting it when standards change.
+
+03 Schedules to auto-quantify — your model knows how many doors, windows and rooms it contains. Don't count manually.
+
+04 Worksets from day one — on anything above a single house, start worksets at project setup. Retrofitting them is painful.
+
+05 Dynamo for the boring 200-sheet jobs — anything repetitive (renaming sheets, updating parameters) belongs in a script, not your afternoon.
+
+Which of these do you practise? Any you'd add?`,
+        h:"#Revit #BIM #AEC #Autodesk #DigitalConstruction #ConstructionTech"
+      },
+      tiktok:{
+        c:`5 Revit habits that actually save hours 🏗️`,
+        h:"#Revit #BIM #ArchitectTok #ConstructionTok #Autodesk"
+      },
+      twitter:{
+        c:`5 Revit habits that save hours:
+
+01 Purge before every issue
+02 View templates, not manual overrides
+03 Schedules to auto-quantify
+04 Worksets from day one
+05 Dynamo for the 200-sheet jobs
+
+Which one are you skipping?`,
+        h:"#Revit #BIM"
+      },
+      whatsapp:{
+        c:`Hi 👋 Shared 5 Revit habits today that save hours on every project — useful if you work with BIM or are about to start a project needing Revit coordination. Follow @dova_futures on Instagram.`,
+        h:""
+      }
+    }
+  },
+
+  {
+    date:"2026-06-23", pillar:"Project Spotlight", format:"Carousel", status:"ready",
+    hook:"This home didn't start on site. It started as a model.",
+    graphics:[
+      "graphics/output/2026-06-23-hillside-01.png",
+      "graphics/output/2026-06-23-hillside-02.png",
+      "graphics/output/2026-06-23-hillside-03.png",
+      "graphics/output/2026-06-23-hillside-04.png",
+      "graphics/output/2026-06-23-hillside-05.png"
+    ],
+    cap:{
+      instagram:{
+        c:`This home didn't start on site. It started as a model. 🏗️
+
+The brief: a modern family residence on a sloped plot. The challenge with a hillside isn't the view — it's the ground. Fight the slope and you burn the budget on earthworks and retaining walls.
+
+So I designed it to sit with the land:
+
+→ Split levels that follow the natural fall of the site
+→ Parking tucked into the hillside instead of carved out of it
+→ A roof garden that gives back the green the footprint took
+→ Stone, glass and steel detailed to read clean from the street
+
+Every volume was coordinated in Revit first (swipe to slide 2 — that's the raw model). By the time we broke ground, the decisions were already made. That's the whole point of BIM: solve it on screen, not on site.
+
+Swipe through: render → model → details → the thinking 👉
+
+Which slide is your favourite — the finished render or the raw model?
+
+I design homes, model them in BIM, and help deliver them on site.
+Full portfolio in bio.`,
+        h:"#Architecture #ArchitectureNigeria #LagosArchitecture #ResidentialDesign #BIM #Revit #ArchitecturalVisualization #ModernArchitecture #HillsideHome #DesignAndBuild #NigerianArchitect #ArchitecturalDesign"
+      },
+      linkedin:{
+        c:`This home didn't start on site. It started as a model.
+
+The brief was a modern family residence on a sloped plot. On a hillside, the real problem isn't the view — it's the ground. Fight the slope and the budget disappears into earthworks and retaining walls before you've built a single room.
+
+So the strategy was to work with the land, not against it:
+
+• Split levels that follow the natural fall of the site
+• Parking tucked into the hillside rather than excavated out of it
+• A roof garden that returns the green the footprint displaced
+• A restrained palette — stone, glass, steel — detailed to read cleanly
+
+The part most people don't see is the second image: the raw Revit model. Every level, cantilever and stair was coordinated there first. By the time we reached site, the hard decisions were already resolved.
+
+This is the workflow I bring to every project: design, BIM coordination, and the site experience to make sure the model actually gets built.
+
+If you're planning a residential project and want the design and BIM done by the same person who understands the site — let's talk.
+
+On a tight sloped site, do you step the building or platform it?`,
+        h:"#BIM #Revit #Architecture #Construction #ResidentialDesign"
+      },
+      tiktok:{
+        c:`From Revit model to real home 🏗️`,
+        h:"#ArchitectTok #Revit #BIM #Architecture #ConstructionTok"
+      },
+      twitter:{
+        c:`This home didn't start on site. It started as a model.
+
+A hillside residence. The challenge isn't the view — it's the ground.
+
+Fight the slope → budget dies in earthworks.
+Work with it → split levels, tucked parking, roof garden.
+
+All coordinated in Revit before we broke ground.
+
+Solve it in the model, not in concrete.`,
+        h:"#BIM #Revit"
+      },
+      whatsapp:{
+        c:`Hi 👋 Just shared a breakdown of a hillside home I worked on — from the Revit model all the way to the finished build. If you or someone you know is planning a home and wants the design + BIM handled properly, reply here.
+
+— Vollmann · +234 816 947 7706`,
+        h:""
+      }
+    }
+  },
+
+  {
+    date:"2026-06-24", pillar:"BIM Explained", format:"Carousel", status:"ready",
+    hook:"Clash detection saved this project from a very expensive mistake.",
+    graphics:[
+      "graphics/output/sample-carousel-clash-01.png",
+      "graphics/output/sample-carousel-clash-02.png",
+      "graphics/output/sample-carousel-clash-03.png",
+      "graphics/output/sample-carousel-clash-04.png"
+    ],
+    cap:{
+      instagram:{
+        c:`Clash detection saved this project from a very expensive mistake. Swipe to see how 👉
+
+In plain terms: clash detection is what happens when you overlay all the consultants' models in one place and find out where things conflict.
+
+Structural vs MEP. Drainage vs beams. Ductwork vs slabs.
+
+Better to find it on a screen than in concrete.
+
+This is the kind of coordination I run on every project I model. It's not glamorous — but it's where BIM pays for itself in 5 minutes.
+
+Have you ever had a site issue that proper coordination would have prevented? Drop it below 👇
+
+Follow @dova_futures for BIM breakdowns every Wednesday.`,
+        h:"#BIM #BuildingInformationModeling #BIMCoordination #ClashDetection #AEC #ConstructionManagement #DigitalConstruction #Revit #BIMModeling #ConstructionNigeria"
+      },
+      linkedin:{
+        c:`Clash detection. In plain terms.
+
+BIM coordination is often explained in jargon. Here's what it actually means:
+
+Every consultant draws in their own software. The structural engineer has a model. The MEP engineer has a model. The architect has a model. Historically, these were checked by printing and overlaying drawings.
+
+In BIM, you combine all three models digitally. The software identifies every point where elements from different models physically occupy the same space.
+
+That's a clash.
+
+A beam through a pipe. A duct through a column. A wall through a door swing.
+
+Every clash discovered on site costs money and time. Discovered in the model, it costs a conversation.
+
+This is why I coordinate BIM on every project. Not for the visuals. For the ₦s it saves.
+
+Planning a project and want proper coordination built in from day one? Let's talk.`,
+        h:"#BIM #BIMCoordination #ClashDetection #AEC #Construction #DigitalConstruction #Revit"
+      },
+      tiktok:{
+        c:`Clash detection in plain terms — this is why we BIM 🏗️`,
+        h:"#BIM #ConstructionTok #ArchitectTok #ClashDetection #Revit"
+      },
+      twitter:{
+        c:`Clash detection in plain terms:
+
+Overlay all models.
+Find where things conflict.
+Fix on screen, not in concrete.
+
+Beam through a pipe on screen = 5 min fix.
+Beam through a pipe on site = broken concrete + ₦₦₦.
+
+This is BIM's ROI.`,
+        h:"#BIM #Construction"
+      },
+      whatsapp:{
+        c:`Hi 👋 Posted today explaining what BIM clash detection actually means — and why it saves serious money on construction projects. Worth sharing with anyone planning a build.
+
+— Vollmann · +234 816 947 7706`,
+        h:""
+      }
+    }
+  },
+
+  // ── REMAINING DAYS — hooks + notes. Ask Claude for full captions when ready ──
+
+  {date:"2026-06-25",pillar:"Render Breakdown",format:"Reel / Video",status:"idea",hook:"From white box to photorealistic interior — here's the full process.",graphics:[],notes:"Show Revit raw model → final Lumion render. 20-30s Reel. Hook: grey model vs colour render side-by-side."},
+  {date:"2026-06-26",pillar:"Construction Insight",format:"Single Image",status:"idea",hook:"Bad drainage costs 10x more to fix after you've built. Here's what to get right.",graphics:[],notes:"Use Landscape Projects images. Teach one drainage principle from real site experience."},
+  {date:"2026-06-27",pillar:"Design Presentation",format:"Carousel",status:"idea",hook:"A loft on a compact footprint — how the brief became a building.",graphics:[],notes:"Walk through concept design thinking for the loft scheme. Asset: Concept schema projects/LOFT RAW 1.jpg"},
+  {date:"2026-06-28",pillar:"Engage / Personal",format:"Story / Status",status:"idea",hook:"What my desk looks like mid-project (spoiler: the tabs are out of control).",graphics:[],notes:"BTS photo/video of the setup. Relatable, human, low-effort."},
+  {date:"2026-06-29",pillar:"Revit Tip",format:"Carousel",status:"idea",hook:"This Revit habit stops mistakes before the drawing goes to site.",graphics:[],notes:"Show how to set up a view filter to catch untagged or wrong-phase elements. Great screen-record Reel too."},
+  {date:"2026-06-30",pillar:"Project Spotlight",format:"Carousel",status:"idea",hook:"Same house, two moods. Day and night.",graphics:[],notes:"Use Uselu Family house: COLAGE.png, NIGHT VIEW.png, Usele Hero 1.png. Tell the design story."},
+  {date:"2026-07-01",pillar:"BIM Explained",format:"Single Image",status:"idea",hook:"BIM isn't 3D. It's a database that happens to look like a building.",graphics:["graphics/output/sample-bim-quote.png"],notes:"Quote card already built. Add follow-up carousel: what the database contains and why it matters."},
+  {date:"2026-07-02",pillar:"Render Breakdown",format:"Reel / Video",status:"idea",hook:"Lighting is 80% of a render. Here's how I set it up.",graphics:[],notes:"Before/after: bad light vs good light on the same interior model."},
+  {date:"2026-07-03",pillar:"Construction Insight",format:"Carousel",status:"idea",hook:"Get the foundation sequence wrong and you can't fix it without tearing it down.",graphics:[],notes:"Teach excavation → blinding → reinforcement → pour sequence."},
+  {date:"2026-07-04",pillar:"Design Presentation",format:"Carousel",status:"idea",hook:"How do you fit 6 flats on a tight Lagos plot? You stack them right.",graphics:[],notes:"Use 6-flat ikotun lagos images. Tell the space-planning story."},
+  {date:"2026-07-05",pillar:"Engage / Personal",format:"Story / Status",status:"idea",hook:"Week 3 done. Ask me anything about BIM, design, or building in Nigeria.",graphics:[],notes:"Recap top post from the week. Invite questions for next week. Very low effort."},
+  {date:"2026-07-06",pillar:"Revit Tip",format:"Carousel",status:"idea",hook:"I stopped counting manually. Revit schedules do it live and update automatically.",graphics:[],notes:"Walk through a door/window/room schedule updating when the model changes."},
+  {date:"2026-07-07",pillar:"Project Spotlight",format:"Carousel",status:"idea",hook:"From raw site to hall of worship — the Ado Centre project.",graphics:[],notes:"Use Ado Hall of Worship hero renders + RAW photos to show the build progression."},
+  {date:"2026-07-08",pillar:"BIM Explained",format:"Carousel",status:"idea",hook:"CAD is drawing. BIM is building. Here's why that difference costs or saves millions.",graphics:[],notes:"Simple comparison: lines on screen vs parametric model with data."},
+  {date:"2026-07-09",pillar:"Render Breakdown",format:"Reel / Video",status:"idea",hook:"The aerial view that sells the masterplan before a brick is laid.",graphics:[],notes:"Use Estate Aerial Hero + Aerial Site Overview + Aerial Parking Court. Reel flyover concept."},
+  {date:"2026-07-10",pillar:"Construction Insight",format:"Single Image",status:"idea",hook:"A design change at concept costs ₦1. At construction it costs ₦1,000. Same change.",graphics:[],notes:"Cost-of-change curve. Quote card or graphic. Very shareable on LinkedIn."},
+  {date:"2026-07-11",pillar:"Design Presentation",format:"Carousel",status:"idea",hook:"A conference room that closes a deal before the meeting starts.",graphics:[],notes:"Use Ikeja conference room renders. Walk through space planning and material choices."},
+  {date:"2026-07-12",pillar:"Engage / Personal",format:"Story / Status",status:"idea",hook:"Revit or Archicad — which would you choose for a 50-unit residential project?",graphics:[],notes:"Controversial enough to drive comments. Give your own answer and reasoning in replies."},
+  {date:"2026-07-13",pillar:"Revit Tip",format:"Reel / Video",status:"idea",hook:"200 sheets renamed in 8 seconds. Not manually — with Dynamo.",graphics:[],notes:"Screen-record the Dynamo graph running. One of the clearest Revit power-user demos possible."},
+  {date:"2026-07-14",pillar:"Project Spotlight",format:"Carousel",status:"idea",hook:"Renovation is harder than building from scratch. Here's why — and how we handled it.",graphics:[],notes:"Use Akure Family Home image. Tell the renovation story: existing structure, surprises on site."},
+  {date:"2026-07-15",pillar:"BIM Explained",format:"Carousel",status:"idea",hook:"4D BIM shows you when things get built. 5D shows what they cost. Both change everything.",graphics:[],notes:"Explain time (4D) and cost (5D) dimensions simply. Use real project references. Soft offer CTA."},
+  {date:"2026-07-16",pillar:"Render Breakdown",format:"Reel / Video",status:"idea",hook:"Day render vs night render of the same space. Which one do you prefer?",graphics:[],notes:"Side-by-side or swipe/reveal. USELU NIGHT VIEW is a strong asset. Engagement CTA."},
+  {date:"2026-07-17",pillar:"Construction Insight",format:"Carousel",status:"idea",hook:"Anyone can get a building watertight. The finish is where the pros separate.",graphics:[],notes:"Cover flooring, ceiling, paint, and MEP finishing standards. What to specify and how to QC."},
+];
+
+// ── PILLAR COLOURS ────────────────────────────────────────────────────────────
+const PC = {
+  "Revit Tip":"#E8720C","Project Spotlight":"#1A56DB","BIM Explained":"#7E3AF2",
+  "Render Breakdown":"#E74694","Construction Insight":"#7D5A50",
+  "Design Presentation":"#0F9F6E","Engage / Personal":"#C27803","Order":"#E02424"
+};
+const SC = {
+  idea:{l:"Idea",c:"bi"},drafted:{l:"Drafted",c:"bd"},
+  ready:{l:"Graphic Ready",c:"br"},posted:{l:"Posted",c:"bp"}
+};
+const PL = {instagram:"Instagram",linkedin:"LinkedIn",tiktok:"TikTok",twitter:"Twitter / X",whatsapp:"WhatsApp"};
+
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+function fmtFull(d){
+  return new Date(d+"T12:00:00").toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+}
+function fmtShort(d){
+  return new Date(d+"T12:00:00").toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"});
+}
+function isToday(d){
+  const t=new Date(); const x=new Date(d+"T12:00:00");
+  return t.toDateString()===x.toDateString();
+}
+function todayPost(){
+  const t=new Date().toISOString().slice(0,10);
+  return P.find(p=>p.date===t)||P[0];
+}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+// ── STATE ─────────────────────────────────────────────────────────────────────
+let cur = todayPost();
+let tab = {};  // date → platform key
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function badge(s){
+  const x=SC[s]||SC.idea;
+  return `<span class="badge ${x.c}"><span class="badge-dot"></span>${x.l}</span>`;
+}
+function ptag(p){
+  const c=PC[p]||"#B85C38";
+  return `<span class="ptag" style="background:${c}22;color:${c}">${p}</span>`;
+}
+
+function renderGfx(post){
+  if(!post.graphics||!post.graphics.length){
+    return `<div class="gfx"><div class="gfx-lbl">Graphics</div>
+      <div class="gfx-none">No graphics built yet — ask Claude to generate them when captions are ready.</div></div>`;
+  }
+  const thumbs=post.graphics.map((g,i)=>`
+    <div class="gfx-thumb">
+      <a href="${g}" download="slide-${i+1}.png">
+        <img src="${g}" alt="Slide ${i+1}"
+             onerror="this.parentElement.innerHTML='<div style=&quot;width:70px;height:88px;background:#F0DDD8;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#B85C38;border:1px solid #D1CBC6&quot;>Slide ${i+1}</div>'">
+      </a>
+      <span>Slide ${i+1}</span>
+    </div>`).join("");
+  return `<div class="gfx"><div class="gfx-lbl">Graphics — tap to download</div>
+    <div class="gfx-row">${thumbs}</div></div>`;
+}
+
+function renderCapPanel(post, platform){
+  const c=post.cap&&post.cap[platform];
+  if(!c||!c.c){
+    return `<div class="stub">
+      <strong>Caption coming soon</strong>
+      Ask Claude to write the full captions for this day.
+      ${post.notes?`<div class="stub-notes">Notes: ${post.notes}</div>`:""}
+    </div>`;
+  }
+  const cid=`c-${platform}-${post.date}`.replace(/\W/g,"");
+  const hid=`h-${platform}-${post.date}`.replace(/\W/g,"");
+  return `
+    <div class="cblock">
+      <div class="cblock-lbl">Caption <button class="copy" onclick="cp('${cid}',this)">Copy</button></div>
+      <div class="cap-text" id="${cid}">${esc(c.c)}</div>
+    </div>
+    ${c.h?`<div class="cblock">
+      <div class="cblock-lbl">Hashtags <button class="copy" onclick="cp('${hid}',this)">Copy</button></div>
+      <div class="tag-text" id="${hid}">${esc(c.h)}</div>
+    </div>`:""}`;
+}
+
+function renderPost(post){
+  const platforms = post.cap ? Object.keys(post.cap) : ["instagram","linkedin","tiktok","twitter","whatsapp"];
+  const t = tab[post.date] || platforms[0];
+
+  const tabs=platforms.map(p=>
+    `<button class="ptab ${t===p?"on":""}" onclick="sw('${post.date}','${p}')">${PL[p]||p}</button>`
+  ).join("");
+
+  const panels=platforms.map(p=>
+    `<div class="cpanel ${t===p?"on":""}" id="pan-${p}-${post.date.replace(/\W/g,"")}">${renderCapPanel(post,p)}</div>`
+  ).join("");
+
+  document.getElementById("sec-title").textContent =
+    (isToday(post.date)?"Today · ":"")+fmtFull(post.date);
+
+  document.getElementById("post-card").innerHTML=`
+    <div class="card">
+      <div class="card-head">
+        <div class="card-top">${ptag(post.pillar)} ${badge(post.status)}</div>
+        <div class="hook">${esc(post.hook)}</div>
+        <div class="meta">${post.format}<span class="meta-sep">·</span>${(post.platforms||["All platforms"]).join(", ")}</div>
+      </div>
+      ${renderGfx(post)}
+      <div class="ptabs">${tabs}</div>
+      ${panels}
+    </div>`;
+}
+
+function renderCal(){
+  document.getElementById("cal").innerHTML=P.map(p=>`
+    <div class="ccard ${isToday(p.date)?"today":""} ${cur&&cur.date===p.date?"sel":""}"
+         onclick="sel('${p.date}')">
+      <div class="cdate">${fmtShort(p.date)}${isToday(p.date)?" · TODAY":""}</div>
+      <div class="chook">${esc(p.hook)}</div>
+      <div class="cmeta">${ptag(p.pillar)} ${badge(p.status)}</div>
+    </div>`).join("");
+}
+
+// ── ACTIONS ───────────────────────────────────────────────────────────────────
+function sel(dateStr){
+  cur=P.find(p=>p.date===dateStr);
+  renderPost(cur);
+  document.querySelectorAll(".ccard").forEach(el=>el.classList.remove("sel"));
+  event.currentTarget.classList.add("sel");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function sw(dateStr,platform){
+  tab[dateStr]=platform;
+  if(cur&&cur.date===dateStr) renderPost(cur);
+}
+
+function cp(id,btn){
+  const el=document.getElementById(id);
+  if(!el)return;
+  navigator.clipboard.writeText(el.innerText).then(()=>{
+    const prev=btn.textContent;
+    btn.textContent="Copied!"; btn.classList.add("ok");
+    setTimeout(()=>{btn.textContent=prev;btn.classList.remove("ok");},2000);
+  });
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+renderPost(cur);
+renderCal();
+</script>
+</body>
+</html>
