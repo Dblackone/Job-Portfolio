@@ -458,7 +458,7 @@ BODY = """
         <div class="role">Construction Project Manager</div>
         <div class="loc">Lagos, Nigeria · MSc CEM Candidate, UEL</div>
         <div class="pstats">
-          <div class="b"><div class="n">3+</div><div class="l">Sites managed</div></div>
+          <div class="b"><div class="n">30+</div><div class="l">Total projects</div></div>
           <div class="b"><div class="n">&#8358;350M+</div><div class="l">Project value</div></div>
           <div class="b"><div class="n">7+</div><div class="l">Years</div></div>
         </div>
@@ -506,10 +506,10 @@ BODY = """
         bridges the gap between digital model and physical delivery — ensuring
         site work is coordinated, clash-free and built to specification.</p>
       <div class="stat-grid">
-        <div class="st"><div class="n">3+</div><div class="d">Concurrent sites coordinated</div></div>
+        <div class="st"><div class="n">30+</div><div class="d">Total projects across all disciplines</div></div>
         <div class="st"><div class="n">&#8358;350M+</div><div class="d">Cumulative project value</div></div>
         <div class="st"><div class="n">&#8358;10M+</div><div class="d">Savings delivered</div></div>
-        <div class="st"><div class="n">20+</div><div class="d">Projects contributed to</div></div>
+        <div class="st"><div class="n">7+</div><div class="d">Years of experience</div></div>
       </div>
     </div>
 
@@ -606,7 +606,7 @@ BODY = """
     <li class="cur"><div class="pe">Aug 2021 – Feb 2026</div>
       <div class="ro">Project Manager / Engineering Lead</div>
       <div class="co">Nu-Avenue Company Resources</div>
-      <ul><li>Directed site delivery across 3+ concurrent projects in multiple
+      <ul><li>Directed site delivery across multiple projects in multiple
         states — commercial fit-outs, residential builds and infrastructure.</li>
         <li>Generated &#8358;10M+ in savings through procurement oversight,
           cost control and error prevention.</li>
@@ -637,8 +637,8 @@ BODY = """
   <div class="metrics">
     <div class="st"><div class="n">&#8358;350M+</div><div class="d">Total project value</div></div>
     <div class="st"><div class="n">&#8358;10M+</div><div class="d">Savings delivered</div></div>
-    <div class="st"><div class="n">20+</div><div class="d">Site projects</div></div>
-    <div class="st"><div class="n">3+</div><div class="d">Concurrent sites</div></div>
+    <div class="st"><div class="n">30+</div><div class="d">Total projects across all disciplines</div></div>
+    <div class="st"><div class="n">7+</div><div class="d">Years on site</div></div>
   </div>
   __FOOT4__
 </section>
