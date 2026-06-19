@@ -32,14 +32,14 @@
   ];
 
   const PROJECTS = [
-    { num:'01', cat:'Religious · Built', name:'Hall of Worship, Ado',
-      a:A+'Ado Hall of Worship/Image8_005.png',
-      b:A+'Ado Hall of Worship/ADO CENTER RAW 1.jpg',
-      tall:A+'Ado Hall of Worship/Ado Hero 2.png' },
-    { num:'02', cat:'Residential · Concept', name:'The Hillside Project',
-      a:A+'Hillside Project/RAW 1.jpg',
-      b:A+'Hillside Project/02 Detail Study.png',
-      tall:A+'Hillside Project/HERO IMG.png' },
+    { num:'01', cat:'Commercial · Built', name:'The Body Shop Outlets',
+      a:A+'Body Shop Outlets/body-shop-mural-display.jpeg',
+      b:A+'Body Shop Outlets/body-shop-counter-display.jpeg',
+      tall:A+'Body Shop Outlets/body-shop-retail-floor.jpeg' },
+    { num:'02', cat:'Residential · Built', name:'Ikotun Apartments, 6-Flat Block',
+      a:A+'Ikotun Apartments/ikotun-structure.jpg',
+      b:A+'Ikotun Apartments/ikotun-progress.jpg',
+      tall:A+'Ikotun Apartments/ikotun-render.png' },
     { num:'03', cat:'Residential · Built', name:'4-Bedroom Family House, Uselu',
       a:A+'Uselu Family house/USELU - NIGHT VIEW.png',
       b:A+'Uselu Family house/USELU - COLAGE.png',
