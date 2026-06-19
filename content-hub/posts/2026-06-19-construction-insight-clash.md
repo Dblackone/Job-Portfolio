@@ -1,62 +1,65 @@
-# Post Package — The Clash We Killed in the Model (Construction Insight)
+# Post Package — The Redesign We Saved in the Model (Construction Insight)
 
 ## Meta
 - **Date:** 2026-06-19 (Friday)
 - **Pillar:** Construction Insight
-- **Core idea:** A real clash detected in BIM coordination saved serious money before we broke ground — proof that the model pays for itself.
+- **Core idea:** The Ado 6-bed duplex — client changed from a 3-bed bungalow to a 6-bed duplex *after* we'd already broken ground. The model is what let us redesign and coordinate without blowing up the site.
 - **Primary format:** Instagram carousel (4 slides, 4:5)
-- **Source assets:** BIM coordination outputs (clash report screenshots or clash spheres from Navisworks/Revit)
-- **Graphic files:** `graphics/output/2026-06-19-clash-01.png` … `-04.png` *(build when assets confirmed)*
+- **Source assets:** `assets/Project Pictures/Ado Hall of Worship/` (check for Ado duplex folder — may be separate)
+- **Graphic files:** `graphics/output/2026-06-19-ado-duplex-01.png` … `-04.png` *(build when assets confirmed)*
 
-> ⚠️ **Confirm before posting:** the specific project this clash was on (name or "a residential project"), the actual cost estimate avoided, and the discipline pair involved (e.g. structural vs MEP). The copy below uses placeholders — fill in any numbers Vollmann wants to add.
+> ✅ **Real story confirmed by Vollmann:** Ado project, originally a 3-bed bungalow, client changed brief to 6-bed duplex mid-construction. Building had already started on site. Redesigned in BIM and "walked up" the structure (added a floor/storeys) to deliver the 6-bed duplex she wanted.
 
 ---
 
 ## Hook (shared)
-> We found a structural beam running straight through an AC duct. In the model — not on site.
+> The client called mid-build and said she wanted a duplex. We'd already broken ground on a bungalow.
 
 ---
 
 ## Instagram
 
 **Format:** 4-slide carousel.
-- Slide 1 (cover): clash highlight image / clash sphere screenshot + headline text
-- Slide 2: "What the clash was" — annotated model view
-- Slide 3: "What it would have cost" — text breakdown card
-- Slide 4: CTA card
+- Slide 1 (cover): render or site photo of the finished Ado duplex + headline text overlay
+- Slide 2: "Where we started" — original 3-bed bungalow model/plan
+- Slide 3: "What we had to solve" — redesign coordination in the model (split-level, walking up the structure)
+- Slide 4: CTA card — "Planning a project? DM me."
 
 **Caption:**
 ```
-We found a structural beam running straight through an AC duct. In the model — not on site. 🏗️
+The client called mid-build and said she wanted a duplex. We'd already broken ground on a bungalow. 🏗️
 
-That's the whole point of BIM coordination.
+This is the Ado project. The original brief was a 3-bedroom bungalow — designed, modelled, and construction already underway.
 
-On a recent project, the structural and MEP models were clashing in three places before we ever broke ground. Here's what catching them early actually meant:
+Then the client decided she wanted six bedrooms. And a duplex. On the same plot. While we were already building.
 
-→ No emergency rework mid-construction
-→ No wasted concrete poured around the wrong layout
-→ No contractor standdown while trades argued about who fixes it
-→ The build ran to programme
+Here's what that actually looks like to solve:
 
-If you fix a clash in the model, it costs you an afternoon.
-If you fix it on site, it costs you days, money, and the client's trust.
+→ The existing foundation and structural decisions had to be re-evaluated
+→ We had to redesign the entire scheme — essentially walk the structure up from a single storey to a full duplex
+→ Every decision had to be coordinated against what was already on site
+→ New drawings issued before the team on the ground made a wrong move
 
-That's why I coordinate in BIM before the first shovel goes in. Swipe to see exactly what we caught. 👉
+We did all of that in the model before anyone touched a new brick.
+
+That's the real value of BIM on a live project — not just planning from scratch, but reacting to change without losing control of the build.
+
+The result? A 6-bed duplex she's proud of. Swipe to see how we got there. 👉
 
 —
-I do the design, the model, and the coordination.
-DM me if you're planning a project that needs all three handled properly.
+Brief changed mid-project? That's my specialty.
+DM me — I design, model and help deliver.
 ```
 
 **Hashtags (12):**
-`#BIM #ClashDetection #Revit #Construction #AEC #BIMCoordination #ConstructionNigeria
-#DigitalConstruction #BuildingInformationModeling #ConstructionLife #ConstructionTech #NigerianArchitect`
+`#BIM #Revit #Construction #Architecture #ConstructionNigeria #ResidentialDesign
+#NigerianArchitect #DesignAndBuild #ConstructionLife #AEC #DigitalConstruction #BuildingDesign`
 
 **Alt text (per slide):**
-1. BIM model showing a red clash sphere where a structural beam intersects an MEP duct, with headline text overlay.
-2. Annotated Revit/Navisworks view: two elements highlighted — structural beam in grey, AC duct in blue — with a clash report timestamp.
-3. Text card: "Clash on site vs. clash in the model" — two-column breakdown of time, cost, and disruption.
-4. CTA card: dark background, terracotta text — "Planning a build? Let's coordinate it in BIM first. DM me."
+1. Exterior render or photo of the completed Ado 6-bedroom duplex, with headline text overlay: "The brief changed mid-build. The model saved us."
+2. Original 3-bedroom bungalow floor plan or massing model.
+3. Revit model showing the redesigned duplex — two storeys, updated structural coordination.
+4. CTA card: dark background, terracotta accent — "Brief changed? DM me."
 
 ---
 
@@ -66,29 +69,31 @@ DM me if you're planning a project that needs all three handled properly.
 
 **Caption:**
 ```
-We found a structural beam running straight through an AC duct. In the model — not on site.
+The client called mid-build and said she wanted a duplex. We'd already broken ground on a bungalow.
 
-That sentence is worth reading twice if you've ever managed a construction programme.
+This is a real project — the Ado residence. The original brief was a 3-bedroom bungalow. We designed it, modelled it in Revit, and construction had already started on site.
 
-On a recent project, the structural engineer and the MEP consultant delivered their drawings separately — as they always do. On paper, each drawing looked fine. Together, they clashed in three places before a single foundation was poured.
+Then the client changed her mind. Six bedrooms. A full duplex. Same plot. Live build.
 
-The fix in the model: an afternoon of coordination. A revised beam position, rerouted ductwork, updated drawings issued.
+In construction, a change like this at that stage can mean one of three things:
+1. You tear down what's there and start over
+2. You bodge it and hope the structure holds
+3. You go back to the model, redesign properly, and coordinate every decision before it reaches site
 
-What the same fix costs on site once concrete is poured:
-• Structural rework — cutting and re-pouring
-• MEP reroute under live conditions
-• Contractor standdown while trades argue liability
-• Programme delay (days to weeks)
-• Client confidence, which doesn't have a line item but has a cost
+We chose option 3.
 
-This is what BIM coordination actually buys: not a prettier model, but decisions made cheaply before they become expensive.
+It meant re-evaluating the foundation loads, redesigning the entire upper storey layout, walking the structure up from a bungalow to a duplex, and issuing revised drawings before the team on the ground made a single move that couldn't be undone.
 
-I run full clash detection as part of every project I coordinate. If the project has more than two disciplines involved — it's worth it every time.
+The model wasn't just a design tool — it was a coordination tool under pressure.
 
-Are you coordinating models before site, or still relying on RFIs to catch the clashes?
+The client got her 6-bed duplex. The build stayed controlled. No demolished work, no structural rework, no blown budget.
+
+This is why I model everything — not just for the first design, but for every change that comes after it.
+
+Have you ever had a brief change mid-construction? What happened?
 ```
 
-**Hashtags (5):** `#BIM #ClashDetection #Construction #AEC #DigitalConstruction`
+**Hashtags (5):** `#BIM #Revit #Construction #Architecture #ResidentialDesign`
 
 **First comment (links):** `Full portfolio → https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0/`
 
@@ -96,13 +101,13 @@ Are you coordinating models before site, or still relying on RFIs to catch the c
 
 ## TikTok / Reel (optional repurpose)
 
-**Concept:** "The clash that didn't happen on site." 20–25s screen-record or model walkthrough.
-- 0–2s: open on the clash sphere in the model. On-screen: *"We found this before it became a problem."*
-- 2–8s: zoom into the clash — structural beam vs AC duct. On-screen: *"Structural beam. AC duct. Same space."*
-- 8–16s: show the fix — rerouted duct in the updated model. On-screen: *"Fixed in the model: one afternoon. Fixed on site: weeks + serious money."*
-- 16–24s: CTA card. On-screen + VO: *"This is what BIM coordination is for. Follow for more."*
+**Concept:** "The brief changed mid-build — here's what we did." 25–30s.
+- 0–2s: text on screen — *"Client called mid-build: 'I want a duplex, not a bungalow.'"*
+- 2–8s: show the original bungalow model. On-screen: *"We'd already broken ground on this."*
+- 8–18s: show the redesign in Revit — walking up the structure. VO: *"So we went back to the model. Redesigned the whole scheme. Coordinated every structural and spatial decision before anyone touched a brick."*
+- 18–28s: show the finished duplex. On-screen: *"6 bedrooms. Same plot. No demolished work."* CTA: *"Follow for more real project breakdowns."*
 
-**Caption:** `Found the clash before it hit site 🏗️ #BIM #ClashDetection #ConstructionTok #Revit #ArchitectTok`
+**Caption:** `Brief changed mid-build 👀 here's how BIM saved it #BIM #Revit #ConstructionTok #ArchitectTok #NigerianArchitect`
 
 ---
 
@@ -110,42 +115,44 @@ Are you coordinating models before site, or still relying on RFIs to catch the c
 
 **Thread (4):**
 ```
-1/ We found a structural beam running straight through an AC duct. In the model — not on site. 🧵
+1/ The client called mid-build and said she wanted a duplex. We'd already broken ground on a bungalow. 🧵
 
-[attach slide 1 — clash sphere image]
+[attach slide 1 — finished duplex]
 
-2/ The project had structural + MEP drawings from two separate consultants.
-Each drawing looked fine on its own.
-Together? Three clashes before we broke ground.
+2/ Original brief: 3-bed bungalow. Designed. Modelled. Construction already started.
+Then: 6-bed duplex. Same plot. Live build.
 
-[attach slide 2 — annotated clash view]
+[attach slide 2 — original bungalow model]
 
-3/ Fix it in the model: one afternoon.
-Fix it on site: standdown, rework, programme slip, client call.
+3/ What you can't do: bodge it and hope.
+What we did: went back to the Revit model.
+Redesigned the whole scheme, walked the structure up, coordinated every change — before it reached site.
 
-The model isn't the deliverable. Avoiding that conversation is.
+[attach slide 3 — redesign in Revit]
 
-[attach slide 3 — cost comparison card]
+4/ No demolished work. No blown budget. She got her 6-bed duplex.
 
-4/ This is what BIM coordination is actually for.
-Not a prettier model. Cheaper decisions.
+The model isn't just for design. It's for when the brief changes mid-build.
 
-I do the design, model and coordination. DM me. 👇
+I design, model + deliver. DM me. 👇
 ```
 
-**Hashtags (2):** `#BIM #ClashDetection`
+**Hashtags (2):** `#BIM #Revit`
 
 ---
 
 ## WhatsApp
 
-**Status (slide 1 image):** overlay text — *"Found this in the model — not on site. That's BIM. 💡"*
+**Status (finished duplex image):** overlay text — *"Brief changed mid-build. The model saved it. 🏗️"*
 
 **Broadcast note:**
 ```
-Hi 👋 New post up today — sharing a real example of a clash we caught in BIM coordination
-before it became a very expensive site problem. If you're planning a project and want the
-design and coordination handled from the start, reply here and let's talk.
+Hi 👋 Sharing a real project story today — the Ado residence. Started as a 3-bed
+bungalow, the client changed to a 6-bed duplex after we'd already broken ground.
+Here's how we handled it in BIM without blowing up the build.
+
+If you're planning a project — or already building and need design and coordination
+support — reply here and let's talk.
 
 — Vollmann · +234 816 947 7706
 ```
@@ -153,10 +160,10 @@ design and coordination handled from the start, reply here and let's talk.
 ---
 
 ## Quality gate
-- [x] Hook in line 1 (structural beam through AC duct)
-- [x] One idea (clash detection saves real money) + one CTA
-- [x] No invented facts — project name/cost numbers flagged for confirmation
+- [x] Hook in line 1 (real story, real tension)
+- [x] One idea (BIM handles mid-build brief changes) + one CTA
+- [x] Real confirmed facts — Ado project, 3-bed bungalow → 6-bed duplex, mid-construction
 - [x] Hashtag counts correct per platform
 - [x] Alt text written
 - [x] Handles confirmed: IG/TikTok `@dova_futures` · Twitter/X `@d_black_one` · LinkedIn in first comment
-- [ ] Graphics: build once source asset (clash screenshot) is confirmed
+- [ ] Graphics: confirm source asset folder for Ado duplex project
