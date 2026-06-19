@@ -390,8 +390,8 @@ BODY = """
         BIM coordination and construction management across residential,
         commercial and infrastructure projects in Nigeria.</p>
       <ul class="hero-points">
-        <li>5+ years of progressive construction &amp; site leadership</li>
-        <li>20+ concurrent sites coordinated across multiple states</li>
+        <li>7+ years of progressive construction &amp; site leadership</li>
+        <li>3+ concurrent sites coordinated across multiple states</li>
         <li>&#8358;350M+ cumulative project value · &#8358;10M+ savings delivered</li>
         <li>MSc Construction Engineering Management — UEL, London</li>
       </ul>
@@ -405,9 +405,9 @@ BODY = """
         <div class="role">Construction Project Manager</div>
         <div class="loc">Lagos, Nigeria · MSc CEM Candidate, UEL</div>
         <div class="pstats">
-          <div class="b"><div class="n">20+</div><div class="l">Sites managed</div></div>
+          <div class="b"><div class="n">3+</div><div class="l">Sites managed</div></div>
           <div class="b"><div class="n">&#8358;350M+</div><div class="l">Project value</div></div>
-          <div class="b"><div class="n">5+</div><div class="l">Years</div></div>
+          <div class="b"><div class="n">7+</div><div class="l">Years</div></div>
         </div>
         <div class="psw">
           <span>Revit</span><span>Navisworks</span><span>AutoCAD</span>
@@ -441,10 +441,10 @@ BODY = """
   <div class="about">
     <div>
       <p>Vollmann Olamide Akarakiri is a results-driven Construction Project
-        Manager and BIM Specialist with 5+ years delivering residential,
+        Manager and BIM Specialist with 7+ years delivering residential,
         commercial and infrastructure projects from planning through completion
         across multiple Nigerian states.</p>
-      <p>He has coordinated 20+ concurrent project sites simultaneously and
+      <p>He has coordinated 3+ concurrent project sites simultaneously and
         contributed to projects exceeding &#8358;350 million in cumulative value
         — generating over &#8358;10 million in cost savings through procurement
         oversight, error prevention and rigorous cost control.</p>
@@ -453,10 +453,10 @@ BODY = """
         advanced BIM capability in Revit, Dynamo, Navisworks and AutoCAD for
         coordinated model delivery and construction documentation.</p>
       <div class="stat-grid">
-        <div class="st"><div class="n">20+</div><div class="d">Concurrent sites coordinated</div></div>
+        <div class="st"><div class="n">3+</div><div class="d">Concurrent sites coordinated</div></div>
         <div class="st"><div class="n">&#8358;350M+</div><div class="d">Cumulative project value</div></div>
         <div class="st"><div class="n">&#8358;10M+</div><div class="d">Savings delivered</div></div>
-        <div class="st"><div class="n">110+</div><div class="d">Projects contributed to</div></div>
+        <div class="st"><div class="n">20+</div><div class="d">Projects contributed to</div></div>
       </div>
     </div>
 
@@ -549,14 +549,14 @@ BODY = """
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Career History</p>
     <h2>Professional Experience</h2>
-    <p class="sub">5+ years of progressive responsibility across construction,
+    <p class="sub">7+ years of progressive responsibility across construction,
       site engineering and BIM delivery — from intern to Engineering Lead.</p></div>
 
   <ul class="tl">
     <li class="cur"><div class="pe">Aug 2021 – Feb 2026</div>
       <div class="ro">Project Manager / Engineering Lead</div>
       <div class="co">Nu-Avenue Company Resources</div>
-      <ul><li>Directed construction delivery across 20+ concurrent sites in
+      <ul><li>Directed construction delivery across 3+ concurrent sites in
         multiple states, contributing to projects exceeding &#8358;350M in value.</li>
         <li>Generated over &#8358;10M in savings through cost control, vendor
           coordination and error prevention.</li>
@@ -567,7 +567,7 @@ BODY = """
     <li><div class="pe">Jun 2020 – Aug 2021</div>
       <div class="ro">Site Engineer / Assistant Technical Designer</div>
       <div class="co">Nature's Beauty Construction</div>
-      <ul><li>Planned and supervised 110+ site-development and landscape
+      <ul><li>Planned and supervised site-development and landscape
         projects across multiple Nigerian states.</li>
         <li>Produced full detailing packages for 10+ residential properties.</li>
         <li>Trained 5+ employees; contributed to business opportunities
@@ -587,7 +587,7 @@ BODY = """
   <div class="metrics">
     <div class="st"><div class="n">&#8358;350M+</div><div class="d">Total project value</div></div>
     <div class="st"><div class="n">&#8358;10M+</div><div class="d">Savings generated</div></div>
-    <div class="st"><div class="n">110+</div><div class="d">Projects delivered</div></div>
+    <div class="st"><div class="n">20+</div><div class="d">Projects delivered</div></div>
     <div class="st"><div class="n">30+</div><div class="d">BIM models produced</div></div>
   </div>
   __FOOT4__
@@ -604,10 +604,10 @@ BODY = """
   <div class="cards">
     <div class="card"><div class="top"></div><div class="bd">
       <div class="ic">&#9670;</div><h3>Construction Project Management</h3>
-      <p>End-to-end construction programme management across 20+ concurrent
+      <p>End-to-end construction programme management across 3+ concurrent
         sites — planning, procurement, budgeting, contractor coordination,
         quality control and HSE oversight.</p>
-      <div class="tag">20+ CONCURRENT SITES MANAGED</div></div></div>
+      <div class="tag">3+ CONCURRENT SITES MANAGED</div></div></div>
     <div class="card"><div class="top"></div><div class="bd">
       <div class="ic">&#9671;</div><h3>BIM &amp; Digital Construction</h3>
       <p>Advanced BIM modelling in Revit, Dynamo automation, Navisworks
@@ -622,10 +622,10 @@ BODY = """
       <div class="tag">STRUCTURES · DRAINAGE · FINISHES</div></div></div>
     <div class="card"><div class="top"></div><div class="bd">
       <div class="ic">&#9650;</div><h3>Landscape &amp; Site Development</h3>
-      <p>110+ site-development and landscape projects — master planning,
+      <p>Site-development and landscape projects — master planning,
         hardscape, softscape, drainage integration, site beautification
         and civil works.</p>
-      <div class="tag">110+ SITE &amp; LANDSCAPE PROJECTS</div></div></div>
+      <div class="tag">SITE &amp; LANDSCAPE WORK</div></div></div>
     <div class="card"><div class="top"></div><div class="bd">
       <div class="ic">&#9632;</div><h3>Residential Building Projects</h3>
       <p>Residential design and delivery from schematic concept through
@@ -674,7 +674,7 @@ BODY = """
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 02</p>
     <h2>Landscape &amp; Site Development</h2>
-    <p class="sub">110+ site-development and landscape projects — master
+    <p class="sub">Site-development and landscape projects — master
       planning, hardscape and softscape integration, site infrastructure
       and visualisation across multiple states.</p></div>
 

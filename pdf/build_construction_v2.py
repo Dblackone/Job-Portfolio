@@ -458,9 +458,9 @@ BODY = """
         <div class="role">Construction Project Manager</div>
         <div class="loc">Lagos, Nigeria · MSc CEM Candidate, UEL</div>
         <div class="pstats">
-          <div class="b"><div class="n">20+</div><div class="l">Sites managed</div></div>
+          <div class="b"><div class="n">3+</div><div class="l">Sites managed</div></div>
           <div class="b"><div class="n">&#8358;350M+</div><div class="l">Project value</div></div>
-          <div class="b"><div class="n">5+</div><div class="l">Years</div></div>
+          <div class="b"><div class="n">7+</div><div class="l">Years</div></div>
         </div>
         <div class="psw">
           <span>Revit</span><span>AutoCAD</span><span>Navisworks</span>
@@ -494,7 +494,7 @@ BODY = """
   <div class="about">
     <div>
       <p>Vollmann Olamide Akarakiri is a Construction Project Manager and Site
-        Engineer with 5+ years delivering physical construction and fit-out
+        Engineer with 7+ years delivering physical construction and fit-out
         projects across commercial, residential and infrastructure sectors in
         Nigeria.</p>
       <p>His site experience spans retail fit-outs for international brands,
@@ -506,10 +506,10 @@ BODY = """
         bridges the gap between digital model and physical delivery — ensuring
         site work is coordinated, clash-free and built to specification.</p>
       <div class="stat-grid">
-        <div class="st"><div class="n">20+</div><div class="d">Concurrent sites coordinated</div></div>
+        <div class="st"><div class="n">3+</div><div class="d">Concurrent sites coordinated</div></div>
         <div class="st"><div class="n">&#8358;350M+</div><div class="d">Cumulative project value</div></div>
         <div class="st"><div class="n">&#8358;10M+</div><div class="d">Savings delivered</div></div>
-        <div class="st"><div class="n">110+</div><div class="d">Projects contributed to</div></div>
+        <div class="st"><div class="n">20+</div><div class="d">Projects contributed to</div></div>
       </div>
     </div>
 
@@ -599,14 +599,14 @@ BODY = """
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Career History</p>
     <h2>Professional Experience</h2>
-    <p class="sub">5+ years on site — from intern to Engineering Lead,
+    <p class="sub">7+ years on site — from intern to Engineering Lead,
       across commercial fit-outs, residential structures and infrastructure.</p></div>
 
   <ul class="tl">
     <li class="cur"><div class="pe">Aug 2021 – Feb 2026</div>
       <div class="ro">Project Manager / Engineering Lead</div>
       <div class="co">Nu-Avenue Company Resources</div>
-      <ul><li>Directed site delivery across 20+ concurrent projects in multiple
+      <ul><li>Directed site delivery across 3+ concurrent projects in multiple
         states — commercial fit-outs, residential builds and infrastructure.</li>
         <li>Generated &#8358;10M+ in savings through procurement oversight,
           cost control and error prevention.</li>
@@ -617,7 +617,7 @@ BODY = """
     <li><div class="pe">Jun 2020 – Aug 2021</div>
       <div class="ro">Site Engineer / Assistant Technical Designer</div>
       <div class="co">Nature's Beauty Construction</div>
-      <ul><li>Planned and supervised 110+ site-development and landscape
+      <ul><li>Planned and supervised site-development and landscape
         projects across multiple Nigerian states.</li>
         <li>Produced detailing packages for 10+ residential properties.</li>
         <li>Trained 5+ site operatives; contributed to &#8358;20M+ business
@@ -637,8 +637,8 @@ BODY = """
   <div class="metrics">
     <div class="st"><div class="n">&#8358;350M+</div><div class="d">Total project value</div></div>
     <div class="st"><div class="n">&#8358;10M+</div><div class="d">Savings delivered</div></div>
-    <div class="st"><div class="n">110+</div><div class="d">Site projects</div></div>
-    <div class="st"><div class="n">20+</div><div class="d">Concurrent sites</div></div>
+    <div class="st"><div class="n">20+</div><div class="d">Site projects</div></div>
+    <div class="st"><div class="n">3+</div><div class="d">Concurrent sites</div></div>
   </div>
   __FOOT4__
 </section>

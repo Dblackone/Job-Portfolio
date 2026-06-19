@@ -370,7 +370,7 @@ BODY = """
         <div class="loc">Lagos, Nigeria · MSc CEM Candidate, UEL</div>
         <div class="pstats">
           <div class="b"><div class="n">10+</div><div class="l">Interior projects</div></div>
-          <div class="b"><div class="n">5+</div><div class="l">Years practice</div></div>
+          <div class="b"><div class="n">7+</div><div class="l">Years practice</div></div>
           <div class="b"><div class="n">3D</div><div class="l">Visualisation</div></div>
         </div>
         <div class="psw">
@@ -406,7 +406,7 @@ BODY = """
     <div>
       <p>Vollmann Olamide Akarakiri is a multidisciplinary design professional
         specialising in interior design, space planning, and 3D visualisation.
-        With 5+ years in the built environment, he brings architectural rigour
+        With 7+ years in the built environment, he brings architectural rigour
         and creative vision to every interior — from intimate residential spaces
         to large corporate fit-outs.</p>
       <p>He has delivered interior design solutions for residential living rooms,
@@ -420,7 +420,7 @@ BODY = """
       <div class="stat-grid">
         <div class="st"><div class="n">10+</div><div class="d">Interior projects delivered</div></div>
         <div class="st"><div class="n">30+</div><div class="d">BIM models produced</div></div>
-        <div class="st"><div class="n">5+</div><div class="d">Years of design experience</div></div>
+        <div class="st"><div class="n">7+</div><div class="d">Years of design experience</div></div>
         <div class="st"><div class="n">2</div><div class="d">Typologies — residential &amp; corporate</div></div>
       </div>
     </div>
