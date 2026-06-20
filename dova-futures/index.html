@@ -1,544 +1,521 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DOVA Futures Limited — Premium design-build construction, interior, and development company in Nigeria. Designed with intent. Built with precision." />
   <title>DOVA Futures — Designed With Intent. Built With Precision.</title>
-  <meta name="description" content="DOVA Futures Limited — integrated design-build construction, interior, and development company across Nigeria. Rethink the future." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dova.css" />
 </head>
 <body>
 
-  <!-- ════ NAV ════ -->
-  <header class="nav" id="nav">
+  <!-- ══════════════════ NAV ══════════════════ -->
+  <nav class="nav">
     <div class="container">
-      <div class="nav__inner">
-        <a href="#hero" class="nav__logo">
-          <img src="assets/logo/DOVA Logo - W.png" alt="DOVA Futures" />
-        </a>
-        <nav>
-          <ul class="nav__links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#process">Process</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="nav__cta">
-          <a href="#contact" class="btn btn--primary btn--sm">Get a Quote</a>
-        </div>
-        <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+      <a href="#" class="nav__logo" data-go="home">
+        <img src="assets/logo/DOVA Logo - W.png" alt="DOVA Futures" />
+      </a>
+      <div class="nav__links">
+        <a href="#" class="nav__link active" data-navlink="home" data-go="home">Home</a>
+        <a href="#" class="nav__link" data-navlink="services" data-go="home">Services</a>
+        <a href="#" class="nav__link" data-navlink="projects" data-go="projects">Projects</a>
+        <a href="#" class="nav__link" data-navlink="contact" data-go="contact">Contact</a>
+        <a href="#" class="btn btn--cream btn--sm" data-go="contact">Start a Project</a>
       </div>
-      <nav class="nav__mobile" id="mobile-menu">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
-        <a href="#contact" class="btn btn--primary">Get a Quote</a>
-      </nav>
     </div>
-  </header>
+  </nav>
 
-  <!-- ════ HERO ════ -->
-  <section class="hero blueprint-grid" id="hero">
-    <div class="container">
+  <!-- ══════════════════ PAGE: HOME ══════════════════ -->
+  <div class="page" data-page="home">
+
+    <!-- HERO -->
+    <section class="hero grid-bg">
+      <div id="hero-slider" class="hero__slider">
+        <img src="assets/projects/ado-hall/after.png" class="hero__img-render" alt="DOVA Futures render" />
+        <div class="hero__img-draft-wrap">
+          <img src="assets/projects/ado-hall/before.jpg" class="hero__img-draft" alt="Draft" />
+        </div>
+        <div class="hero__overlay"></div>
+        <div id="slider-handle" class="hero__handle">
+          <span class="hero__handle-label hero__handle-label--left">Draft</span>
+          <div class="hero__handle-circle">&#8660;</div>
+          <span class="hero__handle-label hero__handle-label--right">Render</span>
+        </div>
+      </div>
       <div class="hero__content">
-
-        <div class="hero__text">
-          <span class="eyebrow eyebrow--light hero__eyebrow" data-fade data-delay="0">
-            Design &amp; Build · Lagos, Nigeria
-          </span>
-          <h1 class="hero__headline" data-fade data-delay="0.1">
-            Designed With Intent.<br>Built With Precision.
-          </h1>
-          <p class="hero__sub" data-fade data-delay="0.22">
-            Rethink the future &mdash; integrated design and construction excellence,
-            engineered for precision.
-          </p>
-          <div class="hero__actions" data-fade data-delay="0.34">
-            <a href="#contact" class="btn btn--primary btn--lg">Let&rsquo;s Build It Properly.</a>
-            <a href="#projects" class="btn btn--outline-light btn--lg">View Our Projects</a>
-          </div>
-
-          <div class="hero__stats" data-fade data-delay="0.46">
-            <div>
-              <div class="hero__stat-num">20+</div>
-              <div class="hero__stat-label">Concurrent Sites</div>
-            </div>
-            <div>
-              <div class="hero__stat-num">&#8358;350M+</div>
-              <div class="hero__stat-label">Project Value</div>
-            </div>
-            <div>
-              <div class="hero__stat-num">5</div>
-              <div class="hero__stat-label">Step Process</div>
+        <div class="container">
+          <div class="hero__inner">
+            <span class="eyebrow eyebrow--green300 reveal" style="margin-bottom:22px;display:block;">Design&#8211;Build Excellence</span>
+            <h1 class="hero__h1 reveal reveal-delay-1">DESIGNED WITH INTENT.<br/>BUILT WITH PRECISION.</h1>
+            <p class="hero__sub reveal reveal-delay-2">Rethink the future — integrated design and construction excellence, engineered for precision across Nigeria.</p>
+            <div class="hero__btns reveal reveal-delay-3">
+              <a href="#" class="btn btn--cream btn--lg" data-go="contact">Start Your Project</a>
+              <a href="#" class="btn btn--outline-light btn--lg" data-go="projects">View Portfolio</a>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Before / After Reveal Slider -->
-        <div class="reveal-slider" id="reveal-slider" data-fade data-delay="0.2">
-          <div class="reveal-slider__after">
-            <img src="assets/projects/ado-hall/after.png" alt="After render — Ado Hall renovation" draggable="false" />
-          </div>
-          <div class="reveal-slider__before" id="slider-before">
-            <div class="reveal-slider__before-inner" id="slider-before-inner">
-              <img src="assets/projects/ado-hall/before.jpg" alt="Before — Ado Hall original state" draggable="false" />
+    <!-- ABOUT -->
+    <section class="section section--darker">
+      <div class="container">
+        <div class="grid-2">
+          <div class="reveal">
+            <div class="section-header section-header--dark" style="margin-bottom:24px;">
+              <span class="eyebrow eyebrow--green300">Who We Are</span>
+              <h2>BUILDING TOMORROW'S LANDMARKS</h2>
+            </div>
+            <p style="font-size:17px;line-height:1.75;color:var(--text-on-dark-mut);">
+              DOVA Futures is a premier design&#8211;build construction company delivering exceptional architectural and construction services across Nigeria. We combine innovative design with superior craftsmanship to transform ambitious visions into remarkable structures.
+            </p>
+            <div class="about__stats">
+              <div class="reveal reveal-delay-1">
+                <div class="stat__value">20+</div>
+                <div class="stat__label">Sites managed</div>
+              </div>
+              <div class="reveal reveal-delay-2">
+                <div class="stat__value stat__value--accent">&#8358;350M+</div>
+                <div class="stat__label">Project value</div>
+              </div>
+              <div class="reveal reveal-delay-3">
+                <div class="stat__value">5+</div>
+                <div class="stat__label">Years delivering</div>
+              </div>
             </div>
           </div>
-          <div class="reveal-slider__divider" id="slider-divider"></div>
-          <div class="reveal-slider__handle" id="slider-handle">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="15 18 9 12 15 6"></polyline>
-              <polyline points="9 18 3 12 9 6" transform="translate(12,0)"></polyline>
-            </svg>
-          </div>
-          <div class="reveal-slider__labels">
-            <span class="reveal-slider__label">Draft</span>
-            <span class="reveal-slider__label">Render</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ ABOUT ════ -->
-  <section class="section" id="about" style="background:var(--green-900);">
-    <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;" class="about-grid">
-        <div data-fade>
-          <span class="eyebrow eyebrow--light">Who We Are</span>
-          <h2 style="font-family:var(--font-display);font-size:var(--fs-display-lg);letter-spacing:var(--tracking-display);color:var(--cream);line-height:1;margin-bottom:24px;">
-            Design &amp; Construction Under One Roof.
-          </h2>
-          <p style="font-size:17px;line-height:1.75;color:rgba(245,239,232,0.68);margin-bottom:20px;">
-            We eliminate the disconnect between architectural drawings and on-site execution.
-            DOVA Futures delivers integrated design-build construction across Nigeria &mdash;
-            architectural planning, full-scale construction, premium interior fit-outs, renovations,
-            landscaping, and real-estate development.
-          </p>
-          <p style="font-size:17px;line-height:1.75;color:rgba(245,239,232,0.68);margin-bottom:36px;">
-            BIM-led, technology-driven project delivery gives our clients predictable budgets,
-            transparent timelines, and exceptional outcomes &mdash; every time.
-          </p>
-          <a href="#contact" class="btn btn--outline-light">Let&rsquo;s Discuss Your Project</a>
-        </div>
-        <div data-fade data-delay="0.15" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-          <div style="padding:32px 24px;border:1px solid var(--border-dark);border-radius:var(--radius-lg);background:rgba(245,239,232,0.03);">
-            <div style="font-family:var(--font-display);font-size:48px;letter-spacing:var(--tracking-display);color:var(--green-300);line-height:1;margin-bottom:8px;">2019</div>
-            <div style="font-size:13px;color:rgba(245,239,232,0.5);text-transform:uppercase;letter-spacing:0.1em;">Founded</div>
-          </div>
-          <div style="padding:32px 24px;border:1px solid var(--border-dark);border-radius:var(--radius-lg);background:rgba(245,239,232,0.03);">
-            <div style="font-family:var(--font-display);font-size:48px;letter-spacing:var(--tracking-display);color:var(--green-300);line-height:1;margin-bottom:8px;">Lagos</div>
-            <div style="font-size:13px;color:rgba(245,239,232,0.5);text-transform:uppercase;letter-spacing:0.1em;">HQ</div>
-          </div>
-          <div style="padding:32px 24px;border:1px solid var(--border-dark);border-radius:var(--radius-lg);background:rgba(245,239,232,0.03);">
-            <div style="font-family:var(--font-display);font-size:48px;letter-spacing:var(--tracking-display);color:var(--green-300);line-height:1;margin-bottom:8px;">BIM</div>
-            <div style="font-size:13px;color:rgba(245,239,232,0.5);text-transform:uppercase;letter-spacing:0.1em;">Led Delivery</div>
-          </div>
-          <div style="padding:32px 24px;border:1px solid var(--border-dark);border-radius:var(--radius-lg);background:rgba(245,239,232,0.03);">
-            <div style="font-family:var(--font-display);font-size:48px;letter-spacing:var(--tracking-display);color:var(--green-300);line-height:1;margin-bottom:8px;">5+</div>
-            <div style="font-size:13px;color:rgba(245,239,232,0.5);text-transform:uppercase;letter-spacing:0.1em;">States</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ SERVICES ════ -->
-  <section class="section services" id="services">
-    <div class="container">
-      <div class="section-header" data-fade>
-        <span class="eyebrow eyebrow--light">What We Do</span>
-        <h2 class="section-header__headline" style="color:var(--cream);">OUR CORE SERVICES</h2>
-        <p class="section-header__sub" style="color:rgba(245,239,232,0.65);">
-          Integrated services from concept to handover &mdash; design, build, and finish under one roof.
-        </p>
-      </div>
-      <div class="services__grid">
-
-        <div class="service-card" data-fade data-delay="0">
-          <div class="service-card__icon">
-            <i data-lucide="building-2"></i>
-          </div>
-          <div class="service-card__title">Architectural Design</div>
-          <p class="service-card__desc">Concept-to-detail design development that translates client vision into buildable, code-compliant architecture with precision documentation.</p>
-        </div>
-
-        <div class="service-card" data-fade data-delay="0.08">
-          <div class="service-card__icon">
-            <i data-lucide="layers"></i>
-          </div>
-          <div class="service-card__title">BIM Coordination</div>
-          <p class="service-card__desc">Revit-based BIM modeling, clash detection, and multi-discipline coordination to keep projects accurate, on budget, and on schedule.</p>
-        </div>
-
-        <div class="service-card" data-fade data-delay="0.16">
-          <div class="service-card__icon">
-            <i data-lucide="hard-hat"></i>
-          </div>
-          <div class="service-card__title">Construction PM</div>
-          <p class="service-card__desc">On-site and remote project oversight covering scheduling, budgeting, quality control, and stakeholder communication from ground-break to handover.</p>
-        </div>
-
-        <div class="service-card" data-fade data-delay="0.24">
-          <div class="service-card__icon">
-            <i data-lucide="eye"></i>
-          </div>
-          <div class="service-card__title">3D Visualization</div>
-          <p class="service-card__desc">Photorealistic interior and exterior renders that help clients see and approve their space before a single block is laid.</p>
-        </div>
-
-        <div class="service-card" data-fade data-delay="0.32">
-          <div class="service-card__icon">
-            <i data-lucide="sofa"></i>
-          </div>
-          <div class="service-card__title">Interior Design</div>
-          <p class="service-card__desc">Space planning, material selection, and finish specifications that transform structural shells into refined, liveable environments.</p>
-        </div>
-
-        <div class="service-card" data-fade data-delay="0.40">
-          <div class="service-card__icon">
-            <i data-lucide="trees"></i>
-          </div>
-          <div class="service-card__title">Landscape Design</div>
-          <p class="service-card__desc">Landscape concepts, planting plans, and hardscape detailing that complete a project from structure to external finish.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ PROJECTS ════ -->
-  <section class="section projects-section" id="projects">
-    <div class="container">
-      <div class="section-header" data-fade>
-        <span class="eyebrow eyebrow--clay">Our Work</span>
-        <h2 class="section-header__headline">FEATURED PROJECTS</h2>
-        <p class="section-header__sub" style="color:var(--slate);">
-          A selection of completed and in-progress projects across construction, interior, and landscape.
-        </p>
-      </div>
-
-      <div class="filter-bar" data-fade>
-        <button class="filter-btn is-active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="construction">Construction</button>
-        <button class="filter-btn" data-filter="interior">Interior</button>
-        <button class="filter-btn" data-filter="landscape">Landscape</button>
-      </div>
-
-      <div class="projects-grid" id="projects-grid">
-
-        <!-- Ado Hall — real project images -->
-        <div class="project-card" data-category="construction interior" data-fade data-delay="0">
-          <img src="assets/projects/ado-hall/after.png" alt="Ado Hall Renovation" loading="lazy" />
-          <div class="project-card__overlay"></div>
-          <div class="project-card__caption">
-            <span class="project-card__category">Construction &middot; Interior</span>
-            <div class="project-card__name">Ado Hall Renovation</div>
-          </div>
-        </div>
-
-        <!-- Placeholder cards -->
-        <div class="project-card" data-category="construction" data-fade data-delay="0.08">
-          <div class="project-card__placeholder">
-            <i data-lucide="building" style="width:48px;height:48px;stroke-width:1;opacity:0.4;color:var(--green-400);"></i>
-            <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,239,232,0.4);">Coming Soon</span>
-          </div>
-          <div class="project-card__overlay"></div>
-          <div class="project-card__caption">
-            <span class="project-card__category">Construction</span>
-            <div class="project-card__name">Lekki Residential Build</div>
-          </div>
-        </div>
-
-        <div class="project-card" data-category="interior" data-fade data-delay="0.16">
-          <div class="project-card__placeholder">
-            <i data-lucide="sofa" style="width:48px;height:48px;stroke-width:1;opacity:0.4;color:var(--green-400);"></i>
-            <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,239,232,0.4);">Coming Soon</span>
-          </div>
-          <div class="project-card__overlay"></div>
-          <div class="project-card__caption">
-            <span class="project-card__category">Interior</span>
-            <div class="project-card__name">Ikoyi Penthouse Fit-Out</div>
-          </div>
-        </div>
-
-        <div class="project-card" data-category="landscape" data-fade data-delay="0.24">
-          <div class="project-card__placeholder">
-            <i data-lucide="trees" style="width:48px;height:48px;stroke-width:1;opacity:0.4;color:var(--green-400);"></i>
-            <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,239,232,0.4);">Coming Soon</span>
-          </div>
-          <div class="project-card__overlay"></div>
-          <div class="project-card__caption">
-            <span class="project-card__category">Landscape</span>
-            <div class="project-card__name">Victoria Island Courtyard</div>
-          </div>
-        </div>
-
-        <div class="project-card" data-category="construction" data-fade data-delay="0.32">
-          <div class="project-card__placeholder">
-            <i data-lucide="warehouse" style="width:48px;height:48px;stroke-width:1;opacity:0.4;color:var(--green-400);"></i>
-            <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,239,232,0.4);">Coming Soon</span>
-          </div>
-          <div class="project-card__overlay"></div>
-          <div class="project-card__caption">
-            <span class="project-card__category">Construction</span>
-            <div class="project-card__name">Ondo Commercial Complex</div>
-          </div>
-        </div>
-
-        <div class="project-card" data-category="interior construction" data-fade data-delay="0.40">
-          <div class="project-card__placeholder">
-            <i data-lucide="home" style="width:48px;height:48px;stroke-width:1;opacity:0.4;color:var(--green-400);"></i>
-            <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,239,232,0.4);">Coming Soon</span>
-          </div>
-          <div class="project-card__overlay"></div>
-          <div class="project-card__caption">
-            <span class="project-card__category">Construction &middot; Interior</span>
-            <div class="project-card__name">Ekiti Duplex Development</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ PROCESS ════ -->
-  <section class="section process-section" id="process">
-    <div class="container">
-      <div class="section-header" data-fade>
-        <span class="eyebrow eyebrow--light">How We Work</span>
-        <h2 class="section-header__headline" style="color:var(--cream);">OUR 5-STEP PROCESS</h2>
-        <p class="section-header__sub" style="color:rgba(245,239,232,0.65);">
-          A structured, transparent workflow that eliminates surprises and delivers results.
-        </p>
-      </div>
-      <div class="process-list">
-
-        <div class="process-step" data-fade data-delay="0">
-          <div class="process-step__num">01</div>
-          <div class="process-step__title">Brief &amp; Discovery</div>
-          <p class="process-step__desc">We listen to your vision, assess the site, and establish project scope, timeline, and budget parameters together.</p>
-        </div>
-
-        <div class="process-step" data-fade data-delay="0.1">
-          <div class="process-step__num">02</div>
-          <div class="process-step__title">Design Development</div>
-          <p class="process-step__desc">Concept designs evolve into full BIM models &mdash; coordinated, clash-free, and ready for client approval with photorealistic renders.</p>
-        </div>
-
-        <div class="process-step" data-fade data-delay="0.2">
-          <div class="process-step__num">03</div>
-          <div class="process-step__title">Documentation</div>
-          <p class="process-step__desc">Detailed construction drawings, specifications, and BOQs issued &mdash; everything contractors need to build exactly as designed.</p>
-        </div>
-
-        <div class="process-step" data-fade data-delay="0.3">
-          <div class="process-step__num">04</div>
-          <div class="process-step__title">Construction</div>
-          <p class="process-step__desc">On-site supervision, quality audits, and weekly progress reporting keep your project on schedule and on budget.</p>
-        </div>
-
-        <div class="process-step" data-fade data-delay="0.4">
-          <div class="process-step__num">05</div>
-          <div class="process-step__title">Handover</div>
-          <p class="process-step__desc">Snagging, final inspections, as-built documentation, and a structured handover &mdash; so you receive your space exactly as promised.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ WHY US ════ -->
-  <section class="section why-section" id="why-us">
-    <div class="container">
-      <div class="section-header" data-fade>
-        <span class="eyebrow eyebrow--clay">Our Advantage</span>
-        <h2 class="section-header__headline">WHY DOVA FUTURES.</h2>
-        <p class="section-header__sub">
-          We eliminate the disconnect between architectural drawings and on-site execution &mdash;
-          delivering predictable budgets and exceptional outcomes.
-        </p>
-      </div>
-
-      <div class="stats-row" data-fade>
-        <div class="stat-box">
-          <div class="stat-box__num">20+</div>
-          <div class="stat-box__label">Concurrent Sites</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-box__num">&#8358;350M+</div>
-          <div class="stat-box__label">Project Value Delivered</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-box__num">&#8358;10M+</div>
-          <div class="stat-box__label">Client Savings</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-box__num">5</div>
-          <div class="stat-box__label">States Covered</div>
-        </div>
-      </div>
-
-      <div class="why-grid">
-
-        <div class="why-card" data-fade data-delay="0">
-          <div class="why-card__icon">
-            <i data-lucide="link-2"></i>
-          </div>
-          <div class="why-card__title">Integrated Design&ndash;Build</div>
-          <p class="why-card__desc">One team from sketch to keys &mdash; architectural design and construction under a single contract. No miscommunication between your designer and your contractor.</p>
-        </div>
-
-        <div class="why-card" data-fade data-delay="0.1">
-          <div class="why-card__icon">
-            <i data-lucide="cpu"></i>
-          </div>
-          <div class="why-card__title">BIM-Led Delivery</div>
-          <p class="why-card__desc">Every project is modeled in Revit before a block is laid. Clash detection, accurate quantities, and coordinated drawings mean fewer surprises on site.</p>
-        </div>
-
-        <div class="why-card" data-fade data-delay="0.2">
-          <div class="why-card__icon">
-            <i data-lucide="shield-check"></i>
-          </div>
-          <div class="why-card__title">Transparent Budgets</div>
-          <p class="why-card__desc">Detailed BOQs and weekly cost reports keep you informed at every stage. We have delivered over &#8358;10M in client savings through proactive cost management.</p>
-        </div>
-
-        <div class="why-card" data-fade data-delay="0.3">
-          <div class="why-card__icon">
-            <i data-lucide="users"></i>
-          </div>
-          <div class="why-card__title">Single Point of Contact</div>
-          <p class="why-card__desc">You communicate with one team who owns design, procurement, and construction &mdash; eliminating the coordination burden and protecting your timeline.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ════ CONTACT ════ -->
-  <section class="section contact-section blueprint-grid" id="contact">
-    <div class="container">
-      <div class="section-header" data-fade>
-        <span class="eyebrow eyebrow--light">Let&rsquo;s Build</span>
-        <h2 class="section-header__headline" style="color:var(--cream);">LET&rsquo;S BUILD IT PROPERLY.</h2>
-        <p class="section-header__sub">
-          Tell us about your project. We respond within one business day.
-        </p>
-      </div>
-
-      <div class="contact-grid">
-
-        <form class="contact-form" id="contact-form" novalidate data-fade>
-          <div class="form-row">
-            <div class="field">
-              <label for="field-name">Full Name</label>
-              <input type="text" id="field-name" name="name" placeholder="Your name" required />
+          <div class="about__image-wrap reveal reveal-delay-1">
+            <div class="about__image">
+              <img src="assets/projects/ado-hall/after.png" alt="DOVA Futures project" />
             </div>
-            <div class="field">
-              <label for="field-email">Email Address</label>
-              <input type="email" id="field-email" name="email" placeholder="you@example.com" required />
+            <div class="about__frame"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section section--dark grid-bg">
+      <div class="container">
+        <div class="section-header section-header--dark section-header--center reveal" style="margin-bottom:56px;">
+          <span class="eyebrow eyebrow--green300">What We Do</span>
+          <h2>OUR CORE SERVICES</h2>
+        </div>
+        <div class="grid-3">
+          <div class="card reveal">
+            <div class="service-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18M3 7v14M21 7v14M6 7V3h12v4M9 11h6M9 15h6"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Architectural Planning</h3>
+            <p class="service-card__body">Comprehensive design from concept development through detailed construction documentation, coordinated in BIM for precision delivery.</p>
+          </div>
+          <div class="card reveal reveal-delay-1">
+            <div class="service-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 20h20M4 20V8l8-6 8 6v12M9 20v-6h6v6"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Building Construction</h3>
+            <p class="service-card__body">Full-scale construction with rigorous quality control, transparent budgeting, and structured supervision from foundation to handover.</p>
+          </div>
+          <div class="card reveal reveal-delay-2">
+            <div class="service-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Interior Finishing</h3>
+            <p class="service-card__body">High-end interior fit-outs that transform spaces into sophisticated, functional environments — from concept to final installation.</p>
+          </div>
+          <div class="card reveal reveal-delay-1">
+            <div class="service-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3C6.48 3 2 7.48 2 13c0 3.31 1.61 6.23 4.08 8.06M12 3c5.52 0 10 4.48 10 10 0 3.31-1.61 6.23-4.08 8.06M12 3v10m0 0 4 4m-4-4-4 4"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Landscaping</h3>
+            <p class="service-card__body">Thoughtful outdoor design that extends the architecture into the landscape — drainage, planting, hardscaping, and site works.</p>
+          </div>
+          <div class="card reveal reveal-delay-2">
+            <div class="service-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 11l3 3 8-8M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Project Management</h3>
+            <p class="service-card__body">End-to-end programme oversight: scheduling, cost control, contractor coordination, and quality assurance across all project phases.</p>
+          </div>
+          <div class="card reveal reveal-delay-3">
+            <div class="service-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">BIM Coordination</h3>
+            <p class="service-card__body">Full digital coordination using Revit, Navisworks, and Dynamo — clash detection, quantity extraction, and model-led construction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFFERENCE -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="grid-2">
+          <div class="reveal">
+            <div class="section-header" style="margin-bottom:24px;">
+              <span class="eyebrow eyebrow--clay">The Difference</span>
+              <h2>DESIGN &amp; BUILD UNDER ONE ROOF</h2>
+            </div>
+            <p style="font-size:17px;line-height:1.75;color:var(--text-body);margin-bottom:10px;">
+              We eliminate the disconnect between architectural drawings and on-site execution. Every design is engineered to be built exactly as envisioned — without compromise, delay, or cost escalation.
+            </p>
+            <div class="diff__checks">
+              <div class="diff__check reveal reveal-delay-1">
+                <span class="diff__check-icon">&#10003;</span>
+                <span class="diff__check-text">Unified design&#8211;build methodology</span>
+              </div>
+              <div class="diff__check reveal reveal-delay-2">
+                <span class="diff__check-icon">&#10003;</span>
+                <span class="diff__check-text">Streamlined approval processes</span>
+              </div>
+              <div class="diff__check reveal reveal-delay-3">
+                <span class="diff__check-icon">&#10003;</span>
+                <span class="diff__check-text">Reduced timeline and cost overruns</span>
+              </div>
+              <div class="diff__check reveal reveal-delay-4">
+                <span class="diff__check-icon">&#10003;</span>
+                <span class="diff__check-text">Direct accountability for outcomes</span>
+              </div>
             </div>
           </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="field-phone">Phone Number</label>
-              <input type="tel" id="field-phone" name="phone" placeholder="+234 800 000 0000" />
-            </div>
-            <div class="field">
-              <label for="field-type">Project Type</label>
-              <select id="field-type" name="project_type">
-                <option value="" disabled selected>Select a service</option>
-                <option value="architectural">Architectural Design</option>
-                <option value="bim">BIM Coordination</option>
-                <option value="construction">Construction Management</option>
-                <option value="interior">Interior Design</option>
-                <option value="landscape">Landscape Design</option>
-                <option value="full">Full Design-Build</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-          </div>
-          <div class="field">
-            <label for="field-message">Tell Us About Your Project</label>
-            <textarea id="field-message" name="message" placeholder="Location, scope, timeline, and any specific requirements..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary btn--lg">
-            Send Message
-            <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
-          </button>
-          <p id="form-status" style="display:none;margin-top:12px;font-size:14px;color:var(--green-300);"></p>
-        </form>
-
-        <div class="contact-info" data-fade data-delay="0.15">
-          <div class="contact-info__label">Phone</div>
-          <span class="contact-info__value">
-            <a href="tel:+2348163675439">+234 816 367 5439</a>
-          </span>
-
-          <div class="contact-info__label">Email</div>
-          <span class="contact-info__value">
-            <a href="mailto:info@dovafutures.com">info@dovafutures.com</a>
-          </span>
-
-          <div class="contact-info__label">Website</div>
-          <span class="contact-info__value">
-            <a href="https://dovafutures.com" target="_blank" rel="noopener">dovafutures.com</a>
-          </span>
-
-          <div class="contact-info__label">Headquarters</div>
-          <span class="contact-info__value" style="color:rgba(245,239,232,0.65);font-size:15px;">
-            Lagos, Nigeria<br>
-            Projects across Ondo, Ekiti, Edo &amp; beyond.
-          </span>
-
-          <div class="contact-info__label">Follow Us</div>
-          <div class="social-row">
-            <a href="#" class="social-link" aria-label="Instagram">
-              <img src="assets/widgets/icons/instagram.svg" alt="Instagram" />
-            </a>
-            <a href="#" class="social-link" aria-label="TikTok">
-              <img src="assets/widgets/icons/tiktok.svg" alt="TikTok" />
-            </a>
-            <a href="#" class="social-link" aria-label="WhatsApp">
-              <img src="assets/widgets/icons/whatsapp.svg" alt="WhatsApp" />
-            </a>
+          <div class="diff__image reveal reveal-delay-1">
+            <img src="assets/projects/ado-hall/after.png" alt="DOVA Futures build" />
           </div>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ════ FOOTER ════ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <a href="#hero" class="footer__logo">
-          <img src="assets/logo/DOVA Logo - W.png" alt="DOVA Futures" />
-        </a>
-        <p class="footer__copy">&copy; 2025 DOVA Futures Limited. All rights reserved.</p>
-        <nav class="footer__links">
-          <a href="#services">Services</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
+    <!-- PROCESS -->
+    <section class="section section--darker grid-bg">
+      <div class="container">
+        <div class="section-header section-header--dark section-header--center reveal" style="margin-bottom:56px;">
+          <span class="eyebrow eyebrow--green300">How We Work</span>
+          <h2>OUR 5-STEP PROCESS</h2>
+        </div>
+        <div class="grid-5">
+          <div class="process-step reveal">
+            <div class="process-step__num">01</div>
+            <div class="process-step__title">Consultation</div>
+          </div>
+          <div class="process-step reveal reveal-delay-1">
+            <div class="process-step__num">02</div>
+            <div class="process-step__title">Design</div>
+          </div>
+          <div class="process-step reveal reveal-delay-2">
+            <div class="process-step__num">03</div>
+            <div class="process-step__title">Engineering</div>
+          </div>
+          <div class="process-step reveal reveal-delay-3">
+            <div class="process-step__num">04</div>
+            <div class="process-step__title">Construction</div>
+          </div>
+          <div class="process-step reveal reveal-delay-4">
+            <div class="process-step__num">05</div>
+            <div class="process-step__title">Handover</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <script src="js/script.js"></script>
+    <!-- WHY US -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-header section-header--dark section-header--center reveal" style="margin-bottom:56px;">
+          <span class="eyebrow eyebrow--green300">Our Advantage</span>
+          <h2>WHY DOVA FUTURES</h2>
+        </div>
+        <div class="grid-3">
+          <div class="card reveal" style="text-align:center;">
+            <div style="font-family:var(--font-display);font-size:40px;color:var(--green-300);letter-spacing:0.02em;margin-bottom:12px;">BIM-LED</div>
+            <p style="font-size:15px;line-height:1.65;color:var(--text-on-dark-mut);">Every project is coordinated in Revit and Navisworks before a single slab is poured. Clashes resolved in the model, not on site.</p>
+          </div>
+          <div class="card reveal reveal-delay-1" style="text-align:center;">
+            <div style="font-family:var(--font-display);font-size:40px;color:var(--green-300);letter-spacing:0.02em;margin-bottom:12px;">ONE TEAM</div>
+            <p style="font-size:15px;line-height:1.65;color:var(--text-on-dark-mut);">Designer, BIM specialist, and site engineer in one partnership. No consultant handoff gaps. No drawn-to-unbuilt surprises.</p>
+          </div>
+          <div class="card reveal reveal-delay-2" style="text-align:center;">
+            <div style="font-family:var(--font-display);font-size:40px;color:var(--green-300);letter-spacing:0.02em;margin-bottom:12px;">TRANSPARENT</div>
+            <p style="font-size:15px;line-height:1.65;color:var(--text-on-dark-mut);">Predictable budgets, structured reporting, and honest timelines. You always know where the project stands.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="cta-block reveal">
+          <h2>READY TO START?</h2>
+          <p>Let's discuss your project and explore the possibilities together.</p>
+          <a href="#" class="btn btn--primary btn--lg" data-go="contact">Start Your Project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <span class="footer__wordmark">DOVA FUTURES DEVELOPERS</span>
+        <span class="footer__copy">&#169; 2025 DOVA Futures Limited. All Rights Reserved.</span>
+      </div>
+    </footer>
+
+  </div><!-- end page: home -->
+
+
+  <!-- ══════════════════ PAGE: PROJECTS ══════════════════ -->
+  <div class="page" data-page="projects" style="display:none;">
+
+    <section class="section section--dark grid-bg" style="padding-top:80px;">
+      <div class="container">
+        <div class="section-header section-header--dark reveal" style="margin-bottom:0;">
+          <span class="eyebrow eyebrow--green300">Portfolio</span>
+          <h2>OUR PROJECTS</h2>
+        </div>
+
+        <div class="filters reveal reveal-delay-1">
+          <button class="filter-btn active" data-cat="All">All</button>
+          <button class="filter-btn" data-cat="Residential">Residential</button>
+          <button class="filter-btn" data-cat="Commercial">Commercial</button>
+          <button class="filter-btn" data-cat="Infrastructure">Infrastructure</button>
+          <button class="filter-btn" data-cat="Interiors">Interiors</button>
+        </div>
+
+        <div class="grid-3" id="projects-grid">
+          <div class="project-item reveal" data-category="Commercial">
+            <div class="project-card">
+              <img src="assets/projects/ado-hall/after.png" alt="The Body Shop Fit-Out" />
+              <div class="project-card__overlay"></div>
+              <span class="project-card__cat">Commercial</span>
+              <div class="project-card__caption">
+                <h3 class="project-card__title">The Body Shop Fit-Out</h3>
+                <p class="project-card__loc">Ikeja, Lagos</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-item reveal reveal-delay-1" data-category="Infrastructure">
+            <div class="project-card">
+              <img src="assets/projects/ado-hall/before.jpg" alt="Palm Oil Drainage Works" />
+              <div class="project-card__overlay"></div>
+              <span class="project-card__cat">Infrastructure</span>
+              <div class="project-card__caption">
+                <h3 class="project-card__title">Palm Oil Drainage Works</h3>
+                <p class="project-card__loc">Akure, Ondo</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-item reveal reveal-delay-2" data-category="Residential">
+            <div class="project-card">
+              <img src="assets/projects/ado-hall/after.png" alt="Hillside Residence" />
+              <div class="project-card__overlay"></div>
+              <span class="project-card__cat">Residential</span>
+              <div class="project-card__caption">
+                <h3 class="project-card__title">Hillside Residence</h3>
+                <p class="project-card__loc">Lagos</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-item reveal" data-category="Interiors">
+            <div class="project-card">
+              <img src="assets/projects/ado-hall/after.png" alt="Ado Hall Renovation" />
+              <div class="project-card__overlay"></div>
+              <span class="project-card__cat">Interiors</span>
+              <div class="project-card__caption">
+                <h3 class="project-card__title">Ado Hall Renovation</h3>
+                <p class="project-card__loc">Ado, Ekiti State</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-item reveal reveal-delay-1" data-category="Residential">
+            <div class="project-card">
+              <img src="assets/projects/ado-hall/before.jpg" alt="Ado 6-Bed Duplex" />
+              <div class="project-card__overlay"></div>
+              <span class="project-card__cat">Residential</span>
+              <div class="project-card__caption">
+                <h3 class="project-card__title">Ado 6-Bed Duplex</h3>
+                <p class="project-card__loc">Ado, Ekiti State</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-item reveal reveal-delay-2" data-category="Infrastructure">
+            <div class="project-card">
+              <img src="assets/projects/ado-hall/after.png" alt="6-Flat Development" />
+              <div class="project-card__overlay"></div>
+              <span class="project-card__cat">Infrastructure</span>
+              <div class="project-card__caption">
+                <h3 class="project-card__title">6-Flat Development</h3>
+                <p class="project-card__loc">Ikotun, Lagos</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-item reveal" data-category="Residential">
+            <div class="project-card">
+              <img src="assets/projects/ado-hall/after.png" alt="Uselu Family House" />
+              <div class="project-card__overlay"></div>
+              <span class="project-card__cat">Residential</span>
+              <div class="project-card__caption">
+                <h3 class="project-card__title">Uselu Family House</h3>
+                <p class="project-card__loc">Uselu, Edo State</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-item reveal reveal-delay-1" data-category="Commercial">
+            <div class="project-card">
+              <img src="assets/projects/ado-hall/before.jpg" alt="Market Infrastructure" />
+              <div class="project-card__overlay"></div>
+              <span class="project-card__cat">Commercial</span>
+              <div class="project-card__caption">
+                <h3 class="project-card__title">Market Infrastructure</h3>
+                <p class="project-card__loc">Edo State</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-item reveal reveal-delay-2" data-category="Interiors">
+            <div class="project-card">
+              <img src="assets/projects/ado-hall/after.png" alt="Ikeja Conference Room" />
+              <div class="project-card__overlay"></div>
+              <span class="project-card__cat">Interiors</span>
+              <div class="project-card__caption">
+                <h3 class="project-card__title">Ikeja Conference Room</h3>
+                <p class="project-card__loc">Ikeja, Lagos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="cta-block reveal">
+          <h2>YOUR PROJECT NEXT.</h2>
+          <p>Let's discuss your brief and build something exceptional together.</p>
+          <a href="#" class="btn btn--primary btn--lg" data-go="contact">Start Your Project</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="footer__wordmark">DOVA FUTURES DEVELOPERS</span>
+        <span class="footer__copy">&#169; 2025 DOVA Futures Limited. All Rights Reserved.</span>
+      </div>
+    </footer>
+
+  </div><!-- end page: projects -->
+
+
+  <!-- ══════════════════ PAGE: CONTACT ══════════════════ -->
+  <div class="page" data-page="contact" style="display:none;">
+
+    <section class="section section--cream" style="min-height:70vh;">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Left: details -->
+          <div class="reveal">
+            <div class="section-header" style="margin-bottom:22px;">
+              <span class="eyebrow eyebrow--clay">Get In Touch</span>
+              <h2>LET'S BUILD IT PROPERLY.</h2>
+            </div>
+            <p style="font-size:18px;line-height:1.7;color:var(--text-body);margin-bottom:32px;">
+              Ready to transform your vision into reality? Tell us about your project and we'll be in touch within one business day.
+            </p>
+            <div style="display:flex;flex-direction:column;gap:20px;">
+              <div>
+                <div class="contact-detail-label">Phone</div>
+                <div class="contact-detail-value">+234 816 367 5439</div>
+              </div>
+              <div>
+                <div class="contact-detail-label">WhatsApp</div>
+                <div class="contact-detail-value">
+                  <a href="https://wa.me/2348169477706" style="color:var(--brand);">+234 816 947 7706</a>
+                </div>
+              </div>
+              <div>
+                <div class="contact-detail-label">Email</div>
+                <div class="contact-detail-value">info@dovafutures.com</div>
+              </div>
+              <div>
+                <div class="contact-detail-label">Location</div>
+                <div class="contact-detail-value">Lagos, Nigeria</div>
+              </div>
+              <div>
+                <div class="contact-detail-label">Follow</div>
+                <div style="display:flex;gap:14px;margin-top:6px;">
+                  <a href="https://instagram.com/dova_futures" style="display:flex;align-items:center;gap:6px;color:var(--brand);font-size:14px;font-weight:500;">
+                    <img src="assets/icons/instagram.svg" width="18" height="18" alt="Instagram" style="display:inline;" />
+                    @dova_futures
+                  </a>
+                  <a href="https://tiktok.com/@dova_futures" style="display:flex;align-items:center;gap:6px;color:var(--brand);font-size:14px;font-weight:500;">
+                    <img src="assets/icons/tiktok.svg" width="18" height="18" alt="TikTok" style="display:inline;" />
+                    @dova_futures
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div class="form-card reveal reveal-delay-1">
+            <div id="form-thanks" class="form-thanks" style="display:none;">
+              <div class="form-thanks__title">THANK YOU</div>
+              <p class="form-thanks__body">We'll respond within one business day.</p>
+            </div>
+            <form id="contact-form" class="form-grid">
+              <div class="form-field">
+                <label class="form-label" for="f-name">Full name</label>
+                <input class="form-input" id="f-name" type="text" required placeholder="Jane Adeyemi" />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="f-phone">Phone</label>
+                <input class="form-input" id="f-phone" type="tel" placeholder="+234 …" />
+              </div>
+              <div class="form-field form-field--full">
+                <label class="form-label" for="f-email">Email</label>
+                <input class="form-input" id="f-email" type="email" required placeholder="you@company.com" />
+              </div>
+              <div class="form-field form-field--full">
+                <label class="form-label" for="f-project">Project details</label>
+                <textarea class="form-input form-textarea" id="f-project" rows="4" placeholder="Describe your project — scope, location, timeline…"></textarea>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn--primary btn--md" type="submit">Send Enquiry</button>
+                <a href="https://wa.me/2348169477706?text=Hi%20DOVA%20Futures%2C%20I%20have%20a%20project%20I'd%20like%20to%20discuss."
+                   class="btn btn--secondary btn--md" target="_blank" rel="noopener">
+                  Send via WhatsApp
+                </a>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="footer__wordmark">DOVA FUTURES DEVELOPERS</span>
+        <span class="footer__copy">&#169; 2025 DOVA Futures Limited. All Rights Reserved.</span>
+      </div>
+    </footer>
+
+  </div><!-- end page: contact -->
+
+  <script src="js/dova.js"></script>
 </body>
 </html>
