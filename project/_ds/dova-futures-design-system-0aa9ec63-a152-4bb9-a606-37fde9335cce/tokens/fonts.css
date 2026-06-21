@@ -1,0 +1,7 @@
+/* ===================================================================
+   DOVA FUTURES — Webfonts
+   Display: Bebas Neue (bold architectural caps)
+   Body/UI: Inter (highly legible workhorse)
+   Both are the brand's actual fonts (Google Fonts), loaded from CDN.
+   =================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap");
