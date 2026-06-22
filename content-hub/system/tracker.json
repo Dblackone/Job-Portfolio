@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "entries": {
+    "2026": {
+      "07": {
+        "new-month": [
+          {
+            "id": "2026-07-01-new-month",
+            "date": "2026-07-01",
+            "slug": "july-kickoff",
+            "status": "scheduled",
+            "post_file": "posts/2026/07/new-month/2026-07-01-new-month-july-kickoff.md",
+            "graphics": [
+              "graphics/output/2026-07-01-new-month-cover.png"
+            ],
+            "reminders_created": true,
+            "created_at": "2026-06-22T17:25:31",
+            "updated_at": "2026-06-22T17:25:48"
+          }
+        ],
+        "design-of-month": [
+          {
+            "id": "2026-07-02-design-of-month",
+            "date": "2026-07-02",
+            "slug": "hillside-residence",
+            "status": "draft",
+            "post_file": "posts/2026/07/design-of-month/2026-07-02-design-of-month-hillside-residence.md",
+            "graphics": [
+              "graphics/output/2026-07-02-design-of-month-01.png",
+              "graphics/output/2026-07-02-design-of-month-02.png",
+              "graphics/output/2026-07-02-design-of-month-03.png"
+            ],
+            "reminders_created": false,
+            "created_at": "2026-06-22T17:25:41",
+            "updated_at": "2026-06-22T17:25:41"
+          }
+        ],
+        "special-announcements": [
+          {
+            "id": "2026-07-20-special-announcements",
+            "date": "2026-07-20",
+            "slug": "bim-coordination-now-available-as-a-standalone-service",
+            "status": "draft",
+            "post_file": "posts/2026/07/special-announcements/2026-07-20-special-announcements-bim-coordination-now-available-as-a-standalone-service.md",
+            "graphics": [
+              "graphics/output/2026-07-20-announcement-bim-coordination-now-available-as-a-standalone-service.png"
+            ],
+            "reminders_created": false,
+            "created_at": "2026-06-22T17:25:41",
+            "updated_at": "2026-06-22T17:25:41"
+          }
+        ]
+      },
+      "10": {
+        "holiday-content": [
+          {
+            "id": "2026-10-01-holiday-content",
+            "date": "2026-10-01",
+            "slug": "independence-day",
+            "status": "draft",
+            "post_file": "posts/2026/10/holiday-content/2026-10-01-holiday-content-independence-day.md",
+            "graphics": [
+              "graphics/output/2026-10-01-holiday-independence-day.png"
+            ],
+            "reminders_created": false,
+            "created_at": "2026-06-22T17:25:41",
+            "updated_at": "2026-06-22T17:25:41"
+          }
+        ]
+      }
+    }
+  },
+  "status_history": [
+    {
+      "id": "2026-07-01-new-month",
+      "from": "draft",
+      "to": "approved",
+      "at": "2026-06-22T17:25:48"
+    },
+    {
+      "id": "2026-07-01-new-month",
+      "from": "approved",
+      "to": "scheduled",
+      "at": "2026-06-22T17:25:48"
+    }
+  ]
+}

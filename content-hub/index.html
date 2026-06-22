@@ -146,9 +146,42 @@
 
     footer { border-top:1px solid var(--border); padding:20px; text-align:center; font-size:12px; color:var(--text); }
 
+    /* ── AUTOMATION CATEGORY GRID ── */
+    .cat-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:10px; padding-bottom:24px; }
+    .cat-card {
+      background:var(--white); border:1px solid var(--border); border-radius:var(--r);
+      padding:14px 16px; cursor:pointer; transition:border-color .15s, box-shadow .15s;
+    }
+    .cat-card:hover { border-color:var(--accent); box-shadow:0 2px 10px rgba(184,92,56,.1); }
+    .cat-card.active { box-shadow:0 0 0 2px var(--accent); }
+    .cat-header { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+    .cat-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+    .cat-name { font-size:12px; font-weight:700; color:var(--dark); line-height:1.3; }
+    .cat-count { font-size:11px; color:var(--text); margin-bottom:8px; }
+    .cat-bar { height:4px; border-radius:2px; background:var(--warm); overflow:hidden; }
+    .cat-fill { height:100%; border-radius:2px; transition:width .4s ease; }
+
+    /* ── STATUS TRACKER TABLE ── */
+    .tracker-table { width:100%; border-collapse:collapse; font-size:13px; }
+    .tracker-table th {
+      font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.12em;
+      color:var(--text); border-bottom:1px solid var(--border); padding:8px 12px; text-align:left;
+    }
+    .tracker-table td { padding:11px 12px; border-bottom:1px solid var(--warm); vertical-align:middle; }
+    .tracker-table tr:last-child td { border-bottom:none; }
+    .tracker-table tr:hover td { background:#FAFAF9; }
+    .s-draft     { background:#EDEAE6; color:var(--text); }
+    .s-approved  { background:#FEF0D9; color:#9A6200; }
+    .s-scheduled { background:#D6EAF8; color:#1A5276; }
+    .s-posted    { background:#D5F5E3; color:#1E8449; }
+    .cat-dot-sm  { width:8px; height:8px; border-radius:50%; display:inline-block;
+                   vertical-align:middle; margin-right:6px; }
+    .tracker-empty { text-align:center; color:var(--text); padding:24px; font-size:13px; }
+
     @media(max-width:480px){
       .hook { font-size:16px; }
       .cal  { grid-template-columns:1fr 1fr; }
+      .cat-grid { grid-template-columns:1fr 1fr; }
     }
   </style>
 </head>
@@ -186,6 +219,32 @@
     <h2>18 Jun → 17 Jul 2026</h2>
   </div>
   <div class="cal" id="cal"></div>
+
+  <!-- automation categories -->
+  <div class="sec">
+    <div class="label">Automation Categories</div>
+    <h2 id="cat-section-title">7 Content Categories</h2>
+  </div>
+  <div class="cat-grid" id="cat-grid"></div>
+
+  <!-- status tracker -->
+  <div class="sec">
+    <div class="label">Status Tracker</div>
+    <h2 id="tracker-title">This Month's Queue</h2>
+  </div>
+  <div class="card" style="overflow-x:auto;margin-bottom:24px">
+    <table class="tracker-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Category</th>
+          <th>Content</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="tracker-tbody"></tbody>
+    </table>
+  </div>
 
 </div>
 
@@ -699,13 +758,22 @@ function renderPost(post){
 }
 
 function renderCal(){
-  document.getElementById("cal").innerHTML=P.map(p=>`
+  const dateCatMap = buildDateCatMap();
+  document.getElementById("cal").innerHTML=P.map(p=>{
+    const cats = dateCatMap[p.date] || [];
+    const dimmed = activeCatFilter && !cats.find(c=>c.cat===activeCatFilter);
+    const catDots = cats.map(c=>
+      `<span class="cat-dot-sm" title="${CAT_META[c.cat]?.label||c.cat}" style="background:${c.color}"></span>`
+    ).join("");
+    return `
     <div class="ccard ${isToday(p.date)?"today":""} ${cur&&cur.date===p.date?"sel":""}"
+         style="${dimmed?"opacity:0.3;pointer-events:none;":""}"
          onclick="sel('${p.date}')">
       <div class="cdate">${fmtShort(p.date)}${isToday(p.date)?" · TODAY":""}</div>
       <div class="chook">${esc(p.hook)}</div>
-      <div class="cmeta">${ptag(p.pillar)} ${badge(p.status)}</div>
-    </div>`).join("");
+      <div class="cmeta">${ptag(p.pillar)} ${badge(p.status)} ${catDots}</div>
+    </div>`;
+  }).join("");
 }
 
 // ── ACTIONS ───────────────────────────────────────────────────────────────────
@@ -732,9 +800,212 @@ function cp(id,btn){
   });
 }
 
+// ── AUTOMATION CATEGORY META ──────────────────────────────────────────────────
+const CAT_META = {
+  "new-month":             { label:"New Month",             color:"#B85C38" },
+  "design-of-month":       { label:"Design of Month",       color:"#7E3AF2" },
+  "project-highlights":    { label:"Project Highlights",    color:"#1A56DB" },
+  "design-showcase":       { label:"Design Showcase",       color:"#E74694" },
+  "project-showcase":      { label:"Project Showcase",      color:"#7D5A50" },
+  "holiday-content":       { label:"Holiday Content",       color:"#0F9F6E" },
+  "special-announcements": { label:"Special Announcements", color:"#E02424" },
+};
+
+// ── TRACKER DATA (injected by generate.py) ────────────────────────────────────
+// ── TRACKER INJECTION START — DO NOT EDIT MANUALLY ──
+window.__TRACKER__ = {
+  "version": 1,
+  "entries": {
+    "2026": {
+      "07": {
+        "new-month": [
+          {
+            "id": "2026-07-01-new-month",
+            "date": "2026-07-01",
+            "slug": "july-kickoff",
+            "status": "scheduled",
+            "post_file": "posts/2026/07/new-month/2026-07-01-new-month-july-kickoff.md",
+            "graphics": [
+              "graphics/output/2026-07-01-new-month-cover.png"
+            ],
+            "reminders_created": true,
+            "created_at": "2026-06-22T17:25:31",
+            "updated_at": "2026-06-22T17:25:48"
+          }
+        ],
+        "design-of-month": [
+          {
+            "id": "2026-07-02-design-of-month",
+            "date": "2026-07-02",
+            "slug": "hillside-residence",
+            "status": "draft",
+            "post_file": "posts/2026/07/design-of-month/2026-07-02-design-of-month-hillside-residence.md",
+            "graphics": [
+              "graphics/output/2026-07-02-design-of-month-01.png",
+              "graphics/output/2026-07-02-design-of-month-02.png",
+              "graphics/output/2026-07-02-design-of-month-03.png"
+            ],
+            "reminders_created": false,
+            "created_at": "2026-06-22T17:25:41",
+            "updated_at": "2026-06-22T17:25:41"
+          }
+        ],
+        "special-announcements": [
+          {
+            "id": "2026-07-20-special-announcements",
+            "date": "2026-07-20",
+            "slug": "bim-coordination-now-available-as-a-standalone-service",
+            "status": "draft",
+            "post_file": "posts/2026/07/special-announcements/2026-07-20-special-announcements-bim-coordination-now-available-as-a-standalone-service.md",
+            "graphics": [
+              "graphics/output/2026-07-20-announcement-bim-coordination-now-available-as-a-standalone-service.png"
+            ],
+            "reminders_created": false,
+            "created_at": "2026-06-22T17:25:41",
+            "updated_at": "2026-06-22T17:25:41"
+          }
+        ]
+      },
+      "10": {
+        "holiday-content": [
+          {
+            "id": "2026-10-01-holiday-content",
+            "date": "2026-10-01",
+            "slug": "independence-day",
+            "status": "draft",
+            "post_file": "posts/2026/10/holiday-content/2026-10-01-holiday-content-independence-day.md",
+            "graphics": [
+              "graphics/output/2026-10-01-holiday-independence-day.png"
+            ],
+            "reminders_created": false,
+            "created_at": "2026-06-22T17:25:41",
+            "updated_at": "2026-06-22T17:25:41"
+          }
+        ]
+      }
+    }
+  },
+  "status_history": [
+    {
+      "id": "2026-07-01-new-month",
+      "from": "draft",
+      "to": "approved",
+      "at": "2026-06-22T17:25:48"
+    },
+    {
+      "id": "2026-07-01-new-month",
+      "from": "approved",
+      "to": "scheduled",
+      "at": "2026-06-22T17:25:48"
+    }
+  ]
+};
+// ── TRACKER INJECTION END ──
+
+const TRACKER = window.__TRACKER__ || { version:1, entries:{} };
+
+// ── TRACKER HELPERS ───────────────────────────────────────────────────────────
+function currentYearMonth(){
+  const now = new Date();
+  return { yr: String(now.getFullYear()), mo: String(now.getMonth()+1).padStart(2,"0") };
+}
+
+function getMonthEntries(){
+  const { yr, mo } = currentYearMonth();
+  return TRACKER.entries?.[yr]?.[mo] || {};
+}
+
+function buildDateCatMap(){
+  const map = {};
+  const monthEntries = getMonthEntries();
+  for(const [cat, items] of Object.entries(monthEntries)){
+    for(const item of items){
+      map[item.date] = map[item.date] || [];
+      map[item.date].push({ cat, color: CAT_META[cat]?.color||"#B85C38", status: item.status });
+    }
+  }
+  return map;
+}
+
+// ── CATEGORY GRID ─────────────────────────────────────────────────────────────
+let activeCatFilter = null;
+
+function buildCatGrid(){
+  const monthEntries = getMonthEntries();
+  document.getElementById("cat-grid").innerHTML = Object.entries(CAT_META).map(([key, meta])=>{
+    const items = monthEntries[key] || [];
+    const posted  = items.filter(i=>i.status==="posted").length;
+    const total   = items.length;
+    const pct     = total ? Math.round(posted/total*100) : 0;
+    const isActive = activeCatFilter === key;
+    return `
+      <div class="cat-card${isActive?" active":""}" onclick="filterCalByCat('${key}')">
+        <div class="cat-header">
+          <div class="cat-dot" style="background:${meta.color}"></div>
+          <div class="cat-name">${meta.label}</div>
+        </div>
+        <div class="cat-count">${total ? `${posted}/${total} posted` : "No posts yet"}</div>
+        <div class="cat-bar">
+          <div class="cat-fill" style="width:${pct}%;background:${meta.color}"></div>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+function filterCalByCat(cat){
+  activeCatFilter = (activeCatFilter === cat) ? null : cat;
+  buildCatGrid();
+  buildTrackerTable();
+  renderCal();
+  const label = activeCatFilter ? CAT_META[activeCatFilter]?.label : "7 Content Categories";
+  document.getElementById("cat-section-title").textContent = label;
+  document.getElementById("tracker-title").textContent =
+    activeCatFilter ? `${label} — This Month` : "This Month's Queue";
+}
+
+// ── STATUS TRACKER TABLE ──────────────────────────────────────────────────────
+function buildTrackerTable(){
+  const monthEntries = getMonthEntries();
+  const statusBadge = {
+    draft:     "s-draft",
+    approved:  "s-approved",
+    scheduled: "s-scheduled",
+    posted:    "s-posted",
+  };
+  let rows = [];
+  for(const [cat, items] of Object.entries(monthEntries)){
+    if(activeCatFilter && cat !== activeCatFilter) continue;
+    const meta = CAT_META[cat];
+    for(const item of items){
+      const cls = statusBadge[item.status] || "s-draft";
+      rows.push({date: item.date, cat, meta, item, cls});
+    }
+  }
+  rows.sort((a,b) => a.date.localeCompare(b.date));
+
+  if(!rows.length){
+    document.getElementById("tracker-tbody").innerHTML =
+      `<tr><td colspan="4" class="tracker-empty">No entries yet — run <code>python3 generate.py</code> to add content.</td></tr>`;
+    return;
+  }
+
+  document.getElementById("tracker-tbody").innerHTML = rows.map(({date,cat,meta,item,cls})=>`
+    <tr>
+      <td style="color:var(--text);font-weight:500;white-space:nowrap">${date}</td>
+      <td>
+        <span class="cat-dot-sm" style="background:${meta?.color||"#B85C38"}"></span>
+        <span style="color:var(--dark);font-weight:500">${meta?.label||cat}</span>
+      </td>
+      <td style="color:var(--text)">${item.slug.replace(/-/g," ")}</td>
+      <td><span class="badge ${cls}"><span class="badge-dot"></span>${item.status.charAt(0).toUpperCase()+item.status.slice(1)}</span></td>
+    </tr>`).join("");
+}
+
 // ── INIT ──────────────────────────────────────────────────────────────────────
 renderPost(cur);
 renderCal();
+buildCatGrid();
+buildTrackerTable();
 </script>
 </body>
 </html>
