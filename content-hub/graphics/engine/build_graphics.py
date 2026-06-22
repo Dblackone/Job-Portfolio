@@ -18,6 +18,9 @@ Card types
 - spotlight                 : full-bleed image + gradient + caption   (any size)
 - cta                       : closing call-to-action card             (any size)
 - carousel                  : a list of slides -> one PNG per slide   (4:5)
+- monthly-theme             : new-month opener, month-number texture  (portrait)
+- holiday                   : warm greeting card, light background    (any size)
+- announcement              : dark high-impact card, badge + rule     (portrait)
 
 Sizes (px):  square 1080x1080 · portrait 1080x1350 · story 1080x1920
 
@@ -242,9 +245,95 @@ def _html_spotlight_card(card: dict, w: int, h: int) -> str:
     """
 
 
+def _html_monthly_theme_card(card: dict, w: int, h: int) -> str:
+    """New Month opener — large typographic card with month number as background texture."""
+    pad = int(w * 0.085)
+    month_num = card.get("month_num", "07")
+    month_name = card.get("month_name", "JULY")
+    year = card.get("year", "2026")
+    theme = card.get("headline", "")
+    sub = card.get("sub", "")
+    sub_html = (f'<p style="font-size:30px;color:#C9C6C2;margin-top:32px;'
+                f'font-weight:400;line-height:1.5;max-width:82%">{sub}</p>') if sub else ""
+    return f"""
+    <div class="card" style="background:{PALETTE['dark']};overflow:hidden">
+      <div style="position:absolute;font-size:{int(w * 1.1)}px;font-weight:800;
+                  color:{PALETTE['accent']};opacity:0.07;
+                  top:50%;left:50%;transform:translate(-50%,-45%);
+                  line-height:1;letter-spacing:-0.05em;user-select:none;white-space:nowrap">
+        {month_num}
+      </div>
+      <div style="position:relative;padding:{pad}px {pad}px 0;">
+        {_topbar(f"NEW MONTH · {month_name} {year}", fs_kick=20)}
+        <div class="rule" style="margin:{int(h * 0.06)}px 0 36px;"></div>
+        <h1 class="head" style="font-size:96px;color:#fff;font-weight:800;
+                                line-height:1.0;letter-spacing:-0.03em;max-width:90%">
+          {theme}
+        </h1>
+        {sub_html}
+      </div>
+      {_footer(card, w)}
+    </div>
+    """
+
+
+def _html_holiday_card(card: dict, w: int, h: int) -> str:
+    """Holiday greeting — warm, restrained, brand-first."""
+    pad = int(w * 0.085)
+    holiday_name = card.get("holiday_name", "")
+    headline = card.get("headline", f"Happy {holiday_name}")
+    sub = card.get("sub", "")
+    sub_html = (f'<p style="font-size:28px;color:{PALETTE["text"]};margin-top:28px;'
+                f'line-height:1.5;max-width:85%">{sub}</p>') if sub else ""
+    return f"""
+    <div class="card" style="background:{PALETTE['light']}">
+      <div style="padding:{pad}px {pad}px 0;">
+        {_topbar(f"HAPPY {holiday_name.upper()}", fs_kick=20)}
+        <div class="rule" style="margin:{int(h * 0.07)}px 0 40px;"></div>
+        <h1 class="head" style="font-size:80px;color:{PALETTE['dark']};
+                                font-weight:800;line-height:1.05;max-width:90%">
+          {headline}
+        </h1>
+        {sub_html}
+      </div>
+      {_footer(card, w)}
+    </div>
+    """
+
+
+def _html_announcement_card(card: dict, w: int, h: int) -> str:
+    """Special announcement — dark, high-impact, authoritative."""
+    pad = int(w * 0.085)
+    badge_text = card.get("badge", "ANNOUNCEMENT")
+    headline = card.get("headline", "")
+    sub = card.get("sub", "")
+    sub_html = (f'<p style="font-size:30px;color:#C9C6C2;margin-top:30px;'
+                f'line-height:1.5;max-width:85%">{sub}</p>') if sub else ""
+    return f"""
+    <div class="card" style="background:{PALETTE['dark']}">
+      <div style="padding:{pad}px {pad}px 0;">
+        <div style="display:inline-block;background:{PALETTE['accent']};
+                    color:#fff;font-weight:700;font-size:18px;letter-spacing:0.18em;
+                    text-transform:uppercase;padding:8px 20px;border-radius:6px;
+                    margin-bottom:{int(h * 0.05)}px">
+          {badge_text}
+        </div>
+        <div class="rule" style="margin:28px 0 36px;"></div>
+        <h1 class="head" style="font-size:82px;color:#fff;font-weight:800;
+                                line-height:1.05;max-width:92%">{headline}</h1>
+        {sub_html}
+      </div>
+      {_footer(card, w)}
+    </div>
+    """
+
+
 _RENDERERS = {
     "tip": _html_text_card, "explainer": _html_text_card, "insight": _html_text_card,
     "quote": _html_text_card, "cta": _html_text_card, "spotlight": _html_spotlight_card,
+    "monthly-theme": _html_monthly_theme_card,
+    "holiday":        _html_holiday_card,
+    "announcement":   _html_announcement_card,
 }
 
 
@@ -331,6 +420,27 @@ SAMPLE_CARDS = [
         "headline": "Planning a build?",
         "sub": "I design it, model it in BIM, and help deliver it on site.",
         "button": "DM me for a consult",
+    }},
+    # 5. New Month — monthly-theme card (portrait)
+    {"name": "sample-new-month-july", "card": {
+        "type": "monthly-theme", "size": "portrait",
+        "month_num": "07", "month_name": "JULY", "year": "2026",
+        "headline": "Build.",
+        "sub": "This month: one more project documented, one more lesson shared.",
+    }},
+    # 6. Holiday card — warm, brand-first (portrait)
+    {"name": "sample-holiday-independence", "card": {
+        "type": "holiday", "size": "portrait",
+        "holiday_name": "Independence Day",
+        "headline": "Happy Independence Day, Nigeria.",
+        "sub": "65 years of building. Still going.",
+    }},
+    # 7. Announcement card — dark, high-impact (portrait)
+    {"name": "sample-announcement-new-service", "card": {
+        "type": "announcement", "size": "portrait",
+        "badge": "ANNOUNCEMENT",
+        "headline": "BIM Coordination is now a standalone service.",
+        "sub": "Revit modelling · clash detection · coordination reports — from concept to site.",
     }},
 ]
 
