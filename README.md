@@ -242,3 +242,9 @@ This repository serves as:
 * BIM and Construction Showcase
 
 The ultimate objective is to maintain a professional, scalable, and continuously evolving portfolio platform that accurately reflects the breadth of experience, technical capability, and project delivery expertise of Vollmann Olamide Akarakiri.
+
+---
+
+# Social Media Content Kit
+
+`index.html` — DOVA Futures social media post wireframes covering 10 content types across 4 platform formats (Instagram 1:1, Story/WhatsApp 9:16, LinkedIn 1.91:1, X/Twitter 2:1). Open in any browser; no build step required.

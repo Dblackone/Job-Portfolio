@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="_ds/dova-futures-design-system-0aa9ec63-a152-4bb9-a606-37fde9335cce/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/dova-futures-design-system-0aa9ec63-a152-4bb9-a606-37fde9335cce/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/dova-futures-design-system-0aa9ec63-a152-4bb9-a606-37fde9335cce/tokens/spacing.css">
+  <script src="_ds/dova-futures-design-system-0aa9ec63-a152-4bb9-a606-37fde9335cce/_ds_bundle.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--cream); font-family: var(--font-body); color: var(--ink-900); }
+    .doc { box-sizing: border-box; max-width: 8.5in; margin: 0 auto; background: inherit; padding: 48px clamp(24px,5vw,0.75in) 96px; }
+    .doc-frame { width: 100%; border-collapse: collapse; }
+    .doc-frame td { padding: 0; }
+    .running-hdr, .running-ftr, .hdr-space, .ftr-space { display: none; }
+    h1, h2, h3, h4 { text-wrap: balance; }
+    p, li { text-wrap: pretty; }
+
+    /* ── Cover ── */
+    .cover { background: var(--green-800); color: var(--cream); padding: 64px 56px; margin-bottom: 56px; position: relative; overflow: hidden; }
+    .cover::before { content: ""; position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(245,239,232,0.04) 59px, rgba(245,239,232,0.04) 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(245,239,232,0.04) 59px, rgba(245,239,232,0.04) 60px); pointer-events: none; }
+    .cover-eyebrow { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--green-300); margin: 0 0 16px; }
+    .cover h1 { font-family: var(--font-display); font-size: clamp(48px,7vw,80px); letter-spacing: 0.02em; color: var(--cream); margin: 0 0 8px; line-height: 1; }
+    .cover-sub { font-family: var(--font-display); font-size: clamp(20px,3vw,32px); letter-spacing: 0.02em; color: var(--green-300); margin: 0 0 32px; }
+    .cover-meta { font-size: 13px; color: rgba(245,239,232,0.6); margin: 0; }
+    .cover-accent { display: inline-block; width: 48px; height: 2px; background: var(--clay); margin-bottom: 32px; }
+
+    /* ── Section headers ── */
+    .sec-header { background: var(--green-700); color: var(--cream); padding: 20px 28px; margin: 48px -28px 32px; display: flex; align-items: baseline; gap: 16px; }
+    .sec-num { font-family: var(--font-display); font-size: 48px; letter-spacing: 0.02em; color: var(--green-400); line-height: 1; }
+    .sec-title-wrap { }
+    .sec-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--green-300); margin: 0 0 2px; }
+    .sec-title { font-family: var(--font-display); font-size: 28px; letter-spacing: 0.02em; color: var(--cream); margin: 0; }
+
+    /* ── Typography in doc ── */
+    h2.section-h2 { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.02em; color: var(--green-700); margin: 36px 0 12px; }
+    h3.sub { font-family: var(--font-body); font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin: 24px 0 8px; }
+    p { font-size: 14px; line-height: 1.7; color: var(--slate); margin: 0 0 12px; }
+    ul, ol { font-size: 14px; line-height: 1.7; color: var(--slate); padding-left: 20px; margin: 0 0 12px; }
+    li { margin-bottom: 4px; }
+    strong { color: var(--ink-900); font-weight: 600; }
+
+    /* ── Callout boxes ── */
+    .callout { background: var(--green-100); border-left: 3px solid var(--green-500); padding: 16px 20px; margin: 20px 0; border-radius: 0 4px 4px 0; }
+    .callout p { margin: 0; font-size: 13.5px; color: var(--ink-700); }
+    .callout-dark { background: var(--green-800); border-left: 3px solid var(--clay); padding: 16px 20px; margin: 20px 0; }
+    .callout-dark p { color: var(--cream); }
+    .callout-dark strong { color: var(--green-300); }
+
+    /* ── Tables ── */
+    table.kit-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0 24px; }
+    table.kit-table th { background: var(--green-700); color: var(--cream); font-family: var(--font-body); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 10px 12px; text-align: left; }
+    table.kit-table td { padding: 10px 12px; border-bottom: 1px solid var(--stone); vertical-align: top; color: var(--slate); line-height: 1.55; }
+    table.kit-table tr:nth-child(even) td { background: var(--sand); }
+    table.kit-table td strong { color: var(--ink-900); }
+    table.kit-table td code { font-family: monospace; font-size: 12px; background: var(--sand); padding: 1px 4px; border-radius: 2px; }
+
+    /* ── Pill tags ── */
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 16px; }
+    .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--green-500); color: var(--green-600); border-radius: 999px; }
+    .tag-clay { border-color: var(--clay); color: var(--clay); }
+    .tag-dark { border-color: var(--green-300); color: var(--green-300); background: var(--green-800); }
+
+    /* ── Color swatches ── */
+    .swatches { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0 20px; }
+    .swatch { text-align: center; }
+    .swatch-box { width: 64px; height: 40px; border-radius: 4px; border: 1px solid var(--stone); margin-bottom: 4px; }
+    .swatch-name { font-size: 10px; font-weight: 600; color: var(--slate-400); }
+    .swatch-hex { font-size: 10px; font-family: monospace; color: var(--slate); }
+
+    /* ── Pillar cards ── */
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+    .pillar-card { background: var(--white); border: 1px solid var(--stone); border-top: 3px solid var(--green-500); padding: 16px 18px; border-radius: 0 0 4px 4px; }
+    .pillar-card.clay { border-top-color: var(--clay); }
+    .pillar-num { font-family: var(--font-display); font-size: 32px; color: var(--green-100); letter-spacing: 0.02em; line-height: 1; }
+    .pillar-title { font-size: 13px; font-weight: 700; color: var(--green-700); margin: 4px 0 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .pillar-items { font-size: 12.5px; color: var(--slate); line-height: 1.6; margin: 0; padding-left: 16px; }
+
+    /* ── Template blocks ── */
+    .template-block { background: var(--white); border: 1px solid var(--stone); border-radius: 4px; padding: 20px 24px; margin: 16px 0; }
+    .template-block h4 { font-family: var(--font-display); font-size: 18px; letter-spacing: 0.02em; color: var(--green-700); margin: 0 0 12px; }
+    .template-row { display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+    .template-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); min-width: 80px; padding-top: 2px; }
+    .template-value { font-size: 13px; color: var(--slate); line-height: 1.6; flex: 1; }
+    .template-value em { color: var(--green-600); font-style: normal; font-weight: 500; }
+
+    /* ── Calendar grid ── */
+    .cal-week { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0; }
+    .cal-cell { background: var(--white); border: 1px solid var(--stone); padding: 10px 12px; border-radius: 4px; }
+    .cal-day { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); margin-bottom: 4px; }
+    .cal-content { font-size: 12px; color: var(--slate); line-height: 1.5; }
+    .cal-platform { font-size: 10px; color: var(--green-500); font-weight: 600; margin-top: 4px; }
+
+    /* ── Rule block for AI section ── */
+    .rule-block { border-left: 2px solid var(--green-400); padding-left: 16px; margin: 12px 0; }
+    .rule-num { font-family: var(--font-display); font-size: 14px; color: var(--green-500); letter-spacing: 0.04em; }
+    .rule-text { font-size: 13.5px; color: var(--slate); line-height: 1.65; margin: 2px 0 0; }
+
+    /* ── TOC ── */
+    .toc { background: var(--green-950); color: var(--cream); padding: 32px 36px; margin-bottom: 48px; }
+    .toc-title { font-family: var(--font-display); font-size: 16px; letter-spacing: 0.1em; color: var(--green-300); margin: 0 0 20px; }
+    .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 32px; }
+    .toc-item { font-size: 13px; color: rgba(245,239,232,0.75); display: flex; gap: 8px; align-items: baseline; }
+    .toc-item-num { font-family: var(--font-display); font-size: 18px; color: var(--green-400); min-width: 28px; }
+    .toc-item-name { line-height: 1.5; }
+
+    /* ── Divider ── */
+    hr.section-rule { border: none; border-top: 1px solid var(--stone); margin: 32px 0; }
+
+    /* ── Stat row ── */
+    .stat-row { display: flex; gap: 20px; flex-wrap: wrap; margin: 16px 0; }
+    .stat-box { background: var(--green-700); color: var(--cream); padding: 14px 20px; text-align: center; min-width: 80px; flex: 1; }
+    .stat-val { font-family: var(--font-display); font-size: 28px; letter-spacing: 0.02em; color: var(--cream); line-height: 1; }
+    .stat-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-300); margin-top: 4px; }
+
+    /* ── Voice examples ── */
+    .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+    .voice-card { background: var(--white); border: 1px solid var(--stone); padding: 14px 16px; border-radius: 4px; }
+    .voice-card-title { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-600); margin-bottom: 8px; }
+    .voice-card blockquote { font-size: 13px; font-style: italic; color: var(--slate); margin: 0; line-height: 1.6; border-left: 2px solid var(--clay); padding-left: 10px; }
+
+    /* ── Word pairs ── */
+    .word-pair { display: flex; gap: 16px; margin: 10px 0; }
+    .word-do { background: var(--green-100); padding: 8px 12px; flex: 1; border-radius: 2px; font-size: 12.5px; color: var(--green-700); }
+    .word-dont { background: var(--clay-100); padding: 8px 12px; flex: 1; border-radius: 2px; font-size: 12.5px; color: var(--clay-dark); text-decoration: line-through; }
+    .word-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+
+    /* ── Hashtag groups ── */
+    .hashtag-group { margin: 12px 0 20px; }
+    .hashtag-group-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 6px; }
+    .hashtag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .hashtag { font-size: 11.5px; color: var(--green-600); background: var(--green-100); padding: 3px 8px; border-radius: 2px; font-weight: 500; }
+
+    /* ── Platform badges ── */
+    .platform-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; margin-right: 4px; }
+    .pb-ig { background: #E1306C; color: #fff; }
+    .pb-fb { background: #1877F2; color: #fff; }
+    .pb-li { background: #0A66C2; color: #fff; }
+    .pb-tw { background: #000; color: #fff; }
+    .pb-th { background: #101010; color: #fff; }
+    .pb-wa { background: #25D366; color: #fff; }
+
+    @page { size: letter; margin: 0; }
+    @media print {
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 0.75in !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .hdr-space, .ftr-space { display: table-cell; height: 0.75in !important; }
+      .screen-only { display: none !important; }
+      h2, h3, h4 { break-after: avoid; }
+      table, .template-block, .pillar-card, .cal-cell, .rule-block { break-inside: avoid; }
+      p, li { orphans: 3; widows: 3; }
+    }
+  </style>
+</helmet>
+
+<main class="doc">
+  <table class="doc-frame" role="presentation">
+    <thead><tr><td class="hdr-space"></td></tr></thead>
+    <tbody><tr><td>
+
+      <!-- COVER -->
+      <div class="cover">
+        <p class="cover-eyebrow">Dova Futures Limited · Content Strategy</p>
+        <h1>CONTENT KIT</h1>
+        <p class="cover-sub">Social Media &amp; Brand Content System</p>
+        <div class="cover-accent"></div>
+        <p class="cover-meta">Version 1.0 · June 2026 · Confidential &amp; Proprietary<br>info@dovafutures.com · dovafutures.com · +234 816 367 5439</p>
+      </div>
+
+      <!-- TOC -->
+      <div class="toc">
+        <p class="toc-title">TABLE OF CONTENTS</p>
+        <div class="toc-grid">
+          <div class="toc-item"><span class="toc-item-num">00</span><span class="toc-item-name">Executive Summary</span></div>
+          <div class="toc-item"><span class="toc-item-num">01</span><span class="toc-item-name">Brand Foundation</span></div>
+          <div class="toc-item"><span class="toc-item-num">02</span><span class="toc-item-name">Target Audience Profiles</span></div>
+          <div class="toc-item"><span class="toc-item-num">03</span><span class="toc-item-name">Brand Voice System</span></div>
+          <div class="toc-item"><span class="toc-item-num">04</span><span class="toc-item-name">Visual Design System</span></div>
+          <div class="toc-item"><span class="toc-item-num">05</span><span class="toc-item-name">Content Pillars</span></div>
+          <div class="toc-item"><span class="toc-item-num">06</span><span class="toc-item-name">Content Templates</span></div>
+          <div class="toc-item"><span class="toc-item-num">07</span><span class="toc-item-name">Caption Library</span></div>
+          <div class="toc-item"><span class="toc-item-num">08</span><span class="toc-item-name">CTA Library</span></div>
+          <div class="toc-item"><span class="toc-item-num">09</span><span class="toc-item-name">Hashtag Library</span></div>
+          <div class="toc-item"><span class="toc-item-num">10</span><span class="toc-item-name">Monthly Content Calendar</span></div>
+          <div class="toc-item"><span class="toc-item-num">11</span><span class="toc-item-name">AI Generation Rules</span></div>
+        </div>
+      </div>
+
+      <!-- SECTION 00: EXECUTIVE SUMMARY -->
+      <div class="sec-header">
+        <span class="sec-num">00</span>
+        <div class="sec-title-wrap">
+          <p class="sec-eyebrow">Overview</p>
+          <h2 class="sec-title">EXECUTIVE SUMMARY</h2>
+        </div>
+      </div>
+
+      <p>This Content Kit is the single source of truth for all content creation, social media publishing, graphic design, and AI-assisted automation at <strong>DOVA Futures Limited</strong> — a premium Nigerian design–build construction company operating across Lagos, Ondo, Ekiti, Edo, and multiple states nationwide.</p>
+
+      <p>DOVA Futures delivers integrated design and construction under one roof: architectural planning, full-scale construction, interior fit-outs, renovations, landscaping, and real-estate development. The brand's competitive edge is BIM-led, technology-driven project delivery that eliminates the disconnect between drawings and on-site execution.</p>
+
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-val">20+</div><div class="stat-lbl">Concurrent Sites</div></div>
+        <div class="stat-box"><div class="stat-val">₦350M+</div><div class="stat-lbl">Project Value</div></div>
+        <div class="stat-box"><div class="stat-val">₦10M+</div><div class="stat-lbl">Client Savings</div></div>
+        <div class="stat-box"><div class="stat-val">6</div><div class="stat-lbl">Content Pillars</div></div>
+        <div class="stat-box"><div class="stat-val">12</div><div class="stat-lbl">Platform Templates</div></div>
+      </div>
+
+      <div class="callout">
+        <p><strong>Primary Tagline:</strong> "Rethink the Future" &nbsp;|&nbsp; <strong>Headline Pairing:</strong> "Designed With Intent. Built With Precision." &nbsp;|&nbsp; <strong>Master CTA:</strong> "Let's Build It Properly."</p>
+      </div>
+
+      <p>Any AI system using this kit must treat every guideline, template, and rule as binding. Brand consistency is non-negotiable. Content must feel premium, architectural, and authoritative at all times.</p>
+
+      <hr class="section-rule">
+
+      <!-- SECTION 01: BRAND FOUNDATION -->
+      <div class="sec-header">
+        <span class="sec-num">01</span>
+        <div class="sec-title-wrap">
+          <p class="sec-eyebrow">Identity</p>
+          <h2 class="sec-title">BRAND FOUNDATION</h2>
+        </div>
+      </div>
+
+      <h3 class="sub">Brand Mission</h3>
+      <p>DOVA Futures exists to eliminate the disconnect between design vision and construction reality. We deliver integrated design–build solutions that give Nigerian clients — from private homeowners to institutional developers — transparent, predictable, and exceptional built outcomes through a single accountable partner.</p>
+
+      <h3 class="sub">Brand Vision</h3>
+      <p>To become West Africa's most trusted integrated design–build company, defining a new standard of precision, craftsmanship, and sustainable architecture that outlasts trends and stands as the region's built legacy.</p>
+
+      <h3 class="sub">Brand Values</h3>
+      <table class="kit-table">
+        <thead><tr><th>Value</th><th>Definition</th><th>Content Expression</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Professionalism</strong></td><td>Every interaction reflects expertise and respect for the client's investment.</td><td>Precise language, real metrics, no hyperbole.</td></tr>
+          <tr><td><strong>Innovation</strong></td><td>BIM-led workflows, 3D coordination, technology-driven delivery.</td><td>Showcase process, tools, and precision.</td></tr>
+          <tr><td><strong>Reliability</strong></td><td>Commitments are kept. Budgets are respected. Timelines are met.</td><td>Before-and-after proof, client outcomes, milestones.</td></tr>
+          <tr><td><strong>Sustainability</strong></td><td>Natural materials, long-term thinking, responsible sourcing.</td><td>Material stories, lifecycle value, green messaging.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub">Brand Promise</h3>
+      <div class="callout-dark">
+        <p>Every project DOVA Futures touches will be delivered with full design–construction integration, structured supervision, budget transparency, and a finished result that exceeds what drawings alone could promise.</p>
+      </div>
+
+      <h3 class="sub">Brand Personality</h3>
+      <table class="kit-table">
+        <thead><tr><th>Trait</th><th>Description</th><th>Content Tone</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Professional</strong></td><td>Master builder credibility</td><td>Authoritative, evidence-led, no fluff</td></tr>
+          <tr><td><strong>Innovative</strong></td><td>Technology-forward, BIM-driven</td><td>Process-showcase, behind-the-scenes precision</td></tr>
+          <tr><td><strong>Modern</strong></td><td>Architectural minimalism</td><td>Clean visuals, generous white space, bold type</td></tr>
+          <tr><td><strong>Creative</strong></td><td>Design-led thinking</td><td>Aesthetic storytelling, moodboards, concept reveals</td></tr>
+          <tr><td><strong>Trustworthy</strong></td><td>Transparent partnerships</td><td>Real numbers, real client results, honest timelines</td></tr>
+          <tr><td><strong>Educational</strong></td><td>Industry expertise shared freely</td><td>Tips, insights, process breakdowns</td></tr>
+          <tr><td><strong>Inspiring</strong></td><td>Elevates what's possible in the built environment</td><td>Vision-forward, aspiration, legacy framing</td></tr>
+        </tbody>
+      </table>
+
+      <hr class="section-rule">
+
+      <!-- SECTION 02: AUDIENCE PROFILES -->
+      <div class="sec-header">
+        <span class="sec-num">02</span>
+        <div class="sec-title-wrap">
+          <p class="sec-eyebrow">Who We Serve</p>
+          <h2 class="sec-title">TARGET AUDIENCE PROFILES</h2>
+        </div>
+      </div>
+
+      <h3 class="sub">Primary Audience — Premium Residential Clients</h3>
+      <table class="kit-table">
+        <thead><tr><th>Attribute</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Demographics</strong></td><td>Ages 32–55, urban professionals and business owners, Lagos, Abuja, South-West Nigeria</td></tr>
+          <tr><td><strong>Occupation</strong></td><td>Entrepreneurs, C-suite executives, diaspora investors, senior civil servants</td></tr>
+          <tr><td><strong>Income</strong></td><td>₦15M+ annual household income; comfortable engaging ₦50M–₦500M+ project budgets</td></tr>
+          <tr><td><strong>Interests</strong></td><td>Architecture, luxury living, property investment, travel, premium lifestyle</td></tr>
+          <tr><td><strong>Pain Points</strong></td><td>Contractor unreliability, budget overruns, poor quality finish, disconnected architects and builders</td></tr>
+          <tr><td><strong>Goals</strong></td><td>A home or commercial space that reflects their status, delivered on time, with zero stress</td></tr>
+          <tr><td><strong>Platform Use</strong></td><td>Instagram, LinkedIn, WhatsApp; consuming aspirational and educational content</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub">Secondary Audience — Real Estate Developers &amp; Institutions</h3>
+      <table class="kit-table">
+        <thead><tr><th>Attribute</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Demographics</strong></td><td>Ages 35–60, project-oriented, national reach</td></tr>
+          <tr><td><strong>Interests</strong></td><td>ROI, buildability, programme management, risk reduction</td></tr>
+          <tr><td><strong>Motivations</strong></td><td>Proven track record, BIM capability, concurrent project management, value engineering</td></tr>
+          <tr><td><strong>Platform Use</strong></td><td>LinkedIn primary; WhatsApp for direct deal-making</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub">Audience Challenges &amp; Content Hooks</h3>
+      <ul>
+        <li><strong>"How do I know my contractor won't disappear mid-project?"</strong> → Content: supervision model, milestone posts, 5-step process</li>
+        <li><strong>"My architect and builder never agree — who controls quality?"</strong> → Content: design–build integration explainers, BIM walkthroughs</li>
+        <li><strong>"I don't know what my budget should be."</strong> → Content: value transparency posts, cost savings metrics, real project numbers</li>
+        <li><strong>"What does a premium interior look like in this price range?"</strong> → Content: before-and-after reveals, design-of-the-month, project showcases</li>
+        <li><strong>"Can Nigerian builders actually deliver international-grade work?"</strong> → Content: completed project photography, client testimonials, award coverage</li>
+      </ul>
+
+      <hr class="section-rule">
+
+      <!-- SECTION 03: BRAND VOICE -->
+      <div class="sec-header">
+        <span class="sec-num">03</span>
+        <div class="sec-title-wrap">
+          <p class="sec-eyebrow">Communication</p>
+          <h2 class="sec-title">BRAND VOICE SYSTEM</h2>
+        </div>
+      </div>
+
+      <p>DOVA Futures writes like a master builder who is also a designer — engineering precision fused with architectural aspiration. The voice is <strong>confident, precise, premium</strong>. It speaks to clients as trusted partners, never as salespeople.</p>
+
+      <h3 class="sub">Voice Characteristics by Mode</h3>
+      <div class="voice-grid">
+        <div class="voice-card">
+          <div class="voice-card-title">Professional Voice</div>
+          <blockquote>"BIM coordination catches on-site conflicts before a single block is laid — saving time, money, and rework."</blockquote>
+          <p style="font-size:12px;color:var(--slate-400);margin:8px 0 0;">Use for: industry insights, process explanations, capability posts</p>
+        </div>
+        <div class="voice-card">
+          <div class="voice-card-title">Inspirational Voice</div>
+          <blockquote>"A new month. Another opportunity to build something that outlasts the moment. Let's make it count."</blockquote>
+          <p style="font-size:12px;color:var(--slate-400);margin:8px 0 0;">Use for: new month posts, milestone announcements, vision content</p>
+        </div>
+        <div class="voice-card">
+          <div class="voice-card-title">Educational Voice</div>
+          <blockquote>"Most clients don't know the difference between architectural drawings and construction drawings. Here's why it matters for your project."</blockquote>
+          <p style="font-size:12px;color:var(--slate-400);margin:8px 0 0;">Use for: design tips, construction tips, industry insights</p>
+        </div>
+        <div class="voice-card">
+          <div class="voice-card-title">Promotional Voice</div>
+          <blockquote>"The Ado Hall project: a 600m² commercial space, delivered in 14 weeks, ₦12M under original estimate. This is what coordination looks like."</blockquote>
+          <p style="font-size:12px;color:var(--slate-400);margin:8px 0 0;">Use for: service announcements, completed project showcases</p>
+        </div>
+      </div>
+
+      <h3 class="sub">Preferred vs. Prohibited Language</h3>
+      <div class="word-pair">
+        <div>
+          <div class="word-label" style="color:var(--green-600)">Use These Words</div>
+          <div class="word-do">integrated · precision · craftsmanship · engineered · handover · buildability · seamless · future-ready · transparent · landmark · coordinated · sustainable</div>
+        </div>
+        <div>
+          <div class="word-label" style="color:var(--clay)">Avoid These Words</div>
+          <div class="word-dont">cheap · affordable · discount · quick · easy · amazing · awesome · we're the best · unbeatable</div>
+        </div>
+      </div>
+
+      <h3 class="sub">Writing Rules</h3>
+      <ul>
+        <li><strong>Person:</strong> Address clients as "you / your project / your vision." DOVA is "we / our." Never third-person self-reference.</li>
+        <li><strong>Casing:</strong> Display headlines in Bebas Neue ALL-CAPS. Eyebrows are short uppercase Inter labels. Body copy is sentence case.</li>
+        <li><strong>Headline style:</strong> Short, declarative, often paired clauses with full stops — never exclamation marks.</li>
+        <li><strong>Numbers:</strong> Always use real metrics. Always use Naira ₦ symbol for money.</li>
+        <li><strong>Emoji:</strong> Never. This is a premium professional brand.</li>
+        <li><strong>Punctuation:</strong> En-dash in "design–build" is part of the brand lexicon. CTAs use first-person-plural invitations ("Let's discuss…").</li>
+        <li><strong>Sentence length:</strong> 1–3 lines. Benefit-led. Mechanism second.</li>
+      </ul>
+
+      <hr class="section-rule">
+
+      <!-- SECTION 04: VISUAL DESIGN SYSTEM -->
+      <div class="sec-header">
+        <span class="sec-num">04</span>
+        <div class="sec-title-wrap">
+          <p class="sec-eyebrow">Aesthetics</p>
+          <h2 class="sec-title">VISUAL DESIGN SYSTEM</h2>
+        </div>
+      </div>
+
+      <h3 class="sub">Color Palette</h3>
+      <p><strong>Primary Colors</strong></p>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-box" style="background:#1C4636;"></div><div class="swatch-name">Brand Green</div><div class="swatch-hex">#1C4636</div></div>
+        <div class="swatch"><div class="swatch-box" style="background:#16382B;"></div><div class="swatch-name">Green 800</div><div class="swatch-hex">#16382B</div></div>
+        <div class="swatch"><div class="swatch-box" style="background:#0B221A;"></div><div class="swatch-name">Green 950</div><div class="swatch-hex">#0B221A</div></div>
+        <div class="swatch"><div class="swatch-box" style="background:#F5EFE8;border:1px solid #D1CBC6;"></div><div class="swatch-name">Cream</div><div class="swatch-hex">#F5EFE8</div></div>
+        <div class="swatch"><div class="swatch-box" style="background:#1A1A1A;"></div><div class="swatch-name">Ink</div><div class="swatch-hex">#1A1A1A</div></div>
+      </div>
+      <p><strong>Secondary &amp; Accent Colors</strong></p>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-box" style="background:#B85C38;"></div><div class="swatch-name">Clay</div><div class="swatch-hex">#B85C38</div></div>
+        <div class="swatch"><div class="swatch-box" style="background:#E8E1D5;border:1px solid #D1CBC6;"></div><div class="swatch-name">Sand</div><div class="swatch-hex">#E8E1D5</div></div>
+        <div class="swatch"><div class="swatch-box" style="background:#D1CBC6;"></div><div class="swatch-name">Stone</div><div class="swatch-hex">#D1CBC6</div></div>
+        <div class="swatch"><div class="swatch-box" style="background:#4A4F5C;"></div><div class="swatch-name">Slate</div><div class="swatch-hex">#4A4F5C</div></div>
+        <div class="swatch"><div class="swatch-box" style="background:#357A5B;"></div><div class="swatch-name">Green 500</div><div class="swatch-hex">#357A5B</div></div>
+      </div>
+
+      <table class="kit-table">
+        <thead><tr><th>Color</th><th>Hex</th><th>RGB</th><th>Usage Rule</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Brand Green</strong></td><td><code>#1C4636</code></td><td>28, 70, 54</td><td>Primary identity color. Hero backgrounds, section headers, CTA buttons. Never as text on dark.</td></tr>
+          <tr><td><strong>Cream</strong></td><td><code>#F5EFE8</code></td><td>245, 239, 232</td><td>Signature light surface. Alternate sections, light-mode cards, text on dark.</td></tr>
+          <tr><td><strong>Clay</strong></td><td><code>#B85C38</code></td><td>184, 92, 56</td><td>Accent only. Links, highlights, small accents. Never dominant. Max 10% of any graphic.</td></tr>
+          <tr><td><strong>Ink</strong></td><td><code>#1A1A1A</code></td><td>26, 26, 26</td><td>Headings on light surfaces. Never pure black.</td></tr>
+          <tr><td><strong>Slate</strong></td><td><code>#4A4F5C</code></td><td>74, 79, 92</td><td>Body copy on light. Subheadings. Supporting text.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub">Typography System</h3>
+      <table class="kit-table">
+        <thead><tr><th>Role</th><th>Font</th><th>Weight</th><th>Usage</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Display / Headline</strong></td><td>Bebas Neue</td><td>Regular (only weight)</td><td>Hero graphics, section titles, announcements, slide headlines. Always ALL-CAPS. Tracking 0.02em.</td></tr>
+          <tr><td><strong>Body / UI</strong></td><td>Inter</td><td>300–800</td><td>Captions, body copy, information sections, UI labels. Body at 17px, lh 1.65.</td></tr>
+          <tr><td><strong>Eyebrow / Kicker</strong></td><td>Inter</td><td>600–700</td><td>Section kickers above headlines. Uppercase, tracking 0.28em, 10–11px.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub">Graphic Style Guidelines</h3>
+      <ul>
+        <li><strong>Layout:</strong> Architectural minimalism. Dark green full-bleed sections alternate with cream sections. Generous negative space.</li>
+        <li><strong>Grid:</strong> 8px base grid. 1280px max container. 32px side padding. 2–3 column grids for content.</li>
+        <li><strong>Borders &amp; Radii:</strong> Sharp — 0–4px. Hairline 1px framing lines at low opacity. Avoid large rounded corners.</li>
+        <li><strong>Shadows:</strong> Restrained. 0 4px 24px rgba(26,26,26,.08) for cards. No decorative drop-shadow effects.</li>
+        <li><strong>Icon Style:</strong> 1.5px stroke line icons on 24px grid. Lucide icon set. Never filled icons. Never emoji.</li>
+        <li><strong>Photography:</strong> Warm, architectural, daylight. Real project photography. Dark gradient protection overlay for text legibility. No stock-looking imagery.</li>
+        <li><strong>Blueprint Overlay:</strong> Faint 60px grid at 3–4% white opacity on dark hero graphics — a subtle engineering/drafting cue.</li>
+        <li><strong>Motion:</strong> Calm cubic-bezier(0.22,0.61,0.36,1), 0.3s. Fade + 32px rise scroll-reveals. Never bouncy or playful.</li>
+      </ul>
+
+      <hr class="section-rule">
+
+      <!-- SECTION 05: CONTENT PILLARS -->
+      <div class="sec-header">
+        <span class="sec-num">05</span>
+        <div class="sec-title-wrap">
+          <p class="sec-eyebrow">Strategy</p>
+          <h2 class="sec-title">CONTENT PILLARS</h2>
+        </div>
+      </div>
+
+      <p>Six pillars structure all content creation. Every post, caption, and graphic belongs to one pillar. Rotate across all six for a balanced feed.</p>
+
+      <div class="pillars">
+        <div class="pillar-card">
+          <div class="pillar-num">01</div>
+          <div class="pillar-title">Design Inspiration</div>
+          <ul class="pillar-items">
+            <li>Design Showcase</li>
+            <li>Design of the Month</li>
+            <li>Mood Boards</li>
+            <li>Concept Renders</li>
+            <li>Material Stories</li>
+          </ul>
+          <p style="font-size:11.5px;color:var(--slate-400);margin-top:8px;">Goal: establish aesthetic authority and generate aspirational desire.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">02</div>
+          <div class="pillar-title">Project Progress</div>
+          <ul class="pillar-items">
+            <li>Site Updates</li>
+            <li>Milestone Posts</li>
+            <li>Construction Progress</li>
+            <li>BIM Coordination Previews</li>
+          </ul>
+          <p style="font-size:11.5px;color:var(--slate-400);margin-top:8px;">Goal: build trust through transparency and live accountability.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">03</div>
+          <div class="pillar-title">Project Showcase</div>
+          <ul class="pillar-items">
+            <li>Completed Projects</li>
+            <li>Before &amp; After Reveals</li>
+            <li>Client Results</li>
+            <li>Portfolio Features</li>
+          </ul>
+          <p style="font-size:11.5px;color:var(--slate-400);margin-top:8px;">Goal: convert interest into consultation requests via proof of quality.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">04</div>
+          <div class="pillar-title">Educational Content</div>
+          <ul class="pillar-items">
+            <li>Design Tips</li>
+            <li>Construction Tips</li>
+            <li>Industry Insights</li>
+            <li>BIM Explainers</li>
+          </ul>
+          <p style="font-size:11.5px;color:var(--slate-400);margin-top:8px;">Goal: position DOVA as the most knowledgeable voice in Nigerian design–build.</p>
+        </div>
+        <div class="pillar-card clay">
+          <div class="pillar-num" style="color:var(--clay-100)">05</div>
+          <div class="pillar-title" style="color:var(--clay)">Company Updates</div>
+          <ul class="pillar-items">
+            <li>Announcements</li>
+            <li>Awards &amp; Recognition</li>
+            <li>Partnerships</li>
+            <li>Team Highlights</li>
+          </ul>
+          <p style="font-size:11.5px;color:var(--slate-400);margin-top:8px;">Goal: humanise the brand and celebrate growth milestones.</p>
+        </div>
+        <div class="pillar-card clay">
+          <div class="pillar-num" style="color:var(--clay-100)">06</div>
+          <div class="pillar-title" style="color:var(--clay)">Seasonal &amp; Holiday</div>
+          <ul class="pillar-items">
+            <li>New Month Posts</li>
+            <li>Public Holidays</li>
+            <li>Special Events</li>
+            <li>Industry Awareness Days</li>
+          </ul>
+          <p style="font-size:11.5px;color:var(--slate-400);margin-top:8px;">Goal: maintain cadence and connect DOVA to cultural moments authentically.</p>
+        </div>
+      </div>
+
+      <hr class="section-rule">
+
+      <!-- SECTION 06: CONTENT TEMPLATES -->
+      <div class="sec-header">
+        <span class="sec-num">06</span>
+        <div class="sec-title-wrap">
+          <p class="sec-eyebrow">Reusable Formats</p>
+          <h2 class="sec-title">CONTENT TEMPLATES</h2>
+        </div>
+      </div>
+
+      <div class="template-block">
+        <h4>NEW MONTH CONTENT</h4>
+        <div class="template-row"><span class="template-label">Headline</span><span class="template-value"><em>[MONTH NAME].</em> A new chapter. A new project. A new standard.</span></div>
+        <div class="template-row"><span class="template-label">Caption</span><span class="template-value">As we step into <em>[Month]</em>, we carry forward the precision, craftsmanship, and commitment that define every DOVA Futures project. This month, we're <em>[specific goal/project hint]</em>. What are you building this <em>[Month]</em>?</span></div>
+        <div class="template-row"><span class="template-label">Visual</span><span class="template-value">Dark green full-bleed. Bebas Neue month name large. Blueprint overlay. DOVA white logo top-left.</span></div>
+        <div class="template-row"><span class="template-label">CTA</span><span class="template-value">Let's build something extraordinary together. Link in bio to start your consultation.</span></div>
+      </div>
+
+      <div class="template-block">
+        <h4>DESIGN OF THE MONTH</h4>
+        <div class="template-row"><span class="template-label">Feature</span><span class="template-value">Project name · Location · Typology (residential / commercial / institutional)</span></div>
+        <div class="template-row"><span class="template-label">Storytelling</span><span class="template-value">Client brief → Design challenge → DOVA's solution → Key material/spatial decisions → Delivered outcome</span></div>
+        <div class="template-row"><span class="template-label">Caption</span><span class="template-value">This month's featured design: <em>[Project Name]</em>. <em>[One sentence on the client challenge.]</em> Our response: <em>[Design decision + rationale.]</em> The result: <em>[Measurable or qualitative outcome.]</em></span></div>
+        <div class="template-row"><span class="template-label">Visual</span><span class="template-value">Carousel: render/photo → floor plan → material board → finished detail → before/after slider</span></div>
+        <div class="template-row"><span class="template-label">CTA</span><span class="template-value">Full case study at dovafutures.com. DM or call +234 816 367 5439 to discuss your project.</span></div>
+      </div>
+
+      <div class="template-block">
+        <h4>PROJECT HIGHLIGHT</h4>
+        <div class="template-row"><span class="template-label">Challenge</span><span class="template-value"><em>[Client's situation and what made this project complex — budget, timeline, site condition, programme.]</em></span></div>
+        <div class="template-row"><span class="template-label">Solution</span><span class="template-value">DOVA's integrated approach: design–build coordination, BIM clash detection, structured supervision, value engineering.</span></div>
+        <div class="template-row"><span class="template-label">Outcome</span><span class="template-value">Delivered in <em>[X weeks]</em> · ₦<em>[X]</em> under estimate · <em>[Client testimonial one line]</em></span></div>
+        <div class="template-row"><span class="template-label">Visual</span><span class="template-value">Split graphic: site photo + stat overlay. Cream card with project metrics. DOVA green framing border.</span></div>
+      </div>
+
+      <div class="template-block">
+        <h4>DESIGN SHOWCASE</h4>
+        <div class="template-row"><span class="template-label">Concept</span><span class="template-value">The design philosophy in 1–2 sentences. Reference the spatial concept or material story.</span></div>
+        <div class="template-row"><span class="template-label">Key Features</span><span class="template-value">3 specific design decisions: material choice, spatial sequence, structural expression, lighting strategy.</span></div>
+        <div class="template-row"><span class="template-label">Benefits</span><span class="template-value">How these decisions serve the client: lifestyle, value, longevity, sustainability.</span></div>
+        <div class="template-row"><span class="template-label">Hashtags</span><span class="template-value">Design + Architecture + Interior Design + Nigeria-specific tags (see Section 09)</span></div>
+      </div>
+
+      <div class="template-block">
+        <h4>HOLIDAY &amp; SEASONAL CONTENT</h4>
+        <div class="template-row"><span class="template-label">Greeting</span><span class="template-value">Wishing you <em>[occasion adjective]</em> <em>[holiday name]</em> from the DOVA Futures team.</span></div>
+        <div class="template-row"><span class="template-label">Brand Bridge</span><span class="template-value">As you celebrate <em>[occasion]</em>, we remain committed to building spaces that bring your most meaningful moments to life.</span></div>
+        <div class="template-row"><span class="template-label">Visual</span><span class="template-value">Dark green background. Subtle holiday reference (no kitsch). DOVA logo prominent. Clean typography.</span></div>
+        <div class="template-row"><span class="template-label">CTA</span><span class="template-value">From our family to yours — see you on the other side. dovafutures.com</span></div>
+      </div>
+
+      <div class="template-block">
+        <h4>SPECIAL ANNOUNCEMENT</h4>
+        <div class="template-row"><span class="template-label">Hook</span><span class="template-value">One bold declarative headline sentence. No qualifier. No caveat.</span></div>
+        <div class="template-row"><span class="template-label">Body</span><span class="template-value">What is being announced → Why it matters to clients → What changes or becomes possible as a result</span></div>
+        <div class="template-row"><span class="template-label">CTA</span><span class="template-value">Direct action: "DM us to enquire." / "Register at the link in bio." / "Call +234 816 367 5439."</span></div>
+        <div class="template-row"><span class="template-label">Urgency</span><span class="template-value">Only if genuine. Never manufactured scarcity.</span></div>
+      </div>
+
+      <hr class="section-rule">
+
+      <!-- SECTION 07: CAPTION LIBRARY -->
+      <div class="sec-header">
+        <span class="sec-num">07</span>
+        <div class="sec-title-wrap">
+          <p class="sec-eyebrow">Platform Formats</p>
+          <h2 class="sec-title">CAPTION LIBRARY</h2>
+        </div>
+      </div>
+
+      <h3 class="sub"><span class="platform-badge pb-ig">Instagram</span> Caption Formats</h3>
+      <table class="kit-table">
+        <thead><tr><th>Format</th><th>Length</th><th>Structure</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Short</strong></td><td>1–3 lines + hashtags</td><td>Bold opening statement. One supporting line. CTA. 10–15 hashtags below.</td></tr>
+          <tr><td><strong>Medium</strong></td><td>4–7 lines + hashtags</td><td>Hook line. 2–3 context sentences. Outcome or insight. CTA. 15–20 hashtags.</td></tr>
+          <tr><td><strong>Long</strong></td><td>8–15 lines + hashtags</td><td>Story-driven. Challenge → Process → Outcome. Client quote if available. Two CTAs (engagement + lead). 20–25 hashtags, one per line.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub"><span class="platform-badge pb-li">LinkedIn</span> Caption Formats</h3>
+      <table class="kit-table">
+        <thead><tr><th>Format</th><th>Length</th><th>Structure</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Short</strong></td><td>2–4 lines</td><td>Professional insight or metric. No hashtags. Direct. Authoritative.</td></tr>
+          <tr><td><strong>Medium</strong></td><td>5–10 lines</td><td>Industry observation → DOVA's perspective → Implication for clients. 3–5 professional hashtags.</td></tr>
+          <tr><td><strong>Long</strong></td><td>10–20 lines</td><td>Thought leadership. Problem statement → analysis → DOVA position → invitation to discuss. 5–8 hashtags. First-person plural. No lists of bullet points.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub"><span class="platform-badge pb-fb">Facebook</span> Caption Formats</h3>
+      <table class="kit-table">
+        <thead><tr><th>Format</th><th>Structure</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Short</strong></td><td>1–2 sentences. Curiosity hook. Link to website or DM prompt. 5–8 hashtags.</td></tr>
+          <tr><td><strong>Medium</strong></td><td>Project story in plain narrative. 80–150 words. Community-friendly. Warm but professional. CTA to message page.</td></tr>
+          <tr><td><strong>Long</strong></td><td>Full project case study format. 200–350 words. Photos captioned individually. Clear CTA in final paragraph.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub"><span class="platform-badge pb-tw">X (Twitter)</span> Caption Formats</h3>
+      <table class="kit-table">
+        <thead><tr><th>Format</th><th>Structure</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Short</strong></td><td>Single declarative statement under 180 characters. No hashtags or 1–2 max. Standalone insight.</td></tr>
+          <tr><td><strong>Medium</strong></td><td>Thread hook tweet (bold claim) + 2–4 follow-up tweets expanding the idea. End with CTA tweet.</td></tr>
+          <tr><td><strong>Long</strong></td><td>Full thread: 6–10 tweets. Numbered. Educational breakdown or project story. Final tweet: full CTA + link.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub"><span class="platform-badge pb-th">Threads</span> Caption Formats</h3>
+      <table class="kit-table">
+        <thead><tr><th>Format</th><th>Structure</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Short</strong></td><td>Conversational observation. 1–2 sentences. Invites replies. Less formal than LinkedIn.</td></tr>
+          <tr><td><strong>Medium</strong></td><td>Behind-the-scenes insight. 3–5 sentences. Casual but credible. No hashtags.</td></tr>
+          <tr><td><strong>Long</strong></td><td>Story thread. 4–6 posts. Project narrative or industry take. End with open question to drive engagement.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub"><span class="platform-badge pb-wa">WhatsApp Status</span> Caption Formats</h3>
+      <table class="kit-table">
+        <thead><tr><th>Format</th><th>Structure</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Short</strong></td><td>15–25 words max. Single bold statement. Contact number included. No hashtags.</td></tr>
+          <tr><td><strong>Medium</strong></td><td>Project snapshot: one image, 2–3 lines of context, "DM for details" CTA.</td></tr>
+          <tr><td><strong>Long</strong></td><td>Carousel status: 5–7 slides. One message per slide. Last slide always: logo + contact + website.</td></tr>
+        </tbody>
+      </table>
+
+      <hr class="section-rule">
+
+      <!-- SECTION 08: CTA LIBRARY -->
+      <div class="sec-header">
+        <span class="sec-num">08</span>
+        <div class="sec-title-wrap">
+          <p class="sec-eyebrow">Calls to Action</p>
+          <h2 class="sec-title">CTA LIBRARY</h2>
+        </div>
+      </div>
+
+      <h3 class="sub">Engagement CTAs</h3>
+      <table class="kit-table">
+        <thead><tr><th>CTA</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>"What would you build first in a space like this?"</td><td>Design showcase, render reveals</td></tr>
+          <tr><td>"Drop your project type below — we'd love to hear what you're planning."</td><td>New month, awareness posts</td></tr>
+          <tr><td>"Save this if you're planning a project in the next 12 months."</td><td>Educational, tips content</td></tr>
+          <tr><td>"Which finish would you choose — share your thoughts below."</td><td>Material comparison posts</td></tr>
+          <tr><td>"Tag someone building their dream home."</td><td>Project showcase, inspiration</td></tr>
+          <tr><td>"Which design speaks to you — left or right?"</td><td>Dual option reveal posts</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub">Lead Generation CTAs</h3>
+      <table class="kit-table">
+        <thead><tr><th>CTA</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>"Let's build it properly. Start your project at dovafutures.com"</td><td>Primary brand CTA — use on all platforms</td></tr>
+          <tr><td>"DM us your project brief. We respond within 24 hours."</td><td>Instagram, Facebook, WhatsApp</td></tr>
+          <tr><td>"Call +234 816 367 5439 to schedule a consultation."</td><td>WhatsApp, Facebook, direct posts</td></tr>
+          <tr><td>"Ready to start? Send us a message at info@dovafutures.com"</td><td>LinkedIn, long-form content</td></tr>
+          <tr><td>"Your vision. Our precision. Let's discuss — link in bio."</td><td>Project showcase, portfolio posts</td></tr>
+          <tr><td>"Request a site assessment this month."</td><td>Time-sensitive promotional posts</td></tr>
+          <tr><td>"Let's talk numbers. Send us your project scope and we'll send you a framework estimate — no obligation."</td><td>LinkedIn, WhatsApp, lead campaigns</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub">Community CTAs</h3>
+      <table class="kit-table">
+        <thead><tr><th>CTA</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>"Follow for weekly design and construction insights from Nigeria's design–build team."</td><td>Awareness, new follower prompts</td></tr>
+          <tr><td>"Share this with your architect or project manager."</td><td>Educational, industry content</td></tr>
+          <tr><td>"Turn on notifications — project reveals coming this week."</td><td>Pre-launch teaser posts</td></tr>
+          <tr><td>"Join our WhatsApp broadcast for priority project updates."</td><td>Community building, WhatsApp</td></tr>
+        </tbody>
+      </table>
+
+      <hr class="section-rule">
+
+      <!-- SECTION 09: HASHTAG LIBRARY -->
+      <div class="sec-header">
+        <span class="sec-num">09</span>
+        <div class="sec-title-wrap">
+          <p class="sec-eyebrow">Discovery</p>
+          <h2 class="sec-title">HASHTAG LIBRARY</h2>
+        </div>
+      </div>
+
+      <p>Use a mix of high, medium, and niche hashtags per post. Instagram: 15–25 tags. LinkedIn: 5–8. Facebook: 5–10. X: 1–3 max.</p>
+
+      <div class="hashtag-group">
+        <div class="hashtag-group-title">Design &amp; Architecture</div>
+        <div class="hashtag-list">
+          <span class="hashtag">#architecture</span><span class="hashtag">#architecturedesign</span><span class="hashtag">#architecturephotography</span><span class="hashtag">#modernarchitecture</span><span class="hashtag">#architecturelovers</span><span class="hashtag">#design</span><span class="hashtag">#designinspiration</span><span class="hashtag">#architecturestudent</span><span class="hashtag">#archilovers</span><span class="hashtag">#designbuild</span><span class="hashtag">#archidaily</span><span class="hashtag">#buildingdesign</span>
+        </div>
+      </div>
+      <div class="hashtag-group">
+        <div class="hashtag-group-title">Interior Design</div>
+        <div class="hashtag-list">
+          <span class="hashtag">#interiordesign</span><span class="hashtag">#interiors</span><span class="hashtag">#interiordecor</span><span class="hashtag">#interiorarchitecture</span><span class="hashtag">#homedecor</span><span class="hashtag">#homedesign</span><span class="hashtag">#luxuryinteriors</span><span class="hashtag">#moderninteriors</span><span class="hashtag">#interiorstyling</span><span class="hashtag">#residentialdesign</span>
+        </div>
+      </div>
+      <div class="hashtag-group">
+        <div class="hashtag-group-title">Construction</div>
+        <div class="hashtag-list">
+          <span class="hashtag">#construction</span><span class="hashtag">#constructionlife</span><span class="hashtag">#constructionmanagement</span><span class="hashtag">#buildingconstruction</span><span class="hashtag">#contractor</span><span class="hashtag">#projectmanagement</span><span class="hashtag">#civilengineering</span><span class="hashtag">#structuralengineering</span><span class="hashtag">#BIM</span><span class="hashtag">#buildinginformationmodeling</span>
+        </div>
+      </div>
+      <div class="hashtag-group">
+        <div class="hashtag-group-title">Nigerian &amp; Local Market</div>
+        <div class="hashtag-list">
+          <span class="hashtag">#nigeriaarchitecture</span><span class="hashtag">#lagosarchitecture</span><span class="hashtag">#nigeriainteriors</span><span class="hashtag">#nigeriabuilders</span><span class="hashtag">#lagosconstruction</span><span class="hashtag">#nigerianarchitect</span><span class="hashtag">#nigerianinteriordesigner</span><span class="hashtag">#buildinnigeria</span><span class="hashtag">#nigeriadesign</span><span class="hashtag">#lagosrealestate</span><span class="hashtag">#nigerianrealestate</span>
+        </div>
+      </div>
+      <div class="hashtag-group">
+        <div class="hashtag-group-title">Real Estate &amp; Property</div>
+        <div class="hashtag-list">
+          <span class="hashtag">#realestate</span><span class="hashtag">#property</span><span class="hashtag">#propertyinvestment</span><span class="hashtag">#realestateinvesting</span><span class="hashtag">#luxuryproperty</span><span class="hashtag">#newbuild</span><span class="hashtag">#dreamhome</span><span class="hashtag">#homeinspiration</span><span class="hashtag">#housedesign</span>
+        </div>
+      </div>
+      <div class="hashtag-group">
+        <div class="hashtag-group-title">Brand &amp; Business</div>
+        <div class="hashtag-list">
+          <span class="hashtag">#dovafutures</span><span class="hashtag">#dovafuturesdevelopers</span><span class="hashtag">#rethinkthefuture</span><span class="hashtag">#designbuilt</span><span class="hashtag">#builtwithprecision</span><span class="hashtag">#businessgrowth</span><span class="hashtag">#AfricanArchitecture</span><span class="hashtag">#sustainabledesign</span><span class="hashtag">#greenbuild</span>
+        </div>
+      </div>
+
+      <hr class="section-rule">
+
+      <!-- SECTION 10: CONTENT CALENDAR -->
+      <div class="sec-header">
+        <span class="sec-num">10</span>
+        <div class="sec-title-wrap">
+          <p class="sec-eyebrow">Publishing Rhythm</p>
+          <h2 class="sec-title">MONTHLY CONTENT CALENDAR</h2>
+        </div>
+      </div>
+
+      <p>Post frequency: <strong>Instagram</strong> 5×/week · <strong>Facebook</strong> 3×/week · <strong>LinkedIn</strong> 3×/week · <strong>X</strong> 5×/week · <strong>WhatsApp</strong> 3×/week · <strong>Threads</strong> daily</p>
+
+      <div class="callout">
+        <p><strong>Priority Platforms:</strong> Instagram (primary visual discovery) · LinkedIn (B2B and developer audience) · WhatsApp (direct relationship and warm leads)</p>
+      </div>
+
+      <h3 class="sub">Weekly Content Structure</h3>
+      <div class="cal-week">
+        <div class="cal-cell">
+          <div class="cal-day">Monday</div>
+          <div class="cal-content">Design Inspiration or Project Showcase</div>
+          <div class="cal-platform">IG · FB · Threads</div>
+        </div>
+        <div class="cal-cell">
+          <div class="cal-day">Tuesday</div>
+          <div class="cal-content">Educational Content (tip or industry insight)</div>
+          <div class="cal-platform">LinkedIn · X · Threads</div>
+        </div>
+        <div class="cal-cell">
+          <div class="cal-day">Wednesday</div>
+          <div class="cal-content">Project Progress or Behind the Scenes</div>
+          <div class="cal-platform">IG · WA · FB</div>
+        </div>
+        <div class="cal-cell">
+          <div class="cal-day">Thursday</div>
+          <div class="cal-content">Educational or Company Update</div>
+          <div class="cal-platform">LinkedIn · X · Threads</div>
+        </div>
+      </div>
+      <div class="cal-week">
+        <div class="cal-cell">
+          <div class="cal-day">Friday</div>
+          <div class="cal-content">Project Highlight or Design of the Month feature</div>
+          <div class="cal-platform">IG · FB · LinkedIn</div>
+        </div>
+        <div class="cal-cell">
+          <div class="cal-day">Saturday</div>
+          <div class="cal-content">Aspirational / Mood Board / Inspiration post</div>
+          <div class="cal-platform">IG · Threads · WA</div>
+        </div>
+        <div class="cal-cell">
+          <div class="cal-day">Sunday</div>
+          <div class="cal-content">Rest or lightweight engagement (poll, question)</div>
+          <div class="cal-platform">IG Stories · Threads</div>
+        </div>
+        <div class="cal-cell">
+          <div class="cal-day">Monthly Anchors</div>
+          <div class="cal-content">Day 1: New Month post · Week 2: Design of Month · Week 3: Project Showcase · Week 4: Educational long-form</div>
+          <div class="cal-platform">All platforms</div>
+        </div>
+      </div>
+
+      <h3 class="sub">Monthly Must-Publish Checklist</h3>
+      <ul>
+        <li>1× New Month graphic (Day 1 — all platforms simultaneously)</li>
+        <li>4× Weekly project progress updates</li>
+        <li>4× Weekly design inspiration posts</li>
+        <li>1× Design of the Month (carousel — Week 2)</li>
+        <li>1× Project Showcase (Week 3 — lead-gen focused)</li>
+        <li>2× Educational long-form content (LinkedIn + IG carousel)</li>
+        <li>Holiday posts as applicable (all relevant platforms)</li>
+        <li>1× Special announcement (if applicable that month)</li>
+        <li>2× WhatsApp status broadcast updates</li>
+      </ul>
+
+      <hr class="section-rule">
+
+      <!-- SECTION 11: AI CONTENT GENERATION RULES -->
+      <div class="sec-header">
+        <span class="sec-num">11</span>
+        <div class="sec-title-wrap">
+          <p class="sec-eyebrow">Automation Standards</p>
+          <h2 class="sec-title">AI CONTENT GENERATION RULES</h2>
+        </div>
+      </div>
+
+      <div class="callout-dark">
+        <p><strong>Any AI system generating content for DOVA Futures must treat the following rules as absolute. No exceptions. No creative license that violates these rules.</strong></p>
+      </div>
+
+      <h3 class="sub">Brand Consistency Rules</h3>
+      <div class="rule-block">
+        <div class="rule-num">RULE 01 — BRAND VOICE</div>
+        <div class="rule-text">All copy must be confident, precise, and premium. Never casual, never playful, never salesy. Write like a master builder who is also a designer. Use the preferred word list from Section 03. Never use prohibited words.</div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num">RULE 02 — NO EMOJI</div>
+        <div class="rule-text">Zero emoji in any content — captions, graphics, CTAs, or templates. This is a premium professional brand. Use Lucide-style icons in graphics. Use line breaks and punctuation for rhythm, not symbols.</div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num">RULE 03 — CASING</div>
+        <div class="rule-text">Headlines in Bebas Neue are ALL-CAPS always. Eyebrow kickers are UPPERCASE Inter with wide tracking. Body copy is sentence case. Never title-case body text unless it is a proper noun.</div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num">RULE 04 — CURRENCY</div>
+        <div class="rule-text">All monetary references use the Naira symbol ₦ — never "NGN", never "Naira" written out when a number follows. Format: ₦350M+, ₦10M, ₦5,000,000.</div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num">RULE 05 — REAL METRICS ONLY</div>
+        <div class="rule-text">Only use numbers that are real and verifiable. Do not invent statistics. If exact data is unavailable, use qualitative outcome language instead. Approved benchmarks: 20+ concurrent sites, ₦350M+ project value, ₦10M+ client savings.</div>
+      </div>
+
+      <h3 class="sub">Design Consistency Rules</h3>
+      <div class="rule-block">
+        <div class="rule-num">RULE 06 — COLOR</div>
+        <div class="rule-text">Primary surface: deep forest green #1C4636. Light surface: cream #F5EFE8. Accent: clay #B85C38 at max 10% of any graphic. Never purple, blue, or pink. Never AI-generated gradient backgrounds.</div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num">RULE 07 — TYPOGRAPHY</div>
+        <div class="rule-text">Display text: Bebas Neue only. Body: Inter only. No substitute fonts. No decorative or script fonts. Never Comic Sans, Roboto, or system generic fallbacks in produced graphics.</div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num">RULE 08 — IMAGERY</div>
+        <div class="rule-text">Use only real DOVA Futures project photography. No stock photos. No AI-generated photography. Dark gradient overlay always applied to photos used as text backgrounds. Blueprint overlay (3–4% opacity grid) on dark hero sections.</div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num">RULE 09 — LOGO</div>
+        <div class="rule-text">DOVA Logo - W.png on all dark/green backgrounds. DOVA Logo.png on cream/light backgrounds. Never recolor, stretch, rotate, or obscure the logo. Minimum clear space: equal to the height of the "D" letterform on all sides.</div>
+      </div>
+
+      <h3 class="sub">Caption Formatting Rules</h3>
+      <div class="rule-block">
+        <div class="rule-num">RULE 10 — HOOK FIRST</div>
+        <div class="rule-text">Every caption begins with a hook — a declarative statement, a surprising metric, or a resonant question. Never start with "We are" or "DOVA Futures is" — lead with the value, not the brand name.</div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num">RULE 11 — CTA REQUIRED</div>
+        <div class="rule-text">Every caption must end with a CTA drawn from the CTA Library (Section 08). Primary lead-gen CTA must appear in at least 3 posts per week across platforms. Never end a caption with a statement — always invite action.</div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num">RULE 12 — HASHTAG PLACEMENT</div>
+        <div class="rule-text">Instagram: hashtags go at the end of the caption, after two line breaks, or in the first comment. LinkedIn: hashtags at the very end, 5–8 only. X: 1–3 hashtags max, integrated naturally. Never hashtags in the middle of copy.</div>
+      </div>
+
+      <h3 class="sub">Platform Optimisation Rules</h3>
+      <div class="rule-block">
+        <div class="rule-num">RULE 13 — PLATFORM TONE</div>
+        <div class="rule-text">Instagram: visual-first, aspirational, community-engaged. LinkedIn: professional authority, thought leadership, B2B signals. X: concise, opinionated, conversation-starting. WhatsApp: direct, relationship-warm, immediate CTA. Facebook: narrative, community-friendly. Threads: casual but credible.</div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num">RULE 14 — CONTENT PILLAR BALANCE</div>
+        <div class="rule-text">Monthly pillar distribution: Design Inspiration 25% · Project Progress 20% · Project Showcase 20% · Educational 20% · Company Updates 10% · Seasonal 5%. No single pillar should dominate more than 30% of output in any month.</div>
+      </div>
+      <div class="rule-block">
+        <div class="rule-num">RULE 15 — QUALITY STANDARD</div>
+        <div class="rule-text">Every output — caption, graphic brief, or schedule — must be completable from this kit alone without additional guidance. If any element cannot be produced without external input not in this kit, flag it rather than invent it. Precision over productivity. One exceptional post beats three mediocre ones.</div>
+      </div>
+
+      <hr class="section-rule">
+
+      <!-- FOOTER BLOCK -->
+      <div style="background:var(--green-950);color:var(--cream);padding:32px 36px;margin-top:48px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div style="font-family:var(--font-display);font-size:22px;letter-spacing:0.02em;color:var(--cream);margin-bottom:4px;">DOVA FUTURES LIMITED</div>
+          <div style="font-size:11px;color:var(--green-300);letter-spacing:0.14em;text-transform:uppercase;">Content Kit v1.0 · June 2026</div>
+        </div>
+        <div style="text-align:right;font-size:12px;color:rgba(245,239,232,0.6);line-height:1.7;">
+          info@dovafutures.com<br>
+          +234 816 367 5439<br>
+          dovafutures.com
+        </div>
+      </div>
+
+    </td></tr></tbody>
+    <tfoot><tr><td class="ftr-space"></td></tr></tfoot>
+  </table>
+</main>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 900, &quot;height&quot;: 1200 }
+}"></script>
+</body>
+</html>

@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOVA Futures — Social Media Post Wireframes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap">
+<style>
+/* ── Design Tokens ── */
+:root {
+  --green-950: #0B221A;
+  --green-900: #102A20;
+  --green-800: #16382B;
+  --green-700: #1C4636;
+  --green-600: #265C46;
+  --green-500: #357A5B;
+  --green-400: #5AA17C;
+  --green-300: #8FC4A9;
+  --green-200: #BFDDCC;
+  --green-100: #DCEBE2;
+  --cream:     #F5EFE8;
+  --sand:      #E8E1D5;
+  --stone:     #D1CBC6;
+  --ash:       #B9B3AD;
+  --ink-900:   #1A1A1A;
+  --ink-800:   #242424;
+  --ink-700:   #2C2C2C;
+  --slate:     #4A4F5C;
+  --slate-400: #6B7280;
+  --white:     #FFFFFF;
+  --clay:      #B85C38;
+  --clay-dark: #9E4F30;
+  --clay-100:  #F0DDD8;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Inter, sans-serif; background: var(--cream); color: var(--ink-900); }
+.wrapper { max-width: 1120px; margin: 0 auto; }
+
+/* ── Header ── */
+.site-hdr { background: var(--green-950); padding: 40px 48px; position: relative; overflow: hidden; }
+.site-hdr::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(245,239,232,.04) 59px,rgba(245,239,232,.04) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(245,239,232,.04) 59px,rgba(245,239,232,.04) 60px); }
+.site-hdr > * { position: relative; z-index: 1; }
+.hdr-eye { font-size: 11px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--green-300); margin: 0 0 12px; }
+.hdr-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px,5vw,60px); letter-spacing: .02em; color: var(--cream); margin: 0 0 8px; line-height: 1; }
+.hdr-sub { font-size: 13px; color: rgba(245,239,232,.55); font-weight: 300; margin: 0; }
+.hdr-bar { width: 36px; height: 2px; background: var(--clay); margin: 0 0 16px; }
+
+/* ── Sticky Nav ── */
+.type-nav { position: sticky; top: 0; z-index: 50; background: var(--cream); border-bottom: 2px solid var(--green-700); display: flex; overflow-x: auto; scrollbar-width: none; gap: 0; }
+.type-nav::-webkit-scrollbar { display: none; }
+.nb { flex-shrink: 0; padding: 11px 14px; font-family: Inter, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--slate); background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -2px; cursor: pointer; white-space: nowrap; transition: color .15s, border-color .15s, background .15s; }
+.nb:hover { color: var(--green-700); }
+.nb.on { color: var(--green-700); border-bottom-color: var(--clay); background: rgba(28,70,54,.05); }
+.nb-n { font-family: 'Bebas Neue', sans-serif; font-size: 14px; color: var(--green-400); margin-right: 5px; }
+
+/* ── Section visibility ── */
+.section-content { display: none; }
+.section-content.active { display: block; }
+
+/* ── Section band ── */
+.sec-band { background: var(--green-700); padding: 18px 40px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.sec-n { font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: var(--green-500); line-height: 1; letter-spacing: .02em; flex-shrink: 0; }
+.sec-info { flex: 1; }
+.sec-eye { font-size: 10px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--green-300); margin: 0 0 3px; }
+.sec-name { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--cream); letter-spacing: .02em; margin: 0; }
+.sec-desc { font-size: 12px; color: rgba(245,239,232,.55); margin: 2px 0 0; }
+.sec-tag { font-size: 9.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border: 1px solid rgba(245,239,232,.2); color: rgba(245,239,232,.65); flex-shrink: 0; }
+
+/* ── Platform grid ── */
+.plat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; padding: 28px 40px 20px; background: var(--cream); align-items: start; }
+.plat-lbl { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+.plat-dot { width: 7px; height: 7px; border-radius: 50%; }
+.dot-ig { background: #E1306C; }
+.dot-st { background: #25D366; }
+.dot-li { background: #0A66C2; }
+.dot-x  { background: #111; }
+.plat-name { font-size: 9.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--slate); }
+.plat-sub  { font-size: 8.5px; color: var(--slate-400); margin-top: 1px; }
+
+/* ── Post frame wrappers ── */
+.fr-ig { aspect-ratio: 1/1;     width: 100%; }
+.fr-st { aspect-ratio: 9/16;    width: 58%; margin: 0 auto; }
+.fr-li { aspect-ratio: 191/100; width: 100%; }
+.fr-x  { aspect-ratio: 2/1;     width: 100%; }
+
+/* ── Post graphic core ── */
+.pg { width: 100%; height: 100%; display: flex; flex-direction: column; position: relative; overflow: hidden; font-family: Inter, sans-serif; }
+.pg.dk  { background: var(--green-700); }
+.pg.vdk { background: var(--green-950); }
+.pg.mdk { background: var(--green-800); }
+.pg.lt  { background: var(--cream); border: 1px solid var(--stone); }
+.pg.dk::before, .pg.vdk::before, .pg.mdk::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg,transparent,transparent 19px,rgba(245,239,232,.05) 19px,rgba(245,239,232,.05) 20px),repeating-linear-gradient(90deg,transparent,transparent 19px,rgba(245,239,232,.05) 19px,rgba(245,239,232,.05) 20px); pointer-events: none; z-index: 0; }
+.pg > * { position: relative; z-index: 1; }
+
+/* Image placeholder */
+.pi { background: #1B2E27; display: flex; align-items: center; justify-content: center; flex: 2; }
+.pi.f3  { flex: 3; }
+.pi.f25 { flex: 2.5; }
+.pi.f15 { flex: 1.5; }
+.pi-lbl { font-size: 7px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(245,239,232,.18); }
+
+/* Text area */
+.pt { padding: 7px 9px; display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; }
+
+/* Typography */
+.pe { font-size: 7px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 1px; }
+.gc { color: var(--green-300); }
+.cc { color: var(--clay); }
+.gd { color: var(--green-700); }
+.ic { color: var(--ink-900); }
+.cr { color: var(--cream); }
+.sl { color: var(--slate); }
+.sg { color: var(--green-600); }
+.ph { font-family: 'Bebas Neue', sans-serif; letter-spacing: .02em; line-height: 1; color: var(--cream); margin: 1px 0 2px; }
+.ph.ic { color: var(--ink-900); }
+.pb { font-size: 7.5px; line-height: 1.4; color: rgba(245,239,232,.65); margin: 0; }
+.pb.sl { color: var(--slate); }
+.pb.gc { color: var(--green-300); }
+.pb.sg { color: var(--green-600); }
+
+/* Accents */
+.cbar { height: 2px; background: var(--clay); flex-shrink: 0; }
+.cbar.slim { width: 28px; margin: 4px auto; }
+.rule { height: 1px; background: rgba(245,239,232,.1); margin: 3px 0; flex-shrink: 0; }
+
+/* Badge */
+.bdg { display: inline-block; font-size: 6.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 2px 5px; margin-bottom: 3px; flex-shrink: 0; align-self: flex-start; }
+.bdg.cl { background: var(--clay); color: var(--cream); }
+.bdg.gn { background: var(--green-500); color: var(--cream); }
+
+/* Progress */
+.prog-track { height: 3px; background: rgba(245,239,232,.1); margin: 4px 0; flex-shrink: 0; }
+.prog-fill  { height: 100%; background: var(--clay); }
+
+/* Footer */
+.pft { display: flex; justify-content: space-between; align-items: center; padding: 5px 8px; background: rgba(0,0,0,.2); flex-shrink: 0; }
+.pft.ltft { background: rgba(0,0,0,.05); }
+.plo { font-family: 'Bebas Neue', sans-serif; font-size: 8px; letter-spacing: .1em; color: rgba(245,239,232,.6); }
+.plo.dk { color: rgba(28,70,54,.5); }
+.purl { font-size: 6.5px; color: rgba(245,239,232,.28); letter-spacing: .05em; }
+.purl.dk { color: rgba(28,70,54,.28); }
+
+/* Split layout (LinkedIn) */
+.pg.sp { flex-direction: column; background: var(--cream); border: 1px solid var(--stone); }
+.sp-row { display: flex; flex: 1; min-height: 0; }
+.sp-row .pi { flex: 0 0 42%; background: var(--green-800); }
+.sp-row .pt { flex: 1; padding: 7px 9px; }
+
+/* X card (horizontal) */
+.pg.xc { flex-direction: row; }
+.pg.xc .pt { flex: 1; padding: 8px; justify-content: center; }
+.pg.xc .pi { flex: 0 0 38%; background: #1B2E27; }
+
+/* Centered layout */
+.pg.ctr { }
+.pt-ctr { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 10px 12px; }
+
+/* Stat display */
+.ps-val { font-family: 'Bebas Neue', sans-serif; letter-spacing: .02em; line-height: 1; color: var(--cream); }
+.ps-lbl { font-size: 6.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(245,239,232,.45); margin-top: 1px; }
+
+/* Caption block */
+.cap-block { background: var(--white); border-top: 1px solid var(--stone); padding: 18px 40px 28px; }
+.cap-title { font-size: 9.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--clay); margin: 0 0 12px; }
+.cap-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cap-item  { background: var(--cream); border: 1px solid var(--stone); padding: 11px 14px; }
+.cap-plat  { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--slate-400); margin: 0 0 4px; }
+.cap-text  { font-size: 12px; line-height: 1.55; color: var(--slate); margin: 0; }
+.cap-tags  { font-size: 10.5px; color: var(--green-600); margin: 4px 0 0; }
+
+/* Site footer */
+.site-ftr { background: var(--green-950); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; margin-top: 0; }
+.ftr-brand { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: .04em; color: var(--cream); }
+.ftr-info  { font-size: 11px; color: rgba(245,239,232,.45); text-align: right; line-height: 1.7; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="site-hdr">
+    <p class="hdr-eye">DOVA Futures Limited · Content Design</p>
+    <div class="hdr-bar"></div>
+    <h1 class="hdr-title">SOCIAL MEDIA POST WIREFRAMES</h1>
+    <p class="hdr-sub">10 content types · 4 platform formats each · Instagram · Story/WhatsApp · LinkedIn · X</p>
+  </div>
+
+  <!-- NAV -->
+  <nav class="type-nav" role="tablist">
+    <button class="nb on" data-tab="0" role="tab" aria-selected="true"><span class="nb-n">01</span> Rendering Post</button>
+    <button class="nb" data-tab="1" role="tab" aria-selected="false"><span class="nb-n">02</span> On-Site Progress</button>
+    <button class="nb" data-tab="2" role="tab" aria-selected="false"><span class="nb-n">03</span> Project Showcase</button>
+    <button class="nb" data-tab="3" role="tab" aria-selected="false"><span class="nb-n">04</span> New Month</button>
+    <button class="nb" data-tab="4" role="tab" aria-selected="false"><span class="nb-n">05</span> Weekly Highlight</button>
+    <button class="nb" data-tab="5" role="tab" aria-selected="false"><span class="nb-n">06</span> Design Showcase</button>
+    <button class="nb" data-tab="6" role="tab" aria-selected="false"><span class="nb-n">07</span> Design of Month</button>
+    <button class="nb" data-tab="7" role="tab" aria-selected="false"><span class="nb-n">08</span> Project of Month</button>
+    <button class="nb" data-tab="8" role="tab" aria-selected="false"><span class="nb-n">09</span> Holiday</button>
+    <button class="nb" data-tab="9" role="tab" aria-selected="false"><span class="nb-n">10</span> Announcements</button>
+  </nav>
+
+  <!-- SECTION 01: RENDERING POST -->
+  <div class="section-content active" id="tab-0">
+    <div class="sec-band">
+      <span class="sec-n">01</span>
+      <div class="sec-info">
+        <p class="sec-eye">Pillar 01 · Design Inspiration</p>
+        <h2 class="sec-name">RENDERING POST</h2>
+        <p class="sec-desc">Architectural 3D renders showcasing design concepts, spatial quality, and material intent.</p>
+      </div>
+      <span class="sec-tag">Design Reveal</span>
+    </div>
+    <div class="plat-grid">
+      <!-- IG -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-ig"></span><div><div class="plat-name">Instagram Post</div><div class="plat-sub">1080 × 1080 · 1:1</div></div></div>
+        <div class="fr-ig"><div class="pg dk">
+          <div class="pi f3"><span class="pi-lbl">ARCHITECTURAL RENDER</span></div>
+          <div class="pt">
+            <div class="pe gc">DESIGN REVEAL</div>
+            <div class="ph" style="font-size:14px">ADO COMMUNITY HALL</div>
+            <div class="pb">Ado-Ekiti · 600m² civic space · 2026</div>
+          </div>
+          <div class="cbar"></div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- STORY -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-st"></span><div><div class="plat-name">Story / WhatsApp</div><div class="plat-sub">1080 × 1920 · 9:16</div></div></div>
+        <div class="fr-st"><div class="pg vdk">
+          <div class="pi f3"><span class="pi-lbl">RENDER</span></div>
+          <div class="pt">
+            <div class="pe cc">NEW DESIGN</div>
+            <div class="ph" style="font-size:17px">ADO COMMUNITY HALL</div>
+            <div class="pb">Full concept · dovafutures.com</div>
+          </div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- LINKEDIN -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-li"></span><div><div class="plat-name">LinkedIn</div><div class="plat-sub">1200 × 628 · 1.91:1</div></div></div>
+        <div class="fr-li"><div class="pg sp">
+          <div class="sp-row">
+            <div class="pi"><span class="pi-lbl">RENDER</span></div>
+            <div class="pt">
+              <div class="pe gd">DESIGN REVEAL</div>
+              <div class="ph ic" style="font-size:10px">ADO COMMUNITY HALL</div>
+              <div class="pb sl">Architectural visualization — 600m² civic space, Ado-Ekiti.</div>
+              <div class="pb sg" style="margin-top:3px;">View full concept →</div>
+            </div>
+          </div>
+          <div class="pft ltft"><span class="plo dk">DOVA FUTURES</span><span class="purl dk">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- X -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-x"></span><div><div class="plat-name">X (Twitter)</div><div class="plat-sub">1600 × 800 · 2:1</div></div></div>
+        <div class="fr-x"><div class="pg xc mdk">
+          <div class="pt">
+            <div class="pe gc">DESIGN REVEAL</div>
+            <div class="ph" style="font-size:11px">ADO COMMUNITY HALL</div>
+            <div class="pb">600m² · Ado-Ekiti · 2026</div>
+          </div>
+          <div class="pi"><span class="pi-lbl">RENDER</span></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="cap-block">
+      <p class="cap-title">Caption Samples</p>
+      <div class="cap-grid">
+        <div class="cap-item">
+          <p class="cap-plat">Instagram</p>
+          <p class="cap-text">New design reveal. The Ado Community Hall takes shape — a 600m² civic landmark engineered for precision and community impact. Full concept at the link in bio.</p>
+          <p class="cap-tags">#architecture #nigeriaarchitecture #designbuild #dovafutures #archidaily #buildingdesign</p>
+        </div>
+        <div class="cap-item">
+          <p class="cap-plat">LinkedIn</p>
+          <p class="cap-text">We are pleased to share the 3D visualization for the Ado Community Hall, Ado-Ekiti — a 600m² civic space coordinated from concept to construction drawing under one roof. Full concept at dovafutures.com</p>
+          <p class="cap-tags">#architecture #designbuild #BIM #nigeriaarchitecture</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 02: ON-SITE PROGRESS -->
+  <div class="section-content" id="tab-1">
+    <div class="sec-band">
+      <span class="sec-n">02</span>
+      <div class="sec-info">
+        <p class="sec-eye">Pillar 02 · Project Progress</p>
+        <h2 class="sec-name">ON-SITE PROGRESS POST</h2>
+        <p class="sec-desc">Regular construction site updates showing milestones, progress percentages, and next steps.</p>
+      </div>
+      <span class="sec-tag">Site Update</span>
+    </div>
+    <div class="plat-grid">
+      <!-- IG -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-ig"></span><div><div class="plat-name">Instagram Post</div><div class="plat-sub">1:1</div></div></div>
+        <div class="fr-ig"><div class="pg mdk">
+          <div class="pi" style="flex:2"><span class="pi-lbl">SITE PHOTO</span></div>
+          <div class="pt">
+            <div class="pe gc">WEEK 8 UPDATE</div>
+            <div class="ph" style="font-size:12px">ADO HALL — 72% COMPLETE</div>
+            <div class="prog-track"><div class="prog-fill" style="width:72%"></div></div>
+            <div class="pb">Structural frame ✓ &nbsp; MEP rough-in starting</div>
+          </div>
+          <div class="cbar"></div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- STORY -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-st"></span><div><div class="plat-name">Story / WhatsApp</div><div class="plat-sub">9:16</div></div></div>
+        <div class="fr-st"><div class="pg vdk">
+          <div class="pt-ctr" style="flex:.8">
+            <div class="pe gc">SITE UPDATE</div>
+            <div class="ps-val" style="font-size:28px">WEEK 8</div>
+            <div class="ps-lbl">ADO COMMUNITY HALL</div>
+            <div class="cbar slim"></div>
+            <div class="pb gc" style="margin-top:3px;">72% complete · Q2 handover</div>
+          </div>
+          <div class="pi" style="flex:1.5"><span class="pi-lbl">SITE PHOTO</span></div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- LINKEDIN -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-li"></span><div><div class="plat-name">LinkedIn</div><div class="plat-sub">1.91:1</div></div></div>
+        <div class="fr-li"><div class="pg sp">
+          <div class="sp-row">
+            <div class="pi"><span class="pi-lbl">SITE PHOTO</span></div>
+            <div class="pt">
+              <div class="pe gd">WEEK 8 · SITE UPDATE</div>
+              <div class="ph ic" style="font-size:10px">ADO COMMUNITY HALL</div>
+              <div class="pb sl">Structural frame complete. MEP commences Monday. On programme — Q2 handover.</div>
+              <div class="prog-track" style="background:rgba(28,70,54,.15)"><div class="prog-fill" style="width:72%"></div></div>
+              <div class="pb sl" style="font-size:7px;">72% complete</div>
+            </div>
+          </div>
+          <div class="pft ltft"><span class="plo dk">DOVA FUTURES</span><span class="purl dk">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- X -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-x"></span><div><div class="plat-name">X (Twitter)</div><div class="plat-sub">2:1</div></div></div>
+        <div class="fr-x"><div class="pg xc dk">
+          <div class="pt">
+            <div class="pe gc">WEEK 8</div>
+            <div class="ph" style="font-size:10px">STRUCTURAL FRAME COMPLETE</div>
+            <div class="pb">ADO HALL · 72% done · Q2 handover on track</div>
+          </div>
+          <div class="pi"><span class="pi-lbl">SITE PHOTO</span></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="cap-block">
+      <p class="cap-title">Caption Samples</p>
+      <div class="cap-grid">
+        <div class="cap-item">
+          <p class="cap-plat">Instagram</p>
+          <p class="cap-text">Week 8. Structural frame complete. MEP rough-in commences Monday. The Ado Community Hall is 72% complete and on programme for Q2 handover. This is what structured supervision looks like.</p>
+          <p class="cap-tags">#constructionprogress #nigeriabuilders #designbuild #dovafutures #constructionmanagement</p>
+        </div>
+        <div class="cap-item">
+          <p class="cap-plat">LinkedIn</p>
+          <p class="cap-text">Site update — Ado Community Hall, Week 8. Structural frame complete ahead of schedule. MEP coordination drawings issued. On programme for Q2 handover. #construction #projectmanagement #BIM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 03: PROJECT SHOWCASE -->
+  <div class="section-content" id="tab-2">
+    <div class="sec-band">
+      <span class="sec-n">03</span>
+      <div class="sec-info">
+        <p class="sec-eye">Pillar 03 · Project Showcase</p>
+        <h2 class="sec-name">PROJECT SHOWCASE</h2>
+        <p class="sec-desc">Completed project reveals, before/after transformations, and client outcome stories.</p>
+      </div>
+      <span class="sec-tag">Project Complete</span>
+    </div>
+    <div class="plat-grid">
+      <!-- IG -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-ig"></span><div><div class="plat-name">Instagram Post</div><div class="plat-sub">1:1</div></div></div>
+        <div class="fr-ig"><div class="pg mdk">
+          <div class="pi f3"><span class="pi-lbl">PROJECT PHOTO</span></div>
+          <div class="pt">
+            <span class="bdg cl">PROJECT COMPLETE</span>
+            <div class="ph" style="font-size:13px">ADO COMMUNITY HALL</div>
+            <div class="pb">600m² · 14 weeks · ₦12M under estimate</div>
+          </div>
+          <div class="cbar"></div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- STORY -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-st"></span><div><div class="plat-name">Story / WhatsApp</div><div class="plat-sub">9:16</div></div></div>
+        <div class="fr-st"><div class="pg vdk">
+          <div class="pi f3"><span class="pi-lbl">PROJECT PHOTO</span></div>
+          <div class="pt">
+            <div class="pe gc">PROJECT SHOWCASE</div>
+            <div class="ph" style="font-size:20px">COMPLETE.</div>
+            <div class="ph" style="font-size:13px">ADO COMMUNITY HALL</div>
+            <div class="pb">Full case study at dovafutures.com</div>
+          </div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- LINKEDIN -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-li"></span><div><div class="plat-name">LinkedIn</div><div class="plat-sub">1.91:1</div></div></div>
+        <div class="fr-li"><div class="pg sp">
+          <div class="sp-row">
+            <div class="pi"><span class="pi-lbl">PROJECT PHOTO</span></div>
+            <div class="pt">
+              <span class="bdg cl" style="margin-bottom:4px;">COMPLETED</span>
+              <div class="ph ic" style="font-size:10px">ADO COMMUNITY HALL</div>
+              <div class="pb sl">600m² · 14 weeks · ₦12M under estimate · Design–build integration start to finish.</div>
+              <div class="pb sg" style="margin-top:3px;">Read the case study →</div>
+            </div>
+          </div>
+          <div class="pft ltft"><span class="plo dk">DOVA FUTURES</span><span class="purl dk">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- X -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-x"></span><div><div class="plat-name">X (Twitter)</div><div class="plat-sub">2:1</div></div></div>
+        <div class="fr-x"><div class="pg xc vdk">
+          <div class="pt">
+            <div class="ph cr" style="font-size:18px">COMPLETE.</div>
+            <div class="pb gc">ADO HALL · 600m² · 14 weeks · ₦12M under estimate</div>
+          </div>
+          <div class="pi"><span class="pi-lbl">PHOTO</span></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="cap-block">
+      <p class="cap-title">Caption Samples</p>
+      <div class="cap-grid">
+        <div class="cap-item">
+          <p class="cap-plat">Instagram</p>
+          <p class="cap-text">Delivered. The Ado Community Hall — 600m² of civic space, completed in 14 weeks, ₦12M under the original estimate. Design and construction under one roof. This is what integration looks like.</p>
+          <p class="cap-tags">#projectcomplete #architecture #designbuild #nigeriaarchitecture #dovafutures</p>
+        </div>
+        <div class="cap-item">
+          <p class="cap-plat">LinkedIn</p>
+          <p class="cap-text">Project delivered. Ado Community Hall — 600m² civic landmark, 14 weeks, ₦12M under estimate. A case study in integrated design–build delivery. Full case study at dovafutures.com</p>
+          <p class="cap-tags">#architecture #construction #designbuild #projectmanagement</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 04: NEW MONTH CONTENT -->
+  <div class="section-content" id="tab-3">
+    <div class="sec-band">
+      <span class="sec-n">04</span>
+      <div class="sec-info">
+        <p class="sec-eye">Pillar 06 · Seasonal</p>
+        <h2 class="sec-name">NEW MONTH CONTENT</h2>
+        <p class="sec-desc">Published on the 1st of every month. Aspirational, forward-looking, brand-voice driving.</p>
+      </div>
+      <span class="sec-tag">Day 1 · All Platforms</span>
+    </div>
+    <div class="plat-grid">
+      <!-- IG -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-ig"></span><div><div class="plat-name">Instagram Post</div><div class="plat-sub">1:1</div></div></div>
+        <div class="fr-ig"><div class="pg vdk ctr">
+          <div class="pt-ctr">
+            <div class="pe gc" style="margin-bottom:4px;">NEW MONTH</div>
+            <div class="ph cr" style="font-size:48px;line-height:.9">JULY</div>
+            <div class="ph gc" style="font-size:14px;margin-bottom:6px;">2026</div>
+            <div class="cbar slim"></div>
+            <div class="pb cr" style="margin-top:6px;">A new chapter. A new project. A new standard.</div>
+          </div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- STORY -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-st"></span><div><div class="plat-name">Story / WhatsApp</div><div class="plat-sub">9:16</div></div></div>
+        <div class="fr-st"><div class="pg vdk ctr">
+          <div class="pt-ctr">
+            <div class="pe gc" style="margin-bottom:6px;">NEW MONTH</div>
+            <div class="ph cr" style="font-size:60px;line-height:.85">JULY</div>
+            <div class="ph gc" style="font-size:16px;margin-bottom:8px;">2026</div>
+            <div class="cbar slim"></div>
+            <div class="pb cr" style="margin-top:8px;font-size:8px;">Rethink the future.</div>
+          </div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- LINKEDIN -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-li"></span><div><div class="plat-name">LinkedIn</div><div class="plat-sub">1.91:1</div></div></div>
+        <div class="fr-li"><div class="pg lt">
+          <div class="pt" style="padding:10px 14px;flex:1;justify-content:center;">
+            <div class="pe gd" style="margin-bottom:4px;">CONTENT CALENDAR</div>
+            <div class="ph ic" style="font-size:16px">JULY 2026</div>
+            <div class="pb sl" style="font-size:8.5px;margin-top:4px;">A new month. Three projects advancing across Lagos and Ekiti. Our commitment to precision and design–build excellence continues.</div>
+            <div class="pb sg" style="margin-top:4px;font-size:8px;">Let's discuss your project →</div>
+          </div>
+          <div class="cbar"></div>
+          <div class="pft ltft"><span class="plo dk">DOVA FUTURES</span><span class="purl dk">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- X -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-x"></span><div><div class="plat-name">X (Twitter)</div><div class="plat-sub">2:1</div></div></div>
+        <div class="fr-x"><div class="pg vdk" style="flex-direction:row;align-items:stretch;">
+          <div class="pt" style="flex:1;padding:10px;justify-content:center;">
+            <div class="ph cr" style="font-size:22px">JULY.</div>
+            <div class="pb gc">New month. New foundations. New possibilities.</div>
+          </div>
+          <div style="width:3px;background:var(--clay);flex-shrink:0;"></div>
+          <div class="pt" style="flex:1;padding:10px;justify-content:center;opacity:.6;">
+            <div class="pe gc">THIS MONTH</div>
+            <div class="pb cr" style="font-size:7.5px;line-height:1.5;">3 active projects · 2 new consultations · 1 team commitment: precision.</div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+    <div class="cap-block">
+      <p class="cap-title">Caption Samples</p>
+      <div class="cap-grid">
+        <div class="cap-item">
+          <p class="cap-plat">Instagram</p>
+          <p class="cap-text">July. A new chapter. New foundations. New possibilities. As we step into this month, three active projects advance and two new consultations begin. What are you building this July?</p>
+          <p class="cap-tags">#newmonth #architecture #designbuild #dovafutures #nigeriabuilders</p>
+        </div>
+        <div class="cap-item">
+          <p class="cap-plat">LinkedIn</p>
+          <p class="cap-text">July marks the start of Q3 and a renewed commitment to precision in everything we build. If you have been planning a project, now is the right time to begin that conversation. #architecture #construction #designbuild</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 05: WEEKLY PROJECT HIGHLIGHT -->
+  <div class="section-content" id="tab-4">
+    <div class="sec-band">
+      <span class="sec-n">05</span>
+      <div class="sec-info">
+        <p class="sec-eye">Pillar 02 · Project Progress</p>
+        <h2 class="sec-name">WEEKLY PROJECT HIGHLIGHT</h2>
+        <p class="sec-desc">Mid-week feature of a specific project, detail, or milestone from the active site portfolio.</p>
+      </div>
+      <span class="sec-tag">Weekly · Wed/Thu</span>
+    </div>
+    <div class="plat-grid">
+      <!-- IG -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-ig"></span><div><div class="plat-name">Instagram Post</div><div class="plat-sub">1:1</div></div></div>
+        <div class="fr-ig"><div class="pg dk">
+          <div class="pi" style="flex:2"><span class="pi-lbl">DETAIL PHOTO</span></div>
+          <div class="pt">
+            <div class="pe gc">THIS WEEK</div>
+            <div class="ph" style="font-size:13px">VICTORIA ISLAND RESIDENCE</div>
+            <div class="pb">Foundation complete · 4,200m² · Week 3 of 28</div>
+          </div>
+          <div class="cbar"></div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- STORY -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-st"></span><div><div class="plat-name">Story / WhatsApp</div><div class="plat-sub">9:16</div></div></div>
+        <div class="fr-st"><div class="pg vdk">
+          <div class="pi f25"><span class="pi-lbl">DETAIL PHOTO</span></div>
+          <div class="pt">
+            <div class="pe cc">THIS WEEK</div>
+            <div class="ph" style="font-size:17px">VI RESIDENCE</div>
+            <div class="pb">Foundation complete — superstructure starts Monday</div>
+            <div class="prog-track"><div class="prog-fill" style="width:11%"></div></div>
+            <div class="pb gc" style="font-size:7px">Week 3 / 28</div>
+          </div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- LINKEDIN -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-li"></span><div><div class="plat-name">LinkedIn</div><div class="plat-sub">1.91:1</div></div></div>
+        <div class="fr-li"><div class="pg sp">
+          <div class="sp-row">
+            <div class="pi"><span class="pi-lbl">DETAIL PHOTO</span></div>
+            <div class="pt">
+              <div class="pe gd">WEEKLY HIGHLIGHT</div>
+              <div class="ph ic" style="font-size:10px">VI RESIDENCE</div>
+              <div class="pb sl">Foundation pour complete. Superstructure commences Monday. On programme for delivery in week 28.</div>
+              <div class="pb sg" style="margin-top:3px;">dovafutures.com →</div>
+            </div>
+          </div>
+          <div class="pft ltft"><span class="plo dk">DOVA FUTURES</span><span class="purl dk">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <!-- X -->
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-x"></span><div><div class="plat-name">X (Twitter)</div><div class="plat-sub">2:1</div></div></div>
+        <div class="fr-x"><div class="pg xc dk">
+          <div class="pt">
+            <div class="pe gc">THIS WEEK</div>
+            <div class="ph" style="font-size:10px">VI RESIDENCE — FOUNDATION COMPLETE</div>
+            <div class="pb">4,200m² · Week 3 · On schedule</div>
+          </div>
+          <div class="pi"><span class="pi-lbl">PHOTO</span></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="cap-block">
+      <p class="cap-title">Caption Samples</p>
+      <div class="cap-grid">
+        <div class="cap-item">
+          <p class="cap-plat">Instagram</p>
+          <p class="cap-text">This week: foundation pour complete on the Victoria Island Residence. 4,200m² of high-specification residential construction underway. Week 3 of 28. Follow for weekly project updates.</p>
+          <p class="cap-tags">#constructionprogress #luxuryhomes #nigeriabuilders #dovafutures #projectmanagement</p>
+        </div>
+        <div class="cap-item">
+          <p class="cap-plat">LinkedIn</p>
+          <p class="cap-text">Weekly project update — Victoria Island Residence, Week 3. Foundation pour complete. Superstructure works commence Monday. Programme tracking on target. #construction #projectmanagement #designbuild</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 06: WEEKLY DESIGN SHOWCASE -->
+  <div class="section-content" id="tab-5">
+    <div class="sec-band">
+      <span class="sec-n">06</span>
+      <div class="sec-info">
+        <p class="sec-eye">Pillar 01 · Design Inspiration</p>
+        <h2 class="sec-name">WEEKLY DESIGN SHOWCASE</h2>
+        <p class="sec-desc">A weekly design concept, spatial idea, material story, or aesthetic exploration from the studio.</p>
+      </div>
+      <span class="sec-tag">Weekly · Mon/Fri</span>
+    </div>
+    <div class="plat-grid">
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-ig"></span><div><div class="plat-name">Instagram Post</div><div class="plat-sub">1:1</div></div></div>
+        <div class="fr-ig"><div class="pg dk">
+          <div class="pi f25"><span class="pi-lbl">DESIGN RENDER</span></div>
+          <div class="pt">
+            <div class="pe gc">DESIGN FOCUS</div>
+            <div class="ph" style="font-size:13px">OPEN-PLAN LIVING</div>
+            <div class="pb">Natural light · Material contrast · Flow</div>
+          </div>
+          <div class="cbar"></div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-st"></span><div><div class="plat-name">Story / WhatsApp</div><div class="plat-sub">9:16</div></div></div>
+        <div class="fr-st"><div class="pg vdk">
+          <div class="pi f25"><span class="pi-lbl">DESIGN RENDER</span></div>
+          <div class="pt">
+            <div class="pe cc">DESIGN FOCUS</div>
+            <div class="ph" style="font-size:19px">OPEN-PLAN LIVING</div>
+            <div class="pb">This week's concept study</div>
+          </div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-li"></span><div><div class="plat-name">LinkedIn</div><div class="plat-sub">1.91:1</div></div></div>
+        <div class="fr-li"><div class="pg sp">
+          <div class="sp-row">
+            <div class="pi"><span class="pi-lbl">RENDER</span></div>
+            <div class="pt">
+              <div class="pe gd">DESIGN SHOWCASE</div>
+              <div class="ph ic" style="font-size:10px">OPEN-PLAN LIVING SYSTEMS</div>
+              <div class="pb sl">Natural light, material contrast, and spatial flow in contemporary Nigerian residential design.</div>
+              <div class="pb sg" style="margin-top:3px;">Full concept notes →</div>
+            </div>
+          </div>
+          <div class="pft ltft"><span class="plo dk">DOVA FUTURES</span><span class="purl dk">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-x"></span><div><div class="plat-name">X (Twitter)</div><div class="plat-sub">2:1</div></div></div>
+        <div class="fr-x"><div class="pg xc dk">
+          <div class="pt">
+            <div class="pe gc">DESIGN FOCUS</div>
+            <div class="ph" style="font-size:10px">OPEN-PLAN LIVING SYSTEMS</div>
+            <div class="pb">Material contrast · natural light · spatial flow</div>
+          </div>
+          <div class="pi"><span class="pi-lbl">RENDER</span></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="cap-block">
+      <p class="cap-title">Caption Samples</p>
+      <div class="cap-grid">
+        <div class="cap-item">
+          <p class="cap-plat">Instagram</p>
+          <p class="cap-text">This week's design focus: open-plan living systems. How natural light, material contrast, and spatial flow come together to create rooms that work as beautifully as they look. Save this if you are designing your home.</p>
+          <p class="cap-tags">#interiordesign #designinspiration #architecture #dovafutures #moderninteriors</p>
+        </div>
+        <div class="cap-item">
+          <p class="cap-plat">LinkedIn</p>
+          <p class="cap-text">Design insight — open-plan living systems in contemporary Nigerian residential architecture. Three decisions that define whether a space feels premium or just large. Notes at dovafutures.com</p>
+          <p class="cap-tags">#interiordesign #architecture #designbuild</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 07: MONTHLY DESIGN OF THE MONTH -->
+  <div class="section-content" id="tab-6">
+    <div class="sec-band">
+      <span class="sec-n">07</span>
+      <div class="sec-info">
+        <p class="sec-eye">Pillar 01 · Design Inspiration · Monthly Feature</p>
+        <h2 class="sec-name">MONTHLY DESIGN OF THE MONTH</h2>
+        <p class="sec-desc">The hero design feature of the month. A full concept story published in week 2 on all platforms.</p>
+      </div>
+      <span class="sec-tag">Week 2 · Carousel</span>
+    </div>
+    <div class="plat-grid">
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-ig"></span><div><div class="plat-name">Instagram Post</div><div class="plat-sub">1:1 · Carousel Slide 1</div></div></div>
+        <div class="fr-ig"><div class="pg vdk">
+          <span class="bdg cl" style="position:relative;z-index:2;margin:8px 8px 0;align-self:flex-start;">DESIGN OF THE MONTH</span>
+          <div class="pi f25"><span class="pi-lbl">FEATURED RENDER</span></div>
+          <div class="pt">
+            <div class="pe gc">FEATURED DESIGN</div>
+            <div class="ph" style="font-size:13px">LEKKI PHASE II MASTERPLAN</div>
+            <div class="pb gc">Tap to explore full carousel →</div>
+          </div>
+          <div class="cbar"></div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-st"></span><div><div class="plat-name">Story / WhatsApp</div><div class="plat-sub">9:16</div></div></div>
+        <div class="fr-st"><div class="pg vdk">
+          <div class="pt" style="flex:.7;text-align:center;align-items:center;justify-content:center;">
+            <div class="pe gc" style="text-align:center;">DESIGN OF</div>
+            <div class="ph cr" style="font-size:26px;text-align:center">THE MONTH</div>
+            <div class="cbar slim"></div>
+          </div>
+          <div class="pi" style="flex:2"><span class="pi-lbl">FEATURED RENDER</span></div>
+          <div class="pt" style="flex:.5">
+            <div class="pb cr" style="text-align:center;font-size:7.5px;">LEKKI PHASE II MASTERPLAN</div>
+          </div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-li"></span><div><div class="plat-name">LinkedIn</div><div class="plat-sub">1.91:1</div></div></div>
+        <div class="fr-li"><div class="pg sp">
+          <div class="sp-row">
+            <div class="pi"><span class="pi-lbl">RENDER</span></div>
+            <div class="pt">
+              <span class="bdg cl">DESIGN OF THE MONTH</span>
+              <div class="ph ic" style="font-size:9.5px">LEKKI PHASE II MASTERPLAN</div>
+              <div class="pb sl">12,000m² mixed-use concept — residential, commercial, and civic uses. Lagos.</div>
+              <div class="pb sg" style="margin-top:3px;">Full case study →</div>
+            </div>
+          </div>
+          <div class="pft ltft"><span class="plo dk">DOVA FUTURES</span><span class="purl dk">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-x"></span><div><div class="plat-name">X (Twitter)</div><div class="plat-sub">2:1</div></div></div>
+        <div class="fr-x"><div class="pg xc vdk">
+          <div class="pt">
+            <span class="bdg cl">DOTM</span>
+            <div class="ph" style="font-size:11px">LEKKI PHASE II</div>
+            <div class="pb gc">12,000m² · Full concept →</div>
+          </div>
+          <div class="pi"><span class="pi-lbl">RENDER</span></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="cap-block">
+      <p class="cap-title">Caption Samples</p>
+      <div class="cap-grid">
+        <div class="cap-item">
+          <p class="cap-plat">Instagram</p>
+          <p class="cap-text">Design of the Month: the Lekki Phase II Masterplan. 12,000m² across residential, commercial, and civic uses — a mixed-use concept built on the principle that great neighbourhoods are designed, not assembled. Tap to explore.</p>
+          <p class="cap-tags">#designofthemonth #architecture #masterplan #dovafutures #nigeriaarchitecture</p>
+        </div>
+        <div class="cap-item">
+          <p class="cap-plat">LinkedIn</p>
+          <p class="cap-text">Design of the Month — Lekki Phase II Masterplan. 12,000m² mixed-use concept exploring how residential, commercial, and civic uses coexist with intentionality. Full case study at dovafutures.com</p>
+          <p class="cap-tags">#architecture #urbandesign #masterplan #designbuild</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 08: MONTHLY PROJECT SHOWCASE -->
+  <div class="section-content" id="tab-7">
+    <div class="sec-band">
+      <span class="sec-n">08</span>
+      <div class="sec-info">
+        <p class="sec-eye">Pillar 03 · Project Showcase · Monthly Feature</p>
+        <h2 class="sec-name">MONTHLY PROJECT SHOWCASE</h2>
+        <p class="sec-desc">The hero project of the month — a completed or standout active project with full case study treatment.</p>
+      </div>
+      <span class="sec-tag">Week 3 · All Platforms</span>
+    </div>
+    <div class="plat-grid">
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-ig"></span><div><div class="plat-name">Instagram Post</div><div class="plat-sub">1:1</div></div></div>
+        <div class="fr-ig"><div class="pg mdk">
+          <span class="bdg cl" style="position:relative;z-index:2;margin:8px 8px 0;align-self:flex-start;">PROJECT OF THE MONTH</span>
+          <div class="pi f25"><span class="pi-lbl">PROJECT PHOTO</span></div>
+          <div class="pt">
+            <div class="ph" style="font-size:13px">MAGODO LUXURY RESIDENCE</div>
+            <div class="pb">5-bed · 3,200m² · 20 weeks · Lagos</div>
+          </div>
+          <div class="cbar"></div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-st"></span><div><div class="plat-name">Story / WhatsApp</div><div class="plat-sub">9:16</div></div></div>
+        <div class="fr-st"><div class="pg vdk">
+          <div class="pi f3"><span class="pi-lbl">PROJECT PHOTO</span></div>
+          <div class="pt">
+            <span class="bdg cl">PROJECT OF THE MONTH</span>
+            <div class="ph" style="font-size:16px">MAGODO LUXURY RESIDENCE</div>
+            <div class="pb">Case study at dovafutures.com</div>
+          </div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-li"></span><div><div class="plat-name">LinkedIn</div><div class="plat-sub">1.91:1</div></div></div>
+        <div class="fr-li"><div class="pg sp">
+          <div class="sp-row">
+            <div class="pi"><span class="pi-lbl">PROJECT PHOTO</span></div>
+            <div class="pt">
+              <span class="bdg cl">PROJECT OF THE MONTH</span>
+              <div class="ph ic" style="font-size:9.5px">MAGODO LUXURY RESIDENCE</div>
+              <div class="pb sl">3,200m² luxury residence, 20 weeks, Lagos. Full design–build coordination from concept to handover.</div>
+              <div class="pb sg" style="margin-top:3px;">Read full case study →</div>
+            </div>
+          </div>
+          <div class="pft ltft"><span class="plo dk">DOVA FUTURES</span><span class="purl dk">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-x"></span><div><div class="plat-name">X (Twitter)</div><div class="plat-sub">2:1</div></div></div>
+        <div class="fr-x"><div class="pg xc mdk">
+          <div class="pt">
+            <div class="pe gc">PROJECT OF THE MONTH</div>
+            <div class="ph" style="font-size:11px">MAGODO LUXURY RESIDENCE</div>
+            <div class="pb">3,200m² · 20 weeks · Lagos</div>
+          </div>
+          <div class="pi"><span class="pi-lbl">PHOTO</span></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="cap-block">
+      <p class="cap-title">Caption Samples</p>
+      <div class="cap-grid">
+        <div class="cap-item">
+          <p class="cap-plat">Instagram</p>
+          <p class="cap-text">Project of the Month: Magodo Luxury Residence, Lagos. Five bedrooms. 3,200m². 20 weeks. A project that demanded precision at every stage — from BIM coordination to final fit-out. The results speak for themselves.</p>
+          <p class="cap-tags">#projectshowcase #luxuryhomes #nigeriaarchitecture #dovafutures #designbuild</p>
+        </div>
+        <div class="cap-item">
+          <p class="cap-plat">LinkedIn</p>
+          <p class="cap-text">Project of the Month — Magodo Luxury Residence, Lagos. A 3,200m² five-bedroom luxury residence delivered in 20 weeks with full design–build integration. Full case study at dovafutures.com</p>
+          <p class="cap-tags">#architecture #construction #designbuild #luxuryhomes</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 09: HOLIDAY POSTS -->
+  <div class="section-content" id="tab-8">
+    <div class="sec-band">
+      <span class="sec-n">09</span>
+      <div class="sec-info">
+        <p class="sec-eye">Pillar 06 · Seasonal &amp; Holiday</p>
+        <h2 class="sec-name">HOLIDAY POSTS</h2>
+        <p class="sec-desc">Premium holiday greetings that maintain brand dignity. Clean, minimal, architecturally restrained.</p>
+      </div>
+      <span class="sec-tag">Seasonal · All Platforms</span>
+    </div>
+    <div class="plat-grid">
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-ig"></span><div><div class="plat-name">Instagram Post</div><div class="plat-sub">1:1</div></div></div>
+        <div class="fr-ig"><div class="pg vdk ctr">
+          <div class="pt-ctr">
+            <div class="pe gc" style="margin-bottom:6px;">FROM DOVA FUTURES</div>
+            <div class="ph cr" style="font-size:20px;margin-bottom:4px;">SEASON'S GREETINGS.</div>
+            <div class="cbar slim"></div>
+            <div class="pb cr" style="margin-top:8px;font-size:8px;max-width:130px;">Wishing you a joyful celebration and a prosperous year ahead.</div>
+          </div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-st"></span><div><div class="plat-name">Story / WhatsApp</div><div class="plat-sub">9:16</div></div></div>
+        <div class="fr-st"><div class="pg vdk ctr">
+          <div class="pt-ctr">
+            <div class="ph cr" style="font-size:28px;line-height:.9">SEASON'S</div>
+            <div class="ph cr" style="font-size:28px;line-height:.9;margin-bottom:8px;">GREETINGS</div>
+            <div class="cbar slim"></div>
+            <div class="pb gc" style="margin-top:8px;">From the DOVA Futures team.</div>
+          </div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-li"></span><div><div class="plat-name">LinkedIn</div><div class="plat-sub">1.91:1</div></div></div>
+        <div class="fr-li"><div class="pg lt">
+          <div class="pt" style="flex:1;padding:10px 14px;justify-content:center;">
+            <div class="pe gd" style="margin-bottom:4px;">SEASONAL MESSAGE</div>
+            <div class="ph ic" style="font-size:13px;margin-bottom:4px;">SEASON'S GREETINGS FROM DOVA FUTURES.</div>
+            <div class="pb sl" style="font-size:8px;">As we close this year, we reflect on the landmarks built and the trust our clients have placed in us. Wishing you a wonderful season ahead.</div>
+          </div>
+          <div class="cbar"></div>
+          <div class="pft ltft"><span class="plo dk">DOVA FUTURES</span><span class="purl dk">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-x"></span><div><div class="plat-name">X (Twitter)</div><div class="plat-sub">2:1</div></div></div>
+        <div class="fr-x"><div class="pg vdk ctr" style="flex-direction:column;">
+          <div class="pt-ctr" style="flex:1;">
+            <div class="ph cr" style="font-size:16px;margin-bottom:4px;">SEASON'S GREETINGS.</div>
+            <div class="cbar slim"></div>
+            <div class="pb gc" style="margin-top:4px;font-size:7.5px;">From the DOVA Futures team. May your projects be bold and your builders reliable.</div>
+          </div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="cap-block">
+      <p class="cap-title">Caption Samples</p>
+      <div class="cap-grid">
+        <div class="cap-item">
+          <p class="cap-plat">Instagram</p>
+          <p class="cap-text">Season's Greetings from the DOVA Futures team. As you celebrate with those who matter most, we remain committed to building the spaces where your most meaningful moments will take place. Wishing you a wonderful season.</p>
+          <p class="cap-tags">#SeasonsGreetings #dovafutures #nigeria #architecture</p>
+        </div>
+        <div class="cap-item">
+          <p class="cap-plat">LinkedIn</p>
+          <p class="cap-text">Season's Greetings from DOVA Futures. As we close out this year, we reflect on the projects completed, the clients who trusted us, and the landmarks built across Nigeria. Wishing you a wonderful holiday season and an exceptional year ahead.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 10: SPECIAL ANNOUNCEMENTS -->
+  <div class="section-content" id="tab-9">
+    <div class="sec-band">
+      <span class="sec-n">10</span>
+      <div class="sec-info">
+        <p class="sec-eye">Pillar 05 · Company Updates</p>
+        <h2 class="sec-name">SPECIAL ANNOUNCEMENTS</h2>
+        <p class="sec-desc">New service lines, partnerships, expansions, awards, and company milestones.</p>
+      </div>
+      <span class="sec-tag">As Needed · All Platforms</span>
+    </div>
+    <div class="plat-grid">
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-ig"></span><div><div class="plat-name">Instagram Post</div><div class="plat-sub">1:1</div></div></div>
+        <div class="fr-ig"><div class="pg vdk">
+          <div class="cbar"></div>
+          <div class="pt" style="flex:1;justify-content:center;padding:10px 12px;">
+            <span class="bdg cl">ANNOUNCEMENT</span>
+            <div class="ph cr" style="font-size:16px;margin-top:4px;">WE ARE EXPANDING TO ABUJA.</div>
+            <div class="rule" style="margin:8px 0;"></div>
+            <div class="pb gc" style="font-size:8px;line-height:1.5;">DOVA Futures now accepts residential and commercial project enquiries in Abuja FCT. DM us to begin your consultation.</div>
+          </div>
+          <div class="cbar"></div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-st"></span><div><div class="plat-name">Story / WhatsApp</div><div class="plat-sub">9:16</div></div></div>
+        <div class="fr-st"><div class="pg vdk">
+          <div class="cbar"></div>
+          <div class="pt-ctr" style="flex:1;">
+            <span class="bdg cl" style="margin-bottom:8px;">ANNOUNCEMENT</span>
+            <div class="ph cr" style="font-size:24px;line-height:.9">WE ARE</div>
+            <div class="ph cr" style="font-size:24px;line-height:.9">EXPANDING</div>
+            <div class="ph cc" style="font-size:24px;line-height:.9;margin-bottom:8px;">TO ABUJA.</div>
+            <div class="cbar slim"></div>
+            <div class="pb gc" style="margin-top:6px;font-size:7.5px;">DM us to begin your consultation.</div>
+          </div>
+          <div class="pft"><span class="plo">DOVA FUTURES</span><span class="purl">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-li"></span><div><div class="plat-name">LinkedIn</div><div class="plat-sub">1.91:1</div></div></div>
+        <div class="fr-li"><div class="pg lt">
+          <div class="pt" style="flex:1;padding:10px 14px;justify-content:center;">
+            <span class="bdg cl" style="margin-bottom:5px;">ANNOUNCEMENT</span>
+            <div class="ph ic" style="font-size:12px;margin-bottom:4px;">DOVA FUTURES EXPANDS TO ABUJA FCT.</div>
+            <div class="pb sl" style="font-size:8px;">Design–build services now available in the Federal Capital Territory. Residential, commercial, and institutional projects in scope. Enquiries now open.</div>
+            <div class="pb sg" style="margin-top:4px;font-size:8px;">Contact info@dovafutures.com →</div>
+          </div>
+          <div class="cbar"></div>
+          <div class="pft ltft"><span class="plo dk">DOVA FUTURES</span><span class="purl dk">dovafutures.com</span></div>
+        </div></div>
+      </div>
+      <div>
+        <div class="plat-lbl"><span class="plat-dot dot-x"></span><div><div class="plat-name">X (Twitter)</div><div class="plat-sub">2:1</div></div></div>
+        <div class="fr-x"><div class="pg xc vdk">
+          <div class="pt">
+            <span class="bdg cl">ANNOUNCEMENT</span>
+            <div class="ph" style="font-size:10px;margin-top:2px;">DOVA FUTURES EXPANDS TO ABUJA FCT.</div>
+            <div class="pb gc">Design–build enquiries now open. DM to begin.</div>
+          </div>
+          <div class="pi" style="background:#0B1810;"><span class="pi-lbl">GRAPHIC</span></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="cap-block">
+      <p class="cap-title">Caption Samples</p>
+      <div class="cap-grid">
+        <div class="cap-item">
+          <p class="cap-plat">Instagram</p>
+          <p class="cap-text">Announcement. DOVA Futures is expanding to Abuja FCT. We are now accepting residential and commercial project enquiries in the Federal Capital Territory. DM us to begin your consultation.</p>
+          <p class="cap-tags">#announcement #Abuja #nigeriaconstruction #dovafutures #designbuild</p>
+        </div>
+        <div class="cap-item">
+          <p class="cap-plat">LinkedIn</p>
+          <p class="cap-text">We are pleased to announce the expansion of DOVA Futures' design–build services to Abuja FCT. Residential, commercial, and institutional projects now in scope. Contact info@dovafutures.com to begin. #Abuja #construction #designbuild</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="site-ftr">
+    <div class="ftr-brand">DOVA FUTURES DEVELOPERS</div>
+    <div class="ftr-info">Post Wireframes · Content Kit v1.0<br>dovafutures.com · info@dovafutures.com</div>
+  </div>
+
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.nb');
+  const sections = document.querySelectorAll('.section-content');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const i = parseInt(tab.dataset.tab);
+      tabs.forEach(t => { t.classList.remove('on'); t.setAttribute('aria-selected', 'false'); });
+      sections.forEach(s => s.classList.remove('active'));
+      tab.classList.add('on');
+      tab.setAttribute('aria-selected', 'true');
+      sections[i].classList.add('active');
+      tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    });
+  });
+</script>
+</body>
+</html>

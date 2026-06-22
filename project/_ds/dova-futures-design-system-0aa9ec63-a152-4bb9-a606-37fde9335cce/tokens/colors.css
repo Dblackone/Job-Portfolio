@@ -1,0 +1,76 @@
+/* ===================================================================
+   DOVA FUTURES — Color tokens
+   Brand: deep forest green · natural cream & sand · clay accent
+   Direction: premium, sustainable, architectural, professional.
+   =================================================================== */
+:root {
+  /* ── Brand green scale (primary identity) ───────────────────── */
+  --green-950: #0B221A;  /* near-black green — deepest surfaces */
+  --green-900: #102A20;
+  --green-800: #16382B;  /* deep section surface */
+  --green-700: #1C4636;  /* PRIMARY brand green */
+  --green-600: #265C46;
+  --green-500: #357A5B;  /* mid green — interactive */
+  --green-400: #5AA17C;
+  --green-300: #8FC4A9;
+  --green-200: #BFDDCC;
+  --green-100: #DCEBE2;  /* faint green tint surface */
+
+  /* ── Natural neutrals (materials: cream, sand, stone) ───────── */
+  --cream:     #F5EFE8;  /* signature warm off-white */
+  --sand:      #E8E1D5;
+  --stone:     #D1CBC6;  /* hairline borders on light */
+  --ash:       #B9B3AD;
+
+  /* ── Ink (charcoal) ─────────────────────────────────────────── */
+  --ink-900:   #1A1A1A;
+  --ink-800:   #242424;
+  --ink-700:   #2C2C2C;
+  --slate:     #4A4F5C;  /* muted body text on light */
+  --slate-400: #6B7280;
+
+  --white:     #FFFFFF;
+
+  /* ── Clay (secondary natural accent — use sparingly) ────────── */
+  --clay:      #B85C38;
+  --clay-dark: #9E4F30;
+  --clay-100:  #F0DDD8;
+
+  /* ── Semantic status ────────────────────────────────────────── */
+  --success:   #357A5B;
+  --warning:   #C8881F;
+  --danger:    #B23A2E;
+  --info:      #2F6B7D;
+
+  /* ===============================================================
+     SEMANTIC ALIASES — prefer these in components
+     =============================================================== */
+  /* Surfaces */
+  --surface-page:      var(--cream);       /* default light page */
+  --surface-card:      var(--white);
+  --surface-sunken:    var(--sand);
+  --surface-tint:      var(--green-100);
+  --surface-dark:      var(--green-800);   /* dark sections */
+  --surface-darkest:   var(--green-950);
+
+  /* Text */
+  --text-strong:       var(--ink-900);     /* headings on light */
+  --text-body:         var(--slate);       /* body on light */
+  --text-muted:        var(--slate-400);
+  --text-on-dark:      var(--cream);        /* body on dark green */
+  --text-on-dark-mut:  rgba(245,239,232,0.62);
+  --text-inverse:      var(--white);
+
+  /* Brand / interactive */
+  --brand:             var(--green-700);
+  --brand-hover:       var(--green-800);
+  --brand-active:      var(--green-900);
+  --brand-soft:        var(--green-100);
+  --accent:            var(--clay);
+  --accent-hover:      var(--clay-dark);
+
+  /* Lines */
+  --border-light:      var(--stone);
+  --border-dark:       rgba(245,239,232,0.14);
+  --focus-ring:        var(--green-500);
+}
