@@ -27,12 +27,14 @@ This is the design I'm most proud of from July.
 ---
 
 ## Design Story
-[Describe the design story for Hillside Residence here]
+Hillside Residence is a residential project modelled in Revit and visualised in Twinmotion. The site demanded a considered response to level change: the design resolves the topography through a split-level section, allowing the living areas to sit at grade with the upper slope while the lower level opens to the rear garden below. The facade treatment prioritises mass and shadow — deep reveals on west-facing openings, a recessed entrance porch, and a roof form that extends to shade the principal elevation.
 
 ---
 
 ## Key Design Decisions
-[List the key design decisions — 3 specific, honest ones]
+1. Split-level section as the primary site response — the topography is not fought but resolved through section, allowing both levels to open directly to grade
+2. West facade modulation: deep window reveals and a projecting roof plane reduce solar gain on the primary exposure without sacrificing the view
+3. Revit model built to LOD 300 — every wall, slab, and roof element coordinated before any construction documentation was issued
 
 ---
 
@@ -41,15 +43,15 @@ This is the design I'm most proud of from July.
 **Slide 1 — Hero**
 Kicker: DESIGN OF THE MONTH · JULY 2026
 Headline: Hillside Residence
-Sub: [One-line description of Hillside Residence]
+Sub: Split-level residential design — BIM modelled and visualised in full
 
 **Slide 2 — Breakdown**
 Kicker: DESIGN OF THE MONTH · JULY 2026
 Headline: The thinking behind it.
 Bullets:
-- [First key design decision]
-- [Second key design decision]
-- [Third key design decision]
+- Split-level section: the slope resolved through design, not earthworks
+- West facade modulation: deep reveals and extended roof plane for solar control without view loss
+- Revit model at LOD 300 before documentation — every element coordinated in model, not on site
 
 **Slide 3 — CTA**
 Kicker: WORK WITH ME
@@ -64,36 +66,45 @@ Button: DM me for a consult
 ### Instagram
 Design of the Month: Hillside Residence.
 
-[Write the Instagram caption here — hook, story, 3 decisions, CTA.]
+A split-level residential design developed in Revit and visualised in Twinmotion. The site presented a level change that became the starting point for the section — two floor levels, both opening directly to grade, with the slope resolved through design rather than earthworks.
 
-Swipe to see the breakdown 👉
+Three decisions that defined the project:
 
-DM me if you're designing something similar.
+The split-level section. The west facade modulation — deep reveals and a projecting roof plane to reduce solar gain without closing the view. And a Revit model built to LOD 300 before any construction documentation was issued.
 
-**Hashtags (8–12):** #DesignOfTheMonth #Architecture #ArchitectureNigeria #ResidentialDesign #ArchitecturalVisualization #BIM #Revit #NigerianArchitect #ModernArchitecture #DesignAndBuild #ArchitecturalDesign
+The model is the standard. The build follows it.
 
-**Alt text:** Slide 1 — Hero render of Hillside Residence. Slide 2 — Dark card listing three key design decisions. Slide 3 — Dark CTA card with contact prompt.
+DM me if you're planning something similar.
+
+
+**Hashtags (8–12):** #DesignOfTheMonth #ArchitecturalVisualization #BIM #Revit #ResidentialDesign #NigerianArchitect #ArchitectureNigeria #Twinmotion #ModernArchitecture #DovaFutures #DesignAndBuild #ArchitecturalDesign
+
+**Alt text:** Slide 1 — Hero render of Hillside Residence, a split-level residential design. Slide 2 — Design breakdown card with three key decisions. Slide 3 — Dark CTA card with contact prompt.
 
 ### LinkedIn
 Design of the Month — July 2026: Hillside Residence.
 
-[Write the LinkedIn caption here — professional tone, first-person, lessons.]
+A split-level residential design, modelled in Revit at LOD 300 and visualised in Twinmotion. The site presented a significant level change — the design response was a split-section that allows both floor levels to open directly to grade, resolving the topography through design rather than earthworks.
 
-If you're planning a project and want design + BIM handled by the same person who understands the site — let's talk.
+The west facade was modulated with deep window reveals and a projecting roof plane to manage solar exposure on the primary elevation without sacrificing the view that the site offers.
 
-**Hashtags (3–5):** #Architecture #BIM #ResidentialDesign #DesignAndBuild
+The model was built to LOD 300 before any construction documentation was issued — every wall, slab, and roof element coordinated in Revit. The construction documents came from the model, not the other way round.
+
+If you are planning a residential project and want design and BIM handled by the same person who understands the site — let's talk.
+
+**Hashtags (3–5):** #Architecture #BIM #ResidentialDesign #DesignAndBuild #DovaFutures
 
 ### X (Twitter)
 Design of the Month: Hillside Residence.
 
-[Key insight in 2–3 short lines.]
+Split-level section resolves the site slope. West facade modulated for solar control. Revit model at LOD 300 before documentation.
 
-Thread below 👇
+The model is the standard.
 
-**Hashtags (1–2):** #Architecture #BIM
+#Architecture #BIM
 
 ### WhatsApp Status
-Hi 👋 Just posted a breakdown of Hillside Residence — the design thinking behind it and the key decisions. Take a look on Instagram @dova_futures.
+Design of the Month is up — Hillside Residence. Split-level residential design, BIM modelled and fully visualised. Breakdown is on @dova_futures on Instagram.
 
 ### Facebook / Threads
 *(Repurpose Instagram caption — remove hashtag block, keep CTA.)*

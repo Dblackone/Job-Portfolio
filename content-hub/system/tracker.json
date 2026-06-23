@@ -23,7 +23,7 @@
             "id": "2026-07-02-design-of-month",
             "date": "2026-07-02",
             "slug": "hillside-residence",
-            "status": "draft",
+            "status": "approved",
             "post_file": "posts/2026/07/design-of-month/2026-07-02-design-of-month-hillside-residence.md",
             "graphics": [
               "graphics/output/2026-07-02-design-of-month-01.png",
@@ -32,7 +32,7 @@
             ],
             "reminders_created": false,
             "created_at": "2026-06-22T17:25:41",
-            "updated_at": "2026-06-22T17:25:41"
+            "updated_at": "2026-06-23T15:56:23"
           }
         ],
         "special-announcements": [
@@ -40,14 +40,118 @@
             "id": "2026-07-20-special-announcements",
             "date": "2026-07-20",
             "slug": "bim-coordination-now-available-as-a-standalone-service",
-            "status": "draft",
+            "status": "approved",
             "post_file": "posts/2026/07/special-announcements/2026-07-20-special-announcements-bim-coordination-now-available-as-a-standalone-service.md",
             "graphics": [
               "graphics/output/2026-07-20-announcement-bim-coordination-now-available-as-a-standalone-service.png"
             ],
             "reminders_created": false,
             "created_at": "2026-06-22T17:25:41",
-            "updated_at": "2026-06-22T17:25:41"
+            "updated_at": "2026-06-23T15:56:23"
+          }
+        ],
+        "project-highlights": [
+          {
+            "id": "2026-07-07-project-highlights",
+            "date": "2026-07-07",
+            "slug": "ehs-hotel-swimming-pool",
+            "status": "approved",
+            "post_file": "posts/2026/07/project-highlights/2026-07-07-project-highlights-ehs-hotel-swimming-pool.md",
+            "graphics": [
+              "graphics/output/2026-07-07-project-highlights-01.png",
+              "graphics/output/2026-07-07-project-highlights-02.png"
+            ],
+            "reminders_created": false,
+            "created_at": "2026-06-23T15:48:50",
+            "updated_at": "2026-06-23T15:56:23"
+          },
+          {
+            "id": "2026-07-14-project-highlights",
+            "date": "2026-07-14",
+            "slug": "the-body-shop-nigeria",
+            "status": "approved",
+            "post_file": "posts/2026/07/project-highlights/2026-07-14-project-highlights-the-body-shop-nigeria.md",
+            "graphics": [
+              "graphics/output/2026-07-14-project-highlights-01.png",
+              "graphics/output/2026-07-14-project-highlights-02.png"
+            ],
+            "reminders_created": false,
+            "created_at": "2026-06-23T15:48:50",
+            "updated_at": "2026-06-23T15:56:23"
+          },
+          {
+            "id": "2026-07-28-project-highlights",
+            "date": "2026-07-28",
+            "slug": "ikotun-residential-development",
+            "status": "approved",
+            "post_file": "posts/2026/07/project-highlights/2026-07-28-project-highlights-ikotun-residential-development.md",
+            "graphics": [
+              "graphics/output/2026-07-28-project-highlights-01.png",
+              "graphics/output/2026-07-28-project-highlights-02.png"
+            ],
+            "reminders_created": false,
+            "created_at": "2026-06-23T15:48:51",
+            "updated_at": "2026-06-23T15:56:23"
+          }
+        ],
+        "design-showcase": [
+          {
+            "id": "2026-07-10-design-showcase",
+            "date": "2026-07-10",
+            "slug": "alcove-home-interior-design",
+            "status": "approved",
+            "post_file": "posts/2026/07/design-showcase/2026-07-10-design-showcase-alcove-home-interior-design.md",
+            "graphics": [
+              "graphics/output/2026-07-10-design-showcase-01.png",
+              "graphics/output/2026-07-10-design-showcase-02.png"
+            ],
+            "reminders_created": false,
+            "created_at": "2026-06-23T15:48:50",
+            "updated_at": "2026-06-23T15:56:23"
+          },
+          {
+            "id": "2026-07-17-design-showcase",
+            "date": "2026-07-17",
+            "slug": "justice-omoyele-residence",
+            "status": "approved",
+            "post_file": "posts/2026/07/design-showcase/2026-07-17-design-showcase-justice-omoyele-residence.md",
+            "graphics": [
+              "graphics/output/2026-07-17-design-showcase-01.png",
+              "graphics/output/2026-07-17-design-showcase-02.png"
+            ],
+            "reminders_created": false,
+            "created_at": "2026-06-23T15:48:50",
+            "updated_at": "2026-06-23T15:56:23"
+          },
+          {
+            "id": "2026-07-24-design-showcase",
+            "date": "2026-07-24",
+            "slug": "fina-trust-mfb-hq-renovation",
+            "status": "approved",
+            "post_file": "posts/2026/07/design-showcase/2026-07-24-design-showcase-fina-trust-mfb-hq-renovation.md",
+            "graphics": [
+              "graphics/output/2026-07-24-design-showcase-01.png",
+              "graphics/output/2026-07-24-design-showcase-02.png"
+            ],
+            "reminders_created": false,
+            "created_at": "2026-06-23T15:48:50",
+            "updated_at": "2026-06-23T15:56:23"
+          }
+        ],
+        "project-showcase": [
+          {
+            "id": "2026-07-21-project-showcase",
+            "date": "2026-07-21",
+            "slug": "justice-omoyele-residential-duplex",
+            "status": "approved",
+            "post_file": "posts/2026/07/project-showcase/2026-07-21-project-showcase-justice-omoyele-residential-duplex.md",
+            "graphics": [
+              "graphics/output/2026-07-21-project-showcase-01.png",
+              "graphics/output/2026-07-21-project-showcase-02.png"
+            ],
+            "reminders_created": false,
+            "created_at": "2026-06-23T15:48:50",
+            "updated_at": "2026-06-23T15:56:23"
           }
         ]
       },
@@ -82,6 +186,60 @@
       "from": "approved",
       "to": "scheduled",
       "at": "2026-06-22T17:25:48"
+    },
+    {
+      "id": "2026-07-02-design-of-month",
+      "from": "draft",
+      "to": "approved",
+      "at": "2026-06-23T15:56:23"
+    },
+    {
+      "id": "2026-07-07-project-highlights",
+      "from": "draft",
+      "to": "approved",
+      "at": "2026-06-23T15:56:23"
+    },
+    {
+      "id": "2026-07-10-design-showcase",
+      "from": "draft",
+      "to": "approved",
+      "at": "2026-06-23T15:56:23"
+    },
+    {
+      "id": "2026-07-14-project-highlights",
+      "from": "draft",
+      "to": "approved",
+      "at": "2026-06-23T15:56:23"
+    },
+    {
+      "id": "2026-07-17-design-showcase",
+      "from": "draft",
+      "to": "approved",
+      "at": "2026-06-23T15:56:23"
+    },
+    {
+      "id": "2026-07-20-special-announcements",
+      "from": "draft",
+      "to": "approved",
+      "at": "2026-06-23T15:56:23"
+    },
+    {
+      "id": "2026-07-21-project-showcase",
+      "from": "draft",
+      "to": "approved",
+      "at": "2026-06-23T15:56:23"
+    },
+    {
+      "id": "2026-07-24-design-showcase",
+      "from": "draft",
+      "to": "approved",
+      "at": "2026-06-23T15:56:23"
+    },
+    {
+      "id": "2026-07-28-project-highlights",
+      "from": "draft",
+      "to": "approved",
+      "at": "2026-06-23T15:56:23"
     }
   ]
 }

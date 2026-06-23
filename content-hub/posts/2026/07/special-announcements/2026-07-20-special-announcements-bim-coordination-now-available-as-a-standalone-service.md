@@ -74,11 +74,9 @@ Revit modelling, clash detection, and coordination reports — from concept to s
 **Hashtags (1–2):** #Architecture #DovaFutures
 
 ### WhatsApp Status
-📢 BIM Coordination now available as a standalone service
+BIM Coordination now available as a standalone service.
 
-Revit modelling, clash detection, and coordination reports — from concept to site. DM or WhatsApp to get started.
-
-Reply here for more info. — Vollmann · Dova Futures
+Revit modelling, clash detection, and coordination reports — from concept to site. Reply here for more info. — Vollmann · Dova Futures
 
 ### Facebook / Threads
 *(Repurpose LinkedIn caption — more personal tone.)*
