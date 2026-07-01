@@ -217,13 +217,20 @@ def _html_text_card(card: dict, w: int, h: int) -> str:
 
 
 def _html_spotlight_card(card: dict, w: int, h: int) -> str:
-    """Full-bleed image with gradient + caption. type: spotlight."""
+    """Full-bleed image with gradient + caption. type: spotlight.
+
+    layout: "bottom" (default) — corner kicker, bottom-anchored headline block.
+    layout: "center" — kicker stays in the corner, but headline + sub become
+             the dominant centered element, for message-forward posts (greetings,
+             announcements) where the photo is a backdrop rather than the subject.
+    """
     uri = _img_uri(card["image"])
     pad = int(w * 0.07)
     kicker = card.get("kicker", "PROJECT SPOTLIGHT")
     title = card.get("title", "")
     meta = card.get("meta", "")
     logo = card.get("logo", "VA")
+    layout = card.get("layout", "bottom")
     # Kicker sits over an arbitrary photo — a bare accent-coloured label can
     # disappear against light areas (skies, ceilings, walls), so it gets its
     # own opaque backing chip rather than relying on the gradient alone.
@@ -237,15 +244,34 @@ def _html_spotlight_card(card: dict, w: int, h: int) -> str:
         f'text-shadow:0 2px 10px rgba(0,0,0,0.7);">{kicker}</span>'
         f'</div>'
     )
-    return f"""
-    <div class="card" style="background:{PALETTE['dark']}">
-      <img src="{uri}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"/>
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,
-           rgba(20,18,16,0.75) 0%, rgba(20,18,16,0.15) 22%, rgba(20,18,16,0.1) 55%,
-           rgba(20,18,16,0.88) 100%);"></div>
-      <div style="position:absolute;top:{pad}px;left:{pad}px;right:{pad}px;">
-        {topbar_html}
+
+    if layout == "center":
+        # Message is the subject here, not the photo — a uniform, denser wash
+        # (rather than the bottom-weighted gradient) keeps large centered text
+        # legible no matter what's directly behind it.
+        overlay = (
+            "background:linear-gradient(180deg,"
+            "rgba(20,18,16,0.72) 0%, rgba(20,18,16,0.6) 45%,"
+            "rgba(20,18,16,0.6) 65%, rgba(20,18,16,0.8) 100%);"
+        )
+        body_html = f"""
+      <div style="position:absolute;left:{pad}px;right:{pad}px;top:50%;
+                  transform:translateY(-50%);text-align:center;">
+        <div class="rule" style="margin:0 auto 32px;"></div>
+        <h1 class="head" style="font-size:{card.get('head_size',108)}px;color:#fff;
+                                max-width:100%;text-align:center;
+                                text-shadow:0 6px 24px rgba(0,0,0,0.6)">{title}</h1>
+        <p class="sub" style="font-size:32px;color:#EDEAE6;margin-top:26px;text-align:center;
+                              text-shadow:0 2px 10px rgba(0,0,0,0.55)">{meta}</p>
       </div>
+        """
+    else:
+        overlay = (
+            "background:linear-gradient(180deg,"
+            "rgba(20,18,16,0.75) 0%, rgba(20,18,16,0.15) 22%, rgba(20,18,16,0.1) 55%,"
+            "rgba(20,18,16,0.88) 100%);"
+        )
+        body_html = f"""
       <div style="position:absolute;left:{pad}px;right:{pad}px;bottom:{int(h*0.085)}px;">
         <div class="rule" style="margin-bottom:28px;"></div>
         <h1 class="head" style="font-size:{card.get('head_size',72)}px;color:#fff;max-width:94%;
@@ -253,6 +279,16 @@ def _html_spotlight_card(card: dict, w: int, h: int) -> str:
         <p class="sub" style="font-size:28px;color:#EDEAE6;margin-top:18px;
                               text-shadow:0 2px 10px rgba(0,0,0,0.55)">{meta}</p>
       </div>
+        """
+
+    return f"""
+    <div class="card" style="background:{PALETTE['dark']}">
+      <img src="{uri}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"/>
+      <div style="position:absolute;inset:0;{overlay}"></div>
+      <div style="position:absolute;top:{pad}px;left:{pad}px;right:{pad}px;">
+        {topbar_html}
+      </div>
+      {body_html}
       <div class="footer" style="padding:0 {pad}px {int(h*0.035)}px;">
         <span class="name" style="font-size:22px;color:#EDEAE6;text-shadow:0 2px 8px rgba(0,0,0,0.6)">{card.get('footer', DEFAULT_FOOTER)}</span>
         <span class="handle" style="font-size:22px;text-shadow:0 2px 8px rgba(0,0,0,0.6)">{card.get('handle', DEFAULT_HANDLE)}</span>
