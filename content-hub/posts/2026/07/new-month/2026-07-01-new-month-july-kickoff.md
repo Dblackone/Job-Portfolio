@@ -2,82 +2,77 @@
 ## Automation Meta
 - **ID:** 2026-07-01-new-month
 - **Category:** new-month
-- **Title:** July 2026 — Build
+- **Title:** July 2026 — Alcove Homes, Yaba
 - **Recommended Date:** 2026-07-01
 - **Platforms:** Instagram, Facebook, LinkedIn, X (Twitter), WhatsApp Status, Threads
-- **Status:** draft
-- **Design Brief:** Full-bleed monthly-theme card. Kicker: "NEW MONTH · JULY 2026". Enormous semi-transparent month number as background texture. Terracotta rule. Hero word: the theme for the month. Dark variant with terracotta accent. Portrait (1080×1350).
-- **Visual Direction:** Card type `monthly-theme`. Dark background (#2C2C2C). Month number (e.g. "07") fills canvas at ~110% width, opacity 7%, as texture. Centred layout: VA logo + kicker, terracotta rule, large theme headline, sub-line intention. Footer: Vollmann Akarakiri · @dova_futures.
-- **CTA:** Follow along this July →
+- **Status:** scheduled
+- **Design Brief:** Single portrait image post (1080×1350). Source: real project photo — Alcove Homes, Yaba, Lagos (feature wall). Overlay: DOVA FUTURES logo mark (white) top-left. Bottom-left text block — kicker in uppercase Inter: "NEW MONTH · JULY 2026", project line in uppercase Inter (smaller): "ALCOVE HOMES · YABA, LAGOS". Dark semi-transparent scrim at bottom 30% of frame for text legibility. The photo is the graphic — no typographic card.
+- **Visual Direction:** Full-bleed real photo. DOVA FUTURES logo mark (white) top-left. Gradient scrim (#000, 0% top → 55% bottom). Text bottom-left. Footer: Vollmann Akarakiri · @dova_futures.
+- **CTA:** Let's Build It Properly.
 ---
 
 ## Meta (compatibility — existing format)
 - **Date:** 2026-07-01
-- **Pillar:** Engage / Personal
-- **Core idea:** Welcome July with intention: Build
-- **Primary format:** Single card
-- **Source asset(s):** —
+- **Pillar:** Design Inspiration
+- **Core idea:** Open July with Alcove Homes, Yaba — the feature wall as the month's first statement
+- **Primary format:** Single image
+- **Source asset(s):** Real project photo — Alcove Homes, Yaba, Lagos (TV feature wall: marble inlay, fireplace, LED shelving)
 - **Graphic file(s):** graphics/output/2026-07-01-new-month-cover.png
 
 ---
 
 ## Hook
-July is here. One word for it: Build.
+July 2026 opens with this.
 
 ---
 
 ## Copy (artwork text)
-New month. Fresh start.
-
-Last month: The Hillside project carousel was our strongest post — 5 slides, real story, real numbers.
-
-This month, one intention: Build.
-
-I'll be sharing the work, the lessons, and the builds — one post at a time.
-
-Follow along if that's useful to you.
+Kicker: NEW MONTH · JULY 2026
+Project: ALCOVE HOMES · YABA, LAGOS
+Sub: Let's Build It Properly.
 
 ---
 
 ## Caption
 
 ### Instagram
-July is here. One word for it: Build.
+July 2026 opens with this.
 
-Last month: The Hillside project carousel was our strongest post — 5 slides, real story, real numbers.
+Alcove Homes, Yaba — the feature wall. Matte black cladding, Calacatta marble inlay with LED backlight, integrated fireplace, and custom display shelving with cove lighting built into every shelf.
 
-This month I'm sharing one idea per day — BIM, design, construction, and the reality of building in Nigeria.
+Nothing here was specified off the shelf. Every element drawn, coordinated, and delivered to a fabrication standard that holds.
 
-Follow @dova_futures if that's your kind of content.
+This is the work that opens July.
 
-**Hashtags (8–12):** #NewMonth #July2026 #ArchitectLife #BuildInPublic #NigerianArchitect #DovaFutures #BIM #Architecture #DesignAndBuild #AECommunity #ConstructionNigeria #ArchitectsOfInstagram
+Let's Build It Properly.
 
-**Alt text:** Dark typographic card. Large month number as background texture. Headline reads "Build". Branded with VA logo and @dova_futures.
+
+#InteriorDesign #FeatureWall #NigerianInteriors #HomeDesign #InteriorDesignNigeria #LuxuryInteriors #ModernInteriors #TVWall #MarbleInteriors #FireplaceDesign #CustomJoinery #DovaFutures #DesignAndBuild #LagosBuild #RethinkTheFuture #InteriorArchitecture #ResidentialDesign #July2026 #NewMonth
+
+**Alt text:** Premium feature wall at Alcove Homes, Yaba. Matte black cladding with central Calacatta marble panel, LED backlight, integrated electric fireplace, and custom display shelving with cove lighting. DOVA FUTURES branding overlay.
 
 ### LinkedIn
-July is here.
+July 2026 opens with this.
 
-Last month: The Hillside project carousel was our strongest post — 5 slides, real story, real numbers.
+Feature wall — Alcove Homes, Yaba, Lagos. Matte black cladding. Calacatta marble inlay, backlit. Integrated electric fireplace. Custom display shelving with LED-cove lighting in every niche.
 
-This month, I'm returning to one intention: Build.
+Every element was drawn before it was built. Fabrication coordinated against a specification, not improvised on site.
 
-I'll keep posting one idea per day — BIM coordination, architectural design, and construction management insights from real projects.
+This is the standard we are opening the month with.
 
-If you work in AEC or are planning a build, follow along.
+Let's Build It Properly.
 
-**Hashtags (3–5):** #Architecture #BIM #DesignAndBuild #Construction#July
+**Hashtags (5–8):** #InteriorDesign #DovaFutures #FeatureWall #LuxuryInteriors #DesignAndBuild #NigerianArchitect #Architecture
 
 ### X (Twitter)
-July.
+July opens with this.
 
-One word: Build.
+Alcove Homes, Yaba. Feature wall — marble, fireplace, custom shelving. Drawn before it was built.
 
-Daily BIM + construction posts. Follow if that's useful.
-
-**Hashtags (1–2):** #BIM #Architecture
+**Hashtags (1–2):** #InteriorDesign #DovaFutures
 
 ### WhatsApp Status
-Happy new month! July is here — I'll be sharing daily posts on BIM, architecture, and construction this month. Follow @dova_futures on Instagram or reply here if there's anything specific you'd like me to cover.
+July 2026 is here. Starting the month with the feature wall at Alcove Homes, Yaba — full post is live on @dova_futures on Instagram.
 
 ### Facebook / Threads
 *(Repurpose Instagram caption — remove hashtag block, keep CTA.)*
@@ -85,10 +80,12 @@ Happy new month! July is here — I'll be sharing daily posts on BIM, architectu
 ---
 
 ## Manual Publishing Checklist
-- [ ] Graphic exported and saved to `graphics/output/`
+- [ ] Real project photo exported at 1080×1350 with overlay applied
+- [ ] Logo mark (white, DOVA FUTURES) top-left confirmed
+- [ ] Gradient scrim legible — text readable at bottom of frame
 - [ ] Caption reviewed — no invented facts or figures
-- [ ] CTA clear and platform-appropriate
-- [ ] Hashtag count within platform spec
+- [ ] CTA present on all platforms
+- [ ] Hashtag count within platform spec (IG: 19, LI: 7, X: 2)
 - [ ] Alt text added on Instagram
 - [ ] Posted on: Instagram · LinkedIn · X · WhatsApp Status · Facebook · Threads
 - [ ] Status updated to `posted` in tracker
@@ -97,7 +94,7 @@ Happy new month! July is here — I'll be sharing daily posts on BIM, architectu
 
 ## Quality gate
 - [ ] Hook lands in line 1 before "more"
-- [ ] One core idea, one CTA
-- [ ] No invented facts or numbers
-- [ ] On-brand graphic (terracotta + dark)
-- [ ] Handles correct: @dova_futures (IG/TikTok) · @d_black_one (X)
+- [ ] No emoji on any platform
+- [ ] No invented statistics or performance references
+- [ ] Real project photo — not a typographic card
+- [ ] Handles correct: @dova_futures (IG/Facebook/Threads) · @d_black_one (X)
