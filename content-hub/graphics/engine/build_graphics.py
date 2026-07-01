@@ -223,23 +223,39 @@ def _html_spotlight_card(card: dict, w: int, h: int) -> str:
     kicker = card.get("kicker", "PROJECT SPOTLIGHT")
     title = card.get("title", "")
     meta = card.get("meta", "")
+    logo = card.get("logo", "VA")
+    # Kicker sits over an arbitrary photo — a bare accent-coloured label can
+    # disappear against light areas (skies, ceilings, walls), so it gets its
+    # own opaque backing chip rather than relying on the gradient alone.
+    topbar_html = (
+        f'<div style="display:inline-flex;align-items:center;gap:16px;'
+        f'background:rgba(20,18,16,0.55);padding:10px 24px 10px 10px;'
+        f'border-radius:12px;">'
+        f'<div class="logo" style="width:56px;height:56px;font-size:24px;flex-shrink:0;">{logo}</div>'
+        f'<span style="font-weight:700;font-size:26px;letter-spacing:0.18em;'
+        f'text-transform:uppercase;color:{PALETTE["accent"]};'
+        f'text-shadow:0 2px 10px rgba(0,0,0,0.7);">{kicker}</span>'
+        f'</div>'
+    )
     return f"""
     <div class="card" style="background:{PALETTE['dark']}">
       <img src="{uri}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"/>
       <div style="position:absolute;inset:0;background:linear-gradient(180deg,
-           rgba(44,44,44,0.55) 0%, rgba(44,44,44,0.05) 32%, rgba(44,44,44,0.1) 55%,
-           rgba(44,44,44,0.85) 100%);"></div>
+           rgba(20,18,16,0.75) 0%, rgba(20,18,16,0.15) 22%, rgba(20,18,16,0.1) 55%,
+           rgba(20,18,16,0.88) 100%);"></div>
       <div style="position:absolute;top:{pad}px;left:{pad}px;right:{pad}px;">
-        {_topbar(kicker, logo=card.get('logo','VA'))}
+        {topbar_html}
       </div>
       <div style="position:absolute;left:{pad}px;right:{pad}px;bottom:{int(h*0.085)}px;">
         <div class="rule" style="margin-bottom:28px;"></div>
-        <h1 class="head" style="font-size:{card.get('head_size',72)}px;color:#fff;max-width:94%">{title}</h1>
-        <p class="sub" style="font-size:28px;color:#EDEAE6;margin-top:18px">{meta}</p>
+        <h1 class="head" style="font-size:{card.get('head_size',72)}px;color:#fff;max-width:94%;
+                                text-shadow:0 4px 18px rgba(0,0,0,0.55)">{title}</h1>
+        <p class="sub" style="font-size:28px;color:#EDEAE6;margin-top:18px;
+                              text-shadow:0 2px 10px rgba(0,0,0,0.55)">{meta}</p>
       </div>
       <div class="footer" style="padding:0 {pad}px {int(h*0.035)}px;">
-        <span class="name" style="font-size:22px;color:#EDEAE6">{card.get('footer', DEFAULT_FOOTER)}</span>
-        <span class="handle" style="font-size:22px">{card.get('handle', DEFAULT_HANDLE)}</span>
+        <span class="name" style="font-size:22px;color:#EDEAE6;text-shadow:0 2px 8px rgba(0,0,0,0.6)">{card.get('footer', DEFAULT_FOOTER)}</span>
+        <span class="handle" style="font-size:22px;text-shadow:0 2px 8px rgba(0,0,0,0.6)">{card.get('handle', DEFAULT_HANDLE)}</span>
       </div>
     </div>
     """
