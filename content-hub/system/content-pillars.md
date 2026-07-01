@@ -57,8 +57,8 @@ Across a 30-day month, also ensure roughly:
 actually use · schedules that auto-quantify · Dynamo to rename 200 sheets · shared
 parameters · model-in-place vs family · purge & file hygiene · phasing for renovation.
 
-**Project Spotlights:** Ado Hall of Worship · Hillside · Uselu Family House ·
-6-Flat Ikotun Lagos · Akure Renovation · Ikeja Conference Room · Landscape/Civil
+**Project Spotlights:** Ado Hall of Worship · Hillside · Uselu Family House (Engr. Abbey – Visualization) ·
+6-Flat Ikotun Lagos · Akure Renovation · Ikeja Conference Room (Broll Properties – Visualization) · Landscape/Civil
 Defence HQ · Hotel project · Concept Schemas.
 
 **BIM Explained:** what BIM actually is (beyond 3D) · clash detection in plain terms

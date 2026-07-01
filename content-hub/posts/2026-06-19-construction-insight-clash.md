@@ -3,12 +3,12 @@
 ## Meta
 - **Date:** 2026-06-19 (Friday)
 - **Pillar:** Construction Insight
-- **Core idea:** The Ado 6-bed duplex — client changed from a 3-bed bungalow to a 6-bed duplex *after* we'd already broken ground. The model is what let us redesign and coordinate without blowing up the site.
+- **Core idea:** The Justice Omoyele Residential Duplex — client changed from a 3-bed bungalow to a 6-bed duplex *after* we'd already broken ground. The model is what let us redesign and coordinate without blowing up the site.
 - **Primary format:** Instagram carousel (4 slides, 4:5)
-- **Source assets:** `assets/Project Pictures/Ado Hall of Worship/` (check for Ado duplex folder — may be separate)
+- **Source assets:** `assets/Project Pictures/Ado Hall of Worship/` (check for project folder — may be separate)
 - **Graphic files:** `graphics/output/2026-06-19-ado-duplex-01.png` … `-04.png` *(build when assets confirmed)*
 
-> ✅ **Real story confirmed by Vollmann:** Ado project, originally a 3-bed bungalow, client changed brief to 6-bed duplex mid-construction. Building had already started on site. Redesigned in BIM and "walked up" the structure (added a floor/storeys) to deliver the 6-bed duplex she wanted.
+> ✅ **Real story confirmed by Vollmann:** Justice Omoyele project, originally a 3-bed bungalow, client changed brief to 6-bed duplex mid-construction. Building had already started on site. Redesigned in BIM and "walked up" the structure (added a floor/storeys) to deliver the 6-bed duplex she wanted.
 
 ---
 
@@ -20,7 +20,7 @@
 ## Instagram
 
 **Format:** 4-slide carousel.
-- Slide 1 (cover): render or site photo of the finished Ado duplex + headline text overlay
+- Slide 1 (cover): render or site photo of the finished Justice Omoyele Residential Duplex + headline text overlay
 - Slide 2: "Where we started" — original 3-bed bungalow model/plan
 - Slide 3: "What we had to solve" — redesign coordination in the model (split-level, walking up the structure)
 - Slide 4: CTA card — "Planning a project? DM me."
@@ -29,7 +29,7 @@
 ```
 The client called mid-build and said she wanted a duplex. We'd already broken ground on a bungalow. 🏗️
 
-This is the Ado project. The original brief was a 3-bedroom bungalow — designed, modelled, and construction already underway.
+This is the Justice Omoyele Residential Duplex. The original brief was a 3-bedroom bungalow — designed, modelled, and construction already underway.
 
 Then the client decided she wanted six bedrooms. And a duplex. On the same plot. While we were already building.
 
@@ -56,7 +56,7 @@ DM me — I design, model and help deliver.
 #NigerianArchitect #DesignAndBuild #ConstructionLife #AEC #DigitalConstruction #BuildingDesign`
 
 **Alt text (per slide):**
-1. Exterior render or photo of the completed Ado 6-bedroom duplex, with headline text overlay: "The brief changed mid-build. The model saved us."
+1. Exterior render or photo of the completed Justice Omoyele Residential Duplex, Ado-Ekiti, with headline text overlay: "The brief changed mid-build. The model saved us."
 2. Original 3-bedroom bungalow floor plan or massing model.
 3. Revit model showing the redesigned duplex — two storeys, updated structural coordination.
 4. CTA card: dark background, terracotta accent — "Brief changed? DM me."
@@ -71,7 +71,7 @@ DM me — I design, model and help deliver.
 ```
 The client called mid-build and said she wanted a duplex. We'd already broken ground on a bungalow.
 
-This is a real project — the Ado residence. The original brief was a 3-bedroom bungalow. We designed it, modelled it in Revit, and construction had already started on site.
+This is a real project — the Justice Omoyele Residential Duplex, Ado-Ekiti. The original brief was a 3-bedroom bungalow. We designed it, modelled it in Revit, and construction had already started on site.
 
 Then the client changed her mind. Six bedrooms. A full duplex. Same plot. Live build.
 
@@ -147,7 +147,7 @@ I design, model + deliver. DM me. 👇
 
 **Broadcast note:**
 ```
-Hi 👋 Sharing a real project story today — the Ado residence. Started as a 3-bed
+Hi 👋 Sharing a real project story today — the Justice Omoyele Residential Duplex, Ado-Ekiti. Started as a 3-bed
 bungalow, the client changed to a 6-bed duplex after we'd already broken ground.
 Here's how we handled it in BIM without blowing up the build.
 
@@ -162,8 +162,8 @@ support — reply here and let's talk.
 ## Quality gate
 - [x] Hook in line 1 (real story, real tension)
 - [x] One idea (BIM handles mid-build brief changes) + one CTA
-- [x] Real confirmed facts — Ado project, 3-bed bungalow → 6-bed duplex, mid-construction
+- [x] Real confirmed facts — Justice Omoyele project, 3-bed bungalow → 6-bed duplex, mid-construction
 - [x] Hashtag counts correct per platform
 - [x] Alt text written
 - [x] Handles confirmed: IG/TikTok `@dova_futures` · Twitter/X `@d_black_one` · LinkedIn in first comment
-- [ ] Graphics: confirm source asset folder for Ado duplex project
+- [ ] Graphics: confirm source asset folder for Justice Omoyele project

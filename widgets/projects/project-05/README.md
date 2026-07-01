@@ -1,40 +1,38 @@
-# Ogor Event & Lifestyle Estate Masterplan
+# Nature's Beauty Construction Landscaping Project
 
 ## Overview
 
-Brief description of the project to be added when images are uploaded.
+Landscape design and implementation project executed for Nature's Beauty Construction.
 
-This project covers event center design, chalet accommodation, mini-estate development, and master-planning aspects of the Ogor Estate development.
+The scope covered site beautification planning, softscape and hardscape coordination, and landscape implementation supervision.
 
 ## Project Type
 
-Mixed-Use Masterplan — Event, Hospitality & Residential
+Landscaping — Design and Implementation
+
+## Client
+
+Nature's Beauty Construction
 
 ## Location
 
-To be confirmed.
+Owo, Ondo State
+
+## Role
+
+Landscape Consultant and Subcontractor
 
 ## Scope
 
-To be detailed when images are uploaded.
+- Landscape design
+- Site beautification planning
+- Landscape implementation
+- Softscape coordination
+- Hardscape coordination
 
-## Design Approach
+## Status
 
-To be detailed when images are uploaded.
-
-## Key Features
-
-- Event center design
-- Chalet accommodation
-- Mini-estate residential development
-- Comprehensive site masterplan
-
-## Deliverables
-
-- Masterplan Drawings
-- Architectural Visualizations
-- Design Presentation Materials
-- Construction Documentation
+Completed
 
 ## Images
 
@@ -43,9 +41,6 @@ Located in `/featured-image`
 
 ### Gallery Images
 Located in `/gallery-images`
-
-### Design Concepts
-Located in `/design-concepts`
 
 ## Documentation
 

@@ -568,7 +568,7 @@ BODY = """
   <ul class="tl">
     <li class="cur"><div class="pe">Aug 2021 – Feb 2026</div>
       <div class="ro">Project Manager / Engineering Lead</div>
-      <div class="co">Nu-Avenue Company Resources</div>
+      <div class="co">Nu-Avenue Resources Limited</div>
       <ul><li>Directed construction delivery across multiple project sites
         in multiple Nigerian states, contributing to projects exceeding
         &#8358;350 million in cumulative value.</li>

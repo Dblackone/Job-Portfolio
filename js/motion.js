@@ -40,7 +40,7 @@
       a:A+'Ikotun Apartments/ikotun-structure.jpg',
       b:A+'Ikotun Apartments/ikotun-progress.jpg',
       tall:A+'Ikotun Apartments/ikotun-render.png' },
-    { num:'03', cat:'Residential · Built', name:'4-Bedroom Family House, Uselu',
+    { num:'03', cat:'Visualization · Residential', name:'Uselu Family House — Visualization for Engr. Abbey',
       a:A+'Uselu Family house/USELU - NIGHT VIEW.png',
       b:A+'Uselu Family house/USELU - COLAGE.png',
       tall:A+'Uselu Family house/Usele Hero 1.png' },

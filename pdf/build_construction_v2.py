@@ -158,9 +158,9 @@ IMG = {
         label="Ikotun — Progress"),
 
     # ── SW04 · Ado 6-Bedroom Duplex ───────────────────────────────────────
-    "ado_hero": img_or_ph(None, label="Ado Duplex — Structural Stage"),
-    "ado_b":    img_or_ph(None, label="Ado Duplex — Foundation / Slab"),
-    "ado_c":    img_or_ph(None, label="Ado Duplex — Interior Finishes"),
+    "ado_hero": img_or_ph(None, label="Justice Omoyele Residential Duplex, Ado-Ekiti — Structural Stage"),
+    "ado_b":    img_or_ph(None, label="Justice Omoyele Residential Duplex, Ado-Ekiti — Foundation / Slab"),
+    "ado_c":    img_or_ph(None, label="Justice Omoyele Residential Duplex, Ado-Ekiti — Interior Finishes"),
 
     # ── SW05 · Alcove Homes Yaba ──────────────────────────────────────────
     "alc_hero": img_or_ph(None, label="Alcove Homes — Exterior"),
@@ -444,7 +444,7 @@ BODY = """
         across Lagos, Benin City and Ogun State.</p>
       <ul class="hero-points">
         <li>Commercial fit-outs: The Body Shop, Fina Trust Bank</li>
-        <li>Residential construction: Ikotun 6-flat, Ado Duplex, Alcove Homes</li>
+        <li>Residential construction: Ikotun 6-flat, Justice Omoyele Residential Duplex (Ado-Ekiti), Alcove Homes</li>
         <li>Civil &amp; infrastructure: Oluku Ultra Modern Market</li>
         <li>Corporate interiors: Office fit-out, Ibafo</li>
       </ul>
@@ -605,7 +605,7 @@ BODY = """
   <ul class="tl">
     <li class="cur"><div class="pe">Aug 2021 – Feb 2026</div>
       <div class="ro">Project Manager / Engineering Lead</div>
-      <div class="co">Nu-Avenue Company Resources</div>
+      <div class="co">Nu-Avenue Resources Limited</div>
       <ul><li>Directed site delivery across multiple projects in multiple
         states — commercial fit-outs, residential builds and infrastructure.</li>
         <li>Generated &#8358;10M+ in savings through procurement oversight,
@@ -716,19 +716,19 @@ BODY = """
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 04</p>
-    <h2>Ado 6-Bedroom Duplex</h2>
+    <h2>Justice Omoyele Residential Duplex, Ado-Ekiti</h2>
     <p class="sub">Six-bedroom duplex residence, Ado, Ekiti State — two-stage
       delivery: structural works (foundation, columns, slabs, roofing) followed
       by full interior finishes.</p></div>
 
-  <div class="fig big"><img src="__ado_hero__" alt="Ado duplex — structural stage" />
-    <div class="cap"><span class="t">Ado Duplex — Structural Stage</span>
+  <div class="fig big"><img src="__ado_hero__" alt="Justice Omoyele Residential Duplex, Ado-Ekiti — structural stage" />
+    <div class="cap"><span class="t">Justice Omoyele Residential Duplex, Ado-Ekiti — Structural Stage</span>
       <span class="m">Structure</span></div></div>
   <div class="row2">
-    <div class="fig half"><img src="__ado_b__" alt="Ado duplex — foundation and slab works" />
+    <div class="fig half"><img src="__ado_b__" alt="Justice Omoyele Residential Duplex, Ado-Ekiti — foundation and slab works" />
       <div class="cap"><span class="t">Foundation &amp; Slab Works</span>
         <span class="m">Civil</span></div></div>
-    <div class="fig half"><img src="__ado_c__" alt="Ado duplex — interior finishes stage" />
+    <div class="fig half"><img src="__ado_c__" alt="Justice Omoyele Residential Duplex, Ado-Ekiti — interior finishes stage" />
       <div class="cap"><span class="t">Interior Finishes Stage</span>
         <span class="m">Interior</span></div></div>
   </div>
