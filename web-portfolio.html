@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vollmann Olamide Akarakiri — Construction Project Manager. 7+ years delivering residential, commercial and mixed-use projects across Nigeria. BIM Specialist (Revit, Dynamo, Navisworks). MSc Construction Engineering Management, University of East London." />
+  <meta name="keywords" content="Construction Project Manager, BIM Specialist, Revit, AutoCAD, Dynamo, Navisworks, Site Engineering, Lagos Nigeria, Architecture, Vollmann Akarakiri" />
+  <meta name="author" content="Vollmann Olamide Akarakiri" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vollmann Olamide Akarakiri — Construction Project Manager" />
+  <meta property="og:description" content="7+ years · 30+ projects across disciplines · ₦350M+ project value. Architecture. BIM. Construction. Delivered." />
+  <meta property="og:image" content="assets/vollmann-akarakiri-profile.png" />
+  <meta property="og:type" content="website" />
+
+  <title>Vollmann Olamide Akarakiri — Construction Project Manager</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* ── PROFILE PHOTO ──────────────────────────────────────── */
+    .profile-photo {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .profile-photo-wrap {
+      overflow: hidden;
+      background: var(--warm);
+    }
+    /* ── HERO MOBILE PHOTO ──────────────────────────────────── */
+    .hero-mobile-photo {
+      display: none;
+      width: 100%;
+      max-height: 340px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: var(--radius);
+      margin-bottom: 32px;
+    }
+    @media (max-width: 1100px) {
+      .hero-mobile-photo { display: block; }
+    }
+    /* ── EXPERIENCE TIMELINE ────────────────────────────────── */
+    .experience-list { list-style: none; }
+    .exp-item {
+      position: relative; padding: 0 0 40px 28px;
+      border-left: 2px solid var(--border);
+    }
+    .exp-item:last-child { border-left-color: transparent; padding-bottom: 0; }
+    .exp-item::before {
+      content: ''; position: absolute; left: -7px; top: 6px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+    }
+    .exp-item.current::before { background: var(--accent); box-shadow: 0 0 0 4px rgba(184,92,56,.2); }
+    .exp-period { font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+    .exp-role { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+    .exp-company { font-size: 14px; color: var(--text); margin-bottom: 10px; }
+    .exp-bullets { list-style: none; }
+    .exp-bullets li {
+      font-size: 14px; color: var(--text); padding: 3px 0 3px 14px;
+      position: relative; line-height: 1.55;
+    }
+    .exp-bullets li::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--accent); font-size: 12px;
+    }
+    /* ── EDUCATION CARDS ────────────────────────────────────── */
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+    @media (max-width: 700px) { .edu-grid { grid-template-columns: 1fr; } }
+    .edu-card {
+      background: var(--bg); border-radius: var(--radius-sm); padding: 24px;
+      border-left: 3px solid var(--accent);
+    }
+    .edu-card .degree { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .edu-card .institution { font-size: 13px; color: var(--text); margin-bottom: 4px; }
+    .edu-card .period { font-size: 12px; color: var(--accent); font-weight: 600; }
+    /* ── PORTFOLIO LINKS ────────────────────────────────────── */
+    .portfolio-links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media (max-width: 700px) { .portfolio-links-grid { grid-template-columns: 1fr; } }
+    .portfolio-link-card {
+      display: flex; align-items: center; gap: 16px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 20px 24px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      text-decoration: none;
+    }
+    .portfolio-link-card:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+    .plc-icon {
+      width: 44px; height: 44px; background: var(--light); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .plc-text .plc-title { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 2px; }
+    .plc-text .plc-sub { font-size: 12px; color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <div id="progress" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════════════════════════════════ -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Vollmann Akarakiri — Home">
+        <div class="nav-logo-mark">V</div>
+        <span class="nav-logo-name">Vollmann Akarakiri</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#bim-skills">BIM</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="#contact" class="nav-cta">Hire Me</a>
+        <button class="nav-burger" id="burger" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <a href="#portfolio" class="mobile-menu-link">Portfolio</a>
+    <a href="#bim-skills" class="mobile-menu-link small">BIM &amp; Technical Skills</a>
+    <a href="#experience" class="mobile-menu-link small">Experience</a>
+    <a href="#about" class="mobile-menu-link">About</a>
+    <a href="#contact" class="mobile-menu-link">Contact</a>
+    <a href="#contact" class="mobile-menu-cta">Hire Me / Get in Touch</a>
+  </div>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         HERO SECTION
+    ════════════════════════════════════════════════════════════════ -->
+    <section id="hero" aria-label="Introduction">
+      <div class="hero-bg-accent" aria-hidden="true"></div>
+
+      <!-- Mobile profile photo (shown below 1100px) -->
+      <img
+        src="assets/vollmann-akarakiri-profile.png"
+        alt="Vollmann Olamide Akarakiri — Construction Project Manager"
+        class="hero-mobile-photo"
+      />
+
+      <div class="hero-left">
+        <p class="label hero-label">Construction Project Manager · BIM Specialist · Lagos, Nigeria</p>
+
+        <h1 class="hero-headline">
+          <span class="line">Architecture.</span>
+          <span class="line accent">BIM.</span>
+          <span class="line">Construction.</span>
+          <span class="line muted">Delivered.</span>
+        </h1>
+
+        <p class="hero-sub">
+          7+ years · 30+ projects across disciplines · ₦350M+ project value.
+          From Revit model to built reality — concept through handover.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn btn-primary">View Portfolio →</a>
+          <a href="assets/vollmann-akarakiri-portfolio.pdf" class="btn btn-secondary" download>Download Portfolio (PDF)</a>
+        </div>
+      </div>
+
+      <!-- Desktop profile card -->
+      <aside class="hero-right" aria-label="Professional profile summary">
+        <div class="profile-card">
+          <div class="profile-photo-wrap">
+            <img
+              src="assets/vollmann-akarakiri-profile.png"
+              alt="Vollmann Olamide Akarakiri"
+              class="profile-photo"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="profile-accent"></div>
+            <h3>Vollmann Olamide Akarakiri</h3>
+            <p class="profile-role">Construction Project Manager</p>
+            <p class="profile-company">Lagos, Nigeria &nbsp;·&nbsp; MSc CEM Candidate, UEL</p>
+
+            <div class="profile-stats">
+              <div class="stat-box">
+                <div class="stat-num">30+</div>
+                <div class="stat-label">Total projects</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num">₦350M+</div>
+                <div class="stat-label">Project value</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num">7+</div>
+                <div class="stat-label">Years</div>
+              </div>
+            </div>
+
+            <div class="profile-sw">
+              <span class="sw-pill">Revit</span>
+              <span class="sw-pill">Dynamo</span>
+              <span class="sw-pill">AutoCAD</span>
+              <span class="sw-pill">Navisworks</span>
+              <span class="sw-pill">MS Project</span>
+            </div>
+
+            <div class="availability">
+              <div class="avail-dot"></div>
+              <span>Open to opportunities — worldwide &amp; remote</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         ABOUT SECTION
+    ════════════════════════════════════════════════════════════════ -->
+    <section id="about" class="section" aria-label="About Vollmann Akarakiri">
+      <div class="container">
+        <div class="about-grid">
+
+          <div class="about-bio">
+            <div class="section-header">
+              <p class="label" data-reveal>Professional Profile</p>
+              <h2 data-reveal data-reveal-delay="1">The Professional Behind the Work</h2>
+            </div>
+
+            <p data-reveal data-reveal-delay="2">
+              Vollmann Olamide Akarakiri is a results-driven Construction Project Manager with 7+ years delivering residential, commercial, and mixed-use building projects from planning and design through execution and completion across multiple Nigerian states.
+            </p>
+            <p data-reveal data-reveal-delay="3">
+              He has coordinated multiple project sites and contributed to projects exceeding ₦350 million in cumulative value — generating over ₦10 million in savings through cost control, procurement oversight, and error prevention.
+            </p>
+            <p data-reveal data-reveal-delay="4">
+              Skilled in project planning and scheduling, budgeting and cost forecasting, contract and procurement administration, regulatory compliance, site supervision, and health and safety — with strong technical capability in BIM (Revit, AutoCAD, Dynamo, Navisworks). Currently pursuing an MSc in Construction Engineering Management at the University of East London.
+            </p>
+
+            <div class="about-stats-grid" data-reveal data-reveal-delay="5">
+              <div class="about-stat">
+                <div class="num">30+</div>
+                <div class="desc">Total projects worked on across all disciplines</div>
+              </div>
+              <div class="about-stat">
+                <div class="num">₦350M+</div>
+                <div class="desc">Cumulative project value</div>
+              </div>
+              <div class="about-stat">
+                <div class="num">₦10M+</div>
+                <div class="desc">Savings delivered</div>
+              </div>
+              <div class="about-stat">
+                <div class="num">7+</div>
+                <div class="desc">Years of experience</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-panel">
+            <div class="section-header">
+              <p class="label" data-reveal>Core Competencies</p>
+            </div>
+
+            <div class="skill-group" data-reveal data-reveal-delay="1">
+              <h4>Project &amp; Construction Management</h4>
+              <div class="skill-pills">
+                <span class="skill-pill">Project Planning &amp; Scheduling</span>
+                <span class="skill-pill">Budgeting &amp; Cost Forecasting</span>
+                <span class="skill-pill">Procurement &amp; Contract Administration</span>
+                <span class="skill-pill">Site &amp; Subcontractor Management</span>
+                <span class="skill-pill">Risk Management</span>
+                <span class="skill-pill">Quality Control</span>
+              </div>
+            </div>
+
+            <div class="skill-group" data-reveal data-reveal-delay="2">
+              <h4>Design &amp; BIM</h4>
+              <div class="skill-pills">
+                <span class="skill-pill">Design Coordination</span>
+                <span class="skill-pill">BIM Modelling (Revit)</span>
+                <span class="skill-pill">Dynamo Automation</span>
+                <span class="skill-pill">Navisworks Coordination</span>
+                <span class="skill-pill">Technical Documentation</span>
+                <span class="skill-pill">Working Drawings</span>
+              </div>
+            </div>
+
+            <div class="skill-group" data-reveal data-reveal-delay="3">
+              <h4>Compliance &amp; HSE</h4>
+              <div class="skill-pills">
+                <span class="skill-pill">Building Codes &amp; Regulatory Approvals</span>
+                <span class="skill-pill">Health &amp; Safety (HSE)</span>
+                <span class="skill-pill">Risk Assessments</span>
+                <span class="skill-pill">Stakeholder &amp; Client Reporting</span>
+              </div>
+            </div>
+
+            <div class="skill-group" data-reveal data-reveal-delay="4">
+              <h4>Specialist Areas</h4>
+              <div class="skill-pills">
+                <span class="skill-pill">Interior &amp; Landscape Design</span>
+                <span class="skill-pill">Furniture &amp; Kitchen Design</span>
+                <span class="skill-pill">MEP Coordination</span>
+                <span class="skill-pill">Cost Estimation</span>
+              </div>
+            </div>
+
+            <!-- Education -->
+            <div class="edu-grid" data-reveal data-reveal-delay="5">
+              <div class="edu-card">
+                <div class="degree">MSc Construction Engineering Management</div>
+                <div class="institution">University of East London</div>
+                <div class="period">Sep 2024 – Present</div>
+              </div>
+              <div class="edu-card">
+                <div class="degree">BSc Building Technology</div>
+                <div class="institution">Federal University of Technology, Akure</div>
+                <div class="period">2014 – 2019</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         PORTFOLIO CATEGORIES
+    ════════════════════════════════════════════════════════════════ -->
+    <section id="portfolio" class="section" aria-label="Portfolio categories">
+      <div class="container">
+        <div class="section-header">
+          <p class="label" data-reveal>Portfolio</p>
+          <h2 data-reveal data-reveal-delay="1">Areas of Expertise</h2>
+          <p class="section-sub" data-reveal data-reveal-delay="2">Seven specialist disciplines — one integrated professional delivering from concept to completion.</p>
+        </div>
+
+        <div class="portfolio-grid">
+
+          <article class="portfolio-card" data-reveal data-reveal-delay="1">
+            <div class="card-accent"></div>
+            <div class="card-body">
+              <div class="card-icon" aria-hidden="true">⬡</div>
+              <h3>Building Projects</h3>
+              <p>30+ office, 10+ residential, and 10+ interior projects delivered. Full architectural design and BIM documentation from concept through construction drawings.</p>
+              <a href="https://drive.google.com/drive/folders/1u9Xdx3CusZHbLBD9eCtz55a1oI1TNllH" target="_blank" rel="noopener" class="card-link">View Building Projects <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-reveal data-reveal-delay="2">
+            <div class="card-accent"></div>
+            <div class="card-body">
+              <div class="card-icon" aria-hidden="true">◈</div>
+              <h3>BIM &amp; Revit</h3>
+              <p>Advanced BIM modelling, Dynamo automation, Navisworks coordination, and construction documentation across residential, office, and interior projects.</p>
+              <a href="portfolio/bim.html" class="card-link">Explore BIM Portfolio <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-reveal data-reveal-delay="3">
+            <div class="card-accent"></div>
+            <div class="card-body">
+              <div class="card-icon" aria-hidden="true">⬜</div>
+              <h3>Residential &amp; Schematic Design</h3>
+              <p>Residential design and schematic drawings for housing developments — space planning, layout design, and technical documentation packages.</p>
+              <a href="https://drive.google.com/drive/folders/1La1LoBwER37LL_2mVr29hcEpKdj8Vcco" target="_blank" rel="noopener" class="card-link">View Residential Designs <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-reveal data-reveal-delay="1">
+            <div class="card-accent"></div>
+            <div class="card-body">
+              <div class="card-icon" aria-hidden="true">⬟</div>
+              <h3>Landscape Design</h3>
+              <p>Site development and landscape projects across multiple states — hardscape, softscape, drainage integration, and site beautification works.</p>
+              <a href="https://drive.google.com/drive/folders/1eJIiMRQDthKRzurfstSMx-yCNULL5b11" target="_blank" rel="noopener" class="card-link">View Landscape Portfolio <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-reveal data-reveal-delay="2">
+            <div class="card-accent"></div>
+            <div class="card-body">
+              <div class="card-icon" aria-hidden="true">⬗</div>
+              <h3>Construction &amp; Site Engineering</h3>
+              <p>End-to-end site engineering across multiple sites — excavation, foundations, structural works, drainage, roofing, finishes, and project handover.</p>
+              <a href="#experience" class="card-link">View Experience <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-reveal data-reveal-delay="3">
+            <div class="card-accent"></div>
+            <div class="card-body">
+              <div class="card-icon" aria-hidden="true">◉</div>
+              <h3>Furniture &amp; Kitchen Design</h3>
+              <p>Bespoke furniture and kitchen design work — layout planning, material specification, and design documentation for residential and commercial fit-outs.</p>
+              <a href="https://drive.google.com/drive/folders/1tJnrEwHiCzBC50xt5pcz0ipLGrooi3cw" target="_blank" rel="noopener" class="card-link">View Furniture &amp; Kitchen Designs <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SOFTWARE & BIM SKILLS
+    ════════════════════════════════════════════════════════════════ -->
+    <section id="bim-skills" class="section" style="background:var(--dark);" aria-label="Technical skills and software">
+      <div class="container">
+        <div class="section-header">
+          <p class="label">Technical Expertise</p>
+          <h2 style="color:var(--white);" data-reveal>Software &amp; BIM Skills</h2>
+          <p class="section-sub" style="color:var(--warm);" data-reveal data-reveal-delay="1">Industry-standard tools deployed across every project phase — from digital model to physical delivery.</p>
+        </div>
+
+        <div class="software-grid">
+
+          <div class="software-card" data-reveal data-reveal-delay="1">
+            <div class="sw-icon" aria-hidden="true">⬡</div>
+            <h4>Autodesk Revit</h4>
+            <div class="sw-level">Expert — BIM Modelling</div>
+            <p>Full architectural BIM models for 30+ office, residential, and interior projects. Family creation, documentation sheets, schedules, and coordinated model production.</p>
+          </div>
+
+          <div class="software-card" data-reveal data-reveal-delay="2">
+            <div class="sw-icon" aria-hidden="true">◈</div>
+            <h4>Dynamo for Revit</h4>
+            <div class="sw-level">Advanced — Parametric Automation</div>
+            <p>Custom parametric workflows and automation scripts built in Dynamo — reducing documentation time and enabling data-driven design coordination.</p>
+          </div>
+
+          <div class="software-card" data-reveal data-reveal-delay="3">
+            <div class="sw-icon" aria-hidden="true">⬜</div>
+            <h4>AutoCAD</h4>
+            <div class="sw-level">Expert — Technical Drawing</div>
+            <p>2D technical drawing, site plans, detailed construction drawings, working drawings, and detailing packages produced for 10+ residential properties.</p>
+          </div>
+
+          <div class="software-card" data-reveal data-reveal-delay="1">
+            <div class="sw-icon" aria-hidden="true">⬟</div>
+            <h4>Navisworks</h4>
+            <div class="sw-level">Proficient — BIM Coordination</div>
+            <p>Multi-discipline model coordination, clash detection and resolution, 4D construction sequencing, and project review workflows.</p>
+          </div>
+
+          <div class="software-card" data-reveal data-reveal-delay="2">
+            <div class="sw-icon" aria-hidden="true">⬗</div>
+            <h4>Microsoft Project</h4>
+            <div class="sw-level">Proficient — Project Scheduling</div>
+            <p>Project scheduling, milestone tracking, resource planning, and programme management for large multi-site construction programmes.</p>
+          </div>
+
+          <div class="software-card" data-reveal data-reveal-delay="3">
+            <div class="sw-icon" aria-hidden="true">◉</div>
+            <h4>MS Excel &amp; Office Suite</h4>
+            <div class="sw-level">Advanced — Reporting &amp; Cost Control</div>
+            <p>Budget tracking, cost forecasting, progress reporting, procurement schedules, and management reporting across concurrent project sites.</p>
+          </div>
+
+        </div>
+
+        <div class="disciplines-row" data-reveal>
+          <span class="discipline-tag">Project Planning &amp; Scheduling</span>
+          <span class="discipline-tag">BIM Coordination</span>
+          <span class="discipline-tag">Budgeting &amp; Cost Forecasting</span>
+          <span class="discipline-tag">Procurement &amp; Contracts</span>
+          <span class="discipline-tag">Site Engineering</span>
+          <span class="discipline-tag">Health &amp; Safety (HSE)</span>
+          <span class="discipline-tag">Risk Management</span>
+          <span class="discipline-tag">Design Coordination</span>
+          <span class="discipline-tag">Quality Control</span>
+          <span class="discipline-tag">Regulatory Compliance</span>
+          <span class="discipline-tag">Stakeholder Reporting</span>
+          <span class="discipline-tag">MEP Coordination</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         PROFESSIONAL EXPERIENCE
+    ════════════════════════════════════════════════════════════════ -->
+    <section id="experience" class="section" aria-label="Professional experience">
+      <div class="container">
+        <div class="section-header">
+          <p class="label" data-reveal>Career History</p>
+          <h2 data-reveal data-reveal-delay="1">Professional Experience</h2>
+          <p class="section-sub" data-reveal data-reveal-delay="2">7+ years of progressive responsibility across construction, site engineering, and design — from intern to Engineering Lead.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+          <ul class="experience-list" data-reveal>
+
+            <li class="exp-item current">
+              <div class="exp-period">Aug 2021 – Feb 2026</div>
+              <div class="exp-role">Project Manager / Engineering Lead</div>
+              <div class="exp-company">Nu-Avenue Company Resources</div>
+              <ul class="exp-bullets">
+                <li>Directed construction delivery across multiple project sites in multiple Nigerian states, contributing to projects exceeding ₦350 million in cumulative value.</li>
+                <li>Generated over ₦10 million in savings through cost control, vendor coordination, and error prevention.</li>
+                <li>Produced BIM models for 30+ office, 10+ residential, and 10+ interior projects.</li>
+                <li>Coordinated architects, consultants, engineers, suppliers, contractors, and artisans to ensure quality, safety, and on-time delivery.</li>
+                <li>Monitored expenses against approved budgets; identified and mitigated project risks.</li>
+              </ul>
+            </li>
+
+            <li class="exp-item">
+              <div class="exp-period">Jun 2020 – Aug 2021</div>
+              <div class="exp-role">Site Engineer / Assistant Technical Designer</div>
+              <div class="exp-company">Nature's Beauty Construction</div>
+              <ul class="exp-bullets">
+                <li>Planned and supervised site-development and landscape projects across multiple states.</li>
+                <li>Produced detailing packages for 10+ residential properties.</li>
+                <li>Trained and onboarded 5+ employees; contributed to business opportunities exceeding ₦20 million.</li>
+              </ul>
+            </li>
+
+            <li class="exp-item">
+              <div class="exp-period">Dec 2019 – Apr 2020</div>
+              <div class="exp-role">Site Supervisor</div>
+              <div class="exp-company">Lego Construction Company</div>
+              <ul class="exp-bullets">
+                <li>Developed project plans, contract documents, schedules, and budgets.</li>
+                <li>Facilitated interdisciplinary coordination meetings and supported client engagement.</li>
+              </ul>
+            </li>
+
+            <li class="exp-item">
+              <div class="exp-period">Aug 2017 – Dec 2017</div>
+              <div class="exp-role">Architecture &amp; Planning Intern</div>
+              <div class="exp-company">Danzinger Nigeria Ltd</div>
+              <ul class="exp-bullets">
+                <li>Assisted management of consulting activities exceeding ₦10 million.</li>
+                <li>Assisted drafting, BIM updates, and documentation.</li>
+              </ul>
+            </li>
+
+            <li class="exp-item">
+              <div class="exp-period">Nov 2015 – Feb 2016</div>
+              <div class="exp-role">Landscape Design &amp; HSE Intern</div>
+              <div class="exp-company">Nature's Beauty Construction</div>
+              <ul class="exp-bullets">
+                <li>Participated in on-site HSE activities and risk assessments.</li>
+                <li>Performed material, equipment, and cost estimation for planning.</li>
+              </ul>
+            </li>
+
+          </ul>
+
+          <!-- Right column: Key metrics + photo -->
+          <div data-reveal data-reveal-delay="2">
+            <img
+              src="assets/vollmann-akarakiri-profile.png"
+              alt="Vollmann Olamide Akarakiri on site"
+              style="width:100%;border-radius:var(--radius);margin-bottom:32px;object-fit:cover;object-position:center top;max-height:420px;"
+            />
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div class="about-stat">
+                <div class="num">₦350M+</div>
+                <div class="desc">Total project value managed</div>
+              </div>
+              <div class="about-stat">
+                <div class="num">₦10M+</div>
+                <div class="desc">Savings generated</div>
+              </div>
+              <div class="about-stat">
+                <div class="num">30+</div>
+                <div class="desc">Total projects worked on across all disciplines</div>
+              </div>
+              <div class="about-stat">
+                <div class="num">30+</div>
+                <div class="desc">BIM models produced</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         PORTFOLIO LINKS (GOOGLE DRIVE)
+    ════════════════════════════════════════════════════════════════ -->
+    <section class="section" style="background:var(--white);" aria-label="Portfolio work samples">
+      <div class="container">
+        <div class="section-header">
+          <p class="label" data-reveal>Work Samples</p>
+          <h2 data-reveal data-reveal-delay="1">View the Portfolio</h2>
+          <p class="section-sub" data-reveal data-reveal-delay="2">Browse project files across all disciplines — building projects, landscape, residential design, and furniture design.</p>
+        </div>
+
+        <div class="portfolio-links-grid" data-reveal data-reveal-delay="3">
+          <a class="portfolio-link-card" href="https://drive.google.com/drive/folders/1u9Xdx3CusZHbLBD9eCtz55a1oI1TNllH" target="_blank" rel="noopener">
+            <div class="plc-icon">⬡</div>
+            <div class="plc-text">
+              <div class="plc-title">Building Projects</div>
+              <div class="plc-sub">Office, residential &amp; commercial works</div>
+            </div>
+          </a>
+          <a class="portfolio-link-card" href="https://drive.google.com/drive/folders/1tJnrEwHiCzBC50xt5pcz0ipLGrooi3cw" target="_blank" rel="noopener">
+            <div class="plc-icon">◉</div>
+            <div class="plc-text">
+              <div class="plc-title">Furniture &amp; Kitchen Designs</div>
+              <div class="plc-sub">Bespoke interior design work</div>
+            </div>
+          </a>
+          <a class="portfolio-link-card" href="https://drive.google.com/drive/folders/1eJIiMRQDthKRzurfstSMx-yCNULL5b11" target="_blank" rel="noopener">
+            <div class="plc-icon">⬟</div>
+            <div class="plc-text">
+              <div class="plc-title">Landscape Designs</div>
+              <div class="plc-sub">Hardscape, softscape &amp; site works</div>
+            </div>
+          </a>
+          <a class="portfolio-link-card" href="https://drive.google.com/drive/folders/1La1LoBwER37LL_2mVr29hcEpKdj8Vcco" target="_blank" rel="noopener">
+            <div class="plc-icon">⬜</div>
+            <div class="plc-text">
+              <div class="plc-title">Residential &amp; Schematic Designs</div>
+              <div class="plc-sub">Housing layouts &amp; technical drawings</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SERVICES
+    ════════════════════════════════════════════════════════════════ -->
+    <section id="services" class="section" style="background:var(--bg);" aria-label="Professional services">
+      <div class="container">
+        <div class="section-header">
+          <p class="label" data-reveal>What I Offer</p>
+          <h2 data-reveal data-reveal-delay="1">Professional Services</h2>
+          <p class="section-sub" data-reveal data-reveal-delay="2">Comprehensive services across the AEC spectrum — available for contract, consultancy, and employment engagements.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-item" data-reveal data-reveal-delay="1">
+            <div class="service-icon" aria-hidden="true">⬡</div>
+            <div class="service-text">
+              <h4>Construction Project Management</h4>
+              <p>End-to-end project delivery — planning, scheduling, budgeting, procurement, contractor management, site supervision, and handover. Proven across multiple sites.</p>
+            </div>
+          </div>
+          <div class="service-item" data-reveal data-reveal-delay="2">
+            <div class="service-icon" aria-hidden="true">◈</div>
+            <div class="service-text">
+              <h4>BIM Modelling &amp; Coordination</h4>
+              <p>Autodesk Revit BIM models, Dynamo automation scripts, Navisworks clash detection, and construction documentation sets for office, residential, and interior projects.</p>
+            </div>
+          </div>
+          <div class="service-item" data-reveal data-reveal-delay="3">
+            <div class="service-icon" aria-hidden="true">⬜</div>
+            <div class="service-text">
+              <h4>Site Engineering &amp; Supervision</h4>
+              <p>Technical site supervision from pre-construction through to finishing — structural works, drainage, MEP coordination, quality control, and regulatory compliance.</p>
+            </div>
+          </div>
+          <div class="service-item" data-reveal data-reveal-delay="4">
+            <div class="service-icon" aria-hidden="true">⬟</div>
+            <div class="service-text">
+              <h4>Design Coordination</h4>
+              <p>Drawing production (AutoCAD), technical documentation, design reviews, detailing packages, and coordination of architectural, structural, and MEP consultants.</p>
+            </div>
+          </div>
+          <div class="service-item" data-reveal data-reveal-delay="1">
+            <div class="service-icon" aria-hidden="true">⬗</div>
+            <div class="service-text">
+              <h4>Landscape Design &amp; Site Development</h4>
+              <p>Hardscape and softscape design, site-development planning, drainage integration, and landscape construction management — site-development projects delivered.</p>
+            </div>
+          </div>
+          <div class="service-item" data-reveal data-reveal-delay="2">
+            <div class="service-icon" aria-hidden="true">◉</div>
+            <div class="service-text">
+              <h4>Cost Control &amp; Procurement</h4>
+              <p>Procurement administration, budget tracking, vendor coordination, and cost forecasting — with a demonstrated track record of ₦10M+ in savings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         CONTACT
+    ════════════════════════════════════════════════════════════════ -->
+    <section id="contact" aria-label="Contact information">
+      <div class="label" data-reveal>Get In Touch</div>
+      <h2 data-reveal data-reveal-delay="1">Ready to Work Together?</h2>
+      <p data-reveal data-reveal-delay="2">
+        Whether you are an architecture firm, construction company, BIM consultancy, or project owner — let's discuss how I can add value to your next project or team.
+      </p>
+
+      <div class="contact-actions" data-reveal data-reveal-delay="3">
+        <a href="mailto:vollmannakarakiri0@gmail.com" class="btn btn-light">Send an Email</a>
+        <a href="https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener" class="btn btn-outline-light">LinkedIn Profile</a>
+      </div>
+
+      <div class="contact-details" data-reveal data-reveal-delay="4">
+        <div class="contact-item">
+          <div class="c-label">Phone</div>
+          <div class="c-value">+234 816 367 5439</div>
+        </div>
+        <div class="contact-item">
+          <div class="c-label">Email</div>
+          <div class="c-value">vollmannakarakiri0@gmail.com</div>
+        </div>
+        <div class="contact-item">
+          <div class="c-label">Location</div>
+          <div class="c-value">Lagos, Nigeria</div>
+        </div>
+        <div class="contact-item">
+          <div class="c-label">LinkedIn</div>
+          <div class="c-value">linkedin.com/in/vollmann-akarakiri-49127b1a0</div>
+        </div>
+        <div class="contact-item">
+          <div class="c-label">Availability</div>
+          <div class="c-value">Open to opportunities — worldwide &amp; remote</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-logo">
+      <div class="footer-logo-mark">V</div>
+      <div>
+        <span class="footer-name">Vollmann Olamide Akarakiri</span><br>
+        <span style="font-size:11px;color:rgba(232,228,223,.4);">Construction Project Manager · BIM Specialist</span>
+      </div>
+    </div>
+    <span class="footer-tagline">Architecture. BIM. Construction. Delivered.</span>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#bim-skills">BIM</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </footer>
+
+  <button id="back-top" aria-label="Scroll back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
