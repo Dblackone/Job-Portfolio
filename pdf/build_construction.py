@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
 """
 Construction Portfolio — Vollmann Olamide Akarakiri
-Generates a print-ready A4 PDF showcasing construction, site engineering
-and BIM project management work.
+Merged construction + site-projects portfolio built around four flagship site
+projects with real site photography.
+
+Selected works:
+  01 · 6-Flat Residential Block — Ikotun, Lagos
+  02 · 6-Bedroom Duplex         — Ado, Ekiti State
+  03 · Oluku Ultra Modern Market — Benin City (drainage + shop structures)
+  04 · The Body Shop Outlets    — Ikeja City Mall + Circle Mall Lekki
+
+Structure: cover · merged profile+toolkit · four selected works · contact.
 
 Run:  python3 pdf/build_construction.py
 Out:  assets/vollmann-akarakiri-construction-portfolio.pdf
@@ -12,17 +20,19 @@ import base64
 import io
 import os
 
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 from weasyprint import HTML
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ASSETS = os.path.join(ROOT, "assets")
-PICS = os.path.join(ASSETS, "Project Pictures")
+ROOT     = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ASSETS   = os.path.join(ROOT, "assets")
+PICS     = os.path.join(ASSETS, "Project Pictures")
 FONT_DIR = os.path.join(ROOT, "pdf", "fonts")
-OUT = os.path.join(ASSETS, "vollmann-akarakiri-construction-portfolio.pdf")
+OUT      = os.path.join(ASSETS, "vollmann-akarakiri-construction-portfolio.pdf")
 
-TOTAL_PAGES = 12
+TOTAL_PAGES = 7
 
+
+# ───────────────────────── helpers ─────────────────────────
 
 def font_uri(weight):
     with open(os.path.join(FONT_DIR, f"inter-{weight}.woff2"), "rb") as fh:
@@ -31,7 +41,9 @@ def font_uri(weight):
 
 
 def img_uri(path, max_px=1280, quality=82, keep_alpha=False):
+    """Load, EXIF-rotate, downscale and base64-encode an image."""
     im = Image.open(path)
+    im = ImageOps.exif_transpose(im)          # fix phone-photo rotation
     w, h = im.size
     scale = min(1.0, max_px / float(max(w, h)))
     if scale < 1.0:
@@ -45,74 +57,105 @@ def img_uri(path, max_px=1280, quality=82, keep_alpha=False):
     else:
         if im.mode != "RGB":
             im = im.convert("RGB")
-        im.save(buf, format="JPEG", quality=quality, optimize=True, progressive=True)
+        im.save(buf, format="JPEG", quality=quality, optimize=True,
+                progressive=True)
         mime = "image/jpeg"
     b64 = base64.b64encode(buf.getvalue()).decode()
     return f"data:{mime};base64,{b64}"
 
 
-ADO    = os.path.join(PICS, "Ado Hall of Worship")
-HILL   = os.path.join(PICS, "Hillside Project")
-LAND   = os.path.join(PICS, "Landscape Projects")
-USELU  = os.path.join(PICS, "Uselu Family house")
-SIXFL  = os.path.join(PICS, "6-flat ikotun lagos")
-OTHER  = os.path.join(PICS, "Other Renders")
-SCHEMA = os.path.join(PICS, "Concept schema projects")
-RENO   = os.path.join(PICS, "Renovation Akure")
+def placeholder_uri(label="Photo Coming Soon", width=1600, height=900):
+    """Return a terracotta placeholder tile as a base64 JPEG data URI."""
+    im = Image.new("RGB", (width, height), color=(184, 92, 56))
+    draw = ImageDraw.Draw(im)
+    # Dark overlay strip at bottom
+    draw.rectangle([(0, height - 80), (width, height)],
+                   fill=(158, 79, 48))
+    # Try to use a system font; fall back to default
+    font_size = max(28, width // 28)
+    try:
+        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+                                  font_size)
+    except Exception:
+        font = ImageFont.load_default()
+    # Centre the label
+    try:
+        bbox = draw.textbbox((0, 0), label, font=font)
+        tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    except AttributeError:
+        tw, th = draw.textsize(label, font=font)
+    draw.text(((width - tw) // 2, (height - th) // 2), label,
+              fill=(255, 255, 255, 200), font=font)
+    # Arrow icon top-left
+    draw.text((40, 40), "→", fill=(255, 255, 255, 120), font=font)
+    buf = io.BytesIO()
+    im.save(buf, format="JPEG", quality=82)
+    b64 = base64.b64encode(buf.getvalue()).decode()
+    return f"data:image/jpeg;base64,{b64}"
+
+
+def img_or_ph(path, label="Photo Coming Soon", **kwargs):
+    """Return real image URI if path exists, else a placeholder."""
+    if path and os.path.exists(path):
+        return img_uri(path, **kwargs)
+    return placeholder_uri(label)
+
+
+# ───────────────────────── project image folders ───────────────────────────
+
+BODY_SHOP = os.path.join(PICS, "Body Shop Outlets")
+FINA      = os.path.join(PICS, "Fina Trust Bank")
+IKOTUN    = os.path.join(PICS, "Ikotun Apartments")
+ADO_DUP   = os.path.join(PICS, "Ado 6-Bedroom Duplex")
+ALCOVE    = os.path.join(PICS, "Alcove Homes Yaba")
+OLUKU     = os.path.join(PICS, "Oluku Modern Market")
+IBAFO     = os.path.join(PICS, "Office Interior Ibafo")
+LAND      = os.path.join(PICS, "Landscape Projects")
+RENO      = os.path.join(PICS, "Renovation Akure")
+
+
+# ───────────────────────── load all images ─────────────────────────────────
+
+print("Loading images…")
 
 IMG = {
-    "profile":      img_uri(os.path.join(ASSETS, "vollmann-akarakiri-profile.png"),
-                            max_px=760, keep_alpha=True),
-    # Cover band — aerial estate masterplan
-    "cover_band":   img_uri(os.path.join(LAND, "Estate Aerial Hero.png"),
-                            max_px=1600, quality=84),
-    # About / expertise band — renovation render
-    "reno_band":    img_uri(os.path.join(RENO, "Akure Family Home.png"),
-                            max_px=1600, quality=84),
+    # Profile + cover
+    "profile": img_uri(os.path.join(ASSETS, "vollmann-akarakiri-profile.png"),
+                       max_px=760, keep_alpha=True),
+    "cover_band": img_uri(os.path.join(IKOTUN, "ikotun-facade.jpg"),
+                          max_px=1600, quality=84),
 
-    # ── SW 01: Hall of Worship, Ado ──
-    "ado_hero":     img_uri(os.path.join(ADO, "Ado Hero 2.png")),
-    "ado_raw":      img_uri(os.path.join(ADO, "ADO CENTER RAW 1.jpg")),
-    "ado_plan":     img_uri(os.path.join(ADO, "Screenshot 2026-05-16 091207.png"),
-                            max_px=1400, quality=86),
+    # ── SW01 · Ikotun 6-Flat Block ────────────────────────────────────────
+    "ikt_hero": img_uri(os.path.join(IKOTUN, "ikotun-onsite-01.jpg"), max_px=1600),
+    "ikt_b":    img_uri(os.path.join(IKOTUN, "ikotun-onsite-03.jpg")),
+    "ikt_c":    img_uri(os.path.join(IKOTUN, "ikotun-render.png")),
 
-    # ── SW 02: Landscape & Site Development ──
-    "land_hero":    img_uri(os.path.join(LAND, "Aerial Site Overview.png")),
-    "land_b":       img_uri(os.path.join(LAND, "Aerial Parking Court.png")),
-    "land_c":       img_uri(os.path.join(LAND, "Video1 - Snapshot7_003.jpg")),
+    # ── SW02 · Ado 6-Bedroom Duplex ───────────────────────────────────────
+    "ado_hero": img_uri(os.path.join(ADO_DUP, "ado-duplex-structural-01.jpg"), max_px=1600),
+    "ado_b":    img_uri(os.path.join(ADO_DUP, "ado-duplex-structural-04.jpg")),
+    "ado_c":    img_uri(os.path.join(ADO_DUP, "ado-duplex-interior-05.jpg")),
 
-    # ── SW 03: 6-Flat Apartment Block, Ikotun ──
-    "six_hero":     img_uri(os.path.join(SIXFL, "Chinedu Hero Render.png")),
-    "six_b":        img_uri(os.path.join(SIXFL, "MR CHINEDU PROJECT 2.jpg")),
-    "six_c":        img_uri(os.path.join(SIXFL, "MR CHINEDU PROJECT raw.jpg")),
+    # ── SW03 · Oluku Ultra Modern Market ──────────────────────────────────
+    "olu_hero": img_uri(os.path.join(OLUKU, "oluku-site-00.jpg"), max_px=1600),
+    "olu_b":    img_uri(os.path.join(OLUKU, "oluku-site-06.jpg")),
+    "olu_c":    img_uri(os.path.join(OLUKU, "oluku-site-07.jpg")),
 
-    # ── SW 04: 4-Bedroom Family House, Uselu ──
-    "uselu_hero":   img_uri(os.path.join(USELU, "Usele Hero 1.png")),
-    "uselu_night":  img_uri(os.path.join(USELU, "USELU - NIGHT VIEW.png")),
-    "uselu_col":    img_uri(os.path.join(USELU, "USELU - COLAGE.png")),
-
-    # ── SW 05: Hillside Project ──
-    "hill_hero":    img_uri(os.path.join(HILL, "HERO IMG.png")),
-    "hill_massing": img_uri(os.path.join(HILL, "RAW 1.jpg")),
-    "hill_detail":  img_uri(os.path.join(HILL, "02 Detail Study.png")),
-
-    # ── Other Projects gallery (9 tiles) ──
-    "g1":  img_uri(os.path.join(LAND, "CIVIL DEFECE HQ 1.jpg"),   max_px=860, quality=80),
-    "g2":  img_uri(os.path.join(LAND, "CIVIL DEFECE HQ 2.jpg"),   max_px=860, quality=80),
-    "g3":  img_uri(os.path.join(LAND, "NEW HOTEL 1.jpg"),          max_px=860, quality=80),
-    "g4":  img_uri(os.path.join(LAND, "NEW HOTEL 2.jpg"),          max_px=860, quality=80),
-    "g5":  img_uri(os.path.join(ADO,  "ADO CENTER RAW 2.jpg"),    max_px=860, quality=80),
-    "g6":  img_uri(os.path.join(LAND, "SAPELE RD.jpg"),            max_px=860, quality=80),
-    "g7":  img_uri(os.path.join(OTHER, "Building Model.png"),      max_px=860, quality=80),
-    "g8":  img_uri(os.path.join(OTHER, "Event Hall Massing.png"),  max_px=860, quality=80),
-    "g9":  img_uri(os.path.join(SCHEMA, "BIG SCHEMA RAW 1.jpg"),  max_px=860, quality=80),
+    # ── SW04 · The Body Shop Outlets ──────────────────────────────────────
+    "bs_hero":  img_uri(os.path.join(BODY_SHOP, "body-shop-retail-floor.jpeg"), max_px=1600),
+    "bs_b":     img_uri(os.path.join(BODY_SHOP, "body-shop-wip-01.jpg")),
+    "bs_c":     img_uri(os.path.join(BODY_SHOP, "body-shop-mural-display.jpeg")),
 }
+
+print("Images loaded.")
 
 FONT_FACES = "".join(
     f"""@font-face{{font-family:'Inter';font-style:normal;font-weight:{w};
     src:url('{font_uri(w)}') format('woff2');}}"""
     for w in (300, 400, 500, 600, 700, 800)
 )
+
+
+# ───────────────────────────────── CSS ─────────────────────────────────────
 
 CSS = """
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -156,7 +199,7 @@ a{ color:inherit; text-decoration:none; }
 .cover-shape{ position:absolute; right:-70px; top:120px; width:340px;
   height:340px; background:var(--light); border-radius:50%; opacity:.5; }
 .cover-top{ display:flex; align-items:center; justify-content:space-between;
-  margin-bottom:24mm; }
+  margin-bottom:22mm; }
 .brand{ display:flex; align-items:center; gap:11px; }
 .brand .mark{ width:34px; height:34px; background:var(--accent);
   border-radius:5px; color:#fff; font-weight:800; font-size:17px;
@@ -169,17 +212,17 @@ a{ color:inherit; text-decoration:none; }
 .hero{ display:grid; grid-template-columns:1fr 70mm; gap:12mm;
   align-items:start; position:relative; z-index:1; }
 .hero-label{ margin-bottom:14px; }
-.headline{ font-size:50px; font-weight:800; line-height:1.06;
+.headline{ font-size:48px; font-weight:800; line-height:1.06;
   letter-spacing:-0.03em; }
 .headline span{ display:block; }
 .headline .accent{ color:var(--accent); }
 .headline .muted{ color:var(--text); }
 .hero-sub{ font-size:13px; font-weight:300; color:var(--text);
-  margin-top:18px; max-width:96mm; line-height:1.7; }
-.hero-points{ list-style:none; margin-top:18px; }
+  margin-top:16px; max-width:96mm; line-height:1.7; }
+.hero-points{ list-style:none; margin-top:16px; }
 .hero-points li{ font-size:11.5px; padding:5px 0 5px 18px; position:relative;
   color:var(--text); }
-.hero-points li::before{ content:'\2192'; position:absolute; left:0;
+.hero-points li::before{ content:'\\2192'; position:absolute; left:0;
   color:var(--accent); font-weight:700; }
 
 .pcard{ background:var(--white); border:1px solid var(--border);
@@ -214,7 +257,7 @@ a{ color:inherit; text-decoration:none; }
   overflow:hidden; border:1px solid var(--border);
   box-shadow:0 6px 22px rgba(44,44,44,.08); }
 .img-band img{ width:100%; height:66mm; object-fit:cover;
-  object-position:center 42%; display:block; }
+  object-position:center 35%; display:block; }
 .img-band .cap{ position:absolute; left:0; right:0; bottom:0;
   padding:18px 14px 9px;
   background:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.58));
@@ -229,7 +272,8 @@ a{ color:inherit; text-decoration:none; }
   margin-top:13px; }
 .stat-grid .st{ background:var(--bg); border-radius:7px; padding:13px 14px; }
 .sheet.white .stat-grid .st{ background:var(--bg); }
-.stat-grid .n{ font-size:25px; font-weight:700; color:var(--accent); line-height:1; }
+.stat-grid .n{ font-size:25px; font-weight:700; color:var(--accent);
+  line-height:1; }
 .stat-grid .d{ font-size:9.5px; color:var(--text); margin-top:4px; }
 
 .skill-group{ background:var(--bg); border-radius:7px; padding:13px 15px;
@@ -249,7 +293,7 @@ a{ color:inherit; text-decoration:none; }
 .edu .in{ font-size:10px; color:var(--text); margin:3px 0; }
 .edu .pe{ font-size:9.5px; color:var(--accent); font-weight:600; }
 
-/* ── SOFTWARE (dark) ── */
+/* ── SOFTWARE dark ── */
 .dark .label{ color:var(--accent); }
 .dark h2{ color:var(--white); }
 .dark .s-head .sub{ color:var(--warm); }
@@ -283,7 +327,7 @@ a{ color:inherit; text-decoration:none; }
 .tl ul{ list-style:none; }
 .tl ul li{ border:none; padding:2px 0 2px 14px; font-size:10px;
   line-height:1.5; color:var(--text); }
-.tl ul li::before{ content:'\2192'; left:0; top:2px; width:auto; height:auto;
+.tl ul li::before{ content:'\\2192'; left:0; top:2px; width:auto; height:auto;
   background:none; border:none; border-radius:0; color:var(--accent);
   font-size:9px; }
 .metrics{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
@@ -293,23 +337,9 @@ a{ color:inherit; text-decoration:none; }
 .metrics .n{ font-size:21px; font-weight:700; color:var(--accent); }
 .metrics .d{ font-size:8.5px; color:var(--text); margin-top:3px; }
 
-/* ── EXPERTISE CARDS ── */
-.cards{ display:grid; grid-template-columns:1fr 1fr; gap:13px; }
-.card{ background:var(--white); border:1px solid var(--border);
-  border-radius:10px; overflow:hidden; }
-.card .top{ height:4px; background:var(--accent); }
-.card .bd{ padding:16px 17px; }
-.card .ic{ width:36px; height:36px; background:var(--light); border-radius:7px;
-  color:var(--accent); font-size:15px; display:flex; align-items:center;
-  justify-content:center; margin-bottom:11px; }
-.card h3{ font-size:14px; margin-bottom:6px; }
-.card p{ font-size:10px; line-height:1.55; color:var(--text); margin-bottom:9px; }
-.card .tag{ font-size:8.5px; font-weight:600; letter-spacing:0.04em;
-  color:var(--accent); }
-
 /* ── SELECTED WORK ── */
 .fig{ border-radius:9px; overflow:hidden; border:1px solid var(--border);
-  background:var(--white); margin-bottom:11px; }
+  background:var(--warm); margin-bottom:11px; }
 .fig img{ width:100%; display:block; object-fit:cover; }
 .fig .cap{ padding:9px 13px; display:flex; justify-content:space-between;
   align-items:baseline; gap:10px; }
@@ -317,22 +347,17 @@ a{ color:inherit; text-decoration:none; }
 .fig .cap .m{ font-size:8.5px; font-weight:600; letter-spacing:0.06em;
   text-transform:uppercase; color:var(--accent); white-space:nowrap; }
 .fig.big img{ height:96mm; }
-.fig.big.contain img{ object-fit:contain; height:90mm; background:var(--white); }
 .fig.half img{ height:62mm; }
 .row2{ display:grid; grid-template-columns:1fr 1fr; gap:11px; }
 
-/* ── OTHER PROJECTS ── */
-.other-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:11px; }
-.tile{ border:1px solid var(--border); border-radius:8px; overflow:hidden;
-  background:var(--white); }
-.tile img{ width:100%; height:44mm; object-fit:cover; display:block; }
-.tile .cap{ padding:7px 10px; }
-.tile .cap .t{ font-size:9.5px; font-weight:600; color:var(--dark);
-  display:block; line-height:1.3; }
-.tile .cap .m{ font-size:7.5px; font-weight:600; letter-spacing:0.07em;
-  text-transform:uppercase; color:var(--accent); }
+/* compact technical toolkit (merged onto the profile page) */
+.tk-grid{ display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+.tk{ background:var(--bg); border-radius:6px; padding:8px 11px;
+  border-left:2px solid var(--accent); }
+.tk .tkn{ display:block; font-size:10.5px; font-weight:600; color:var(--dark); }
+.tk .tkl{ display:block; font-size:8.5px; color:var(--accent); margin-top:1px; }
 
-/* ── CONTACT (dark) ── */
+/* ── CONTACT dark ── */
 .contact{ display:flex; flex-direction:column; align-items:center;
   justify-content:center; text-align:center; min-height:267mm; }
 .contact h2{ color:var(--white); font-size:34px; margin:14px 0 16px;
@@ -367,6 +392,9 @@ FOOTER = (
     f'Construction Project Manager</span><span>{{n}} / {TOTAL_PAGES}</span></div>'
 )
 
+
+# ───────────────────────────────── HTML body ────────────────────────────────
+
 BODY = """
 <!-- ════════ 1 · COVER ════════ -->
 <section class="sheet cover">
@@ -379,21 +407,22 @@ BODY = """
 
   <div class="hero">
     <div>
-      <p class="label hero-label">Construction Project Manager · BIM Specialist · Lagos, Nigeria</p>
+      <p class="label hero-label">Construction Project Manager · Site Engineer · Lagos, Nigeria</p>
       <div class="headline">
-        <span>Build.</span>
-        <span class="accent">Coordinate.</span>
-        <span>Deliver.</span>
+        <span>Site.</span>
+        <span class="accent">Structure.</span>
+        <span>Delivered.</span>
         <span class="muted">On Time.</span>
       </div>
-      <p class="hero-sub">From ground-breaking to handover — site engineering,
-        BIM coordination and construction management across residential,
-        commercial and infrastructure projects in Nigeria.</p>
+      <p class="hero-sub">Four flagship site projects — a six-flat residential
+        block, a six-bedroom duplex, a market infrastructure scheme and an
+        international retail fit-out — delivered across Lagos, Ekiti and Benin
+        City.</p>
       <ul class="hero-points">
-        <li>7+ years of progressive construction &amp; site leadership</li>
-        <li>30+ projects delivered across all disciplines</li>
-        <li>&#8358;350M+ cumulative project value · &#8358;10M+ savings delivered</li>
-        <li>MSc Construction Engineering Management — UEL, London</li>
+        <li>6-Flat Residential Block — Ikotun, Lagos</li>
+        <li>6-Bedroom Duplex — Ado, Ekiti State</li>
+        <li>Oluku Ultra Modern Market — Benin City</li>
+        <li>The Body Shop retail fit-out — Ikeja &amp; Lekki, Lagos</li>
       </ul>
     </div>
 
@@ -410,7 +439,7 @@ BODY = """
           <div class="b"><div class="n">7+</div><div class="l">Years</div></div>
         </div>
         <div class="psw">
-          <span>Revit</span><span>Navisworks</span><span>AutoCAD</span>
+          <span>Revit</span><span>AutoCAD</span><span>Navisworks</span>
           <span>MS Project</span><span>Dynamo</span>
         </div>
         <div class="avail"><div class="dot"></div>
@@ -420,8 +449,8 @@ BODY = """
   </div>
 
   <div class="img-band">
-    <img src="__cover_band__" alt="Residential estate — aerial site masterplan" />
-    <div class="cap">Residential Estate — Aerial Site Masterplan</div>
+    <img src="__cover_band__" alt="6-Flat residential block — Ikotun, Lagos" />
+    <div class="cap">6-Flat Residential Block — Ikotun, Lagos</div>
   </div>
 
   <div class="cover-foot">
@@ -432,373 +461,168 @@ BODY = """
   </div>
 </section>
 
-<!-- ════════ 2 · ABOUT ════════ -->
+<!-- ════════ 2 · PROFILE + TECHNICAL TOOLKIT (merged) ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Professional Profile</p>
-    <h2>The Construction Professional</h2></div>
+    <h2>The Site Professional</h2></div>
 
   <div class="about">
     <div>
-      <p>Vollmann Olamide Akarakiri is a results-driven Construction Project
-        Manager and BIM Specialist with 7+ years delivering residential,
-        commercial and infrastructure projects from planning through completion
-        across multiple Nigerian states.</p>
-      <p>He has coordinated multiple project sites simultaneously and
-        contributed to projects exceeding &#8358;350 million in cumulative value
-        — generating over &#8358;10 million in cost savings through procurement
-        oversight, error prevention and rigorous cost control.</p>
-      <p>Experienced in end-to-end site engineering — excavation, foundations,
-        structural works, drainage, roofing, finishes and handover — with
-        advanced BIM capability in Revit, Dynamo, Navisworks and AutoCAD for
-        coordinated model delivery and construction documentation.</p>
+      <p>Vollmann Olamide Akarakiri is a Construction Project Manager and Site
+        Engineer with 7+ years delivering physical construction and fit-out
+        projects across commercial, residential and infrastructure sectors in
+        Nigeria.</p>
+      <p>His site experience spans residential buildings from foundation to
+        finish, market and drainage infrastructure, and retail fit-outs for
+        international brands — coordinating subcontractors, procurement, quality
+        control and programme on each project, and bridging BIM model to built
+        reality.</p>
       <div class="stat-grid">
         <div class="st"><div class="n">30+</div><div class="d">Total projects across all disciplines</div></div>
         <div class="st"><div class="n">&#8358;350M+</div><div class="d">Cumulative project value</div></div>
         <div class="st"><div class="n">&#8358;10M+</div><div class="d">Savings delivered</div></div>
         <div class="st"><div class="n">7+</div><div class="d">Years of experience</div></div>
       </div>
+      <div class="edu-grid" style="margin-top:8mm;">
+        <div class="edu"><div class="dg">MSc Construction Engineering Management</div>
+          <div class="in">University of East London</div>
+          <div class="pe">Sep 2024 – Present</div></div>
+        <div class="edu"><div class="dg">BSc Building Technology</div>
+          <div class="in">Federal University of Technology, Akure</div>
+          <div class="pe">2014 – 2019</div></div>
+      </div>
     </div>
 
     <div>
-      <p class="label" style="margin-bottom:9px;">Core Competencies</p>
-      <div class="skill-group"><h4>Construction &amp; Site Management</h4>
-        <div class="pills"><span>Site Engineering</span><span>Programme Management</span>
-          <span>Subcontractor Coordination</span><span>Quality Control</span>
-          <span>Health &amp; Safety (HSE)</span></div></div>
-      <div class="skill-group"><h4>Project Management</h4>
+      <p class="label" style="margin-bottom:9px;">Site &amp; Construction Competencies</p>
+      <div class="skill-group"><h4>Site Engineering &amp; Supervision</h4>
+        <div class="pills"><span>Subcontractor Management</span>
+          <span>Quality Control</span><span>Site Safety (HSE)</span>
+          <span>Snagging &amp; Handover</span></div></div>
+      <div class="skill-group"><h4>Structural, Civil &amp; Fit-Out</h4>
+        <div class="pills"><span>Foundations &amp; Blockwork</span>
+          <span>Drainage Systems</span><span>Roofing</span>
+          <span>Retail Fit-Out</span><span>Joinery &amp; MEP</span></div></div>
+      <div class="skill-group"><h4>Project &amp; Programme Management</h4>
         <div class="pills"><span>Planning &amp; Scheduling</span>
-          <span>Budgeting &amp; Cost Forecasting</span>
-          <span>Procurement &amp; Contracts</span>
-          <span>Risk Management</span><span>Stakeholder Reporting</span></div></div>
-      <div class="skill-group"><h4>BIM &amp; Digital Delivery</h4>
-        <div class="pills"><span>BIM Modelling (Revit)</span>
-          <span>Dynamo Automation</span><span>Navisworks Coordination</span>
-          <span>Clash Detection</span><span>4D Sequencing</span></div></div>
-      <div class="skill-group"><h4>Technical Specialisms</h4>
-        <div class="pills"><span>Landscape Construction</span>
-          <span>MEP Coordination</span><span>Regulatory Compliance</span>
-          <span>Cost Estimation</span><span>Working Drawings</span></div></div>
-    </div>
-  </div>
+          <span>Cost Control</span><span>Procurement &amp; Contracts</span>
+          <span>Stakeholder Reporting</span></div></div>
 
-  <div class="edu-grid">
-    <div class="edu"><div class="dg">MSc Construction Engineering Management</div>
-      <div class="in">University of East London</div>
-      <div class="pe">Sep 2024 – Present</div></div>
-    <div class="edu"><div class="dg">BSc Building Technology</div>
-      <div class="in">Federal University of Technology, Akure</div>
-      <div class="pe">2014 – 2019</div></div>
+      <p class="label" style="margin:7mm 0 8px;">Technical Toolkit</p>
+      <div class="tk-grid">
+        <div class="tk"><span class="tkn">Autodesk Revit</span><span class="tkl">Expert · BIM coordination</span></div>
+        <div class="tk"><span class="tkn">Navisworks</span><span class="tkl">Proficient · Clash detection</span></div>
+        <div class="tk"><span class="tkn">AutoCAD</span><span class="tkl">Expert · Shop drawings</span></div>
+        <div class="tk"><span class="tkn">MS Project</span><span class="tkl">Proficient · Programme</span></div>
+        <div class="tk"><span class="tkn">Dynamo</span><span class="tkl">Advanced · Automation</span></div>
+        <div class="tk"><span class="tkn">MS Excel &amp; Office</span><span class="tkl">Advanced · Cost control</span></div>
+      </div>
+    </div>
   </div>
   __FOOT2__
 </section>
 
-<!-- ════════ 3 · BIM & SOFTWARE (dark) ════════ -->
-<section class="sheet dark">
+<!-- ════════ 3 · SW01 · IKOTUN 6-FLAT BLOCK ════════ -->
+<section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
-    <p class="label" style="margin-top:9px;">Technical Expertise</p>
-    <h2>BIM &amp; Construction Software</h2>
-    <p class="sub">Industry-standard tools deployed across every phase of the
-      construction programme — from digital model to physical delivery.</p></div>
+    <p class="label" style="margin-top:9px;">Selected Work · 01</p>
+    <h2>6-Flat Residential Block, Ikotun</h2>
+    <p class="sub">Six-flat residential development, Ikotun, Lagos — built from
+      foundation. Structural frame, column casting, suspended slabs and
+      superstructure through to the finished block.</p></div>
 
-  <div class="sw-grid">
-    <div class="sw"><div class="ic">&#9670;</div><h4>Autodesk Revit</h4>
-      <div class="lv">Expert — BIM Modelling &amp; Documentation</div>
-      <p>Full architectural BIM models for 30+ office, residential and interior
-        projects. Family creation, documentation sheets, schedules and
-        coordinated model production for construction delivery.</p></div>
-    <div class="sw"><div class="ic">&#9671;</div><h4>Navisworks</h4>
-      <div class="lv">Proficient — BIM Coordination</div>
-      <p>Multi-discipline model coordination, clash detection and resolution,
-        4D construction sequencing and construction programme review
-        workflows across multiple concurrent projects.</p></div>
-    <div class="sw"><div class="ic">&#9633;</div><h4>AutoCAD</h4>
-      <div class="lv">Expert — Technical Drawing</div>
-      <p>2D technical drawing, site plans, detailed construction and working
-        drawings, and full detailing packages for 10+ residential and
-        commercial properties.</p></div>
-    <div class="sw"><div class="ic">&#9650;</div><h4>Dynamo for Revit</h4>
-      <div class="lv">Advanced — Parametric Automation</div>
-      <p>Custom parametric workflows and automation scripts reducing
-        documentation time and enabling data-driven design coordination
-        across large, complex building programmes.</p></div>
-    <div class="sw"><div class="ic">&#9632;</div><h4>Microsoft Project</h4>
-      <div class="lv">Proficient — Project Scheduling</div>
-      <p>Scheduling, milestone tracking, resource planning and programme
-        management across large multi-site construction programmes and
-        concurrent project portfolios.</p></div>
-    <div class="sw"><div class="ic">&#9679;</div><h4>MS Excel &amp; Office Suite</h4>
-      <div class="lv">Advanced — Cost Control &amp; Reporting</div>
-      <p>Budget tracking, cost forecasting, progress reporting, procurement
-        schedules and management reporting across concurrent construction
-        sites and client accounts.</p></div>
+  <div class="fig big"><img src="__ikt_hero__" alt="Ikotun 6-flat — structural works" />
+    <div class="cap"><span class="t">Superstructure Under Construction</span>
+      <span class="m">Structure</span></div></div>
+  <div class="row2">
+    <div class="fig half"><img src="__ikt_b__" alt="Ikotun suspended slab works" />
+      <div class="cap"><span class="t">Suspended Slab &amp; Deck Works</span>
+        <span class="m">Civil</span></div></div>
+    <div class="fig half"><img src="__ikt_c__" alt="Ikotun completed block render" />
+      <div class="cap"><span class="t">Completed 6-Flat Block</span>
+        <span class="m">Outcome</span></div></div>
   </div>
-
-  <div class="disc">
-    <span>Project Planning &amp; Scheduling</span><span>BIM Coordination</span>
-    <span>Budgeting &amp; Cost Forecasting</span><span>Procurement &amp; Contracts</span>
-    <span>Site Engineering</span><span>Health &amp; Safety (HSE)</span>
-    <span>Risk Management</span><span>Clash Detection</span>
-    <span>4D Sequencing</span><span>Regulatory Compliance</span>
-    <span>Stakeholder Reporting</span><span>MEP Coordination</span>
-  </div>
+  __FOOT3__
 </section>
 
-<!-- ════════ 4 · EXPERIENCE ════════ -->
-<section class="sheet">
+<!-- ════════ 4 · SW02 · ADO 6-BEDROOM DUPLEX ════════ -->
+<section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
-    <p class="label" style="margin-top:9px;">Career History</p>
-    <h2>Professional Experience</h2>
-    <p class="sub">7+ years of progressive responsibility across construction,
-      site engineering and BIM delivery — from intern to Engineering Lead.</p></div>
+    <p class="label" style="margin-top:9px;">Selected Work · 02</p>
+    <h2>6-Bedroom Duplex, Ado</h2>
+    <p class="sub">Six-bedroom duplex residence, Ado, Ekiti State — two-stage
+      delivery: structural works (foundation, columns, slabs, roofing) followed
+      by full interior finishes.</p></div>
 
-  <ul class="tl">
-    <li class="cur"><div class="pe">Aug 2021 – Feb 2026</div>
-      <div class="ro">Project Manager / Engineering Lead</div>
-      <div class="co">Nu-Avenue Company Resources</div>
-      <ul><li>Directed construction delivery across multiple sites in
-        multiple states, contributing to projects exceeding &#8358;350M in value.</li>
-        <li>Generated over &#8358;10M in savings through cost control, vendor
-          coordination and error prevention.</li>
-        <li>Produced BIM models for 30+ office, 10+ residential and 10+
-          interior projects using Revit and Dynamo.</li>
-        <li>Coordinated architects, consultants, engineers, suppliers and
-          contractors to ensure quality, safety and on-time delivery.</li></ul></li>
-    <li><div class="pe">Jun 2020 – Aug 2021</div>
-      <div class="ro">Site Engineer / Assistant Technical Designer</div>
-      <div class="co">Nature's Beauty Construction</div>
-      <ul><li>Planned and supervised site-development and landscape
-        projects across multiple Nigerian states.</li>
-        <li>Produced full detailing packages for 10+ residential properties.</li>
-        <li>Trained 5+ employees; contributed to business opportunities
-          exceeding &#8358;20 million.</li></ul></li>
-    <li><div class="pe">Dec 2019 – Apr 2020</div>
-      <div class="ro">Site Supervisor</div>
-      <div class="co">Lego Construction Company</div>
-      <ul><li>Developed project plans, contract documents, schedules and budgets.</li>
-        <li>Facilitated interdisciplinary coordination meetings and client engagement.</li></ul></li>
-    <li><div class="pe">Aug 2017 – Dec 2017</div>
-      <div class="ro">Architecture &amp; Planning Intern</div>
-      <div class="co">Danzinger Nigeria Ltd</div>
-      <ul><li>Assisted management of consulting activities exceeding &#8358;10M.</li>
-        <li>Assisted drafting, BIM updates and construction documentation.</li></ul></li>
-  </ul>
-
-  <div class="metrics">
-    <div class="st"><div class="n">&#8358;350M+</div><div class="d">Total project value</div></div>
-    <div class="st"><div class="n">&#8358;10M+</div><div class="d">Savings generated</div></div>
-    <div class="st"><div class="n">30+</div><div class="d">Total projects across all disciplines</div></div>
-    <div class="st"><div class="n">30+</div><div class="d">BIM models produced</div></div>
+  <div class="fig big"><img src="__ado_hero__" alt="Ado duplex — structural stage" />
+    <div class="cap"><span class="t">Structural Stage &amp; Roofing</span>
+      <span class="m">Structure</span></div></div>
+  <div class="row2">
+    <div class="fig half"><img src="__ado_b__" alt="Ado duplex — scaffolded elevation" />
+      <div class="cap"><span class="t">Scaffolded Front Elevation</span>
+        <span class="m">Construction</span></div></div>
+    <div class="fig half"><img src="__ado_c__" alt="Ado duplex — interior finishes stage" />
+      <div class="cap"><span class="t">Interior Finishes Stage</span>
+        <span class="m">Finish</span></div></div>
   </div>
   __FOOT4__
 </section>
 
-<!-- ════════ 5 · AREAS OF EXPERTISE ════════ -->
+<!-- ════════ 5 · SW03 · OLUKU ULTRA MODERN MARKET ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
-    <p class="label" style="margin-top:9px;">Portfolio</p>
-    <h2>Areas of Construction Expertise</h2>
-    <p class="sub">Six specialist disciplines — integrated delivery from
-      ground-breaking to handover and beyond.</p></div>
+    <p class="label" style="margin-top:9px;">Selected Work · 03</p>
+    <h2>Oluku Ultra Modern Market</h2>
+    <p class="sub">Two-stage market infrastructure project — Oluku, Benin City.
+      Stage 1: drainage system design and construction. Stage 2: shop unit
+      structures, setting-out and site infrastructure.</p></div>
 
-  <div class="cards">
-    <div class="card"><div class="top"></div><div class="bd">
-      <div class="ic">&#9670;</div><h3>Construction Project Management</h3>
-      <p>End-to-end construction programme management across 3+ concurrent
-        sites — planning, procurement, budgeting, contractor coordination,
-        quality control and HSE oversight.</p>
-      <div class="tag">MULTI-SITE DELIVERY</div></div></div>
-    <div class="card"><div class="top"></div><div class="bd">
-      <div class="ic">&#9671;</div><h3>BIM &amp; Digital Construction</h3>
-      <p>Advanced BIM modelling in Revit, Dynamo automation, Navisworks
-        coordination and clash detection — digital workflows across residential,
-        office and commercial projects.</p>
-      <div class="tag">REVIT · DYNAMO · NAVISWORKS</div></div></div>
-    <div class="card"><div class="top"></div><div class="bd">
-      <div class="ic">&#9633;</div><h3>Site Engineering</h3>
-      <p>Hands-on site supervision — excavation, foundations, drainage,
-        concrete, blockwork, reinforcement, roofing, finishes and MEP
-        coordination through to practical completion.</p>
-      <div class="tag">STRUCTURES · DRAINAGE · FINISHES</div></div></div>
-    <div class="card"><div class="top"></div><div class="bd">
-      <div class="ic">&#9650;</div><h3>Landscape &amp; Site Development</h3>
-      <p>Site-development and landscape projects — master planning,
-        hardscape, softscape, drainage integration, site beautification
-        and civil works.</p>
-      <div class="tag">SITE &amp; LANDSCAPE WORK</div></div></div>
-    <div class="card"><div class="top"></div><div class="bd">
-      <div class="ic">&#9632;</div><h3>Residential Building Projects</h3>
-      <p>Residential design and delivery from schematic concept through
-        construction drawings and site supervision to handover — apartments,
-        family homes and mixed-use developments.</p>
-      <div class="tag">RESIDENTIAL · MIXED-USE · APARTMENTS</div></div></div>
-    <div class="card"><div class="top"></div><div class="bd">
-      <div class="ic">&#9679;</div><h3>Cost Control &amp; Procurement</h3>
-      <p>Budgeting, cost forecasting, procurement strategy and contract
-        administration — delivering &#8358;10M+ in verified savings through
-        rigorous cost management disciplines.</p>
-      <div class="tag">&#8358;10M+ SAVINGS DELIVERED</div></div></div>
-  </div>
-
-  <div class="img-band">
-    <img src="__reno_band__" alt="Residential renovation proposal — Akure" />
-    <div class="cap">Residential Renovation — Family Home, Akure</div>
+  <div class="fig big"><img src="__olu_hero__" alt="Oluku market — drainage channel" />
+    <div class="cap"><span class="t">Reinforced Drainage Channel</span>
+      <span class="m">Civil · Stage 1</span></div></div>
+  <div class="row2">
+    <div class="fig half"><img src="__olu_b__" alt="Oluku shop unit structure works" />
+      <div class="cap"><span class="t">Shop Unit Structures</span>
+        <span class="m">Stage 2</span></div></div>
+    <div class="fig half"><img src="__olu_c__" alt="Oluku setting-out and survey" />
+      <div class="cap"><span class="t">Setting-Out &amp; Survey</span>
+        <span class="m">Site</span></div></div>
   </div>
   __FOOT5__
 </section>
 
-<!-- ════════ 6 · SELECTED WORK 01 — HALL OF WORSHIP, ADO ════════ -->
+<!-- ════════ 6 · SW04 · THE BODY SHOP ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
-    <p class="label" style="margin-top:9px;">Selected Work · 01</p>
-    <h2>Hall of Worship, Ado</h2>
-    <p class="sub">Architectural visualisation, coordinated structural BIM model
-      and full construction documentation package — Ado, Ekiti State.</p></div>
+    <p class="label" style="margin-top:9px;">Selected Work · 04</p>
+    <h2>The Body Shop Outlets</h2>
+    <p class="sub">Retail fit-out for two The Body Shop outlets — Ikeja City Mall
+      and Circle Mall Lekki, Lagos. Delivered from bare shell to trading floor:
+      joinery, flooring, fixtures, MEP and brand installation.</p></div>
 
-  <div class="fig big"><img src="__ado_hero__" alt="Hall of Worship architectural visualisation" />
-    <div class="cap"><span class="t">Hall of Worship — Architectural Visualisation</span>
-      <span class="m">Render</span></div></div>
+  <div class="fig big"><img src="__bs_hero__" alt="The Body Shop — finished retail floor" />
+    <div class="cap"><span class="t">Finished Retail Trading Floor</span>
+      <span class="m">Fit-Out</span></div></div>
   <div class="row2">
-    <div class="fig half"><img src="__ado_raw__" alt="Structural BIM model — construction phase" />
-      <div class="cap"><span class="t">Structural BIM Model — Construction Phase</span>
-        <span class="m">Revit</span></div></div>
-    <div class="fig half"><img src="__ado_plan__" alt="Proposed floor plan documentation" />
-      <div class="cap"><span class="t">Proposed Floor Plan Documentation</span>
-        <span class="m">Documentation</span></div></div>
+    <div class="fig half"><img src="__bs_b__" alt="Body Shop bare shell before fit-out" />
+      <div class="cap"><span class="t">Bare Shell — Before Fit-Out</span>
+        <span class="m">Stage</span></div></div>
+    <div class="fig half"><img src="__bs_c__" alt="Body Shop mural feature wall and display" />
+      <div class="cap"><span class="t">Feature Mural Wall &amp; Display</span>
+        <span class="m">Interior</span></div></div>
   </div>
   __FOOT6__
 </section>
 
-<!-- ════════ 7 · SELECTED WORK 02 — LANDSCAPE & SITE DEVELOPMENT ════════ -->
-<section class="sheet white">
-  <div class="s-head"><div class="accent-bar"></div>
-    <p class="label" style="margin-top:9px;">Selected Work · 02</p>
-    <h2>Landscape &amp; Site Development</h2>
-    <p class="sub">Site-development and landscape projects — master
-      planning, hardscape and softscape integration, site infrastructure
-      and visualisation across multiple states.</p></div>
-
-  <div class="fig big"><img src="__land_hero__" alt="Site master plan — aerial overview" />
-    <div class="cap"><span class="t">Site Master Plan — Aerial Overview</span>
-      <span class="m">Aerial</span></div></div>
-  <div class="row2">
-    <div class="fig half"><img src="__land_b__" alt="Parking court and landscape planting" />
-      <div class="cap"><span class="t">Parking Court &amp; Landscape Planting</span>
-        <span class="m">Render</span></div></div>
-    <div class="fig half"><img src="__land_c__" alt="Residence and carport render" />
-      <div class="cap"><span class="t">Residence &amp; Carport</span>
-        <span class="m">Render</span></div></div>
-  </div>
-  __FOOT7__
-</section>
-
-<!-- ════════ 8 · SELECTED WORK 03 — 6-FLAT APARTMENT BLOCK, IKOTUN ════════ -->
-<section class="sheet white">
-  <div class="s-head"><div class="accent-bar"></div>
-    <p class="label" style="margin-top:9px;">Selected Work · 03</p>
-    <h2>6-Flat Apartment Block, Ikotun</h2>
-    <p class="sub">Three-storey six-flat residential development — Ikotun, Lagos.
-      Full BIM design, massing study, façade development and construction
-      documentation.</p></div>
-
-  <div class="fig big"><img src="__six_hero__" alt="Six-flat apartment block render" />
-    <div class="cap"><span class="t">Six-Flat Apartment Block — Street View</span>
-      <span class="m">Render</span></div></div>
-  <div class="row2">
-    <div class="fig half"><img src="__six_b__" alt="Facade and material study" />
-      <div class="cap"><span class="t">Façade &amp; Material Study</span>
-        <span class="m">Detail</span></div></div>
-    <div class="fig half"><img src="__six_c__" alt="Massing and structure model" />
-      <div class="cap"><span class="t">Massing &amp; Structural Model</span>
-        <span class="m">Revit</span></div></div>
-  </div>
-  __FOOT8__
-</section>
-
-<!-- ════════ 9 · SELECTED WORK 04 — 4-BEDROOM FAMILY HOUSE, USELU ════════ -->
-<section class="sheet white">
-  <div class="s-head"><div class="accent-bar"></div>
-    <p class="label" style="margin-top:9px;">Selected Work · 04</p>
-    <h2>4-Bedroom Family House, Uselu</h2>
-    <p class="sub">A four-bedroom detached family residence — Uselu, Benin City.
-      Architectural design, material study and photorealistic visualisation.</p></div>
-
-  <div class="fig big"><img src="__uselu_hero__" alt="4-bedroom family house street view" />
-    <div class="cap"><span class="t">4-Bedroom Family House — Street View</span>
-      <span class="m">Render</span></div></div>
-  <div class="row2">
-    <div class="fig half"><img src="__uselu_night__" alt="Night elevation render" />
-      <div class="cap"><span class="t">Night Elevation</span>
-        <span class="m">Render</span></div></div>
-    <div class="fig half"><img src="__uselu_col__" alt="Material and detail study" />
-      <div class="cap"><span class="t">Material &amp; Detail Study</span>
-        <span class="m">Details</span></div></div>
-  </div>
-  __FOOT9__
-</section>
-
-<!-- ════════ 10 · SELECTED WORK 05 — THE HILLSIDE PROJECT ════════ -->
-<section class="sheet white">
-  <div class="s-head"><div class="accent-bar"></div>
-    <p class="label" style="margin-top:9px;">Selected Work · 05</p>
-    <h2>The Hillside Project</h2>
-    <p class="sub">Concept design for residential apartments set into a
-      challenging hillside terrain — massing study, structural concept
-      and façade development.</p></div>
-
-  <div class="fig big"><img src="__hill_hero__" alt="Hillside residential concept render" />
-    <div class="cap"><span class="t">Hillside Residence — Street Approach Render</span>
-      <span class="m">Render</span></div></div>
-  <div class="row2">
-    <div class="fig half"><img src="__hill_massing__" alt="Massing model on sloped terrain" />
-      <div class="cap"><span class="t">Massing on Sloped Terrain</span>
-        <span class="m">Concept</span></div></div>
-    <div class="fig half"><img src="__hill_detail__" alt="Facade and material study" />
-      <div class="cap"><span class="t">Façade &amp; Material Study</span>
-        <span class="m">Detail</span></div></div>
-  </div>
-  __FOOT10__
-</section>
-
-<!-- ════════ 11 · OTHER PROJECTS ════════ -->
-<section class="sheet white">
-  <div class="s-head"><div class="accent-bar"></div>
-    <p class="label" style="margin-top:9px;">More Work</p>
-    <h2>Other Construction Projects</h2>
-    <p class="sub">A further selection of construction, infrastructure,
-      civil works and building projects from across the portfolio.</p></div>
-
-  <div class="other-grid">
-    <div class="tile"><img src="__g1__" alt="Civil Defence HQ project" />
-      <div class="cap"><span class="t">Civil Defence HQ</span><span class="m">Infrastructure</span></div></div>
-    <div class="tile"><img src="__g2__" alt="Civil Defence HQ view 2" />
-      <div class="cap"><span class="t">Civil Defence HQ — View 2</span><span class="m">Infrastructure</span></div></div>
-    <div class="tile"><img src="__g3__" alt="New hotel project" />
-      <div class="cap"><span class="t">Hotel Development</span><span class="m">Commercial</span></div></div>
-    <div class="tile"><img src="__g4__" alt="Hotel development view 2" />
-      <div class="cap"><span class="t">Hotel Development — View 2</span><span class="m">Commercial</span></div></div>
-    <div class="tile"><img src="__g5__" alt="Ado Centre construction progress" />
-      <div class="cap"><span class="t">Ado Centre — Construction</span><span class="m">Site</span></div></div>
-    <div class="tile"><img src="__g6__" alt="Sapele Road site project" />
-      <div class="cap"><span class="t">Sapele Road Site Works</span><span class="m">Infrastructure</span></div></div>
-    <div class="tile"><img src="__g7__" alt="Building massing model" />
-      <div class="cap"><span class="t">Building Massing Model</span><span class="m">Concept</span></div></div>
-    <div class="tile"><img src="__g8__" alt="Event hall massing study" />
-      <div class="cap"><span class="t">Event Hall Massing</span><span class="m">Concept</span></div></div>
-    <div class="tile"><img src="__g9__" alt="Large residential schema" />
-      <div class="cap"><span class="t">Large Residential Schema</span><span class="m">Concept</span></div></div>
-  </div>
-  __FOOT11__
-</section>
-
-<!-- ════════ CONTACT ════════ -->
+<!-- ════════ 12 · CONTACT ════════ -->
 <section class="sheet dark">
   <div class="contact">
     <p class="label">Get In Touch</p>
-    <h2>Ready to Build Something Great?</h2>
-    <p class="lead">Whether you're a developer, contractor, architecture firm
-      or project owner — let's discuss how I can drive your next construction
-      programme to successful delivery.</p>
+    <h2>Ready to Deliver Your Next Project?</h2>
+    <p class="lead">Whether you need a site engineer, construction project
+      manager, or fit-out specialist — let's talk about how I can bring your
+      project from ground-breaking to handover.</p>
     <div class="cbtns">
       <a class="solid" href="mailto:vollmannakarakiri0@gmail.com">Send an Email</a>
       <a class="out" href="https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0">LinkedIn Profile</a>
@@ -812,7 +636,7 @@ BODY = """
       <div class="ci"><div class="cl">Education</div><div class="cv">MSc CEM · UEL</div></div>
     </div>
   </div>
-  <div class="cfoot">Vollmann Olamide Akarakiri · Build. Coordinate. Deliver. On Time.</div>
+  <div class="cfoot">Vollmann Olamide Akarakiri · Site. Structure. Delivered. On Time.</div>
 </section>
 """
 
@@ -821,7 +645,7 @@ def build():
     body = BODY
     for key, uri in IMG.items():
         body = body.replace(f"__{key}__", uri)
-    for n in (2, 4, 5, 6, 7, 8, 9, 10, 11):
+    for n in (2, 3, 4, 5, 6):
         body = body.replace(f"__FOOT{n}__", FOOTER.format(n=f"{n:02d}"))
 
     html = (
