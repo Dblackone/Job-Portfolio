@@ -20,7 +20,7 @@ PICS = os.path.join(ASSETS, "Project Pictures")
 FONT_DIR = os.path.join(ROOT, "pdf", "fonts")
 OUT = os.path.join(ASSETS, "vollmann-akarakiri-interior-portfolio.pdf")
 
-TOTAL_PAGES = 9
+TOTAL_PAGES = 8
 
 
 def font_uri(weight):
@@ -318,6 +318,13 @@ a{ color:inherit; text-decoration:none; }
 .cfoot{ position:absolute; left:0; right:0; bottom:12mm; text-align:center;
   font-size:9px; color:rgba(232,228,223,.4); letter-spacing:0.04em; }
 
+/* ── compact technical toolkit (merged onto profile page) ── */
+.tk-grid{ display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+.tk{ background:var(--bg); border-radius:6px; padding:8px 11px;
+  border-left:2px solid var(--accent); }
+.tk .tkn{ display:block; font-size:10.5px; font-weight:600; color:var(--dark); }
+.tk .tkl{ display:block; font-size:8.5px; color:var(--accent); margin-top:1px; }
+
 /* ── page footer ── */
 .pfoot{ position:absolute; left:16mm; right:16mm; bottom:9mm;
   display:flex; justify-content:space-between; align-items:center;
@@ -396,7 +403,7 @@ BODY = """
   </div>
 </section>
 
-<!-- ════════ 2 · ABOUT ════════ -->
+<!-- ════════ 2 · PROFILE + TECHNICAL TOOLKIT (merged) ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Professional Profile</p>
@@ -405,101 +412,56 @@ BODY = """
   <div class="about">
     <div>
       <p>Vollmann Olamide Akarakiri is a multidisciplinary design professional
-        specialising in interior design, space planning, and 3D visualisation.
+        specialising in interior design, space planning and 3D visualisation.
         With 7+ years in the built environment, he brings architectural rigour
         and creative vision to every interior — from intimate residential spaces
         to large corporate fit-outs.</p>
-      <p>He has delivered interior design solutions for residential living rooms,
-        dining areas, bathroom suites, executive boardrooms, and corporate
-        conference spaces — coordinating materials, finishes, furniture layouts,
-        and lighting to create harmonious environments that serve both
-        aesthetics and function.</p>
-      <p>Backed by a strong BIM and construction background, Vollmann's designs
-        are buildable, coordinated, and delivered on time — bridging the gap
-        between concept render and physical reality.</p>
+      <p>Backed by a strong BIM and construction background, his designs are
+        buildable, coordinated and delivered on time — bridging the gap between
+        concept render and physical reality across residential living spaces,
+        boardrooms and corporate conference suites.</p>
       <div class="stat-grid">
         <div class="st"><div class="n">10+</div><div class="d">Interior projects delivered</div></div>
         <div class="st"><div class="n">30+</div><div class="d">BIM models produced</div></div>
         <div class="st"><div class="n">7+</div><div class="d">Years of design experience</div></div>
         <div class="st"><div class="n">2</div><div class="d">Typologies — residential &amp; corporate</div></div>
       </div>
+      <div class="edu-grid" style="margin-top:8mm;">
+        <div class="edu"><div class="dg">MSc Construction Engineering Management</div>
+          <div class="in">University of East London</div>
+          <div class="pe">Sep 2024 – Present</div></div>
+        <div class="edu"><div class="dg">BSc Building Technology</div>
+          <div class="in">Federal University of Technology, Akure</div>
+          <div class="pe">2014 – 2019</div></div>
+      </div>
     </div>
 
     <div>
       <p class="label" style="margin-bottom:9px;">Design Competencies</p>
-      <div class="skill-group"><h4>Space Planning &amp; Layout Design</h4>
+      <div class="skill-group"><h4>Space Planning &amp; Layout</h4>
         <div class="pills"><span>Space Planning</span><span>Furniture Layout</span>
-          <span>Circulation &amp; Flow</span><span>Zoning</span>
-          <span>Client Briefing</span></div></div>
+          <span>Circulation &amp; Flow</span><span>Zoning</span></div></div>
       <div class="skill-group"><h4>Materials &amp; Finishes</h4>
         <div class="pills"><span>Material Specification</span>
-          <span>Colour Palettes</span><span>Surface Finishes</span>
-          <span>Fixture Selection</span><span>Lighting Design</span></div></div>
-      <div class="skill-group"><h4>Visualisation &amp; Presentation</h4>
+          <span>Colour Palettes</span><span>Lighting Design</span>
+          <span>Fixture Selection</span></div></div>
+      <div class="skill-group"><h4>Visualisation &amp; Fit-Out</h4>
         <div class="pills"><span>3D Rendering (Lumion)</span>
-          <span>Photorealistic Renders</span><span>Design Presentations</span>
-          <span>Revit BIM Interiors</span><span>AutoCAD Drawings</span></div></div>
-      <div class="skill-group"><h4>Fit-Out Coordination</h4>
-        <div class="pills"><span>Contractor Management</span>
-          <span>MEP Coordination</span><span>Kitchen &amp; Joinery</span>
-          <span>Quality Control</span></div></div>
+          <span>Revit BIM Interiors</span><span>Kitchen &amp; Joinery</span>
+          <span>MEP Coordination</span></div></div>
+
+      <p class="label" style="margin:7mm 0 8px;">Technical Toolkit</p>
+      <div class="tk-grid">
+        <div class="tk"><span class="tkn">Autodesk Revit</span><span class="tkl">Expert · BIM interiors</span></div>
+        <div class="tk"><span class="tkn">Lumion &amp; Qmotion</span><span class="tkl">Advanced · Rendering</span></div>
+        <div class="tk"><span class="tkn">AutoCAD</span><span class="tkl">Expert · Technical drawings</span></div>
+        <div class="tk"><span class="tkn">SketchUp</span><span class="tkl">Proficient · Concept modelling</span></div>
+        <div class="tk"><span class="tkn">Navisworks</span><span class="tkl">Proficient · Coordination</span></div>
+        <div class="tk"><span class="tkn">MS Office Suite</span><span class="tkl">Advanced · Reporting</span></div>
+      </div>
     </div>
   </div>
-
-  <div class="edu-grid">
-    <div class="edu"><div class="dg">MSc Construction Engineering Management</div>
-      <div class="in">University of East London</div>
-      <div class="pe">Sep 2024 – Present</div></div>
-    <div class="edu"><div class="dg">BSc Building Technology</div>
-      <div class="in">Federal University of Technology, Akure</div>
-      <div class="pe">2014 – 2019</div></div>
-  </div>
   __FOOT2__
-</section>
-
-<!-- ════════ 3 · DESIGN TOOLS (dark) ════════ -->
-<section class="sheet dark">
-  <div class="s-head"><div class="accent-bar"></div>
-    <p class="label" style="margin-top:9px;">Technical Toolkit</p>
-    <h2>Design Software &amp; Tools</h2>
-    <p class="sub">Industry-leading tools applied across every stage of the
-      interior design process — from concept sketch to photorealistic render.</p></div>
-
-  <div class="sw-grid">
-    <div class="sw"><div class="ic">&#9670;</div><h4>Autodesk Revit</h4>
-      <div class="lv">Expert — BIM Interior Modelling</div>
-      <p>Fully coordinated interior BIM models with furniture families, material
-        assignments, room schedules and documentation sheets for handover.</p></div>
-    <div class="sw"><div class="ic">&#9671;</div><h4>Lumion &amp; Qmotion</h4>
-      <div class="lv">Advanced — Photorealistic Rendering</div>
-      <p>High-fidelity interior renders and walkthroughs communicating lighting,
-        material quality and spatial atmosphere to clients and stakeholders.</p></div>
-    <div class="sw"><div class="ic">&#9633;</div><h4>AutoCAD</h4>
-      <div class="lv">Expert — Technical Drawings</div>
-      <p>Detailed floor plans, reflected ceiling plans, elevation drawings and
-        joinery details — construction-ready documentation packages.</p></div>
-    <div class="sw"><div class="ic">&#9650;</div><h4>SketchUp</h4>
-      <div class="lv">Proficient — Concept Modelling</div>
-      <p>Rapid 3D massing and concept modelling for early-stage client
-        presentations and design development workshops.</p></div>
-    <div class="sw"><div class="ic">&#9632;</div><h4>Microsoft Office Suite</h4>
-      <div class="lv">Advanced — Project Reporting</div>
-      <p>Design briefs, material schedules, procurement lists, cost estimates
-        and progress reports for clients and project teams.</p></div>
-    <div class="sw"><div class="ic">&#9679;</div><h4>Navisworks</h4>
-      <div class="lv">Proficient — Coordination</div>
-      <p>Multi-discipline model coordination and clash detection to ensure
-        interior fit-out works align with structural and MEP systems.</p></div>
-  </div>
-
-  <div class="disc">
-    <span>Space Planning</span><span>3D Visualisation</span>
-    <span>Material Specification</span><span>Lighting Design</span>
-    <span>Furniture Layout</span><span>Kitchen &amp; Joinery Design</span>
-    <span>Fit-Out Coordination</span><span>MEP Coordination</span>
-    <span>Client Presentations</span><span>Design Documentation</span>
-    <span>Residential Interiors</span><span>Corporate Fit-Outs</span>
-  </div>
 </section>
 
 <!-- ════════ 4 · AREAS OF EXPERTISE ════════ -->
@@ -553,7 +515,7 @@ BODY = """
     <img src="__exp_band__" alt="Residential renovation proposal — Akure family home" />
     <div class="cap">Residential Renovation — Family Home, Akure</div>
   </div>
-  __FOOT4__
+  __FOOT3__
 </section>
 
 <!-- ════════ 5 · SELECTED WORK 01 — IKEJA CONFERENCE ROOM ════════ -->
@@ -575,7 +537,7 @@ BODY = """
       <div class="cap"><span class="t">Material &amp; Finish Study</span>
         <span class="m">Detail</span></div></div>
   </div>
-  __FOOT5__
+  __FOOT4__
 </section>
 
 <!-- ════════ 6 · SELECTED WORK 02 — RESIDENTIAL LIVING SPACES ════════ -->
@@ -598,7 +560,7 @@ BODY = """
       <div class="cap"><span class="t">Space Planning &amp; Layout Study</span>
         <span class="m">Interior</span></div></div>
   </div>
-  __FOOT6__
+  __FOOT5__
 </section>
 
 <!-- ════════ 7 · SELECTED WORK 03 — EXECUTIVE BOARDROOM & CORPORATE ════════ -->
@@ -620,7 +582,7 @@ BODY = """
       <div class="cap"><span class="t">Corporate Interior Study</span>
         <span class="m">Interior</span></div></div>
   </div>
-  __FOOT7__
+  __FOOT6__
 </section>
 
 <!-- ════════ 8 · OTHER PROJECTS ════════ -->
@@ -651,7 +613,7 @@ BODY = """
     <div class="tile"><img src="__g9__" alt="3-bedroom terrace with penthouse" />
       <div class="cap"><span class="t">3-Bed Terrace Penthouse</span><span class="m">Concept</span></div></div>
   </div>
-  __FOOT8__
+  __FOOT7__
 </section>
 
 <!-- ════════ 9 · CONTACT ════════ -->
@@ -684,7 +646,7 @@ def build():
     body = BODY
     for key, uri in IMG.items():
         body = body.replace(f"__{key}__", uri)
-    for n in (2, 4, 5, 6, 7, 8):
+    for n in (2, 3, 4, 5, 6, 7):
         body = body.replace(f"__FOOT{n}__", FOOTER.format(n=f"{n:02d}"))
 
     html = (
