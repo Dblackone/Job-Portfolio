@@ -29,7 +29,7 @@ PICS     = os.path.join(ASSETS, "Project Pictures")
 FONT_DIR = os.path.join(ROOT, "pdf", "fonts")
 OUT      = os.path.join(ASSETS, "vollmann-akarakiri-construction-portfolio.pdf")
 
-TOTAL_PAGES = 7
+TOTAL_PAGES = 11
 
 
 # ───────────────────────── helpers ─────────────────────────
@@ -350,6 +350,13 @@ a{ color:inherit; text-decoration:none; }
 .fig.half img{ height:62mm; }
 .row2{ display:grid; grid-template-columns:1fr 1fr; gap:11px; }
 
+/* ───── CASE STUDY ANNOTATION PAGE ───── */
+.casestudy{ display:grid; grid-template-columns:1fr 1fr; gap:9mm 12mm; }
+.cs-item .cs-label{ font-size:9px; font-weight:600; letter-spacing:0.14em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:6px;
+  padding-bottom:6px; border-bottom:1px solid var(--border); }
+.cs-item p{ font-size:10.5px; line-height:1.68; color:var(--text); }
+
 /* compact technical toolkit (merged onto the profile page) */
 .tk-grid{ display:grid; grid-template-columns:1fr 1fr; gap:7px; }
 .tk{ background:var(--bg); border-radius:6px; padding:8px 11px;
@@ -391,6 +398,99 @@ FOOTER = (
     '<div class="pfoot"><span class="nm">Vollmann Olamide Akarakiri · '
     f'Construction Project Manager</span><span>{{n}} / {TOTAL_PAGES}</span></div>'
 )
+
+def case_study(work_no, title, contribution, process, constraints, solutions,
+               highlights, notes, foot):
+    return f"""
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">Selected Work · {work_no} — Case Study</p>
+    <h2>{title}</h2></div>
+  <div class="casestudy">
+    <div class="cs-item"><div class="cs-label">My Contribution</div><p>{contribution}</p></div>
+    <div class="cs-item"><div class="cs-label">Project Process</div><p>{process}</p></div>
+    <div class="cs-item"><div class="cs-label">Project Constraints</div><p>{constraints}</p></div>
+    <div class="cs-item"><div class="cs-label">Solutions</div><p>{solutions}</p></div>
+    <div class="cs-item"><div class="cs-label">Project Highlights</div><p>{highlights}</p></div>
+    <div class="cs-item"><div class="cs-label">Additional Notes</div><p>{notes}</p></div>
+  </div>
+  {foot}
+</section>"""
+
+CASE_STUDIES = {
+    "__CS1__": case_study(
+        "01", "6-Flat Residential Block, Ikotun",
+        "[Add: specific role and responsibilities on this project]",
+        "[Add: design and construction workflow — from foundation through "
+        "to the completed block]",
+        "[Add: challenges specific to this project]",
+        "[Add: how those challenges were addressed]",
+        "A six-flat residential block delivered from foundation to a "
+        "completed, finished building, with a full technical drawing set "
+        "produced alongside construction.",
+        "Full write-up: <code>assets/Project Pictures/Ikotun "
+        "Apartments/README.md</code>. Also featured in the Draftsman "
+        "portfolio (floor plan as hero image).", "__FOOT4__"),
+    "__CS2__": case_study(
+        "02", "6-Bedroom Duplex, Ado",
+        "Delivered the structural phase on site — foundation, columns, "
+        "slabs and roofing — then, once complete, worked with the client "
+        "through interior concept exploration to final implementation.",
+        "The project ran as two sequential phases: standard structural "
+        "site-engineering sequencing from foundation to roof, followed by "
+        "an interior phase where several design concepts were explored "
+        "with the client before a preferred scheme was agreed and "
+        "implemented.",
+        "Coordinating a single client relationship across two very "
+        "different delivery phases — structural construction, then "
+        "interior fit-out — without losing continuity between them.",
+        "Carrying the same project team and client relationship through "
+        "both phases kept the transition from shell to finished interior "
+        "coherent rather than being handed off cold.",
+        "A six-bedroom duplex delivered from foundation through to a "
+        "fully finished interior, as one continuous client relationship "
+        "spanning both construction and interior phases.",
+        "Full write-up: <code>assets/Project Pictures/Ado 6-Bedroom "
+        "Duplex/README.md</code>. Also featured, from the interior "
+        "perspective, in the Interior Design portfolio.", "__FOOT6__"),
+    "__CS3__": case_study(
+        "03", "Oluku Ultra Modern Market",
+        "[Add: specific role — e.g. site engineering, setting-out and "
+        "survey, drainage design coordination]",
+        "The project was sequenced in two stages: drainage infrastructure "
+        "was designed and built first to establish site water management, "
+        "followed by setting-out and construction of the individual shop "
+        "unit structures.",
+        "[Add: challenges specific to this project — e.g. site drainage "
+        "conditions, phased construction coordination]",
+        "[Add: how those challenges were addressed]",
+        "A reinforced drainage channel and multiple shop unit structures "
+        "delivered as part of a phased market infrastructure development "
+        "in Oluku, Benin City.",
+        "Full write-up: <code>assets/Project Pictures/Oluku Modern "
+        "Market/README.md</code>.", "__FOOT8__"),
+    "__CS4__": case_study(
+        "04", "The Body Shop Outlets",
+        "Coordinated site delivery of the fit-out to The Body Shop's "
+        "supplied concept and international brand standards, across two "
+        "outlets.",
+        "The design concept and brand standards were supplied directly by "
+        "The Body Shop's international design team; the role on site was "
+        "to interpret those drawings and standards, coordinate the fit-out "
+        "trades, and execute the works to specification.",
+        "Matching an international retail brand's exacting standard to "
+        "local site conditions, inside a live shopping-mall environment "
+        "with fixed opening deadlines.",
+        "Close, hands-on coordination between the supplied brand package "
+        "and the on-site trades to keep the finish faithful to spec while "
+        "working within local material and labour constraints.",
+        "Two Body Shop outlets — Ikeja City Mall and Circle Mall, Lekki — "
+        "delivered from bare shell to a fully trading, branded retail "
+        "floor.",
+        "Full write-up: <code>assets/Project Pictures/Body Shop "
+        "Outlets/README.md</code>. Also featured in the Interior Design "
+        "portfolio.", "__FOOT10__"),
+}
 
 
 # ───────────────────────────────── HTML body ────────────────────────────────
@@ -545,8 +645,9 @@ BODY = """
   </div>
   __FOOT3__
 </section>
+__CS1__
 
-<!-- ════════ 4 · SW02 · ADO 6-BEDROOM DUPLEX ════════ -->
+<!-- ════════ 5 · SW02 · ADO 6-BEDROOM DUPLEX ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 02</p>
@@ -566,10 +667,11 @@ BODY = """
       <div class="cap"><span class="t">Interior Finishes Stage</span>
         <span class="m">Finish</span></div></div>
   </div>
-  __FOOT4__
+  __FOOT5__
 </section>
+__CS2__
 
-<!-- ════════ 5 · SW03 · OLUKU ULTRA MODERN MARKET ════════ -->
+<!-- ════════ 7 · SW03 · OLUKU ULTRA MODERN MARKET ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 03</p>
@@ -589,10 +691,11 @@ BODY = """
       <div class="cap"><span class="t">Setting-Out &amp; Survey</span>
         <span class="m">Site</span></div></div>
   </div>
-  __FOOT5__
+  __FOOT7__
 </section>
+__CS3__
 
-<!-- ════════ 6 · SW04 · THE BODY SHOP ════════ -->
+<!-- ════════ 9 · SW04 · THE BODY SHOP ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 04</p>
@@ -612,10 +715,11 @@ BODY = """
       <div class="cap"><span class="t">Feature Mural Wall &amp; Display</span>
         <span class="m">Interior</span></div></div>
   </div>
-  __FOOT6__
+  __FOOT9__
 </section>
+__CS4__
 
-<!-- ════════ 12 · CONTACT ════════ -->
+<!-- ════════ 11 · CONTACT ════════ -->
 <section class="sheet dark">
   <div class="contact">
     <p class="label">Get In Touch</p>
@@ -645,7 +749,9 @@ def build():
     body = BODY
     for key, uri in IMG.items():
         body = body.replace(f"__{key}__", uri)
-    for n in (2, 3, 4, 5, 6):
+    for token, html_block in CASE_STUDIES.items():
+        body = body.replace(token, html_block)
+    for n in (2, 3, 4, 5, 6, 7, 8, 9, 10):
         body = body.replace(f"__FOOT{n}__", FOOTER.format(n=f"{n:02d}"))
 
     html = (

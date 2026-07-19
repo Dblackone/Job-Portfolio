@@ -293,6 +293,13 @@ a{ color:inherit; text-decoration:none; }
 .tk .tkn{ display:block; font-size:10.5px; font-weight:600; color:var(--dark); }
 .tk .tkl{ display:block; font-size:8.5px; color:var(--accent); margin-top:1px; }
 
+/* ───── CASE STUDY ANNOTATION PAGE ───── */
+.casestudy{ display:grid; grid-template-columns:1fr 1fr; gap:9mm 12mm; }
+.cs-item .cs-label{ font-size:9px; font-weight:600; letter-spacing:0.14em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:6px;
+  padding-bottom:6px; border-bottom:1px solid var(--border); }
+.cs-item p{ font-size:10.5px; line-height:1.68; color:var(--text); }
+
 /* ───── OTHER PROJECTS GRID ───── */
 .other-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:11px; }
 .tile{ border:1px solid var(--border); border-radius:8px; overflow:hidden;
@@ -540,6 +547,33 @@ def selectedwork_sheet(sw, idx):
 </section>"""
 
 
+CASE_STUDY_FIELDS = [
+    ("contribution", "My Contribution"),
+    ("process", "Project Process"),
+    ("constraints", "Project Constraints"),
+    ("solutions", "Solutions"),
+    ("highlights", "Project Highlights"),
+    ("notes", "Additional Notes"),
+]
+
+def case_study_sheet(sw, idx):
+    cs = sw.get("case_study", {})
+    label = sw.get("label", f"Selected Work · {idx:02d}") + " — Case Study"
+    items = "".join(
+        f'<div class="cs-item"><div class="cs-label">{esc(title)}</div>'
+        f'<p>{cs.get(key, "")}</p></div>'
+        for key, title in CASE_STUDY_FIELDS
+    )
+    return f"""
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">{esc(label)}</p>
+    <h2>{esc(sw["title"])}</h2></div>
+  <div class="casestudy">{items}</div>
+  __FOOT__
+</section>"""
+
+
 def gallery_sheet(g):
     tiles = ""
     for item in g.get("tiles", []):
@@ -601,6 +635,8 @@ def build(config, base_dir=".", out=None, font_dir=None):
         sheets.append(expertise_sheet(config["expertise"], config["expertise"].get("band")))
     for i, sw in enumerate(config.get("selected_work", []), start=1):
         sheets.append(selectedwork_sheet(sw, i))
+        if sw.get("case_study"):
+            sheets.append(case_study_sheet(sw, i))
     if config.get("gallery"):
         sheets.append(gallery_sheet(config["gallery"]))
     if config.get("contact"):

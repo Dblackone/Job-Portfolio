@@ -331,6 +331,13 @@ a{ color:inherit; text-decoration:none; }
 .fig.half img{ height:62mm; }
 .row2{ display:grid; grid-template-columns:1fr 1fr; gap:11px; }
 
+/* ───── CASE STUDY ANNOTATION PAGE ───── */
+.casestudy{ display:grid; grid-template-columns:1fr 1fr; gap:9mm 12mm; }
+.cs-item .cs-label{ font-size:9px; font-weight:600; letter-spacing:0.14em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:6px;
+  padding-bottom:6px; border-bottom:1px solid var(--border); }
+.cs-item p{ font-size:10.5px; line-height:1.68; color:var(--text); }
+
 /* ───── OTHER PROJECTS GRID ───── */
 .other-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:11px; }
 .tile{ border:1px solid var(--border); border-radius:8px; overflow:hidden;
@@ -381,8 +388,26 @@ def icon_card(glyph, dark=False):
 
 PORTFOLIO_FOOTER = (
     '<div class="pfoot"><span class="nm">Vollmann Olamide Akarakiri · '
-    'Construction Project Manager</span><span>{n} / 12</span></div>'
+    'Construction Project Manager</span><span>{n} / 17</span></div>'
 )
+
+def case_study(work_no, title, contribution, process, constraints, solutions,
+               highlights, notes, foot):
+    return f"""
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">Selected Work · {work_no} — Case Study</p>
+    <h2>{title}</h2></div>
+  <div class="casestudy">
+    <div class="cs-item"><div class="cs-label">My Contribution</div><p>{contribution}</p></div>
+    <div class="cs-item"><div class="cs-label">Project Process</div><p>{process}</p></div>
+    <div class="cs-item"><div class="cs-label">Project Constraints</div><p>{constraints}</p></div>
+    <div class="cs-item"><div class="cs-label">Solutions</div><p>{solutions}</p></div>
+    <div class="cs-item"><div class="cs-label">Project Highlights</div><p>{highlights}</p></div>
+    <div class="cs-item"><div class="cs-label">Additional Notes</div><p>{notes}</p></div>
+  </div>
+  {foot}
+</section>"""
 
 BODY = """
 <!-- ════════ 1 · COVER ════════ -->
@@ -688,8 +713,9 @@ BODY = """
   </div>
   __FOOT6__
 </section>
+__CS1__
 
-<!-- ════════ 7 · SELECTED WORK 02 — HILLSIDE (CONCEPT) ════════ -->
+<!-- ════════ 8 · SELECTED WORK 02 — HILLSIDE (CONCEPT) ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 02</p>
@@ -708,10 +734,11 @@ BODY = """
       <div class="cap"><span class="t">Material &amp; Façade Study</span>
         <span class="m">Detail</span></div></div>
   </div>
-  __FOOT7__
+  __FOOT8__
 </section>
+__CS2__
 
-<!-- ════════ 8 · SELECTED WORK 03 — LANDSCAPE & SITE DEVELOPMENT ════════ -->
+<!-- ════════ 10 · SELECTED WORK 03 — LANDSCAPE & SITE DEVELOPMENT ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 03</p>
@@ -730,10 +757,11 @@ BODY = """
       <div class="cap"><span class="t">Residence &amp; Carport</span>
         <span class="m">Render</span></div></div>
   </div>
-  __FOOT8__
+  __FOOT10__
 </section>
+__CS3__
 
-<!-- ════════ 9 · SELECTED WORK 04 — 4-BEDROOM FAMILY HOUSE, USELU ════════ -->
+<!-- ════════ 12 · SELECTED WORK 04 — 4-BEDROOM FAMILY HOUSE, USELU ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 04</p>
@@ -751,10 +779,11 @@ BODY = """
       <div class="cap"><span class="t">Material &amp; Detail Study</span>
         <span class="m">Details</span></div></div>
   </div>
-  __FOOT9__
+  __FOOT12__
 </section>
+__CS4__
 
-<!-- ════════ 10 · SELECTED WORK 05 — 6-FLAT APARTMENT BLOCK, IKOTUN ════════ -->
+<!-- ════════ 14 · SELECTED WORK 05 — 6-FLAT APARTMENT BLOCK, IKOTUN ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 05</p>
@@ -773,10 +802,11 @@ BODY = """
       <div class="cap"><span class="t">Massing &amp; Structure</span>
         <span class="m">Revit</span></div></div>
   </div>
-  __FOOT10__
+  __FOOT14__
 </section>
+__CS5__
 
-<!-- ════════ 11 · OTHER PROJECTS ════════ -->
+<!-- ════════ 16 · OTHER PROJECTS ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">More Work</p>
@@ -804,7 +834,7 @@ BODY = """
     <div class="tile"><img src="__g9__" alt="Event hall massing model" />
       <div class="cap"><span class="t">Event Hall Massing</span><span class="m">Concept</span></div></div>
   </div>
-  __FOOT11__
+  __FOOT16__
 </section>
 
 <!-- ════════ 12 · CONTACT ════════ -->
@@ -833,11 +863,88 @@ BODY = """
 """
 
 
+CASE_STUDIES = {
+    "__CS1__": case_study(
+        "01", "Hall of Worship, Ado",
+        "Coordinated the structural BIM model and produced the dimensioned "
+        "documentation set (floor plan, site layout) from the church's "
+        "supplied concept.",
+        "The church leadership provided an existing building concept to "
+        "improve and modernise. The existing structure was studied to "
+        "identify enhancement opportunities while retaining the facility's "
+        "core identity, then landscape and circulation were integrated into "
+        "one coordinated scheme.",
+        "Balancing a modern architectural upgrade against preserving an "
+        "established, identity-bearing religious building — the design "
+        "could not read as a wholesale replacement.",
+        "Retained the core massing and identity of the existing facility "
+        "while introducing a strong geometric front elevation, a prominent "
+        "cross feature and an enhanced entrance sequence.",
+        "A complete construction documentation and approval-drawing package "
+        "delivered alongside an integrated landscape and circulation design.",
+        "See the full project write-up in <code>assets/Project Pictures/Ado "
+        "Hall of Worship/README.md</code>.", "__FOOT7__"),
+    "__CS2__": case_study(
+        "02", "The Hillside Project",
+        "Sole design development — massing studies, terrain-responsive "
+        "planning and visualisation of the concept.",
+        "Developed through careful massing and level-manipulation studies "
+        "so the building form steps with the terrain rather than requiring "
+        "it to be levelled.",
+        "A steep, irregular hillside site that a conventional flat-plate "
+        "building approach would have required extensive cut-and-fill to "
+        "accommodate.",
+        "Let the building emerge from the slope in stages rather than "
+        "sitting on a single graded platform, minimising disruption to the "
+        "natural landscape.",
+        "A two-storey terrace residence concept that reads as embedded in "
+        "its hillside site rather than imposed on it.",
+        "Concept/unbuilt — a design exploration rather than a delivered "
+        "project. See <code>assets/Project Pictures/Hillside "
+        "Project/README.md</code>.", "__FOOT9__"),
+    "__CS3__": case_study(
+        "03", "Landscape &amp; Site Development",
+        "[Add: specific role and responsibilities on this collection of "
+        "site-development renders]",
+        "[Add: design/development process for this work]",
+        "[Add: challenges specific to this project]",
+        "[Add: how those challenges were addressed]",
+        "[Add: notable outcomes]",
+        "This Selected Work draws from a broader renders collection — see "
+        "<code>assets/Project Pictures/Landscape Projects/README.md</code> "
+        "for the full image inventory and a note on further folder "
+        "organisation.", "__FOOT11__"),
+    "__CS4__": case_study(
+        "04", "4-Bedroom Family House, Uselu",
+        "[Add: specific role and responsibilities on this project]",
+        "[Add: design process for this concept]",
+        "[Add: challenges specific to this project]",
+        "[Add: how those challenges were addressed]",
+        "[Add: notable outcomes]",
+        "Concept/visualisation only — no site or construction photography "
+        "currently exists. See <code>assets/Project Pictures/Uselu Family "
+        "house/README.md</code>.", "__FOOT13__"),
+    "__CS5__": case_study(
+        "05", "6-Flat Apartment Block, Ikotun",
+        "[Add: specific role and responsibilities on this project]",
+        "[Add: design and construction workflow for this project]",
+        "[Add: challenges specific to this project]",
+        "[Add: how those challenges were addressed]",
+        "A six-flat residential block delivered from foundation to a "
+        "completed, finished building, with a full technical drawing set "
+        "produced alongside construction.",
+        "See <code>assets/Project Pictures/Ikotun Apartments/README.md</code> "
+        "for the full drawing and site-photo inventory.", "__FOOT15__"),
+}
+
+
 def build():
     body = BODY
     for key, uri in IMG.items():
         body = body.replace(f"__{key}__", uri)
-    for n in (2, 4, 5, 6, 7, 8, 9, 10, 11):
+    for token, html_block in CASE_STUDIES.items():
+        body = body.replace(token, html_block)
+    for n in (2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16):
         body = body.replace(f"__FOOT{n}__", PORTFOLIO_FOOTER.format(n=f"{n:02d}"))
 
     html = (

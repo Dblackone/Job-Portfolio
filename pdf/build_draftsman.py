@@ -142,7 +142,30 @@ CONFIG = {
               "Structural Frame — Hidden-Line Axonometric", "Revit"),
              (f"{PICS}/Ado Hall of Worship/Screenshot 2026-05-16 091805.png",
               "Site Layout — Massing & Landscape", "Site Plan"),
-         ]},
+         ],
+         "case_study": {
+             "contribution": "Produced the dimensioned floor plan and site "
+                 "layout sheet, and coordinated the structural BIM model "
+                 "used to generate the hidden-line axonometric.",
+             "process": "The church leadership provided an existing "
+                 "building concept to improve and modernise. The existing "
+                 "structure was studied to identify enhancement "
+                 "opportunities, then dimensioned documentation and a "
+                 "coordinated structural model were produced from that "
+                 "concept.",
+             "constraints": "Producing a fully dimensioned, buildable "
+                 "documentation set from a client-supplied concept while "
+                 "preserving the existing facility's identity.",
+             "solutions": "Coordinated the structural model against the "
+                 "floor plan and site layout so all three drawings agreed "
+                 "before issue, catching discrepancies before they reached "
+                 "site.",
+             "highlights": "A titled, dimensioned floor plan sheet (1:60) "
+                 "coordinated with a structural hidden-line axonometric and "
+                 "a full site layout drawing.",
+             "notes": "Full project write-up: <code>assets/Project "
+                 "Pictures/Ado Hall of Worship/README.md</code>.",
+         }},
         {"title": "6-Flat Block, Ikotun",
          "sub": "Working-drawing set for a six-flat residential block — "
                 "dimensioned floor plan, coordinated elevation and plumbing "
@@ -156,7 +179,22 @@ CONFIG = {
               "Front Elevation — Levels & Datums", "Elevation"),
              (f"{PICS}/Ikotun Apartments/ikotun-mep-plumbing-schematic.jpg",
               "Plumbing Services Schematic", "MEP"),
-         ]},
+         ],
+         "case_study": {
+             "contribution": "[Add: specific role and responsibilities on "
+                 "this drawing set]",
+             "process": "[Add: description of how this drawing set was "
+                 "produced and coordinated]",
+             "constraints": "[Add: challenges specific to this project]",
+             "solutions": "[Add: how those challenges were addressed]",
+             "highlights": "A coordinated working-drawing set — floor "
+                 "plan, elevation and MEP/plumbing schematic — for a "
+                 "six-flat residential block, produced alongside its "
+                 "construction.",
+             "notes": "Full project write-up: <code>assets/Project "
+                 "Pictures/Ikotun Apartments/README.md</code>. Also "
+                 "featured in the Construction portfolio.",
+         }},
         {"title": "FHS Hotel Pool, Ibafo",
          "sub": "Pool structure documentation for FHS Hotel — dimensioned plan, "
                 "wall-and-drainage section detail and coordinated isometrics.",
@@ -169,7 +207,23 @@ CONFIG = {
               "Wall & Drainage Section Detail", "Section"),
              (f"{PICS}/FHS Hotel Pool Ibafo/fhs-pool-isometric-1.jpg",
               "Structural Isometric — Dimensioned", "Isometric"),
-         ]},
+         ],
+         "case_study": {
+             "contribution": "Produced the pool's technical documentation — "
+                 "dimensioned plan, structural isometrics and the wall/"
+                 "drainage section detail.",
+             "process": "[Add: description of the design/documentation "
+                 "process for this pool structure]",
+             "constraints": "[Add: challenges specific to this project — "
+                 "e.g. drainage/waterproofing detailing, curved pool "
+                 "geometry]",
+             "solutions": "[Add: how those challenges were addressed]",
+             "highlights": "A complete, dimensioned pool structural and "
+                 "drainage documentation package, coordinated across plan, "
+                 "section and isometric views.",
+             "notes": "Full project write-up: <code>assets/Project "
+                 "Pictures/FHS Hotel Pool Ibafo/README.md</code>.",
+         }},
     ],
     "gallery": {
         "label": "More Work", "heading": "Further Drawing Studies",
