@@ -20,7 +20,7 @@ PICS = os.path.join(ASSETS, "Project Pictures")
 FONT_DIR = os.path.join(ROOT, "pdf", "fonts")
 OUT = os.path.join(ASSETS, "vollmann-akarakiri-interior-portfolio.pdf")
 
-TOTAL_PAGES = 10
+TOTAL_PAGES = 15
 
 
 def font_uri(weight):
@@ -300,6 +300,13 @@ a{ color:inherit; text-decoration:none; }
 .fig.half img{ height:62mm; }
 .row2{ display:grid; grid-template-columns:1fr 1fr; gap:11px; }
 
+/* ───── CASE STUDY ANNOTATION PAGE ───── */
+.casestudy{ display:grid; grid-template-columns:1fr 1fr; gap:9mm 12mm; }
+.cs-item .cs-label{ font-size:9px; font-weight:600; letter-spacing:0.14em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:6px;
+  padding-bottom:6px; border-bottom:1px solid var(--border); }
+.cs-item p{ font-size:10.5px; line-height:1.68; color:var(--text); }
+
 /* placeholder used when a hero image of the right aspect ratio is pending */
 .fig.big .hero-ph{ height:96mm; display:flex; flex-direction:column;
   align-items:center; justify-content:center; text-align:center;
@@ -366,6 +373,129 @@ FOOTER = (
     '<div class="pfoot"><span class="nm">Vollmann Olamide Akarakiri · '
     f'Interior Design Specialist</span><span>{{n}} / {TOTAL_PAGES}</span></div>'
 )
+
+def case_study(work_no, title, contribution, process, constraints, solutions,
+               highlights, notes, foot):
+    return f"""
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">Selected Work · {work_no} — Case Study</p>
+    <h2>{title}</h2></div>
+  <div class="casestudy">
+    <div class="cs-item"><div class="cs-label">My Contribution</div><p>{contribution}</p></div>
+    <div class="cs-item"><div class="cs-label">Project Process</div><p>{process}</p></div>
+    <div class="cs-item"><div class="cs-label">Project Constraints</div><p>{constraints}</p></div>
+    <div class="cs-item"><div class="cs-label">Solutions</div><p>{solutions}</p></div>
+    <div class="cs-item"><div class="cs-label">Project Highlights</div><p>{highlights}</p></div>
+    <div class="cs-item"><div class="cs-label">Additional Notes</div><p>{notes}</p></div>
+  </div>
+  {foot}
+</section>"""
+
+CASE_STUDIES = {
+    "__CS1__": case_study(
+        "01", "The Body Shop — Retail Interior",
+        "Interpreted The Body Shop's supplied international concept and brand "
+        "standards for local site conditions, and coordinated the fit-out "
+        "trades on site to deliver both stores.",
+        "The design concept and brand standards were supplied directly by "
+        "The Body Shop's international design team; the role here was to "
+        "interpret those drawings and standards, coordinate the fit-out "
+        "trades and execute to specification rather than originate the "
+        "design from scratch.",
+        "Matching an international retail brand's exacting standard to "
+        "local site conditions and material/labour availability, inside a "
+        "live shopping-mall environment with fixed opening deadlines.",
+        "Close, hands-on coordination between the supplied brand package "
+        "and the on-site trades to keep the finish faithful to spec while "
+        "working within local constraints.",
+        "Two Body Shop outlets — Ikeja City Mall and Circle Mall, Lekki — "
+        "delivered to international brand specification, from bare shell to "
+        "a fully trading, branded retail floor.",
+        "Full write-up: <code>assets/Project Pictures/Body Shop "
+        "Outlets/README.md</code>. Also featured, from a construction "
+        "delivery perspective, in the Construction portfolio.", "__FOOT5__"),
+    "__CS2__": case_study(
+        "02", "Alcove Home — Residential Interior",
+        "Led the project from design agreement through to handover — "
+        "producing working drawings, coordinating fabrication and managing "
+        "on-site installation.",
+        "Once the design direction was agreed with the client, detailed "
+        "working drawings were produced, fabrication was coordinated and "
+        "supervised off-site, and the finished pieces were installed on "
+        "site.",
+        "A hard six-week deadline for a full bespoke interior fit-out, for "
+        "a family who had just moved into the home.",
+        "Compressed the programme by starting each stage — drawings, "
+        "fabrication, installation — as soon as the prior stage was "
+        "confirmed, rather than sequencing them with buffer time between.",
+        "A complete residential interior — marble feature wall with cove "
+        "lighting, bespoke console and study/display joinery — delivered "
+        "concept-to-installed in roughly six weeks.",
+        "Full write-up: <code>assets/Project Pictures/Alcove Home "
+        "Interior/README.md</code>.", "__FOOT7__"),
+    "__CS3__": case_study(
+        "03", "Six-Bedroom Duplex Interior, Ado",
+        "Explored several interior concepts with the client after the "
+        "building's construction phase completed, then developed and "
+        "implemented the detailed interior package.",
+        "Commissioned once the structural build was complete. Several "
+        "interior concepts were explored and discussed with the client "
+        "before the preferred scheme was agreed, then developed into a "
+        "detailed package and implemented on site.",
+        "Turning a finished but unfinished structural shell into a "
+        "cohesive living environment, while aligning on one preferred "
+        "direction from several client-reviewed concepts.",
+        "Iterative concept review with the client before committing to "
+        "detailed design, so the final package matched an already-agreed "
+        "direction rather than requiring rework mid-implementation.",
+        "A living room feature wall and media unit, marble kitchen and "
+        "island, and dining room delivered as one continuous interior "
+        "package following the building's construction phase.",
+        "Full write-up (covering both construction and interior phases): "
+        "<code>assets/Project Pictures/Ado 6-Bedroom Duplex/README.md</code>. "
+        "The structural phase is also featured in the Construction "
+        "portfolio.", "__FOOT9__"),
+    "__CS4__": case_study(
+        "04", "Fina Trust Bank — Sales Outlet",
+        "Developed multiple design options for stakeholder review, then "
+        "produced the final design and layout package once a concept was "
+        "selected.",
+        "Several design options were developed and presented to the "
+        "project's stakeholders. Following design reviews and "
+        "consultation, a preferred concept was selected and the final "
+        "design package was completed and prepared for execution.",
+        "Aligning multiple banking-outlet stakeholders behind one design "
+        "direction, then delivering a complete, execution-ready package in "
+        "a compressed three-week window.",
+        "Presenting several distinct, fully-developed options up front — "
+        "rather than one refined proposal — gave stakeholders a clear "
+        "basis for quick, confident decision-making.",
+        "A branded reception lounge, workstation zone and glazed "
+        "partitions delivered from a multi-option stakeholder review to a "
+        "completed outlet in Orile, Lagos.",
+        "Full write-up: <code>assets/Project Pictures/Fina Trust "
+        "Bank/README.md</code>. Also featured in the Construction "
+        "portfolio.", "__FOOT11__"),
+    "__CS5__": case_study(
+        "05", "Sapele Road — Residential Interiors",
+        "Developed tailored interior concepts for two separate residences, "
+        "then progressed each through detailed design and implementation.",
+        "The project began with tailored interior concepts for both the "
+        "four-bedroom and five-bedroom homes before progressing into "
+        "detailed design development and implementation.",
+        "Delivering two distinct residences under one project while "
+        "keeping a consistent design language across both homes, each with "
+        "its own client preferences to reflect.",
+        "[Add: how consistency across two residences was maintained in "
+        "practice]",
+        "Bespoke fitted kitchens, media walls and wardrobe joinery "
+        "delivered across two private residences with a shared design "
+        "language.",
+        "Full write-up: <code>assets/Project Pictures/Sapele Road "
+        "Project/README.md</code>. Hero image for this Selected Work is "
+        "still pending a landscape-orientation photograph.", "__FOOT13__"),
+}
 
 BODY = """
 <!-- ════════ 1 · COVER ════════ -->
@@ -566,14 +696,9 @@ BODY = """
       <div class="cap"><span class="t">Counter &amp; Display Detail</span>
         <span class="m">Interior</span></div></div>
   </div>
-  <div class="highlight"><div class="hl-label">Project Highlight</div>
-    <p>Delivered for The Body Shop's second and third Nigerian stores as the
-      international brand entered the market. Working to the client's supplied
-      concept and global brand standards, our role was to interpret, coordinate
-      and execute those requirements on site — producing stores true to the
-      international specification with a high-quality local finish.</p></div>
   __FOOT4__
 </section>
+__CS1__
 
 <!-- ════════ 6 · SELECTED WORK 02 — ALCOVE HOME ════════ -->
 <section class="sheet white">
@@ -593,16 +718,11 @@ BODY = """
       <div class="cap"><span class="t">Study &amp; Display Joinery</span>
         <span class="m">Interior</span></div></div>
   </div>
-  <div class="highlight"><div class="hl-label">Project Highlight</div>
-    <p>A complete residential interior for a family newly settled into their Yaba
-      home, delivered end to end in roughly six weeks. Once the design direction
-      was agreed, we produced detailed working drawings, coordinated and
-      supervised furniture fabrication, and managed on-site installation to meet
-      a tight handover.</p></div>
-  __FOOT5__
+  __FOOT6__
 </section>
+__CS2__
 
-<!-- ════════ 7 · SELECTED WORK 03 — SIX-BEDROOM DUPLEX INTERIOR, ADO ════════ -->
+<!-- ════════ 8 · SELECTED WORK 03 — SIX-BEDROOM DUPLEX INTERIOR, ADO ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 03</p>
@@ -620,16 +740,11 @@ BODY = """
       <div class="cap"><span class="t">Dining Room</span>
         <span class="m">Interior</span></div></div>
   </div>
-  <div class="highlight"><div class="hl-label">Project Highlight</div>
-    <p>Commissioned once the building's construction phase was complete. Working
-      closely with the client, several interior concepts were explored before
-      the preferred scheme was agreed; the detailed package was then developed
-      and implemented — transforming the finished structure into a cohesive,
-      refined living environment.</p></div>
-  __FOOT6__
+  __FOOT8__
 </section>
+__CS3__
 
-<!-- ════════ 8 · SELECTED WORK 04 — FINA TRUST BANK ════════ -->
+<!-- ════════ 10 · SELECTED WORK 04 — FINA TRUST BANK ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 04</p>
@@ -647,15 +762,11 @@ BODY = """
       <div class="cap"><span class="t">Glazed Partitions &amp; Entrance</span>
         <span class="m">Interior</span></div></div>
   </div>
-  <div class="highlight"><div class="hl-label">Project Highlight</div>
-    <p>An interior scheme for Fina Trust Bank. Several design options were
-      developed and presented to the project's stakeholders; following design
-      reviews and consultation, a preferred concept was selected and the final
-      package completed in about three weeks, ready for execution.</p></div>
-  __FOOT7__
+  __FOOT10__
 </section>
+__CS4__
 
-<!-- ════════ 9 · SELECTED WORK 05 — SAPELE ROAD ════════ -->
+<!-- ════════ 12 · SELECTED WORK 05 — SAPELE ROAD ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 05</p>
@@ -677,16 +788,11 @@ BODY = """
       <div class="cap"><span class="t">TV Entertainment Unit</span>
         <span class="m">Interior</span></div></div>
   </div>
-  <div class="highlight"><div class="hl-label">Project Highlight</div>
-    <p>Interior design for two adjacent private residences on Sapele Road — a
-      four-bedroom and a five-bedroom home. Tailored concepts were developed for
-      each before progressing into detailed design and implementation, giving
-      both homes a consistent design language while reflecting the client's
-      individual preferences.</p></div>
-  __FOOT8__
+  __FOOT12__
 </section>
+__CS5__
 
-<!-- ════════ 10 · MORE WORK ════════ -->
+<!-- ════════ 14 · MORE WORK ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">More Work</p>
@@ -714,10 +820,10 @@ BODY = """
     <div class="tile"><img src="__gm6__" alt="Ado duplex 3D textured feature wall" />
       <div class="cap"><span class="t">3D Textured Feature Wall</span><span class="m">Interior</span></div></div>
   </div>
-  __FOOT9__
+  __FOOT14__
 </section>
 
-<!-- ════════ 9 · CONTACT ════════ -->
+<!-- ════════ 15 · CONTACT ════════ -->
 <section class="sheet dark">
   <div class="contact">
     <p class="label">Get In Touch</p>
@@ -747,7 +853,9 @@ def build():
     body = BODY
     for key, uri in IMG.items():
         body = body.replace(f"__{key}__", uri)
-    for n in (2, 3, 4, 5, 6, 7, 8, 9):
+    for token, html_block in CASE_STUDIES.items():
+        body = body.replace(token, html_block)
+    for n in (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14):
         body = body.replace(f"__FOOT{n}__", FOOTER.format(n=f"{n:02d}"))
 
     html = (
