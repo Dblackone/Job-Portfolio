@@ -11,7 +11,7 @@ import base64
 import io
 import os
 
-from PIL import Image
+from PIL import Image, ImageOps
 from weasyprint import HTML
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +20,7 @@ PICS = os.path.join(ASSETS, "Project Pictures")
 FONT_DIR = os.path.join(ROOT, "pdf", "fonts")
 OUT = os.path.join(ASSETS, "vollmann-akarakiri-interior-portfolio.pdf")
 
-TOTAL_PAGES = 8
+TOTAL_PAGES = 12
 
 
 def font_uri(weight):
@@ -31,6 +31,7 @@ def font_uri(weight):
 
 def img_uri(path, max_px=1280, quality=82, keep_alpha=False):
     im = Image.open(path)
+    im = ImageOps.exif_transpose(im)          # keep phone photos upright
     w, h = im.size
     scale = min(1.0, max_px / float(max(w, h)))
     if scale < 1.0:
@@ -52,10 +53,11 @@ def img_uri(path, max_px=1280, quality=82, keep_alpha=False):
 
 INTOP = os.path.join(PICS, "Interior Residential Operations")
 IKEJA = os.path.join(PICS, "Design For Ikeja confencens room")
-SCHEMA = os.path.join(PICS, "Concept schema projects")
-LAND = os.path.join(PICS, "Landscape Projects")
-OTHER = os.path.join(PICS, "Other Renders")
-RENO = os.path.join(PICS, "Renovation Akure")
+BODY_SHOP = os.path.join(PICS, "Body Shop Outlets")
+ALCOVE = os.path.join(PICS, "Alcove Home Interior")
+ADO = os.path.join(PICS, "Ado 6-Bedroom Duplex")
+FINA = os.path.join(PICS, "Fina Trust Bank")
+SAPELE = os.path.join(PICS, "Sapele Road Project")
 
 IMG = {
     "profile":      img_uri(os.path.join(ASSETS, "vollmann-akarakiri-profile.png"),
@@ -64,37 +66,52 @@ IMG = {
     "cover_band":   img_uri(os.path.join(INTOP, "Living Space.png"),
                             max_px=1600, quality=84),
 
-    # ── SW 01: Ikeja Conference Room ──
+    # ── SW 01: Ikeja Conference Room (render) ──
     "ikeja_hero":   img_uri(os.path.join(IKEJA, "Image2_050.png")),
     "ikeja_b":      img_uri(os.path.join(IKEJA, "Image4_034.png")),
     "ikeja_c":      img_uri(os.path.join(IKEJA, "Image6_014.png")),
 
-    # ── SW 02: Residential Living Spaces ──
+    # ── SW 02: Residential Living Spaces (render) ──
     "res_hero":     img_uri(os.path.join(INTOP, "RENDER 1.png")),
     "res_b":        img_uri(os.path.join(INTOP, "RENDER 2.png")),
     "res_c":        img_uri(os.path.join(INTOP, "Image2_048.png")),
 
-    # ── SW 03: Executive Boardroom & Corporate Spaces ──
-    "board_hero":   img_uri(os.path.join(INTOP, "Executive Boardroom.jpeg")),
-    "board_b":      img_uri(os.path.join(INTOP, "Bathroom Suite.png")),
-    "board_c":      img_uri(os.path.join(INTOP, "Image3_033.png")),
+    # ── SW 03: The Body Shop — retail interior fit-out ──
+    "bs_hero":      img_uri(os.path.join(BODY_SHOP, "body-shop-mural-display.jpeg")),
+    "bs_b":         img_uri(os.path.join(BODY_SHOP, "body-shop-retail-floor.jpeg")),
+    "bs_c":         img_uri(os.path.join(BODY_SHOP, "body-shop-counter-display.jpeg")),
 
-    # ── Expertise band: Renovation render ──
-    "exp_band":     img_uri(os.path.join(RENO, "Akure Family Home.png"),
+    # ── SW 04: Alcove Homes — residential interior ──
+    "alc_hero":     img_uri(os.path.join(ALCOVE, "Alcove Home Feature Wall.png")),
+    "alc_b":        img_uri(os.path.join(ALCOVE, "alcove-homes-06.jpg")),
+    "alc_c":        img_uri(os.path.join(ALCOVE, "alcove-homes-09.jpg")),
+
+    # ── SW 05: Six-Bedroom Duplex Interior, Ado ──
+    "ado_hero":     img_uri(os.path.join(ADO, "ado-duplex-interior-05.jpg")),
+    "ado_b":        img_uri(os.path.join(ADO, "ado-duplex-interior-01.jpg")),
+    "ado_c":        img_uri(os.path.join(ADO, "ado-duplex-interior-07.jpg")),
+
+    # ── SW 06: Fina Trust Bank — sales outlet interior ──
+    "fina_hero":    img_uri(os.path.join(FINA, "fina-outlet-01.jpg")),
+    "fina_b":       img_uri(os.path.join(FINA, "fina-outlet-02.jpg")),
+    "fina_c":       img_uri(os.path.join(FINA, "fina-outlet-03.jpg")),
+
+    # ── SW 07: Sapele Road — bespoke joinery & kitchen ──
+    "sap_hero":     img_uri(os.path.join(SAPELE, "sapele-road-01.jpg")),
+    "sap_b":        img_uri(os.path.join(SAPELE, "sapele-road-05.jpg")),
+    "sap_c":        img_uri(os.path.join(SAPELE, "sapele-road-03.jpg")),
+
+    # ── Expertise band: built interior ──
+    "exp_band":     img_uri(os.path.join(ADO, "ado-duplex-interior-06.jpg"),
                             max_px=1600, quality=84),
 
-    # ── Other Projects gallery (9 tiles) ──
-    "g1":  img_uri(os.path.join(IKEJA, "Image1_062.png"),         max_px=860, quality=80),
-    "g2":  img_uri(os.path.join(IKEJA, "Image1_061.png"),         max_px=860, quality=80),
-    "g3":  img_uri(os.path.join(IKEJA, "Image2_051.png"),         max_px=860, quality=80),
-    "g4":  img_uri(os.path.join(SCHEMA, "SCHEMA 01 - CLIAMTE COLAGE.png"),
-                                                                    max_px=860, quality=80),
-    "g5":  img_uri(os.path.join(SCHEMA, "LOFT RAW 1.jpg"),        max_px=860, quality=80),
-    "g6":  img_uri(os.path.join(SCHEMA, "BIG SCHEMA RAW 1.jpg"),  max_px=860, quality=80),
-    "g7":  img_uri(os.path.join(OTHER, "Event Hall.png"),         max_px=860, quality=80),
-    "g8":  img_uri(os.path.join(OTHER, "Entrance Gatehouse.png"), max_px=860, quality=80),
-    "g9":  img_uri(os.path.join(SCHEMA, "3 BEDROOM TRERACE WITH PENT HOUSE - RAW 1.jpg"),
-                                                                    max_px=860, quality=80),
+    # ── More Work gallery (6 tiles — real interior only) ──
+    "gm1":  img_uri(os.path.join(ADO, "ado-duplex-interior-10.jpg"),   max_px=860, quality=80),
+    "gm2":  img_uri(os.path.join(ADO, "ado-duplex-interior-08.jpg"),   max_px=860, quality=80),
+    "gm3":  img_uri(os.path.join(ALCOVE, "alcove-homes-05.jpg"),       max_px=860, quality=80),
+    "gm4":  img_uri(os.path.join(ALCOVE, "alcove-homes-07.jpg"),       max_px=860, quality=80),
+    "gm5":  img_uri(os.path.join(SAPELE, "sapele-road-04.jpg"),        max_px=860, quality=80),
+    "gm6":  img_uri(os.path.join(ADO, "ado-duplex-interior-09.jpg"),   max_px=860, quality=80),
 }
 
 FONT_FACES = "".join(
@@ -512,8 +529,8 @@ BODY = """
   </div>
 
   <div class="img-band">
-    <img src="__exp_band__" alt="Residential renovation proposal — Akure family home" />
-    <div class="cap">Residential Renovation — Family Home, Akure</div>
+    <img src="__exp_band__" alt="Built interior — six-bedroom duplex, Ado" />
+    <div class="cap">Built Interior — Six-Bedroom Duplex, Ado</div>
   </div>
   __FOOT3__
 </section>
@@ -563,57 +580,144 @@ BODY = """
   __FOOT5__
 </section>
 
-<!-- ════════ 7 · SELECTED WORK 03 — EXECUTIVE BOARDROOM & CORPORATE ════════ -->
+<!-- ════════ 7 · SELECTED WORK 03 — THE BODY SHOP ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Selected Work · 03</p>
-    <h2>Executive Boardroom &amp; Corporate Spaces</h2>
-    <p class="sub">High-end executive and corporate interior environments —
-      designed for authority, comfort and professional presence.</p></div>
+    <h2>The Body Shop — Retail Interior</h2>
+    <p class="sub">Retail interior fit-out for The Body Shop — Ikeja City Mall and
+      Circle Mall, Lagos. Feature mural wall, timber shelving, display counters
+      and lighting delivered from bare shell to trading floor.</p></div>
 
-  <div class="fig big"><img src="__board_hero__" alt="Executive boardroom interior render" />
-    <div class="cap"><span class="t">Executive Boardroom — Interior Render</span>
-      <span class="m">Render</span></div></div>
+  <div class="fig big"><img src="__bs_hero__" alt="Body Shop feature mural wall interior" />
+    <div class="cap"><span class="t">Feature Mural Wall &amp; Display Zone</span>
+      <span class="m">Built Interior</span></div></div>
   <div class="row2">
-    <div class="fig half"><img src="__board_b__" alt="Luxury bathroom suite render" />
-      <div class="cap"><span class="t">Luxury Bathroom Suite</span>
-        <span class="m">Render</span></div></div>
-    <div class="fig half"><img src="__board_c__" alt="Corporate interior study" />
-      <div class="cap"><span class="t">Corporate Interior Study</span>
+    <div class="fig half"><img src="__bs_b__" alt="Body Shop retail trading floor" />
+      <div class="cap"><span class="t">Retail Trading Floor</span>
+        <span class="m">Fit-Out</span></div></div>
+    <div class="fig half"><img src="__bs_c__" alt="Body Shop counter and display" />
+      <div class="cap"><span class="t">Counter &amp; Display Detail</span>
         <span class="m">Interior</span></div></div>
   </div>
   __FOOT6__
 </section>
 
-<!-- ════════ 8 · OTHER PROJECTS ════════ -->
+<!-- ════════ 8 · SELECTED WORK 04 — ALCOVE HOMES ════════ -->
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">Selected Work · 04</p>
+    <h2>Alcove Homes — Residential Interior</h2>
+    <p class="sub">A contemporary apartment interior — marble feature wall with
+      cove lighting, bespoke joinery, console and display units in a warm
+      timber-and-charcoal palette.</p></div>
+
+  <div class="fig big"><img src="__alc_hero__" alt="Alcove Homes marble feature wall" />
+    <div class="cap"><span class="t">Living Room — Marble Feature Wall</span>
+      <span class="m">Built Interior</span></div></div>
+  <div class="row2">
+    <div class="fig half"><img src="__alc_b__" alt="Alcove Homes console and mirror" />
+      <div class="cap"><span class="t">Console &amp; Mirror Joinery</span>
+        <span class="m">Joinery</span></div></div>
+    <div class="fig half"><img src="__alc_c__" alt="Alcove Homes study joinery" />
+      <div class="cap"><span class="t">Study &amp; Display Joinery</span>
+        <span class="m">Interior</span></div></div>
+  </div>
+  __FOOT7__
+</section>
+
+<!-- ════════ 9 · SELECTED WORK 05 — SIX-BEDROOM DUPLEX INTERIOR, ADO ════════ -->
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">Selected Work · 05</p>
+    <h2>Six-Bedroom Duplex Interior, Ado</h2>
+    <p class="sub">Full interior finishes for a six-bedroom duplex — living,
+      kitchen and dining spaces with marble surfaces, feature walls, bespoke
+      cabinetry and coordinated lighting.</p></div>
+
+  <div class="fig big"><img src="__ado_hero__" alt="Ado duplex living room interior" />
+    <div class="cap"><span class="t">Living Room — Feature Wall &amp; Media Unit</span>
+      <span class="m">Built Interior</span></div></div>
+  <div class="row2">
+    <div class="fig half"><img src="__ado_b__" alt="Ado duplex marble kitchen" />
+      <div class="cap"><span class="t">Kitchen &amp; Island</span>
+        <span class="m">Interior</span></div></div>
+    <div class="fig half"><img src="__ado_c__" alt="Ado duplex dining room" />
+      <div class="cap"><span class="t">Dining Room</span>
+        <span class="m">Interior</span></div></div>
+  </div>
+  __FOOT8__
+</section>
+
+<!-- ════════ 10 · SELECTED WORK 06 — FINA TRUST BANK ════════ -->
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">Selected Work · 06</p>
+    <h2>Fina Trust Bank — Sales Outlet</h2>
+    <p class="sub">Interior fit-out of a banking sales outlet — Orile, Lagos.
+      Branded reception lounge, glazed partitions and workstation zones planned
+      and delivered to the adopted layout.</p></div>
+
+  <div class="fig big"><img src="__fina_hero__" alt="Fina Trust Bank branded reception lounge" />
+    <div class="cap"><span class="t">Branded Reception Lounge</span>
+      <span class="m">Built Interior</span></div></div>
+  <div class="row2">
+    <div class="fig half"><img src="__fina_b__" alt="Fina Trust Bank workstations" />
+      <div class="cap"><span class="t">Workstation Zone</span>
+        <span class="m">Fit-Out</span></div></div>
+    <div class="fig half"><img src="__fina_c__" alt="Fina Trust Bank glazed partitions" />
+      <div class="cap"><span class="t">Glazed Partitions &amp; Entrance</span>
+        <span class="m">Interior</span></div></div>
+  </div>
+  __FOOT9__
+</section>
+
+<!-- ════════ 11 · SELECTED WORK 07 — SAPELE ROAD ════════ -->
+<section class="sheet white">
+  <div class="s-head"><div class="accent-bar"></div>
+    <p class="label" style="margin-top:9px;">Selected Work · 07</p>
+    <h2>Sapele Road — Bespoke Joinery</h2>
+    <p class="sub">Interior joinery and kitchen package for a private residence —
+      fitted kitchen, media wall and wardrobe units in fluted timber, gloss
+      lacquer and marble against porcelain surfaces.</p></div>
+
+  <div class="fig big"><img src="__sap_hero__" alt="Sapele Road fitted kitchen" />
+    <div class="cap"><span class="t">Fitted Kitchen</span>
+      <span class="m">Built Interior</span></div></div>
+  <div class="row2">
+    <div class="fig half"><img src="__sap_b__" alt="Sapele Road media wall unit" />
+      <div class="cap"><span class="t">Media Wall Unit</span>
+        <span class="m">Joinery</span></div></div>
+    <div class="fig half"><img src="__sap_c__" alt="Sapele Road wardrobe joinery" />
+      <div class="cap"><span class="t">Wardrobe &amp; Storage</span>
+        <span class="m">Interior</span></div></div>
+  </div>
+  __FOOT10__
+</section>
+
+<!-- ════════ 12 · MORE WORK ════════ -->
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">More Work</p>
-    <h2>Other Interior &amp; Design Projects</h2>
-    <p class="sub">A selection of additional concept designs, space studies and
-      visualisations from across the portfolio.</p></div>
+    <h2>More Interior Details</h2>
+    <p class="sub">Further finished interiors and bespoke joinery from across the
+      completed residential and commercial projects.</p></div>
 
   <div class="other-grid">
-    <div class="tile"><img src="__g1__" alt="Conference room concept view" />
-      <div class="cap"><span class="t">Conference Concept A</span><span class="m">Interior</span></div></div>
-    <div class="tile"><img src="__g2__" alt="Conference room concept B" />
-      <div class="cap"><span class="t">Conference Concept B</span><span class="m">Interior</span></div></div>
-    <div class="tile"><img src="__g3__" alt="Conference room concept C" />
-      <div class="cap"><span class="t">Meeting Room Concept</span><span class="m">Interior</span></div></div>
-    <div class="tile"><img src="__g4__" alt="Climate collage design concept" />
-      <div class="cap"><span class="t">Climate Collage Concept</span><span class="m">Concept</span></div></div>
-    <div class="tile"><img src="__g5__" alt="Loft apartment schematic" />
-      <div class="cap"><span class="t">Loft Apartment Scheme</span><span class="m">Concept</span></div></div>
-    <div class="tile"><img src="__g6__" alt="Large schema project" />
-      <div class="cap"><span class="t">Open Plan Schema</span><span class="m">Concept</span></div></div>
-    <div class="tile"><img src="__g7__" alt="Event hall interior" />
-      <div class="cap"><span class="t">Event Hall Interior</span><span class="m">Render</span></div></div>
-    <div class="tile"><img src="__g8__" alt="Entrance and reception gatehouse" />
-      <div class="cap"><span class="t">Entrance &amp; Reception</span><span class="m">Render</span></div></div>
-    <div class="tile"><img src="__g9__" alt="3-bedroom terrace with penthouse" />
-      <div class="cap"><span class="t">3-Bed Terrace Penthouse</span><span class="m">Concept</span></div></div>
+    <div class="tile"><img src="__gm1__" alt="Ado duplex master bedroom" />
+      <div class="cap"><span class="t">Master Bedroom Suite</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__gm2__" alt="Ado duplex display niche joinery" />
+      <div class="cap"><span class="t">Display Niche &amp; Joinery</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__gm3__" alt="Alcove Homes marble media wall" />
+      <div class="cap"><span class="t">Marble Media Wall</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__gm4__" alt="Alcove Homes corridor light niche" />
+      <div class="cap"><span class="t">Corridor Light Niche</span><span class="m">Interior</span></div></div>
+    <div class="tile"><img src="__gm5__" alt="Sapele Road kitchen island and vanity" />
+      <div class="cap"><span class="t">Kitchen Island &amp; Vanity</span><span class="m">Joinery</span></div></div>
+    <div class="tile"><img src="__gm6__" alt="Ado duplex 3D textured feature wall" />
+      <div class="cap"><span class="t">3D Textured Feature Wall</span><span class="m">Interior</span></div></div>
   </div>
-  __FOOT7__
+  __FOOT11__
 </section>
 
 <!-- ════════ 9 · CONTACT ════════ -->
@@ -646,7 +750,7 @@ def build():
     body = BODY
     for key, uri in IMG.items():
         body = body.replace(f"__{key}__", uri)
-    for n in (2, 3, 4, 5, 6, 7):
+    for n in (2, 3, 4, 5, 6, 7, 8, 9, 10, 11):
         body = body.replace(f"__FOOT{n}__", FOOTER.format(n=f"{n:02d}"))
 
     html = (
