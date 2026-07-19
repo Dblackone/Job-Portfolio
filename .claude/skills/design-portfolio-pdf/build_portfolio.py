@@ -286,6 +286,13 @@ a{ color:inherit; text-decoration:none; }
 .fig.half img{ height:62mm; }
 .row2{ display:grid; grid-template-columns:1fr 1fr; gap:11px; }
 
+/* ───── compact technical toolkit (merged onto the profile page) ───── */
+.tk-grid{ display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+.tk{ background:var(--bg); border-radius:6px; padding:8px 11px;
+  border-left:2px solid var(--accent); }
+.tk .tkn{ display:block; font-size:10.5px; font-weight:600; color:var(--dark); }
+.tk .tkl{ display:block; font-size:8.5px; color:var(--accent); margin-top:1px; }
+
 /* ───── OTHER PROJECTS GRID ───── */
 .other-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:11px; }
 .tile{ border:1px solid var(--border); border-radius:8px; overflow:hidden;
@@ -417,6 +424,15 @@ def about_sheet(a, band=None):
     edu_html = f'<div class="edu-grid">{edu}</div>' if edu else ""
     comp = (f'<p class="label" style="margin-bottom:9px;">{esc(a.get("competencies_label","Core Competencies"))}</p>'
             + groups) if groups else ""
+    # Optional compact technical toolkit, folded onto the profile page so the
+    # profile and toolkit share one page.
+    tk = ""
+    for name, level in a.get("toolkit", []):
+        tk += (f'<div class="tk"><span class="tkn">{esc(name)}</span>'
+               f'<span class="tkl">{esc(level)}</span></div>')
+    tk_html = (f'<p class="label" style="margin:7mm 0 8px;">'
+               f'{esc(a.get("toolkit_label","Technical Toolkit"))}</p>'
+               f'<div class="tk-grid">{tk}</div>') if tk else ""
     return f"""
 <section class="sheet white">
   <div class="s-head"><div class="accent-bar"></div>
@@ -424,7 +440,7 @@ def about_sheet(a, band=None):
     <h2>{esc(a.get("heading",""))}</h2></div>
   <div class="about">
     <div>{paras}<div class="stat-grid">{stats}</div></div>
-    <div>{comp}</div>
+    <div>{comp}{tk_html}</div>
   </div>
   {edu_html}
   {_band(band)}
