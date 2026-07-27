@@ -63,6 +63,28 @@ These apply to every caption, graphic brief, template, or schedule produced in t
 
 ---
 
+## Two Separate Content Systems
+
+| System | Speaks as | Rules |
+|---|---|---|
+| `content-hub/` | **DOVA Futures Limited** — company to clients | Content Kit §11 in full, as above |
+| `bim-content-system/` | **Vollmann Akarakiri** — practitioner to peers and learners | `bim-content-system/BRAND.md` |
+
+The personal BIM brand inherits the DOVA typefaces, palette and quality rules so both feeds read
+as one professional identity, but has its own voice (teaching, not corporate), its own imagery
+allowance (Revit/Navisworks screen captures are permitted), and its own name lockup.
+`bim-content-system/BRAND.md` documents every inheritance and every deliberate divergence.
+
+**Before writing personal-brand BIM or Revit content**, read
+`bim-content-system/README.md` and consult the knowledge base first — the 52-week strategy
+depends on topics being taught in sequence and never repeating an angle.
+
+**Accuracy rule specific to that system:** every technical claim must trace to
+`bim-content-system/research/00-sources-register.md`, and anything flagged in
+`research/01-verification-log.md` must be re-verified before publishing.
+
+---
+
 ## Development Branch
 
 Active feature work goes on: `claude/social-media-automation-q7k2h0`
