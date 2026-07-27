@@ -63,6 +63,33 @@ These apply to every caption, graphic brief, template, or schedule produced in t
 
 ---
 
+## Repository Visibility — What Must Never Be Committed Here
+
+**This repository is PUBLIC.** Anything committed is readable by anyone who finds
+the repo, and GitHub repository pages are indexed by search engines. Recruiters and
+clients who reach the LinkedIn profile routinely cross-reference GitHub.
+
+Note that the Pages workflow publishes only `index.html`, `motion.html`, `css/`,
+`js/` and `assets/` — but the *repository itself* is public regardless, so the
+narrower Pages scope is not a safeguard.
+
+Never commit to this repository:
+
+| Category | Examples |
+|---|---|
+| Career strategy and job-search material | LinkedIn audits, positioning notes, salary research, application trackers, interview prep |
+| Candid self-assessment | Anything describing employment gaps, weaknesses, negotiating position, or how to manage recruiter perception |
+| Third-party confidential material | Former-employer documents, client drawings or contracts not cleared for release |
+| Secrets and credentials | API keys, SMTP passwords, access tokens, `.env` files with real values |
+
+Portfolios, CVs and content-hub assets are intended to be public and are fine.
+
+Career and job-search documents belong outside this repository — keep them local or
+in a private repo. **Commit messages are public too:** a message summarising
+weaknesses leaks the same information as the file it removes.
+
+---
+
 ## Development Branch
 
 Active feature work goes on: `claude/social-media-automation-q7k2h0`
