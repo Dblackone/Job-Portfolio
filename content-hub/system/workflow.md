@@ -62,3 +62,17 @@ Hillside project this Friday", "we need a hiring post", "announce a service").
 - [ ] Correct hashtag count for the platform.
 - [ ] Alt text written; video has captions.
 - [ ] Handles/links correct.
+
+---
+
+## Lead follow-through
+
+Content only contributes to income when interested people receive a timely,
+relevant response. Log every substantive enquiry in `system/leads.csv` and use
+`system/client-acquisition.md` for the stage definitions, follow-up cadence, and
+weekly review metrics. The content tracker records publishing status; the lead
+tracker records commercial progress.
+
+At month end, complete `system/monthly-review.csv` using the definitions in
+`system/monthly-review.md`. Received income, won value, and proposed value must
+remain separate.

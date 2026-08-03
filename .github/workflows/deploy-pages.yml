@@ -24,8 +24,8 @@ jobs:
       - name: Assemble static site
         run: |
           mkdir -p _site
-          cp index.html motion.html _site/
-          cp -r css js assets _site/
+          cp index.html motion.html web-portfolio.html _site/
+          cp -r css js assets portfolio architectural-portfolio _site/
           touch _site/.nojekyll
 
       - name: Configure Pages

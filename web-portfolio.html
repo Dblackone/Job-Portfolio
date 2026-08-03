@@ -15,6 +15,47 @@
 
   <title>Vollmann Olamide Akarakiri — Construction Project Manager</title>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Vollmann Olamide Akarakiri",
+    "jobTitle": "Construction Project Manager and BIM Specialist",
+    "email": "vollmannakarakiri0@gmail.com",
+    "telephone": "+234 816 367 5439",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lagos",
+      "addressCountry": "NG"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Dova Futures Limited",
+      "url": "https://dovafutures.com"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0/"
+    ],
+    "knowsAbout": [
+      "Architecture",
+      "BIM coordination",
+      "Autodesk Revit",
+      "Construction documentation",
+      "Construction project management"
+    ],
+    "areaServed": ["Nigeria", "Remote"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Consulting engagements",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "BIM model and drawing review" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Design-to-site coordination" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Construction project controls" } }
+      ]
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -99,6 +140,47 @@
     }
     .plc-text .plc-title { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 2px; }
     .plc-text .plc-sub { font-size: 12px; color: var(--text); }
+
+    /* COMMERCIAL ENGAGEMENTS */
+    .engagements { background: var(--dark); color: var(--white); }
+    .engagements .section-header h2 { color: var(--white); }
+    .engagements .section-sub { color: rgba(255,255,255,.72); }
+    .engagement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.18);
+      margin-top: 40px;
+    }
+    .engagement-card {
+      background: var(--dark);
+      padding: 30px 28px 32px;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+    }
+    .engagement-index { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .12em; margin-bottom: 42px; }
+    .engagement-card h3 { color: var(--white); font-size: 21px; margin-bottom: 12px; }
+    .engagement-card p { color: rgba(255,255,255,.72); font-size: 14px; line-height: 1.65; margin-bottom: 20px; }
+    .engagement-deliverable { border-top: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.9); font-size: 12px; line-height: 1.5; margin-top: auto; padding-top: 14px; }
+    .engagement-cta { align-items: center; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; margin-top: 32px; }
+    .engagement-cta p { color: rgba(255,255,255,.72); font-size: 15px; margin: 0; max-width: 520px; }
+    @media (max-width: 800px) { .engagement-grid { grid-template-columns: 1fr; } .engagement-card { min-height: 0; } }
+
+    .contact-brief { display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 24px auto 0; max-width: 720px; color: rgba(255,255,255,.72); font-size: 13px; }
+    .contact-brief span::before { content: '•'; color: var(--accent); margin-right: 8px; }
+
+    /* CASE STUDIES */
+    .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .case-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .case-card img { width: 100%; height: 220px; display: block; object-fit: cover; }
+    .case-body { padding: 24px; }
+    .case-type { color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 10px; }
+    .case-body h3 { font-size: 21px; margin-bottom: 10px; }
+    .case-body p { font-size: 14px; line-height: 1.65; margin-bottom: 16px; }
+    .case-proof { border-top: 1px solid var(--border); color: var(--dark); font-size: 12px; line-height: 1.55; padding-top: 14px; }
+    @media (max-width: 900px) { .case-grid { grid-template-columns: 1fr; } .case-card img { height: 260px; } }
   </style>
 </head>
 <body>
@@ -122,7 +204,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div style="display:flex;align-items:center;gap:16px;">
-        <a href="#contact" class="nav-cta">Hire Me</a>
+        <a href="#engagements" class="nav-cta">View Engagements</a>
         <button class="nav-burger" id="burger" aria-label="Toggle mobile menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -171,7 +253,7 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#portfolio" class="btn btn-primary">View Portfolio →</a>
+          <a href="#case-studies" class="btn btn-primary">View Case Studies →</a>
           <a href="assets/vollmann-akarakiri-portfolio.pdf" class="btn btn-secondary" download>Download Portfolio (PDF)</a>
         </div>
       </div>
@@ -222,6 +304,48 @@
           </div>
         </div>
       </aside>
+    </section>
+
+    <section id="case-studies" class="section" style="background:var(--bg);" aria-label="Selected case studies">
+      <div class="container">
+        <div class="section-header">
+          <p class="label" data-reveal>Selected Evidence</p>
+          <h2 data-reveal data-reveal-delay="1">From Brief to Buildable Work</h2>
+          <p class="section-sub" data-reveal data-reveal-delay="2">A closer look at how design, documentation, coordination, and delivery connect across real project work.</p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-card" data-reveal data-reveal-delay="1">
+            <img src="assets/Project Pictures/Ado 6-Bedroom Duplex/ado-duplex-interior-01.jpg" alt="Kitchen and interior fit-out in the completed six-bedroom duplex in Ado" loading="lazy" />
+            <div class="case-body">
+              <div class="case-type">Residential / Construction + Interior</div>
+              <h3>Six-Bedroom Duplex, Ado</h3>
+              <p>A two-phase delivery: structural construction from foundation through roofing, followed by interior design, fit-out, and implementation.</p>
+              <div class="case-proof"><strong>Documented proof:</strong> completed structural and interior phases, including kitchen, living room feature wall, media unit, and dining room.</div>
+            </div>
+          </article>
+
+          <article class="case-card" data-reveal data-reveal-delay="2">
+            <img src="assets/Project Pictures/Alcove Home Interior/Alcove Home Feature Wall.png" alt="Completed residential feature wall and built-in storage for Alcove Home in Yaba" loading="lazy" />
+            <div class="case-body">
+              <div class="case-type">Residential / Interior Fit-Out</div>
+              <h3>Alcove Home, Yaba</h3>
+              <p>Concept development through detailed working drawings, furniture fabrication coordination, site installation, and handover.</p>
+              <div class="case-proof"><strong>Documented proof:</strong> complete residential interior delivered on an approximately six-week concept-to-installation programme.</div>
+            </div>
+          </article>
+
+          <article class="case-card" data-reveal data-reveal-delay="3">
+            <img src="assets/Project Pictures/Ado Hall of Worship/Ado Hero Render.png" alt="Proposed modernized worship facility and integrated landscape in Ado Ekiti" loading="lazy" />
+            <div class="case-body">
+              <div class="case-type">Architecture / BIM + Documentation</div>
+              <h3>St. Andrew's Anglican Church Redevelopment</h3>
+              <p>Ado Ekiti proposal combining architectural redesign, landscape development, site circulation, façade enhancement, and construction documentation.</p>
+              <div class="case-proof"><strong>Documented workflow:</strong> Revit structural/BIM model with hidden-line axonometric views and AutoCAD floor-plan and site-layout drawings.</div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- ══════════════════════════════════════════════════════════════
@@ -634,6 +758,42 @@
     <!-- ══════════════════════════════════════════════════════════════
          SERVICES
     ════════════════════════════════════════════════════════════════ -->
+    <section id="engagements" class="section engagements" aria-label="Consulting engagements">
+      <div class="container">
+        <div class="section-header">
+          <p class="label" data-reveal style="color:var(--accent);">Ways to Engage</p>
+          <h2 data-reveal data-reveal-delay="1">Focused Support for the Work Ahead</h2>
+          <p class="section-sub" data-reveal data-reveal-delay="2">Choose the point where your project needs clearer decisions, better coordination, or stronger delivery control.</p>
+        </div>
+
+        <div class="engagement-grid">
+          <article class="engagement-card" data-reveal data-reveal-delay="1">
+            <div class="engagement-index">01 / REVIEW</div>
+            <h3>BIM Model and Drawing Review</h3>
+            <p>Independent review of Revit models and drawing packages before issue, tender, or construction.</p>
+            <div class="engagement-deliverable">Deliverable: findings register, coordination priorities, and practical next steps.</div>
+          </article>
+          <article class="engagement-card" data-reveal data-reveal-delay="2">
+            <div class="engagement-index">02 / COORDINATE</div>
+            <h3>Design-to-Site Coordination</h3>
+            <p>Technical coordination for teams moving from design intent to buildable information and site decisions.</p>
+            <div class="engagement-deliverable">Deliverable: coordinated information, issue tracking, and consultant alignment.</div>
+          </article>
+          <article class="engagement-card" data-reveal data-reveal-delay="3">
+            <div class="engagement-index">03 / CONTROL</div>
+            <h3>Construction Project Controls</h3>
+            <p>Structured support for programme, procurement, cost visibility, quality checks, and project reporting.</p>
+            <div class="engagement-deliverable">Deliverable: reporting rhythm, action register, and delivery priorities.</div>
+          </article>
+        </div>
+
+        <div class="engagement-cta" data-reveal data-reveal-delay="4">
+          <p>Have a live project, model, or drawing package that needs a second set of eyes?</p>
+          <a href="mailto:vollmannakarakiri0@gmail.com?subject=Project%20consultation%20request" class="btn btn-light">Request a Project Review</a>
+        </div>
+      </div>
+    </section>
+
     <section id="services" class="section" style="background:var(--bg);" aria-label="Professional services">
       <div class="container">
         <div class="section-header">
@@ -699,12 +859,19 @@
         Whether you are an architecture firm, construction company, BIM consultancy, or project owner — let's discuss how I can add value to your next project or team.
       </p>
 
-      <div class="contact-actions" data-reveal data-reveal-delay="3">
-        <a href="mailto:vollmannakarakiri0@gmail.com" class="btn btn-light">Send an Email</a>
+      <div class="contact-brief" data-reveal data-reveal-delay="3" aria-label="Information to include in an enquiry">
+        <span>Project type</span>
+        <span>Current stage</span>
+        <span>Support required</span>
+        <span>Desired timeline</span>
+      </div>
+
+      <div class="contact-actions" data-reveal data-reveal-delay="4">
+        <a href="mailto:vollmannakarakiri0@gmail.com?subject=Consulting%20enquiry&amp;body=Project%20type%3A%0ACurrent%20stage%3A%0ASupport%20required%3A%0ADesired%20timeline%3A" class="btn btn-light">Send an Email</a>
         <a href="https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener" class="btn btn-outline-light">LinkedIn Profile</a>
       </div>
 
-      <div class="contact-details" data-reveal data-reveal-delay="4">
+      <div class="contact-details" data-reveal data-reveal-delay="5">
         <div class="contact-item">
           <div class="c-label">Phone</div>
           <div class="c-value">+234 816 367 5439</div>
