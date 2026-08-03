@@ -25,7 +25,7 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html motion.html web-portfolio.html robots.txt sitemap.xml _site/
-          cp -r css js assets portfolio architectural-portfolio _site/
+          cp -r css js assets portfolio architectural-portfolio consulting _site/
           touch _site/.nojekyll
 
       - name: Configure Pages
