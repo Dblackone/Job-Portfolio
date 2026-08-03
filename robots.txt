@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dblackone.github.io/Job-Portfolio/sitemap.xml
