@@ -28,6 +28,16 @@ jobs:
           cp -r css js assets portfolio architectural-portfolio consulting _site/
           touch _site/.nojekyll
 
+      - name: Verify public artifact boundaries
+        run: |
+          test -f _site/index.html
+          test -f _site/web-portfolio.html
+          test -f _site/consulting/bim-model-review.html
+          test -f _site/portfolio/bim.html
+          test -f _site/robots.txt
+          test -f _site/sitemap.xml
+          test ! -e _site/content-hub
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
