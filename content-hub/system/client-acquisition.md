@@ -51,6 +51,11 @@ before sending anything. Keep personal contact details out of the research queue
 unless the person has been contacted in a legitimate professional context and the
 information is needed for the active follow-up.
 
+The current manually reviewed outreach drafts are in
+`system/outreach-batch-2026-08-04.md`. They are drafts only: personalize them,
+verify the recipient, and log any send before treating the prospect as an active
+lead.
+
 Do not estimate a project value until the prospect has supplied enough scope to
 support it. Keep unknown values blank or mark them `TBC`.
 
