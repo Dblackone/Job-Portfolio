@@ -24,6 +24,8 @@ Following up on my note about practical project-controls support for constructio
 
 If a current project would benefit from clearer programme, procurement, or reporting visibility, I can start with a focused review of the existing reporting rhythm and the immediate delivery risk. If relevant, please share the project phase and the area that currently needs the most attention.
 
+Relevant project and consulting evidence: https://dblackone.github.io/Job-Portfolio/web-portfolio.html#engagements
+
 Regards,  
 Vollmann Akarakiri
 
@@ -37,6 +39,8 @@ Hello Amana Consortium Team,
 Following up on my note about an independent review of Revit models and drawing packages.
 
 If there is a live package approaching coordination, tender, or site use, I can review the current information against the project stage and return a focused list of coordination and documentation issues. If relevant, please share the project stage, disciplines included, and the review deadline.
+
+Review scope: https://dblackone.github.io/Job-Portfolio/consulting/bim-model-review.html
 
 Regards,  
 Vollmann Akarakiri
@@ -52,6 +56,8 @@ Following up on my note about strengthening the control rhythm across programme,
 
 If one active project would benefit from a more structured delivery view, I can begin by reviewing the current reporting format and the decisions that need clearer visibility. If relevant, please share the project phase and the immediate reporting or coordination gap.
 
+Relevant project and consulting evidence: https://dblackone.github.io/Job-Portfolio/web-portfolio.html#engagements
+
 Regards,  
 Vollmann Akarakiri
 
@@ -65,6 +71,8 @@ Hello AOS Project Management Team,
 Following up on my note about programme and project-decision visibility.
 
 If a current development needs a clearer view of programme movement, decisions, or delivery risks, I can review the existing control rhythm and identify a practical starting point. If relevant, please share the project stage and the decision or reporting area that needs attention.
+
+Relevant project and consulting evidence: https://dblackone.github.io/Job-Portfolio/web-portfolio.html#engagements
 
 Regards,  
 Vollmann Akarakiri
@@ -80,6 +88,7 @@ Following up on my note about moving design information into coordinated, builda
 
 If a current project is experiencing gaps between drawings, consultants, and site execution, I can begin with a focused review of where coordination is breaking down and who owns the next decisions. If relevant, please share the project stage and the coordination issue currently affecting delivery.
 
+Relevant BIM and project evidence: https://dblackone.github.io/Job-Portfolio/portfolio/bim.html
+
 Regards,  
 Vollmann Akarakiri
-
