@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import re
 import sys
 from collections import Counter
 from datetime import date, datetime
@@ -16,6 +17,8 @@ from pathlib import Path
 
 
 ACTIVE_STAGES = {"New", "Contacted", "Qualified", "Proposal", "Nurture"}
+PROSPECT_RESEARCH_STATUS = "research"
+DATE_IN_TEXT = re.compile(r"\b(\d{4}-\d{2}-\d{2})\b")
 
 
 def parse_amount(value: str) -> Decimal:
@@ -40,11 +43,16 @@ def format_ngn(value: Decimal) -> str:
 
 
 def prospect_readiness(prospects: list[dict[str, str]], as_of: date) -> tuple[int, int, int]:
-    """Return total prospects, ready prospects, and stale route count."""
+    """Return research prospects, ready prospects, and stale route count."""
 
     ready = 0
     stale = 0
-    for prospect in prospects:
+    research_prospects = [
+        prospect
+        for prospect in prospects
+        if (prospect.get("status") or "").strip().lower() == PROSPECT_RESEARCH_STATUS
+    ]
+    for prospect in research_prospects:
         if all(
             (prospect.get(field) or "").strip()
             for field in ("public_contact_route", "draft_file", "next_action")
@@ -57,7 +65,28 @@ def prospect_readiness(prospects: list[dict[str, str]], as_of: date) -> tuple[in
         else:
             if checked < as_of:
                 stale += 1
-    return len(prospects), ready, stale
+    return len(research_prospects), ready, stale
+
+
+def prospect_follow_ups(
+    prospects: list[dict[str, str]], as_of: date
+) -> list[tuple[date, dict[str, str]]]:
+    """Return dated follow-ups for contacted prospects, oldest first."""
+
+    follow_ups: list[tuple[date, dict[str, str]]] = []
+    for prospect in prospects:
+        if (prospect.get("status") or "").strip().lower() != "contacted":
+            continue
+        match = DATE_IN_TEXT.search(prospect.get("next_action") or "")
+        if not match:
+            continue
+        try:
+            due = date.fromisoformat(match.group(1))
+        except ValueError:
+            continue
+        if due >= as_of:
+            follow_ups.append((due, prospect))
+    return sorted(follow_ups, key=lambda item: item[0])
 
 
 def confirmed_income(income_rows: list[dict[str, str]], as_of: date) -> Decimal:
@@ -138,10 +167,17 @@ def report(
 
     if prospects is not None:
         total, ready, stale = prospect_readiness(prospects, as_of)
+        contacted = [
+            prospect
+            for prospect in prospects
+            if (prospect.get("status") or "").strip().lower() == "contacted"
+        ]
+        prospect_follow_up_rows = prospect_follow_ups(prospects, as_of)
         ready_rows = [
             prospect
             for prospect in prospects
-            if all(
+            if (prospect.get("status") or "").strip().lower() == PROSPECT_RESEARCH_STATUS
+            and all(
                 (prospect.get(field) or "").strip()
                 for field in ("public_contact_route", "draft_file", "next_action")
             )
@@ -152,14 +188,26 @@ def report(
                 "## Prospect research queue",
                 "",
                 f"- Research prospects: {total}",
+                f"- Contacted prospects: {len(contacted)}",
                 f"- Ready for personalization: {ready}",
                 f"- Contact routes needing re-check: {stale}",
-                "- Research prospects are excluded from lead, opportunity, and income totals.",
+                "- Research prospects are excluded from lead, opportunity, and income totals; contacted prospects remain outside the lead tracker until a response or identifiable interest is recorded.",
                 "",
-                "### Next outreach batch",
+                "### Prospect follow-up queue",
                 "",
             ]
         )
+        if prospect_follow_up_rows:
+            for due, prospect in prospect_follow_up_rows:
+                lines.append(
+                    f"- {prospect.get('company') or 'Unnamed company'} — "
+                    f"{prospect.get('next_action') or 'follow-up action missing'} "
+                    f"(due {due.isoformat()})"
+                )
+        else:
+            lines.append("- No dated prospect follow-ups recorded.")
+
+        lines.extend(["", "### Next outreach batch", ""])
         if ready_rows:
             for prospect in ready_rows[:3]:
                 lines.append(
