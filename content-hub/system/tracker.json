@@ -169,6 +169,28 @@
             "reminders_created": false,
             "created_at": "2026-08-03T00:00:00",
             "updated_at": "2026-08-03T00:00:00"
+          },
+          {
+            "id": "2026-08-06-engage-design-to-site-coordination",
+            "date": "2026-08-06",
+            "slug": "design-to-site-coordination",
+            "status": "draft",
+            "post_file": "posts/2026/08/engage/2026-08-06-engage-design-to-site-coordination.md",
+            "graphics": [],
+            "reminders_created": false,
+            "created_at": "2026-08-03T00:00:00",
+            "updated_at": "2026-08-03T00:00:00"
+          },
+          {
+            "id": "2026-08-08-engage-project-controls",
+            "date": "2026-08-08",
+            "slug": "project-controls",
+            "status": "draft",
+            "post_file": "posts/2026/08/engage/2026-08-08-engage-project-controls.md",
+            "graphics": [],
+            "reminders_created": false,
+            "created_at": "2026-08-03T00:00:00",
+            "updated_at": "2026-08-03T00:00:00"
           }
         ]
       },
