@@ -36,6 +36,21 @@ Every row in `leads.csv` should answer:
 - What value was proposed or confirmed, in `₦`?
 - What happened, including the reason for a lost or dormant lead?
 
+### Prospect research queue
+
+`system/prospect-list.csv` is a separate research queue for public company
+targets. A company belongs here when its public website suggests a plausible fit;
+that is not evidence of interest. Do not count research-queue rows as leads,
+qualified opportunities, or pipeline value. Move a company into `leads.csv`
+only after a real contact, reply, referral, or other identifiable expression of
+interest has been recorded.
+
+Work the queue in small batches: review the public project context, choose the
+most relevant offer, find the correct company contact route, and log the action
+before sending anything. Keep personal contact details out of the research queue
+unless the person has been contacted in a legitimate professional context and the
+information is needed for the active follow-up.
+
 Do not estimate a project value until the prospect has supplied enough scope to
 support it. Keep unknown values blank or mark them `TBC`.
 
