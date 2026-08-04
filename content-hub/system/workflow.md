@@ -76,3 +76,13 @@ tracker records commercial progress.
 At month end, complete `system/monthly-review.csv` using the definitions in
 `system/monthly-review.md`. Received income, won value, and proposed value must
 remain separate.
+
+For a read-only weekly snapshot of the tracker, run:
+
+```text
+python content-hub/system/pipeline_report.py --as-of YYYY-MM-DD
+```
+
+The report reads `system/leads.csv`, counts stages, separates proposed from won
+value, and flags overdue active follow-ups. An empty report is valid when no
+prospects have been logged yet.

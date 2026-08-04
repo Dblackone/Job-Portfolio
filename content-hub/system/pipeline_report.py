@@ -1,0 +1,122 @@
+"""Print a factual pipeline snapshot from the consulting lead tracker.
+
+This report is intentionally read-only. It never changes the tracker and it
+keeps proposed, won, and received amounts separate.
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import sys
+from collections import Counter
+from datetime import date, datetime
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
+
+
+ACTIVE_STAGES = {"New", "Contacted", "Qualified", "Proposal", "Nurture"}
+
+
+def parse_amount(value: str) -> Decimal:
+    """Return a tracker amount, treating blank or invalid values as zero."""
+
+    cleaned = (value or "").replace(",", "").strip()
+    if not cleaned:
+        return Decimal("0")
+    try:
+        return Decimal(cleaned)
+    except InvalidOperation:
+        return Decimal("0")
+
+
+def load_leads(path: Path) -> list[dict[str, str]]:
+    with path.open(newline="", encoding="utf-8-sig") as stream:
+        return list(csv.DictReader(stream))
+
+
+def format_ngn(value: Decimal) -> str:
+    return f"₦{value:,.0f}"
+
+
+def report(leads: list[dict[str, str]], as_of: date) -> str:
+    stage_counts = Counter((lead.get("stage") or "Unstaged").strip() for lead in leads)
+    sources = Counter((lead.get("source") or "Unspecified").strip() for lead in leads)
+    offers = Counter((lead.get("offer") or "Unspecified").strip() for lead in leads)
+    proposed = sum((parse_amount(lead.get("proposed_value_ngn", "")) for lead in leads), Decimal("0"))
+    won = sum((parse_amount(lead.get("won_value_ngn", "")) for lead in leads), Decimal("0"))
+    overdue: list[dict[str, str]] = []
+    for lead in leads:
+        due = (lead.get("next_action_due") or "").strip()
+        try:
+            due_date = datetime.strptime(due, "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if due_date < as_of and (lead.get("stage") or "").strip() in ACTIVE_STAGES:
+            overdue.append(lead)
+
+    lines = [
+        "# Consulting pipeline snapshot",
+        "",
+        f"As of: {as_of.isoformat()}",
+        "",
+        f"- Leads logged: {len(leads)}",
+        f"- Active opportunities: {sum(stage_counts[stage] for stage in ACTIVE_STAGES)}",
+        f"- Proposed value: {format_ngn(proposed)}",
+        f"- Won value: {format_ngn(won)}",
+        f"- Overdue follow-ups: {len(overdue)}",
+        "",
+        "## Stage counts",
+        "",
+    ]
+    if stage_counts:
+        lines.extend(f"- {stage}: {count}" for stage, count in sorted(stage_counts.items()))
+    else:
+        lines.append("- No leads logged yet; this snapshot reflects the empty tracker.")
+
+    lines.extend(["", "## Top sources", ""])
+    lines.extend(f"- {source}: {count}" for source, count in sources.most_common(5))
+    if not sources:
+        lines.append("- No source data yet.")
+
+    lines.extend(["", "## Offers represented", ""])
+    lines.extend(f"- {offer}: {count}" for offer, count in offers.most_common(5))
+    if not offers:
+        lines.append("- No offer data yet.")
+
+    lines.extend(["", "## Follow-up queue", ""])
+    if overdue:
+        for lead in overdue:
+            lines.append(
+                f"- {lead.get('prospect') or 'Unnamed prospect'} — "
+                f"{lead.get('next_action') or 'next action missing'} "
+                f"(due {lead.get('next_action_due')})"
+            )
+    else:
+        lines.append("- No overdue active follow-ups recorded.")
+
+    return "\n".join(lines) + "\n"
+
+
+def main() -> None:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--leads",
+        type=Path,
+        default=Path(__file__).with_name("leads.csv"),
+        help="Path to the lead tracker CSV",
+    )
+    parser.add_argument(
+        "--as-of",
+        type=date.fromisoformat,
+        default=date.today(),
+        help="Snapshot date in YYYY-MM-DD format (defaults to today)",
+    )
+    args = parser.parse_args()
+    print(report(load_leads(args.leads), args.as_of), end="")
+
+
+if __name__ == "__main__":
+    main()
