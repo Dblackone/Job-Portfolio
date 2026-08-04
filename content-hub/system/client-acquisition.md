@@ -56,6 +56,10 @@ The current manually reviewed outreach drafts are in
 verify the recipient, and log any send before treating the prospect as an active
 lead.
 
+The review-only follow-up batch for the sent 4 August outreach is in
+`system/outreach-follow-up-2026-08-06.md`. Use it as a reply in the original
+thread on the due date; do not treat a sent follow-up as evidence of interest.
+
 `prospect-list.csv` records public company contact routes for research only.
 Re-check the `contact_checked` date immediately before sending; a listed route
 does not imply permission, interest, or a valid current address.
