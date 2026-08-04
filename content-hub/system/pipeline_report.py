@@ -138,6 +138,14 @@ def report(
 
     if prospects is not None:
         total, ready, stale = prospect_readiness(prospects, as_of)
+        ready_rows = [
+            prospect
+            for prospect in prospects
+            if all(
+                (prospect.get(field) or "").strip()
+                for field in ("public_contact_route", "draft_file", "next_action")
+            )
+        ]
         lines.extend(
             [
                 "",
@@ -147,8 +155,21 @@ def report(
                 f"- Ready for personalization: {ready}",
                 f"- Contact routes needing re-check: {stale}",
                 "- Research prospects are excluded from lead, opportunity, and income totals.",
+                "",
+                "### Next outreach batch",
+                "",
             ]
         )
+        if ready_rows:
+            for prospect in ready_rows[:3]:
+                lines.append(
+                    f"- {prospect.get('company') or 'Unnamed company'} — "
+                    f"{prospect.get('fit_offer') or 'offer not assigned'} — "
+                    f"{prospect.get('public_contact_route')} — "
+                    f"draft: {prospect.get('draft_file')}"
+                )
+        else:
+            lines.append("- No prospects are ready for personalization.")
 
     return "\n".join(lines) + "\n"
 
