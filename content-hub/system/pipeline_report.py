@@ -39,7 +39,32 @@ def format_ngn(value: Decimal) -> str:
     return f"₦{value:,.0f}"
 
 
-def report(leads: list[dict[str, str]], as_of: date) -> str:
+def prospect_readiness(prospects: list[dict[str, str]], as_of: date) -> tuple[int, int, int]:
+    """Return total prospects, ready prospects, and stale route count."""
+
+    ready = 0
+    stale = 0
+    for prospect in prospects:
+        if all(
+            (prospect.get(field) or "").strip()
+            for field in ("public_contact_route", "draft_file", "next_action")
+        ):
+            ready += 1
+        try:
+            checked = date.fromisoformat((prospect.get("contact_checked") or "").strip())
+        except ValueError:
+            stale += 1
+        else:
+            if checked < as_of:
+                stale += 1
+    return len(prospects), ready, stale
+
+
+def report(
+    leads: list[dict[str, str]],
+    as_of: date,
+    prospects: list[dict[str, str]] | None = None,
+) -> str:
     stage_counts = Counter((lead.get("stage") or "Unstaged").strip() for lead in leads)
     sources = Counter((lead.get("source") or "Unspecified").strip() for lead in leads)
     offers = Counter((lead.get("offer") or "Unspecified").strip() for lead in leads)
@@ -95,6 +120,20 @@ def report(leads: list[dict[str, str]], as_of: date) -> str:
     else:
         lines.append("- No overdue active follow-ups recorded.")
 
+    if prospects is not None:
+        total, ready, stale = prospect_readiness(prospects, as_of)
+        lines.extend(
+            [
+                "",
+                "## Prospect research queue",
+                "",
+                f"- Research prospects: {total}",
+                f"- Ready for personalization: {ready}",
+                f"- Contact routes needing re-check: {stale}",
+                "- Research prospects are excluded from lead, opportunity, and income totals.",
+            ]
+        )
+
     return "\n".join(lines) + "\n"
 
 
@@ -109,13 +148,22 @@ def main() -> None:
         help="Path to the lead tracker CSV",
     )
     parser.add_argument(
+        "--prospects",
+        type=Path,
+        default=Path(__file__).with_name("prospect-list.csv"),
+        help="Path to the prospect research CSV",
+    )
+    parser.add_argument(
         "--as-of",
         type=date.fromisoformat,
         default=date.today(),
         help="Snapshot date in YYYY-MM-DD format (defaults to today)",
     )
     args = parser.parse_args()
-    print(report(load_leads(args.leads), args.as_of), end="")
+    print(
+        report(load_leads(args.leads), args.as_of, load_leads(args.prospects)),
+        end="",
+    )
 
 
 if __name__ == "__main__":

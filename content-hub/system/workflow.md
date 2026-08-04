@@ -83,6 +83,7 @@ For a read-only weekly snapshot of the tracker, run:
 python content-hub/system/pipeline_report.py --as-of YYYY-MM-DD
 ```
 
-The report reads `system/leads.csv`, counts stages, separates proposed from won
-value, and flags overdue active follow-ups. An empty report is valid when no
-prospects have been logged yet.
+The report reads `system/leads.csv` and `system/prospect-list.csv`, counts stages,
+separates proposed from won value, flags overdue active follow-ups, and reports
+research-queue readiness separately. An empty lead report is valid when no
+prospects have been converted into leads yet.
