@@ -171,6 +171,12 @@ def report(
             for prospect in prospects
             if (prospect.get("status") or "").strip().lower() == "contacted"
         ]
+        follow_up_review = [
+            prospect
+            for prospect in contacted
+            if (prospect.get("follow_up_status") or "").strip().lower()
+            == "created_for_review"
+        ]
         prospect_follow_up_rows = prospect_follow_ups(prospects, as_of)
         ready_rows = [
             prospect
@@ -188,6 +194,7 @@ def report(
                 "",
                 f"- Research prospects: {total}",
                 f"- Contacted prospects: {len(contacted)}",
+                f"- Follow-up drafts ready for review: {len(follow_up_review)}",
                 f"- Ready for personalization: {ready}",
                 f"- Contact routes needing re-check: {stale}",
                 "- Research prospects are excluded from lead, opportunity, and income totals; contacted prospects remain outside the lead tracker until a response or identifiable interest is recorded.",
