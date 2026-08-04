@@ -84,8 +84,7 @@ def prospect_follow_ups(
             due = date.fromisoformat(match.group(1))
         except ValueError:
             continue
-        if due >= as_of:
-            follow_ups.append((due, prospect))
+        follow_ups.append((due, prospect))
     return sorted(follow_ups, key=lambda item: item[0])
 
 
@@ -199,10 +198,11 @@ def report(
         )
         if prospect_follow_up_rows:
             for due, prospect in prospect_follow_up_rows:
+                timing = "overdue" if due < as_of else f"due {due.isoformat()}"
                 lines.append(
                     f"- {prospect.get('company') or 'Unnamed company'} — "
                     f"{prospect.get('next_action') or 'follow-up action missing'} "
-                    f"(due {due.isoformat()})"
+                    f"({timing})"
                 )
         else:
             lines.append("- No dated prospect follow-ups recorded.")
