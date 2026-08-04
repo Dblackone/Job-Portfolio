@@ -60,10 +60,25 @@ def prospect_readiness(prospects: list[dict[str, str]], as_of: date) -> tuple[in
     return len(prospects), ready, stale
 
 
+def confirmed_income(income_rows: list[dict[str, str]], as_of: date) -> Decimal:
+    """Sum only dated receipt rows on or before the report date."""
+
+    total = Decimal("0")
+    for row in income_rows:
+        try:
+            received = date.fromisoformat((row.get("date_received") or "").strip())
+        except ValueError:
+            continue
+        if received <= as_of:
+            total += parse_amount(row.get("amount_received_ngn", ""))
+    return total
+
+
 def report(
     leads: list[dict[str, str]],
     as_of: date,
     prospects: list[dict[str, str]] | None = None,
+    income_rows: list[dict[str, str]] | None = None,
 ) -> str:
     stage_counts = Counter((lead.get("stage") or "Unstaged").strip() for lead in leads)
     sources = Counter((lead.get("source") or "Unspecified").strip() for lead in leads)
@@ -89,6 +104,7 @@ def report(
         f"- Active opportunities: {sum(stage_counts[stage] for stage in ACTIVE_STAGES)}",
         f"- Proposed value: {format_ngn(proposed)}",
         f"- Won value: {format_ngn(won)}",
+        f"- Confirmed income received: {format_ngn(confirmed_income(income_rows or [], as_of))}",
         f"- Overdue follow-ups: {len(overdue)}",
         "",
         "## Stage counts",
@@ -154,6 +170,12 @@ def main() -> None:
         help="Path to the prospect research CSV",
     )
     parser.add_argument(
+        "--income",
+        type=Path,
+        default=Path(__file__).with_name("income-ledger.csv"),
+        help="Path to the confirmed income ledger CSV",
+    )
+    parser.add_argument(
         "--as-of",
         type=date.fromisoformat,
         default=date.today(),
@@ -161,7 +183,12 @@ def main() -> None:
     )
     args = parser.parse_args()
     print(
-        report(load_leads(args.leads), args.as_of, load_leads(args.prospects)),
+        report(
+            load_leads(args.leads),
+            args.as_of,
+            load_leads(args.prospects),
+            load_leads(args.income),
+        ),
         end="",
     )
 
