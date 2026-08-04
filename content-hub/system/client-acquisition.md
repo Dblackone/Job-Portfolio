@@ -56,6 +56,10 @@ The current manually reviewed outreach drafts are in
 verify the recipient, and log any send before treating the prospect as an active
 lead.
 
+`prospect-list.csv` records public company contact routes for research only.
+Re-check the `contact_checked` date immediately before sending; a listed route
+does not imply permission, interest, or a valid current address.
+
 Do not estimate a project value until the prospect has supplied enough scope to
 support it. Keep unknown values blank or mark them `TBC`.
 
