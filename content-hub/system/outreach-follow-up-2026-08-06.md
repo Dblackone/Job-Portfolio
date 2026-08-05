@@ -92,3 +92,18 @@ Relevant BIM and project evidence: https://dblackone.github.io/Job-Portfolio/por
 
 Regards,  
 Vollmann Akarakiri
+
+## Response checkpoint — 2026-08-05
+
+Gmail review confirmed that follow-ups to all five contacts are present in Sent:
+
+- APD Project Management Limited
+- Amana Consortium Limited
+- S and Bros Nigeria Limited
+- AOS Project Management Limited
+- ANU QUAD & CO
+
+No reply from any of the five contacts was found in the mailbox at the time of
+review. This is a response checkpoint, not evidence of rejection, lead status,
+or income. Keep each contact outside `leads.csv` until an identifiable reply or
+referral creates a real next step.
