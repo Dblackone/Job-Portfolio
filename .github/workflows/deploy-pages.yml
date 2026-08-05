@@ -24,7 +24,7 @@ jobs:
       - name: Assemble static site
         run: |
           mkdir -p _site
-          cp index.html motion.html web-portfolio.html contact.html robots.txt sitemap.xml _site/
+          cp index.html motion.html web-portfolio.html contact.html thanks.html robots.txt sitemap.xml _site/
           cp -r css js assets portfolio architectural-portfolio consulting cv dova-futures case-studies _site/
           touch _site/.nojekyll
 
@@ -41,6 +41,7 @@ jobs:
           test -f _site/case-studies/bim-coordination.html
           test -f _site/case-studies/interior-living-dining.html
           test -f _site/contact.html
+          test -f _site/thanks.html
           test -f _site/robots.txt
           test -f _site/sitemap.xml
           test ! -e _site/content-hub

@@ -1,7 +1,143 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Contact Vollmann Olamide Akarakiri about construction, BIM, design, and project delivery work."><title>Contact — Vollmann Olamide Akarakiri</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="case-studies/styles.css"><style>
-.contact-hero{padding:86px 0 48px;max-width:790px}.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;padding:35px 0 90px}.form{padding:30px;background:var(--card);border:1px solid var(--line);border-radius:5px}.field{display:grid;gap:7px;margin-bottom:18px}.field label{font-size:13px;font-weight:700}.field input,.field textarea,.field select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:3px;background:#fff;color:var(--ink);font:inherit}.field textarea{min-height:145px;resize:vertical}.submit{border:0;cursor:pointer;font:600 14px 'DM Sans',sans-serif}.contact-details{display:grid;gap:12px;align-content:start}.contact-card{padding:20px;background:var(--dark);color:#fff;border-radius:4px}.contact-card small{display:block;color:#e5a287;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px}.contact-card a{word-break:break-word}.contact-card a:hover{color:#e5a287}.note{color:var(--muted);font-size:13px;margin-top:14px}@media(max-width:760px){.contact-grid{display:block}.contact-details{margin-top:28px}}
-</style></head>
-<body><header class="topbar"><div class="container nav"><a class="brand" href="index.html">Vollmann Akarakiri</a><a class="back" href="index.html">← Back to portfolio</a></div></header>
-<main><section class="container contact-hero"><p class="eyebrow">Start a conversation</p><h1>Tell me what you’re building.</h1><p class="lede">Share a little about the project, its current stage, and where you need support. I’ll reply by email, or you can reach me directly on WhatsApp or LinkedIn.</p></section>
-<section><div class="container contact-grid"><form class="form" action="https://formsubmit.co/vollmannakarakiri0@gmail.com" method="POST"><input type="hidden" name="_subject" value="New portfolio enquiry"><input type="hidden" name="_next" value="https://dblackone.github.io/Job-Portfolio/contact.html?sent=1"><input type="hidden" name="_captcha" value="false"><div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div><div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="project">Project type</label><select id="project" name="project"><option>Construction project</option><option>BIM / model review</option><option>Architectural design</option><option>Interior design</option><option>Other</option></select></div><div class="field"><label for="message">How can I help?</label><textarea id="message" name="message" required placeholder="Current stage, support required, and desired timeline"></textarea></div><button class="button primary submit" type="submit">Send enquiry ↗</button><p class="note">This form is configured to send submissions to the portfolio email. The first submission may require email confirmation from the form provider.</p></form><div class="contact-details"><div class="contact-card"><small>WhatsApp</small><a href="https://wa.me/2348163675439?text=Hello%20Vollmann%2C%20I%20found%20your%20portfolio." target="_blank" rel="noopener">+234 816 367 5439 ↗</a></div><div class="contact-card"><small>Email</small><a href="mailto:vollmannakarakiri0@gmail.com">vollmannakarakiri0@gmail.com ↗</a></div><div class="contact-card"><small>LinkedIn</small><a href="https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0/" target="_blank" rel="noopener">linkedin.com/in/vollmann-akarakiri-49127b1a0 ↗</a></div><div class="contact-card"><small>Availability</small><span>Open to opportunities worldwide and remote.</span></div></div></div></section></main><footer><div class="container footer-inner"><span>© 2026 Vollmann Olamide Akarakiri</span><a href="index.html">Return to landing page ↗</a></div></footer><script>if(new URLSearchParams(location.search).get('sent')==='1'){document.querySelector('.form').insertAdjacentHTML('afterbegin','<p style="padding:12px 14px;margin:0 0 18px;background:#e7d8d0;color:#63301f;font-weight:700">Thanks — your enquiry has been sent.</p>')}</script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact Vollmann Olamide Akarakiri about construction, BIM, architectural design, interiors, and project delivery.">
+  <link rel="canonical" href="https://dblackone.github.io/Job-Portfolio/contact.html">
+  <title>Contact — Vollmann Olamide Akarakiri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case-studies/styles.css">
+  <style>
+    .contact-hero { max-width:790px; padding:86px 0 48px; }
+    .contact-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:70px; padding:35px 0 90px; }
+    .form { padding:30px; background:var(--card); border:1px solid var(--line); border-radius:5px; }
+    .form-row { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .field { display:grid; gap:7px; margin-bottom:18px; }
+    .field label, .consent label { font-size:13px; font-weight:700; }
+    .field input, .field textarea, .field select { width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:3px; background:#fff; color:var(--ink); font:inherit; }
+    .field input:focus, .field textarea:focus, .field select:focus { border-color:var(--accent); outline:2px solid rgba(184,92,56,.18); }
+    .field textarea { min-height:150px; resize:vertical; }
+    .optional { color:var(--muted); font-size:11px; font-weight:400; }
+    .consent { display:flex; align-items:flex-start; gap:9px; margin:2px 0 18px; }
+    .consent input { margin-top:4px; }
+    .submit { border:0; cursor:pointer; font:600 14px 'DM Sans',sans-serif; }
+    .contact-details { display:grid; gap:12px; align-content:start; }
+    .contact-card { padding:20px; background:var(--dark); color:#fff; border-radius:4px; }
+    .contact-card small { display:block; color:#e5a287; font-weight:700; letter-spacing:.15em; text-transform:uppercase; margin-bottom:6px; }
+    .contact-card a { word-break:break-word; }
+    .contact-card a:hover { color:#e5a287; }
+    .note { color:var(--muted); font-size:13px; margin:14px 0 0; }
+    .honey { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+    @media (max-width:760px) { .contact-grid { display:block; } .contact-details { margin-top:28px; } .form-row { grid-template-columns:1fr; gap:0; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html">Vollmann Akarakiri</a>
+      <a class="back" href="index.html">← Back to portfolio</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container contact-hero">
+      <p class="eyebrow">Start a conversation</p>
+      <h1>Tell me what you’re building.</h1>
+      <p class="lede">Share the project, its current stage, and where you need support. I’ll reply by email, or you can reach me directly on WhatsApp or LinkedIn.</p>
+    </section>
+
+    <section>
+      <div class="container contact-grid">
+        <form class="form" action="https://formsubmit.co/vollmannakarakiri0@gmail.com" method="POST" accept-charset="UTF-8">
+          <input type="hidden" name="_subject" value="New portfolio enquiry — Vollmann Akarakiri">
+          <input type="hidden" name="_next" value="https://dblackone.github.io/Job-Portfolio/thanks.html">
+          <input type="hidden" name="_url" value="https://dblackone.github.io/Job-Portfolio/contact.html">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_autoresponse" value="Thank you for contacting Vollmann Olamide Akarakiri. Your enquiry has been received. I will review the project details and respond as soon as possible. For urgent enquiries, please use the WhatsApp link on the portfolio contact page.">
+
+          <div class="honey" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="Name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="organization">Company <span class="optional">optional</span></label>
+              <input id="organization" name="Company" type="text" autocomplete="organization">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone / WhatsApp <span class="optional">optional</span></label>
+              <input id="phone" name="Phone or WhatsApp" type="tel" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="project">Support required</label>
+              <select id="project" name="Support required" required>
+                <option value="" selected disabled>Select a service</option>
+                <option>Construction project management</option>
+                <option>BIM / model and drawing review</option>
+                <option>Architectural design</option>
+                <option>Interior design</option>
+                <option>2D drafting / documentation</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="stage">Current stage</label>
+              <select id="stage" name="Current project stage" required>
+                <option value="" selected disabled>Select a stage</option>
+                <option>Early idea / feasibility</option>
+                <option>Design development</option>
+                <option>Tender / pre-construction</option>
+                <option>Under construction</option>
+                <option>Renovation / fit-out</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="timeline">Desired timeline <span class="optional">optional</span></label>
+            <input id="timeline" name="Desired timeline" type="text" placeholder="For example: within four weeks">
+          </div>
+          <div class="field">
+            <label for="message">Project details</label>
+            <textarea id="message" name="Project details" required placeholder="Briefly describe the project, location, current challenge, and the outcome you need."></textarea>
+          </div>
+          <div class="consent">
+            <input id="consent" name="Permission to respond" type="checkbox" value="Yes" required>
+            <label for="consent">I agree to be contacted about this enquiry.</label>
+          </div>
+          <button class="button primary submit" type="submit">Send enquiry ↗</button>
+          <p class="note">Protected by FormSubmit’s spam filtering and reCAPTCHA. Your information is used only to respond to this enquiry.</p>
+        </form>
+
+        <div class="contact-details">
+          <div class="contact-card"><small>WhatsApp</small><a href="https://wa.me/2348163675439?text=Hello%20Vollmann%2C%20I%20found%20your%20portfolio." target="_blank" rel="noopener">+234 816 367 5439 ↗</a></div>
+          <div class="contact-card"><small>Email</small><a href="mailto:vollmannakarakiri0@gmail.com">vollmannakarakiri0@gmail.com ↗</a></div>
+          <div class="contact-card"><small>LinkedIn</small><a href="https://www.linkedin.com/in/vollmann-akarakiri-49127b1a0/" target="_blank" rel="noopener">linkedin.com/in/vollmann-akarakiri-49127b1a0 ↗</a></div>
+          <div class="contact-card"><small>Availability</small><span>Open to opportunities worldwide and remote.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>© 2026 Vollmann Olamide Akarakiri</span><a href="index.html">Return to landing page ↗</a></div></footer>
+</body>
+</html>
