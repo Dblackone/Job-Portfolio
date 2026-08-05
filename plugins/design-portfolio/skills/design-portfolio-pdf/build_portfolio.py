@@ -19,15 +19,10 @@ numbering are added automatically to the light content pages.
 import base64
 import io
 import os
-import subprocess
-import tempfile
 import html as _html
 
 from PIL import Image
-try:
-    from weasyprint import HTML
-except (ImportError, OSError):
-    HTML = None
+from weasyprint import HTML
 
 # Resolved per build() call; image paths in CONFIG are relative to this.
 _BASE = "."
@@ -605,18 +600,7 @@ def build(config, base_dir=".", out=None, font_dir=None):
 
     html = ("<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>"
             f"<style>{font_faces(font_dir)}{CSS}</style></head><body>{body}</body></html>")
-    if HTML is not None:
-        HTML(string=html, base_url=base_dir).write_pdf(out)
-    else:
-        node = os.environ["FORGE_NODE_BIN"]
-        helper = os.path.join(base_dir, "pdf", "render_html_pdf.js")
-        with tempfile.NamedTemporaryFile("w", suffix=".html", encoding="utf-8", delete=False) as fh:
-            fh.write(html)
-            html_path = fh.name
-        try:
-            subprocess.run([node, helper, html_path, out], check=True)
-        finally:
-            os.unlink(html_path)
+    HTML(string=html, base_url=base_dir).write_pdf(out)
     print("Wrote", out, "·", round(os.path.getsize(out) / 1024), "KB ·", total, "pages")
     return out
 

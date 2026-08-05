@@ -33,56 +33,9 @@ def parse_amount(value: str) -> Decimal:
         return Decimal("0")
 
 
-def parse_int(value: str) -> int:
-    """Return a non-negative tracker count, treating blank or invalid values as zero."""
-
-    try:
-        return max(0, int((value or "").strip()))
-    except (TypeError, ValueError):
-        return 0
-
-
 def load_leads(path: Path) -> list[dict[str, str]]:
     with path.open(newline="", encoding="utf-8-sig") as stream:
         return list(csv.DictReader(stream))
-
-
-def latest_platform_rows(rows: list[dict[str, str]], as_of: date) -> list[dict[str, str]]:
-    """Return the newest dated platform row for each platform up to the report date."""
-
-    latest: dict[str, tuple[date, dict[str, str]]] = {}
-    for row in rows:
-        try:
-            recorded = date.fromisoformat((row.get("date") or "").strip())
-        except ValueError:
-            continue
-        if recorded > as_of:
-            continue
-        platform = (row.get("platform") or "Unspecified").strip()
-        if platform not in latest or recorded >= latest[platform][0]:
-            latest[platform] = (recorded, row)
-    return [row for _, row in sorted(latest.values(), key=lambda item: item[1].get("platform", ""))]
-
-
-def marketplace_totals(
-    opportunities: list[dict[str, str]],
-    platform_rows: list[dict[str, str]],
-    referrals: list[dict[str, str]],
-    as_of: date,
-) -> tuple[int, int, int, int, int, int, int]:
-    """Return research count, applications, replies, proposals, wins, income, and referrals sent."""
-
-    research_count = sum(
-        1 for row in opportunities if (row.get("application_status") or "").strip() == "research-qualified"
-    )
-    latest_rows = latest_platform_rows(platform_rows, as_of)
-    applications = sum(parse_int(row.get("applications", "")) for row in latest_rows)
-    replies = sum(parse_int(row.get("replies", "")) for row in latest_rows)
-    proposals = sum(parse_int(row.get("proposals", "")) for row in latest_rows)
-    wins = sum(parse_int(row.get("work_won", "")) for row in latest_rows)
-    income = sum(parse_amount(row.get("received_income_ngn", "")) for row in latest_rows)
-    referrals_sent = sum(1 for row in referrals if (row.get("date_sent") or "").strip())
-    return research_count, applications, replies, proposals, wins, int(income), referrals_sent
 
 
 def format_ngn(value: Decimal) -> str:
@@ -154,9 +107,6 @@ def report(
     as_of: date,
     prospects: list[dict[str, str]] | None = None,
     income_rows: list[dict[str, str]] | None = None,
-    opportunities: list[dict[str, str]] | None = None,
-    platform_rows: list[dict[str, str]] | None = None,
-    referrals: list[dict[str, str]] | None = None,
 ) -> str:
     stage_counts = Counter((lead.get("stage") or "Unstaged").strip() for lead in leads)
     sources = Counter((lead.get("source") or "Unspecified").strip() for lead in leads)
@@ -172,10 +122,6 @@ def report(
             continue
         if due_date < as_of and (lead.get("stage") or "").strip() in ACTIVE_STAGES:
             overdue.append(lead)
-
-    research_count, applications, replies, proposals, wins, marketplace_income, referrals_sent = marketplace_totals(
-        opportunities or [], platform_rows or [], referrals or [], as_of
-    )
 
     lines = [
         "# Consulting pipeline snapshot",
@@ -196,22 +142,6 @@ def report(
         lines.extend(f"- {stage}: {count}" for stage, count in sorted(stage_counts.items()))
     else:
         lines.append("- No leads logged yet; this snapshot reflects the empty tracker.")
-
-    lines.extend(
-        [
-            "",
-            "## Marketplace and referral activity",
-            "",
-            f"- Research-qualified freelance opportunities: {research_count}",
-            f"- Applications recorded: {applications}",
-            f"- Replies recorded: {replies}",
-            f"- Proposals recorded: {proposals}",
-            f"- Marketplace work won: {wins}",
-            f"- Marketplace income recorded: {format_ngn(Decimal(marketplace_income))}",
-            f"- Warm referral requests sent: {referrals_sent}",
-            "- Marketplace research is excluded from leads until a client expresses identifiable interest.",
-        ]
-    )
 
     lines.extend(["", "## Top sources", ""])
     lines.extend(f"- {source}: {count}" for source, count in sources.most_common(5))
@@ -322,24 +252,6 @@ def main() -> None:
         help="Path to the confirmed income ledger CSV",
     )
     parser.add_argument(
-        "--opportunities",
-        type=Path,
-        default=Path(__file__).with_name("freelance-opportunities.csv"),
-        help="Path to the freelance opportunity tracker CSV",
-    )
-    parser.add_argument(
-        "--platform-log",
-        type=Path,
-        default=Path(__file__).with_name("freelance-platform-test-log.csv"),
-        help="Path to the platform measurement log CSV",
-    )
-    parser.add_argument(
-        "--referrals",
-        type=Path,
-        default=Path(__file__).with_name("warm-referral-outreach.csv"),
-        help="Path to the warm referral outreach CSV",
-    )
-    parser.add_argument(
         "--as-of",
         type=date.fromisoformat,
         default=date.today(),
@@ -352,9 +264,6 @@ def main() -> None:
             args.as_of,
             load_leads(args.prospects),
             load_leads(args.income),
-            load_leads(args.opportunities),
-            load_leads(args.platform_log),
-            load_leads(args.referrals),
         ),
         end="",
     )

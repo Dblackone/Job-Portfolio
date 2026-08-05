@@ -131,22 +131,5 @@
   </main>
 
   <footer class="shell footer">Architecture · BIM · Construction consulting · Lagos, Nigeria · Remote</footer>
-  <script>
-    (() => {
-      const sourceParam = new URLSearchParams(window.location.search).get('source');
-      const source = ['upwork', 'contra', 'linkedin', 'referral', 'portfolio'].includes(sourceParam)
-        ? sourceParam
-        : null;
-      if (!source) return;
-      document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-        const url = new URL(link.getAttribute('href'), window.location.href);
-        const subject = url.searchParams.get('subject') || 'Consulting enquiry';
-        if (!subject.toLowerCase().includes(`[${source}]`)) {
-          url.searchParams.set('subject', `[${source}] ${subject}`);
-          link.setAttribute('href', url.toString());
-        }
-      });
-    })();
-  </script>
 </body>
 </html>

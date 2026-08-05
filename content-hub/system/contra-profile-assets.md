@@ -38,10 +38,9 @@ required output, deadline, assumptions, and review boundaries.
 
 ### Proof links
 
-- Portfolio: https://dblackone.github.io/Job-Portfolio/web-portfolio.html?source=contra
-- BIM portfolio: https://dblackone.github.io/Job-Portfolio/portfolio/bim.html?source=contra
-- BIM review scope: https://dblackone.github.io/Job-Portfolio/consulting/bim-model-review.html?source=contra
-- Paid review and delivery support: https://dblackone.github.io/Job-Portfolio/consulting/paid-review-and-support.html?source=contra
+- Portfolio: https://dblackone.github.io/Job-Portfolio/web-portfolio.html
+- BIM portfolio: https://dblackone.github.io/Job-Portfolio/portfolio/bim.html
+- BIM review scope: https://dblackone.github.io/Job-Portfolio/consulting/bim-model-review.html
 
 ### Referral and project invitation message
 

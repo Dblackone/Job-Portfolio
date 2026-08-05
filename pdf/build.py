@@ -18,36 +18,15 @@ Out:  assets/vollmann-akarakiri-portfolio.pdf
 import base64
 import io
 import os
-import subprocess
-import tempfile
 
 from PIL import Image
-try:
-    from weasyprint import HTML
-except (ImportError, OSError):
-    HTML = None
+from weasyprint import HTML
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS = os.path.join(ROOT, "assets")
 PICS = os.path.join(ASSETS, "Project Pictures")
 FONT_DIR = os.path.join(ROOT, "pdf", "fonts")
 OUT = os.path.join(ASSETS, "vollmann-akarakiri-portfolio.pdf")
-
-
-def write_pdf(html, output):
-    """Render the self-contained document with WeasyPrint or Chromium."""
-    if HTML is not None:
-        HTML(string=html, base_url=ROOT).write_pdf(output)
-        return
-    node = os.environ["FORGE_NODE_BIN"]
-    helper = os.path.join(ROOT, "pdf", "render_html_pdf.js")
-    with tempfile.NamedTemporaryFile("w", suffix=".html", encoding="utf-8", delete=False) as fh:
-        fh.write(html)
-        html_path = fh.name
-    try:
-        subprocess.run([node, helper, html_path, output], check=True)
-    finally:
-        os.unlink(html_path)
 
 
 # ───────────────────────── asset embedding helpers ─────────────────────────
@@ -450,11 +429,11 @@ BODY = """
         <span class="muted">Delivered.</span>
       </div>
       <p class="hero-sub">From Revit model to built reality — concept through
-        handover. Supporting residential, commercial and mixed-use projects
-        across Nigeria.</p>
+        handover. Five years delivering residential, commercial and mixed-use
+        projects across Nigeria.</p>
       <ul class="hero-points">
-        <li>Progressive construction and design leadership</li>
-        <li>Experience across building, BIM, site and design work</li>
+        <li>7+ years of progressive construction &amp; design leadership</li>
+        <li>30+ projects delivered across all disciplines</li>
         <li>&#8358;350M+ cumulative project value · &#8358;10M+ savings delivered</li>
         <li>MSc Construction Engineering Management — UEL, London</li>
       </ul>
@@ -468,9 +447,9 @@ BODY = """
         <div class="role">Construction Project Manager</div>
         <div class="loc">Lagos, Nigeria · MSc CEM Candidate, UEL</div>
         <div class="pstats">
-          <div class="b"><div class="n">BIM</div><div class="l">Model and documentation support</div></div>
+          <div class="b"><div class="n">30+</div><div class="l">Total projects</div></div>
           <div class="b"><div class="n">&#8358;350M+</div><div class="l">Project value</div></div>
-          <div class="b"><div class="n">CAD</div><div class="l">Technical documentation</div></div>
+          <div class="b"><div class="n">7+</div><div class="l">Years</div></div>
         </div>
         <div class="psw">
           <span>Revit</span><span>Dynamo</span><span>AutoCAD</span>
@@ -504,7 +483,7 @@ BODY = """
   <div class="about">
     <div>
       <p>Vollmann Olamide Akarakiri is a results-driven Construction Project
-        Manager delivering residential, commercial, and
+        Manager with 7+ years delivering residential, commercial, and
         mixed-use building projects from planning and design through execution
         and completion across multiple Nigerian states.</p>
       <p>He has coordinated multiple project sites and contributed to
@@ -516,10 +495,10 @@ BODY = """
         supervision and health &amp; safety — with strong technical capability
         in BIM (Revit, AutoCAD, Dynamo, Navisworks).</p>
       <div class="stat-grid">
-        <div class="st"><div class="n">20+</div><div class="d">Concurrent sites supported</div></div>
+        <div class="st"><div class="n">30+</div><div class="d">Total projects across all disciplines</div></div>
         <div class="st"><div class="n">&#8358;350M+</div><div class="d">Cumulative project value</div></div>
         <div class="st"><div class="n">&#8358;10M+</div><div class="d">Savings delivered</div></div>
-        <div class="st"><div class="n">BIM</div><div class="d">Model and documentation support</div></div>
+        <div class="st"><div class="n">7+</div><div class="d">Years of experience</div></div>
       </div>
     </div>
 
@@ -567,28 +546,28 @@ BODY = """
 
   <div class="sw-grid">
     <div class="sw"><div class="ic">&#9670;</div><h4>Autodesk Revit</h4>
-      <div class="lv">Core — BIM Modelling</div>
-      <p>Architectural BIM models, family creation, documentation sheets,
-        schedules and coordinated model production across office, residential
-        and interior work.</p></div>
+      <div class="lv">Expert — BIM Modelling</div>
+      <p>Full architectural BIM models for 30+ office, residential and interior
+        projects. Family creation, documentation sheets, schedules and
+        coordinated model production.</p></div>
     <div class="sw"><div class="ic">&#9671;</div><h4>Dynamo for Revit</h4>
-      <div class="lv">Working — Parametric Automation</div>
-      <p>Working knowledge of Dynamo for Revit for repeatable model and
-        documentation tasks, applied within an agreed project scope.</p></div>
+      <div class="lv">Advanced — Parametric Automation</div>
+      <p>Custom parametric workflows and automation scripts that reduce
+        documentation time and enable data-driven design coordination.</p></div>
     <div class="sw"><div class="ic">&#9633;</div><h4>AutoCAD</h4>
-      <div class="lv">Core — Technical Drawing</div>
+      <div class="lv">Expert — Technical Drawing</div>
       <p>2D technical drawing, site plans, detailed construction and working
-        drawings, and detailing packages for residential and construction work.</p></div>
+        drawings, and detailing packages for 10+ residential properties.</p></div>
     <div class="sw"><div class="ic">&#9650;</div><h4>Navisworks</h4>
       <div class="lv">Proficient — BIM Coordination</div>
-      <p>Model review and coordination workflows in Navisworks, including
-        navigation, issue identification and structured review of supplied information.</p></div>
+      <p>Multi-discipline model coordination, clash detection and resolution,
+        4D construction sequencing and project review workflows.</p></div>
     <div class="sw"><div class="ic">&#9632;</div><h4>Microsoft Project</h4>
       <div class="lv">Proficient — Project Scheduling</div>
       <p>Scheduling, milestone tracking, resource planning and programme
         management for large multi-site construction programmes.</p></div>
     <div class="sw"><div class="ic">&#9679;</div><h4>MS Excel &amp; Office Suite</h4>
-      <div class="lv">Working — Reporting &amp; Cost Control</div>
+      <div class="lv">Advanced — Reporting &amp; Cost Control</div>
       <p>Budget tracking, cost forecasting, progress reporting, procurement
         schedules and management reporting across concurrent sites.</p></div>
   </div>
@@ -608,7 +587,7 @@ BODY = """
   <div class="s-head"><div class="accent-bar"></div>
     <p class="label" style="margin-top:9px;">Career History</p>
     <h2>Professional Experience</h2>
-    <p class="sub">Progressive responsibility across construction,
+    <p class="sub">7+ years of progressive responsibility across construction,
       site engineering and design — from intern to Engineering Lead.</p></div>
 
   <ul class="tl">
@@ -620,7 +599,8 @@ BODY = """
         &#8358;350 million in cumulative value.</li>
         <li>Generated over &#8358;10 million in savings through cost control,
           vendor coordination and error prevention.</li>
-        <li>Produced BIM models across office, residential and interior work.</li>
+        <li>Produced BIM models for 30+ office, 10+ residential and 10+
+          interior projects.</li>
         <li>Coordinated architects, consultants, engineers, suppliers and
           contractors to ensure quality, safety and on-time delivery.</li></ul></li>
     <li><div class="pe">Jun 2020 – Aug 2021</div>
@@ -628,9 +608,9 @@ BODY = """
       <div class="co">Nature's Beauty Construction</div>
       <ul><li>Planned and supervised site-development and landscape
         projects across multiple states.</li>
-        <li>Produced detailing packages for residential properties.</li>
-        <li>Supported team onboarding and contributed to business development
-          activities.</li></ul></li>
+        <li>Produced detailing packages for 10+ residential properties.</li>
+        <li>Trained 5+ employees; contributed to business opportunities
+          exceeding &#8358;20 million.</li></ul></li>
     <li><div class="pe">Dec 2019 – Apr 2020</div>
       <div class="ro">Site Supervisor</div>
       <div class="co">Lego Construction Company</div>
@@ -654,8 +634,8 @@ BODY = """
   <div class="metrics">
     <div class="st"><div class="n">&#8358;350M+</div><div class="d">Total project value managed</div></div>
     <div class="st"><div class="n">&#8358;10M+</div><div class="d">Savings generated</div></div>
-    <div class="st"><div class="n">20+</div><div class="d">Concurrent sites supported</div></div>
-    <div class="st"><div class="n">BIM</div><div class="d">Model and documentation support</div></div>
+    <div class="st"><div class="n">30+</div><div class="d">Total projects across all disciplines</div></div>
+    <div class="st"><div class="n">30+</div><div class="d">BIM models produced</div></div>
   </div>
   __FOOT4__
 </section>
@@ -671,14 +651,14 @@ BODY = """
   <div class="cards">
     <div class="card"><div class="top"></div><div class="bd">
       <div class="ic">&#9670;</div><h3>Building Projects</h3>
-      <p>Office, residential and interior project experience covering
+      <p>30+ office, 10+ residential and 10+ interior projects delivered. Full
         architectural design and BIM documentation from concept through
         construction drawings.</p>
-      <div class="tag">BUILDING PROJECT EXPERIENCE</div></div></div>
+      <div class="tag">30+ PROJECTS DELIVERED</div></div></div>
     <div class="card"><div class="top"></div><div class="bd">
       <div class="ic">&#9671;</div><h3>BIM &amp; Revit</h3>
-      <p>BIM model development, drawing-package review, Navisworks coordination
-        and construction documentation across residential, office and interior
+      <p>Advanced BIM modelling, Dynamo automation, Navisworks coordination and
+        construction documentation across residential, office and interior
         projects.</p>
       <div class="tag">REVIT · DYNAMO · NAVISWORKS</div></div></div>
     <div class="card"><div class="top"></div><div class="bd">
@@ -971,7 +951,7 @@ def build():
         "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>"
         f"<style>{FONT_FACES}{CSS}</style></head><body>{body}</body></html>"
     )
-    write_pdf(html, OUT)
+    HTML(string=html, base_url=ROOT).write_pdf(OUT)
     print("Wrote", OUT, "·", round(os.path.getsize(OUT) / 1024), "KB")
 
 

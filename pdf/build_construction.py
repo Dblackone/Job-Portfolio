@@ -19,14 +19,9 @@ Out:  assets/vollmann-akarakiri-construction-portfolio.pdf
 import base64
 import io
 import os
-import subprocess
-import tempfile
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
-try:
-    from weasyprint import HTML
-except (ImportError, OSError):
-    HTML = None
+from weasyprint import HTML
 
 ROOT     = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS   = os.path.join(ROOT, "assets")
@@ -35,22 +30,6 @@ FONT_DIR = os.path.join(ROOT, "pdf", "fonts")
 OUT      = os.path.join(ASSETS, "vollmann-akarakiri-construction-portfolio.pdf")
 
 TOTAL_PAGES = 11
-
-
-def write_pdf(html, output):
-    """Render the self-contained document with WeasyPrint or Chromium."""
-    if HTML is not None:
-        HTML(string=html, base_url=ROOT).write_pdf(output)
-        return
-    node = os.environ["FORGE_NODE_BIN"]
-    helper = os.path.join(ROOT, "pdf", "render_html_pdf.js")
-    with tempfile.NamedTemporaryFile("w", suffix=".html", encoding="utf-8", delete=False) as fh:
-        fh.write(html)
-        html_path = fh.name
-    try:
-        subprocess.run([node, helper, html_path, output], check=True)
-    finally:
-        os.unlink(html_path)
 
 
 # ───────────────────────── helpers ─────────────────────────
@@ -555,9 +534,9 @@ BODY = """
         <div class="role">Construction Project Manager</div>
         <div class="loc">Lagos, Nigeria · MSc CEM Candidate, UEL</div>
         <div class="pstats">
-          <div class="b"><div class="n">BIM</div><div class="l">Model and documentation support</div></div>
+          <div class="b"><div class="n">30+</div><div class="l">Total projects</div></div>
           <div class="b"><div class="n">&#8358;350M+</div><div class="l">Project value</div></div>
-          <div class="b"><div class="n">CAD</div><div class="l">Technical documentation</div></div>
+          <div class="b"><div class="n">7+</div><div class="l">Years</div></div>
         </div>
         <div class="psw">
           <span>Revit</span><span>AutoCAD</span><span>Navisworks</span>
@@ -591,7 +570,7 @@ BODY = """
   <div class="about">
     <div>
       <p>Vollmann Olamide Akarakiri is a Construction Project Manager and Site
-        Engineer delivering physical construction and fit-out
+        Engineer with 7+ years delivering physical construction and fit-out
         projects across commercial, residential and infrastructure sectors in
         Nigeria.</p>
       <p>His site experience spans residential buildings from foundation to
@@ -600,10 +579,10 @@ BODY = """
         control and programme on each project, and bridging BIM model to built
         reality.</p>
       <div class="stat-grid">
-        <div class="st"><div class="n">20+</div><div class="d">Concurrent sites supported</div></div>
+        <div class="st"><div class="n">30+</div><div class="d">Total projects across all disciplines</div></div>
         <div class="st"><div class="n">&#8358;350M+</div><div class="d">Cumulative project value</div></div>
         <div class="st"><div class="n">&#8358;10M+</div><div class="d">Savings delivered</div></div>
-        <div class="st"><div class="n">BIM</div><div class="d">Model and documentation support</div></div>
+        <div class="st"><div class="n">7+</div><div class="d">Years of experience</div></div>
       </div>
       <div class="edu-grid" style="margin-top:8mm;">
         <div class="edu"><div class="dg">MSc Construction Engineering Management</div>
@@ -632,12 +611,12 @@ BODY = """
 
       <p class="label" style="margin:7mm 0 8px;">Technical Toolkit</p>
       <div class="tk-grid">
-        <div class="tk"><span class="tkn">Autodesk Revit</span><span class="tkl">Core · BIM coordination</span></div>
-        <div class="tk"><span class="tkn">Navisworks</span><span class="tkl">Working · Model review</span></div>
-        <div class="tk"><span class="tkn">AutoCAD</span><span class="tkl">Core · Shop drawings</span></div>
+        <div class="tk"><span class="tkn">Autodesk Revit</span><span class="tkl">Expert · BIM coordination</span></div>
+        <div class="tk"><span class="tkn">Navisworks</span><span class="tkl">Proficient · Clash detection</span></div>
+        <div class="tk"><span class="tkn">AutoCAD</span><span class="tkl">Expert · Shop drawings</span></div>
         <div class="tk"><span class="tkn">MS Project</span><span class="tkl">Proficient · Programme</span></div>
-        <div class="tk"><span class="tkn">Dynamo</span><span class="tkl">Working · Documentation tasks</span></div>
-        <div class="tk"><span class="tkn">MS Excel &amp; Office</span><span class="tkl">Working · Cost control</span></div>
+        <div class="tk"><span class="tkn">Dynamo</span><span class="tkl">Advanced · Automation</span></div>
+        <div class="tk"><span class="tkn">MS Excel &amp; Office</span><span class="tkl">Advanced · Cost control</span></div>
       </div>
     </div>
   </div>
@@ -779,7 +758,7 @@ def build():
         "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>"
         f"<style>{FONT_FACES}{CSS}</style></head><body>{body}</body></html>"
     )
-    write_pdf(html, OUT)
+    HTML(string=html, base_url=ROOT).write_pdf(OUT)
     print("Wrote", OUT, "·", round(os.path.getsize(OUT) / 1024), "KB")
 
 

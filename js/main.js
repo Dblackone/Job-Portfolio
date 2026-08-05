@@ -106,35 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── PORTFOLIO CARD HOVER RIPPLE ────────────────────────────────
-  // Attribute enquiries from known acquisition channels without a third-party
-  // analytics service. Profile links can append ?source=upwork, contra,
-  // linkedin, referral, or portfolio; the source is carried into the email
-  // subject so it can be logged in the acquisition tracker.
-  const sourceParam = new URLSearchParams(window.location.search).get('source');
-  const source = ['upwork', 'contra', 'linkedin', 'referral', 'portfolio'].includes(sourceParam)
-    ? sourceParam
-    : null;
-  if (source) {
-    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-      const url = new URL(link.getAttribute('href'), window.location.href);
-      const subject = url.searchParams.get('subject') || 'Consulting enquiry';
-      if (!subject.toLowerCase().includes(`[${source}]`)) {
-        url.searchParams.set('subject', `[${source}] ${subject}`);
-        link.setAttribute('href', url.toString());
-      }
-    });
-
-    document.querySelectorAll('a[href]').forEach(link => {
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('http')) return;
-      const url = new URL(href, window.location.href);
-      if (url.origin === window.location.origin && !url.searchParams.has('source')) {
-        url.searchParams.set('source', source);
-        link.setAttribute('href', url.toString());
-      }
-    });
-  }
-
   document.querySelectorAll('.portfolio-card, .project-card').forEach(card => {
     card.addEventListener('mouseenter', function(e) {
       const rect = this.getBoundingClientRect();
