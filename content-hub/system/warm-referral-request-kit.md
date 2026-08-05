@@ -32,6 +32,7 @@ kind of support, I would appreciate a direct introduction. A short brief is enou
 for me to confirm whether I can help.
 
 Portfolio: https://dblackone.github.io/Job-Portfolio/web-portfolio.html?source=referral
+Focused offers: https://dblackone.github.io/Job-Portfolio/consulting/paid-review-and-support.html?source=referral
 
 Regards,
 Vollmann
@@ -51,6 +52,7 @@ us? I can start with a clearly defined review or documentation task before any
 larger engagement.
 
 Portfolio: https://dblackone.github.io/Job-Portfolio/web-portfolio.html?source=referral
+Focused offers: https://dblackone.github.io/Job-Portfolio/consulting/paid-review-and-support.html?source=referral
 
 Regards,
 Vollmann
@@ -69,6 +71,7 @@ professional review structure where the assignment requires a licensed designer,
 engineer, or quantity surveyor.
 
 Portfolio: https://dblackone.github.io/Job-Portfolio/web-portfolio.html?source=referral
+Focused offers: https://dblackone.github.io/Job-Portfolio/consulting/paid-review-and-support.html?source=referral
 
 Regards,
 Vollmann
