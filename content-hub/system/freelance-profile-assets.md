@@ -43,9 +43,9 @@ to make. I will respond with a defined next step.
 
 ## Proof links
 
-- Portfolio: https://dblackone.github.io/Job-Portfolio/web-portfolio.html
-- BIM portfolio: https://dblackone.github.io/Job-Portfolio/portfolio/bim.html
-- BIM review scope: https://dblackone.github.io/Job-Portfolio/consulting/bim-model-review.html
+- Portfolio: https://dblackone.github.io/Job-Portfolio/web-portfolio.html?source=upwork
+- BIM portfolio: https://dblackone.github.io/Job-Portfolio/portfolio/bim.html?source=upwork
+- BIM review scope: https://dblackone.github.io/Job-Portfolio/consulting/bim-model-review.html?source=upwork
 
 ## Deferred Fiverr service listings
 

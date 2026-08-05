@@ -28,6 +28,9 @@ Add these proof links:
 - https://dblackone.github.io/Job-Portfolio/portfolio/bim.html
 - https://dblackone.github.io/Job-Portfolio/consulting/bim-model-review.html
 
+Use the source-tagged versions in `freelance-profile-assets.md` so an enquiry
+opened from an Upwork proof link carries `[upwork]` into the email subject.
+
 Before applying:
 
 - Complete identity and availability settings.
