@@ -88,3 +88,18 @@ Before recording an opportunity in `freelance-opportunities.csv`, confirm:
 
 Only a client reply or identifiable interest should promote an opportunity into
 the lead tracker.
+
+## Unauthenticated recheck — 2026-08-05
+
+An additional direct-page check was attempted for the three research-qualified
+Upwork records. Upwork returned HTTP 403 to the unauthenticated requests for all
+three URLs:
+
+- `UPW-20260805-002` — AutoCAD Drafter for Floor Plan
+- `UPW-20260805-003` — Draw plans from PDF to Revit model 2025
+- `UPW-20260805-004` — Architect or technologist
+
+This does not prove that any listing is closed. The records remain
+`research-qualified`, with authenticated-account verification required before an
+application decision. No application, lead, or income is recorded from this
+check.
