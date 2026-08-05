@@ -61,7 +61,7 @@ implementation experience until independently verified.
 | Channel | Role now | First test |
 |---|---|---|
 | Upwork | Find live, defined BIM, CAD, documentation, and construction-support jobs | Apply only to tightly matched jobs with a relevant proof sample |
-| Fiverr | Sell fixed-scope, productized services | Publish three clear gigs with deliverables, assumptions, and boundaries |
+| Contra | Present verified portfolio work, receive referrals, and manage scoped projects and payments | Build a focused profile with three proof-backed services and a clear contact route |
 | Referrals | Convert existing relationships into warm introductions | Ask past collaborators and contacts for one specific introduction |
 | Paid knowledge | Monetize practical reviews, templates, and focused guidance | Offer a defined paid review or working session |
 | Recurring support | Turn one-off work into monthly reporting or BIM support | Offer a small recurring scope after a successful first assignment |
@@ -86,15 +86,15 @@ path; genuinely passive income is a later experiment.
 ### Week 1 — Positioning
 
 - Build one focused Upwork profile around BIM, CAD, and construction support.
-- Define three Fiverr services from the service lanes above.
+- Build one focused Contra profile around verified portfolio work and defined services.
 - Select one proof sample per service from verified work.
 - Write a short capability statement that distinguishes company projects from
   personal freelance work.
 
 ### Week 2 — Marketplace launch
 
-- Publish the three Fiverr listings.
 - Submit a small number of highly matched Upwork proposals.
+- Publish the Contra profile and three service offers.
 - Record every application in `freelance-opportunities.csv`.
 - Do not apply to work that requires an unverified licence, certification, or
   software capability.
