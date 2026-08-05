@@ -45,11 +45,18 @@ Before applying:
 Open: https://contra.com/signup
 
 Use `contra-profile-assets.md` for the headline, overview, proof links, and offers.
+During onboarding, choose the independent/share-work route, use the verified
+professional photo, add the one-line positioning statement, and upload the three
+proof-backed projects before treating the profile as discoverable.
 Publish these three offers:
 
 1. Revit BIM model and drawing review
 2. CAD documentation and drawing updates
 3. Construction reporting and procurement tracking
+
+After the profile is complete, check both Contra Discover and matched
+opportunities. Record profile views, enquiries, and any matched applications in
+the platform test log; do not treat discoverability or impressions as leads.
 
 Before treating Contra as a payment route:
 
