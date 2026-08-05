@@ -103,7 +103,7 @@ pipeline evidence.
 
 Use one source tag per lead so the channel can be compared later:
 
-`upwork` · `fiverr` · `referral` · `portfolio` · `linkedin` · `whatsapp` · `direct outreach` · `repeat client` · `other`
+`upwork` · `contra` · `referral` · `portfolio` · `linkedin` · `whatsapp` · `direct outreach` · `repeat client` · `other`
 
 ## Weekly acquisition rhythm
 
