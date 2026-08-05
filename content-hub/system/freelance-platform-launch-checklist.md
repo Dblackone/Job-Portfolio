@@ -8,6 +8,10 @@ Use `freelance-pricing-framework.md` to qualify budgets before applying or accep
 
 ## Upwork launch
 
+**Payout readiness:** Upwork currently documents Direct to Local Bank for Nigeria
+in NGN. Verify the user's bank details and beneficiary-name match during account
+setup before submitting applications. See `freelance-payout-verification-2026-08-05.md`.
+
 - [ ] Create or update the profile using `freelance-profile-assets.md`.
 - [ ] Use the title: `BIM and CAD Documentation Specialist | Revit Review and Construction Support`.
 - [ ] Add the three proof links from the profile asset file.
@@ -19,6 +23,10 @@ Use `freelance-pricing-framework.md` to qualify budgets before applying or accep
 - [ ] Record every application in `freelance-opportunities.csv`.
 
 ## Contra launch
+
+**Payout readiness:** Contra payout availability for Nigeria is not yet confirmed
+for this account. Create the free profile and inspect the available payout methods
+before treating Contra as a payment route. See `freelance-payout-verification-2026-08-05.md`.
 
 - [ ] Create a free profile using `contra-profile-assets.md`.
 - [ ] Add the portfolio, BIM portfolio, and BIM review project links.
