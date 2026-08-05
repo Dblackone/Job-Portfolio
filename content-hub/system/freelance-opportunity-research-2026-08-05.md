@@ -17,6 +17,12 @@ review, and construction documentation support.
 
 ## Specific listings reviewed
 
+- [Draftsperson for Construction Plans](https://www.upwork.com/freelance-jobs/apply/Draftsperson-for-Construction-Plans_~022013225577751943993/)
+  — **conditional priority target**. The $1,700 fixed-price project requests
+  detailed construction plans and lists AutoCAD, Revit, and SketchUp. It has no
+  interviews shown, but the application must not claim Australian standards or
+  code experience unless verified. Confirm the supplied template, standards,
+  scope of 3D work, and required software before applying.
 - [Revit to AutoCAD Conversion](https://www.upwork.com/freelance-jobs/apply/Revit-AutoCAD-Conversion_~022012995922235267441/)
   — **capability match, low-priority**. The scope is limited to three sections
   and four elevations, but the fixed budget is $10 and the listing already shows
