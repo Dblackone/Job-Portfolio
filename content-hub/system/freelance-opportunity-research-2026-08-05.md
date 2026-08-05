@@ -42,6 +42,16 @@ review, and construction documentation support.
 
 These entries are research decisions, not applications, leads, or income.
 
+## Direct-link recheck
+
+A current public search surfaced a potentially relevant listing titled
+`Construction CAD Drafter — Interior Build-Out Plans (Contractor-Ready Drawings)`:
+https://www.upwork.com/freelance-jobs/apply/Construction-CAD-Drafter-Interior-Build-Out-Plans-Contractor-Ready-Drawings_~022014441133512623912/
+
+Opening the direct URL redirected to Upwork's general jobs page, so the listing
+cannot be verified as open or recorded as an opportunity. No application, lead,
+proposal, or income is associated with it.
+
 ## Priority targets
 
 When the Upwork profile is ready, prioritize listings that ask for:
@@ -78,3 +88,18 @@ Before recording an opportunity in `freelance-opportunities.csv`, confirm:
 
 Only a client reply or identifiable interest should promote an opportunity into
 the lead tracker.
+
+## Unauthenticated recheck — 2026-08-05
+
+An additional direct-page check was attempted for the three research-qualified
+Upwork records. Upwork returned HTTP 403 to the unauthenticated requests for all
+three URLs:
+
+- `UPW-20260805-002` — AutoCAD Drafter for Floor Plan
+- `UPW-20260805-003` — Draw plans from PDF to Revit model 2025
+- `UPW-20260805-004` — Architect or technologist
+
+This does not prove that any listing is closed. The records remain
+`research-qualified`, with authenticated-account verification required before an
+application decision. No application, lead, or income is recorded from this
+check.
