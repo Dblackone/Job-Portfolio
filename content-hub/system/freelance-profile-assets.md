@@ -47,7 +47,11 @@ to make. I will respond with a defined next step.
 - BIM portfolio: https://dblackone.github.io/Job-Portfolio/portfolio/bim.html
 - BIM review scope: https://dblackone.github.io/Job-Portfolio/consulting/bim-model-review.html
 
-## Fiverr service listings
+## Deferred Fiverr service listings
+
+These service drafts are retained for a later platform test. They are not part of
+the initial Upwork/Contra launch and should not receive setup time during the
+first 30-day test.
 
 ### Listing 1 — Revit model and drawing review
 
