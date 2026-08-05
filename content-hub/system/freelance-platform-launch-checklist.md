@@ -3,6 +3,8 @@
 **Selected platforms:** Upwork and Contra  
 **Purpose:** Test near-term freelance income while the company portfolio and referral network continue to grow.
 
+Record the baseline and each review in `freelance-platform-test-log.csv`.
+
 ## Upwork launch
 
 - [ ] Create or update the profile using `freelance-profile-assets.md`.
