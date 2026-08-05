@@ -3,6 +3,9 @@
 **Selected platforms:** Upwork and Contra  
 **Purpose:** Test near-term freelance income while the company portfolio and referral network continue to grow.
 
+Use `freelance-platform-launch-handoff.md` as the single manual setup sequence;
+this checklist remains the detailed quality and measurement gate.
+
 Record the baseline and each review in `freelance-platform-test-log.csv`.
 Use `freelance-pricing-framework.md` to qualify budgets before applying or accepting work.
 
