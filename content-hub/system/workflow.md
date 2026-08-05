@@ -73,6 +73,12 @@ relevant response. Log every substantive enquiry in `system/leads.csv` and use
 weekly review metrics. The content tracker records publishing status; the lead
 tracker records commercial progress.
 
+Marketplace applications are tracked separately in
+`system/freelance-opportunities.csv`. An application is activity evidence, not a
+lead; promote it into `leads.csv` only after a client replies or expresses
+identifiable interest. Use `system/freelance-growth-plan.md` for the current
+service lanes, channel priorities, and qualification boundaries.
+
 At month end, complete `system/monthly-review.csv` using the definitions in
 `system/monthly-review.md`. Received income, won value, and proposed value must
 remain separate.

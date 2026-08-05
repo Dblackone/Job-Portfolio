@@ -4,6 +4,11 @@ This is the operating layer between portfolio visibility and paid architecture,
 BIM, and construction consulting work. It is intentionally small: every live
 opportunity needs a clear next action, a due date, and an honest stage.
 
+The current near-term priority is freelance income while the founder builds the
+company. Marketplace applications, referrals, paid knowledge, and recurring
+support are active channels. New direct-partnership outreach is paused; the five
+companies already contacted are monitored only for replies.
+
 ## Offers
 
 | Offer | Best-fit situation | First conversation | Evidence to send |
@@ -51,14 +56,13 @@ before sending anything. Keep personal contact details out of the research queue
 unless the person has been contacted in a legitimate professional context and the
 information is needed for the active follow-up.
 
-The current manually reviewed outreach drafts are in
-`system/outreach-batch-2026-08-04.md`. They are drafts only: personalize them,
-verify the recipient, and log any send before treating the prospect as an active
-lead.
+The five-message direct outreach batch is recorded in
+`system/outreach-batch-2026-08-04.md`; its messages and follow-ups have been sent.
+Do not create another direct-partnership batch until the freelance-growth plan
+has been tested.
 
-The review-only follow-up batch for the sent 4 August outreach is in
-`system/outreach-follow-up-2026-08-06.md`. Use it as a reply in the original
-thread on the due date; do not treat a sent follow-up as evidence of interest.
+The follow-up copy is retained in `system/outreach-follow-up-2026-08-06.md` as a
+record of what was sent. A sent message is not evidence of interest.
 
 `prospect-list.csv` records public company contact routes for research only.
 Re-check the `contact_checked` date immediately before sending; a listed route
@@ -99,7 +103,7 @@ pipeline evidence.
 
 Use one source tag per lead so the channel can be compared later:
 
-`portfolio` · `linkedin` · `instagram` · `whatsapp` · `referral` · `direct outreach` · `repeat client` · `other`
+`upwork` · `fiverr` · `referral` · `portfolio` · `linkedin` · `whatsapp` · `direct outreach` · `repeat client` · `other`
 
 ## Weekly acquisition rhythm
 
@@ -108,10 +112,10 @@ available time. The numbers below are activity targets, not claimed results.
 
 | Day | Activity | Evidence of completion |
 |---|---|---|
-| Monday | Publish or repurpose one authority asset tied to an offer | Post URL and source offer |
-| Tuesday | Identify 5 relevant architecture firms, BIM teams, contractors, or project owners | Five named prospects with a reason for fit |
-| Wednesday | Send 3 personalized messages and log them as `Contacted` | Three tracker rows with next-action dates |
-| Thursday | Follow up on open conversations and answer comments or replies | Updated stages and notes |
+| Monday | Submit tightly matched marketplace applications | Applications logged with service lane and next action |
+| Tuesday | Improve one fixed-scope marketplace service listing | Listing URL and scope reviewed |
+| Wednesday | Complete one proof-led application or paid-review asset | Relevant proof linked to the offer |
+| Thursday | Follow up on marketplace replies and warm referrals | Updated stages and notes |
 | Friday | Ask one past client, collaborator, or professional contact for a relevant introduction | Referral request logged, whether accepted or declined |
 | Sunday | Review source, offer, stage, and overdue actions | Weekly pipeline review completed |
 
