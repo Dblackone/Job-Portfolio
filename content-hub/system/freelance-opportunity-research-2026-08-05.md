@@ -42,6 +42,16 @@ review, and construction documentation support.
 
 These entries are research decisions, not applications, leads, or income.
 
+## Direct-link recheck
+
+A current public search surfaced a potentially relevant listing titled
+`Construction CAD Drafter — Interior Build-Out Plans (Contractor-Ready Drawings)`:
+https://www.upwork.com/freelance-jobs/apply/Construction-CAD-Drafter-Interior-Build-Out-Plans-Contractor-Ready-Drawings_~022014441133512623912/
+
+Opening the direct URL redirected to Upwork's general jobs page, so the listing
+cannot be verified as open or recorded as an opportunity. No application, lead,
+proposal, or income is associated with it.
+
 ## Priority targets
 
 When the Upwork profile is ready, prioritize listings that ask for:
