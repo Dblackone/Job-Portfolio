@@ -15,6 +15,22 @@ drafting, and BIM documentation. Relevant search pages:
 These categories support the selected service lanes: CAD documentation, BIM/Revit
 review, and construction documentation support.
 
+## Specific listings reviewed
+
+- [BIM Professional for Construction Projects](https://www.upwork.com/freelance-jobs/apply/BIM-Professional-for-Construction-Projects_~022010818940562149020/)
+  — **watch, do not apply yet**. The listing asks for advanced multi-trade BIM,
+  Navisworks, federated models, clash detection, and expert-level construction-
+  phase experience.
+- [Architectural Drafter — Revit 2025 and BIM Collaborate Pro](https://www.upwork.com/freelance-jobs/apply/Architectural-Drafter-Revit-2025-Design-Development-BIM-Collaborate-Pro_~021936199347403021209/)
+  — **watch, do not apply yet**. It requires paid Revit 2025 and BIM Collaborate
+  Pro/ACC access that has not been verified.
+- [Revit Project Specialist](https://www.upwork.com/freelance-jobs/apply/Revit-Project-Specialist-Needed_~022014369872580527809/)
+  — **reject**. The listing includes technical modelling and clash-detection
+  requirements outside the current verified offer, as well as a project context
+  that is not a suitable initial target.
+
+These entries are research decisions, not applications, leads, or income.
+
 ## Priority targets
 
 When the Upwork profile is ready, prioritize listings that ask for:
