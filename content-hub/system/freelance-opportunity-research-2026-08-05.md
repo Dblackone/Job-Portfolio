@@ -17,6 +17,11 @@ review, and construction documentation support.
 
 ## Specific listings reviewed
 
+- [Revit to AutoCAD Conversion](https://www.upwork.com/freelance-jobs/apply/Revit-AutoCAD-Conversion_~022012995922235267441/)
+  — **capability match, low-priority**. The scope is limited to three sections
+  and four elevations, but the fixed budget is $10 and the listing already shows
+  interviews. Keep as a proposal-practice reference rather than a target for
+  income generation.
 - [BIM Professional for Construction Projects](https://www.upwork.com/freelance-jobs/apply/BIM-Professional-for-Construction-Projects_~022010818940562149020/)
   — **watch, do not apply yet**. The listing asks for advanced multi-trade BIM,
   Navisworks, federated models, clash detection, and expert-level construction-
