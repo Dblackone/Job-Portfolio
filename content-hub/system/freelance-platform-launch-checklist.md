@@ -4,6 +4,7 @@
 **Purpose:** Test near-term freelance income while the company portfolio and referral network continue to grow.
 
 Record the baseline and each review in `freelance-platform-test-log.csv`.
+Use `freelance-pricing-framework.md` to qualify budgets before applying or accepting work.
 
 ## Upwork launch
 
