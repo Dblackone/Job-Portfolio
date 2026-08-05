@@ -64,12 +64,12 @@ CONFIG = {
                     "engineering specifications to buildable sheets on site.",
         "hero_points": [
             "Full documentation packages — plans, sections, details, schedules",
-            "Expert AutoCAD · advanced Revit, Dynamo and Navisworks",
-            "Detailing packages produced for 10+ residential and commercial buildings",
+            "Core AutoCAD · working Revit, Dynamo and Navisworks",
+            "Detailing packages produced for residential and commercial buildings",
             "Site measurements and drawing verification across 20+ project sites",
         ],
-        "cover_stats": [("30+", "BIM models"), ("50+", "Drawing sets"),
-                        ("5+", "Years")],
+        "cover_stats": [("BIM", "Model support"), ("CAD", "Drawing sets"),
+                        ("QA", "Documentation review")],
         "pills": ["AutoCAD", "Revit", "Dynamo", "Navisworks"],
         "availability": "Available for drafting roles — Lagos & remote",
         "contact": {
@@ -97,8 +97,8 @@ CONFIG = {
             "architects, structural engineers and contractors so that every "
             "sheet issued is accurate, compliant and buildable.",
         ],
-        "stats": [("30+", "BIM models produced"), ("10+", "Detailing packages"),
-                  ("20+", "Sites measured & verified"), ("5+", "Years drafting")],
+        "stats": [("BIM", "Model support"), ("CAD", "Detailing packages"),
+                  ("20+", "Sites measured & verified"), ("QA", "Drawing review")],
         "competencies": [
             {"title": "Drafting & Documentation",
              "items": ["Working Drawings", "Floor Plans & Sections",
@@ -106,7 +106,7 @@ CONFIG = {
                        "Drawing Registers", "Title Blocks & Standards"]},
             {"title": "Coordination & Compliance",
              "items": ["Architectural & Structural Drawing Interpretation",
-                       "Building Regulations", "Clash Detection",
+                       "Building Regulations", "Model Review",
                        "Site Measurements", "Quantity Take-Offs"]},
         ],
         "education": [
@@ -121,12 +121,12 @@ CONFIG = {
         # software page).
         "toolkit_label": "Drafting Toolkit",
         "toolkit": [
-            ("AutoCAD", "Expert · 2D drawing"),
-            ("Autodesk Revit", "Advanced · BIM docs"),
-            ("Dynamo", "Advanced · Automation"),
-            ("Navisworks", "Proficient · Coordination"),
+            ("AutoCAD", "Core · 2D drawing"),
+            ("Autodesk Revit", "Working · BIM docs"),
+            ("Dynamo", "Working · Documentation tasks"),
+            ("Navisworks", "Working · Model review"),
             ("MS Project", "Proficient · Drawing issue"),
-            ("Excel & Office", "Advanced · Registers"),
+            ("Excel & Office", "Working · Registers"),
         ],
     },
     "selected_work": [
