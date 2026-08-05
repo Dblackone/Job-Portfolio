@@ -25,7 +25,7 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html motion.html web-portfolio.html robots.txt sitemap.xml _site/
-          cp -r css js assets portfolio architectural-portfolio consulting _site/
+          cp -r css js assets portfolio architectural-portfolio consulting cv dova-futures _site/
           touch _site/.nojekyll
 
       - name: Verify public artifact boundaries
@@ -34,6 +34,9 @@ jobs:
           test -f _site/web-portfolio.html
           test -f _site/consulting/bim-model-review.html
           test -f _site/portfolio/bim.html
+          test -f _site/cv/cv_construction_source.html
+          test -f _site/cv/Vollmann_Akarakiri_CV_Construction.pdf
+          test -f _site/dova-futures/index.html
           test -f _site/robots.txt
           test -f _site/sitemap.xml
           test ! -e _site/content-hub
