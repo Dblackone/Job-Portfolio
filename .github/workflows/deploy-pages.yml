@@ -24,8 +24,8 @@ jobs:
       - name: Assemble static site
         run: |
           mkdir -p _site
-          cp index.html motion.html web-portfolio.html robots.txt sitemap.xml _site/
-          cp -r css js assets portfolio architectural-portfolio consulting cv dova-futures _site/
+          cp index.html motion.html web-portfolio.html contact.html robots.txt sitemap.xml _site/
+          cp -r css js assets portfolio architectural-portfolio consulting cv dova-futures case-studies _site/
           touch _site/.nojekyll
 
       - name: Verify public artifact boundaries
@@ -37,6 +37,10 @@ jobs:
           test -f _site/cv/cv_construction_source.html
           test -f _site/cv/Vollmann_Akarakiri_CV_Construction.pdf
           test -f _site/dova-futures/index.html
+          test -f _site/case-studies/construction-ikotun.html
+          test -f _site/case-studies/bim-coordination.html
+          test -f _site/case-studies/interior-living-dining.html
+          test -f _site/contact.html
           test -f _site/robots.txt
           test -f _site/sitemap.xml
           test ! -e _site/content-hub

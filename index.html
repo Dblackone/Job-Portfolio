@@ -69,7 +69,10 @@
     .split { display:grid; grid-template-columns:.8fr 1.2fr; gap:70px; align-items:start; }
     .split h2 { margin-top:12px; }
     .list { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; list-style:none; margin:0; padding:0; }
-    .list a { display:block; padding:17px 18px; border:1px solid var(--line); background:var(--card); font-weight:600; }
+    .list a { display:flex; justify-content:space-between; gap:18px; padding:17px 18px; border:1px solid var(--line); background:var(--card); font-weight:600; }
+    .list a span { color:var(--muted); font-size:13px; font-weight:400; text-align:right; }
+    .band .list a { background:#303034; border-color:#48484c; color:#fff; }
+    .band .list a span { color:#c5c3c1; }
     .list a:hover { border-color:var(--accent); color:var(--accent); }
     footer { padding:28px 0; background:#1c1c1e; color:#aaa; font-size:13px; }
     .footer-inner { display:flex; justify-content:space-between; gap:20px; }
@@ -90,7 +93,7 @@
           <li><a href="#about">About</a></li>
         </ul>
       </nav>
-      <a class="nav-cta" href="web-portfolio.html#contact">Get in touch</a>
+      <a class="nav-cta" href="contact.html">Get in touch</a>
     </div>
   </header>
 
@@ -115,9 +118,9 @@
       <div class="container">
         <div class="section-head"><div><p class="section-label">Start here</p><h2 id="work-title">Selected work</h2></div><p class="section-intro">A quick route into the projects, decisions, and systems behind my work across the built environment.</p></div>
         <div class="cards">
-          <a class="card" href="web-portfolio.html#projects"><span class="card-number">01 / CASE STUDIES</span><h3>Project outcomes</h3><p>Explore the main professional portfolio, project experience, and delivery stories.</p><span class="card-link">View case studies ↗</span></a>
-          <a class="card" href="consulting/bim-model-review.html"><span class="card-number">02 / CONSULTING</span><h3>BIM & drawing review</h3><p>See how coordinated reviews turn design information into clearer project decisions.</p><span class="card-link">View consulting service ↗</span></a>
-          <a class="card" href="architectural-portfolio/index.html"><span class="card-number">03 / DESIGN</span><h3>Architectural work</h3><p>Browse selected architectural concepts, visualizations, and design development.</p><span class="card-link">Open architectural portfolio ↗</span></a>
+          <a class="card" href="case-studies/construction-ikotun.html"><span class="card-number">01 / CONSTRUCTION</span><h3>Six-flat residential block</h3><p>From foundation and structural works to a completed residential building in Ikotun, Lagos.</p><span class="card-link">Read construction case study ↗</span></a>
+          <a class="card" href="case-studies/bim-coordination.html"><span class="card-number">02 / BIM</span><h3>Coordination before construction</h3><p>Model review, drawing coordination, and digital workflows that make project information clearer.</p><span class="card-link">Read BIM case study ↗</span></a>
+          <a class="card" href="case-studies/interior-living-dining.html"><span class="card-number">03 / INTERIORS</span><h3>Living and dining interior</h3><p>A residential concept developed through space planning, material direction, joinery, and visualization.</p><span class="card-link">Read interior case study ↗</span></a>
         </div>
       </div>
     </section>
@@ -126,12 +129,12 @@
       <div class="container">
         <div class="section-head"><div><p class="section-label">Portfolio library</p><h2 id="portfolios-title">Choose a discipline</h2></div><p class="section-intro">Focused portfolios for different roles, briefs, and conversations.</p></div>
         <div class="cards">
-          <a class="card" href="assets/vollmann-akarakiri-portfolio.pdf"><span class="card-number">PDF / 01</span><h3>Built environment</h3><p>Architecture, construction, interiors, and project delivery in one overview.</p><span class="card-link">Open PDF ↗</span></a>
-          <a class="card" href="assets/vollmann-akarakiri-interior-portfolio.pdf"><span class="card-number">PDF / 02</span><h3>Interior design</h3><p>Residential and commercial interiors, spatial thinking, and visual presentation.</p><span class="card-link">Open PDF ↗</span></a>
-          <a class="card" href="assets/vollmann-akarakiri-construction-portfolio.pdf"><span class="card-number">PDF / 03</span><h3>Construction</h3><p>Site delivery, buildability, coordination, and construction-stage experience.</p><span class="card-link">Open PDF ↗</span></a>
-          <a class="card" href="portfolio/Vollmann_Akarakiri_Draftsman_2D_Portfolio.pdf"><span class="card-number">PDF / 04</span><h3>2D drafting</h3><p>Technical drawings, documentation, and drafting-focused project work.</p><span class="card-link">Open PDF ↗</span></a>
+          <a class="card" href="assets/vollmann-akarakiri-portfolio.pdf" target="_blank" rel="noopener"><span class="card-number">PDF / 01</span><h3>Built environment</h3><p>Architecture, construction, interiors, and project delivery in one overview.</p><span class="card-link">Open PDF in new tab ↗</span></a>
+          <a class="card" href="assets/vollmann-akarakiri-interior-portfolio.pdf" target="_blank" rel="noopener"><span class="card-number">PDF / 02</span><h3>Interior design</h3><p>Residential and commercial interiors, spatial thinking, and visual presentation.</p><span class="card-link">Open PDF in new tab ↗</span></a>
+          <a class="card" href="assets/vollmann-akarakiri-construction-portfolio.pdf" target="_blank" rel="noopener"><span class="card-number">PDF / 03</span><h3>Construction</h3><p>Site delivery, buildability, coordination, and construction-stage experience.</p><span class="card-link">Open PDF in new tab ↗</span></a>
+          <a class="card" href="portfolio/Vollmann_Akarakiri_Draftsman_2D_Portfolio.pdf" target="_blank" rel="noopener"><span class="card-number">PDF / 04</span><h3>2D drafting</h3><p>Technical drawings, documentation, and drafting-focused project work.</p><span class="card-link">Open PDF in new tab ↗</span></a>
           <a class="card" href="portfolio/bim.html"><span class="card-number">WEB / 05</span><h3>BIM & Revit</h3><p>A dedicated space for digital construction, coordination, and model-based work.</p><span class="card-link">Open BIM portfolio ↗</span></a>
-          <a class="card" href="cv/cv_construction_source.html"><span class="card-number">CV / 06</span><h3>Curriculum vitae</h3><p>Read the construction-focused CV online or download the specialist versions.</p><span class="card-link">View CV ↗</span></a>
+          <a class="card" href="cv/Vollmann_Akarakiri_CV_Construction.pdf" target="_blank" rel="noopener"><span class="card-number">CV / 06</span><h3>Curriculum vitae</h3><p>The closest available main CV is the construction-focused PDF; a separate drafting CV is also available.</p><span class="card-link">Open CV in new tab ↗</span></a>
         </div>
       </div>
     </section>
@@ -139,7 +142,7 @@
     <section id="about" class="band" aria-labelledby="about-title">
       <div class="container split">
         <div><p class="section-label">Beyond the portfolio</p><h2 id="about-title">A connected practice.</h2></div>
-        <div><p class="section-intro">My work sits between design, technology, and delivery — from the first idea and coordinated model to the realities of site execution and client decisions.</p><ul class="list" style="margin-top:28px"><li><a href="dova-futures/index.html">DOVA Futures — transformation practice ↗</a></li><li><a href="web-portfolio.html#engagements">Consulting engagements ↗</a></li><li><a href="cv/Vollmann_Akarakiri_CV_Construction.pdf">Download construction CV ↗</a></li><li><a href="cv/Vollmann_Akarakiri_CV_Draftsman.pdf">Download drafting CV ↗</a></li></ul></div>
+        <div><p class="section-intro">My work sits between design, technology, and delivery — from the first idea and coordinated model to the realities of site execution and client decisions.</p><ul class="list" style="margin-top:28px"><li><a href="dova-futures/index.html">DOVA Futures <span>Transformation practice ↗</span></a></li><li><a href="web-portfolio.html#engagements">Consulting engagements <span>Ways to work together ↗</span></a></li><li><a href="cv/Vollmann_Akarakiri_CV_Construction.pdf" target="_blank" rel="noopener">Construction CV <span>Open PDF ↗</span></a></li><li><a href="cv/Vollmann_Akarakiri_CV_Draftsman.pdf" target="_blank" rel="noopener">Drafting CV <span>Open PDF ↗</span></a></li></ul></div>
       </div>
     </section>
   </main>
