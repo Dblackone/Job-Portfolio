@@ -123,6 +123,16 @@ document.addEventListener('DOMContentLoaded', () => {
         link.setAttribute('href', url.toString());
       }
     });
+
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('http')) return;
+      const url = new URL(href, window.location.href);
+      if (url.origin === window.location.origin && !url.searchParams.has('source')) {
+        url.searchParams.set('source', source);
+        link.setAttribute('href', url.toString());
+      }
+    });
   }
 
   document.querySelectorAll('.portfolio-card, .project-card').forEach(card => {
